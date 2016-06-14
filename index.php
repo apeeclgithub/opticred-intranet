@@ -1,5 +1,5 @@
 <?php
 error_reporting(E_ALL);
 
-header ("Location: application/views/login.php");
+header ("Location: application/view/login.php");
 ?>
