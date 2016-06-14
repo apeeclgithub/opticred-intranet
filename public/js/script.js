@@ -18,23 +18,4 @@ $(document).ready(function() {
     $('div#form-olvidado1').toggle('500');
   });
 });
-
-$(document).ready(function() {
-  $('#olvidado2').click(function(e) {
-    e.preventDefault();
-    $('div#form-olvidado2').toggle('500');
-  });
-  $('#olvidado2').click(function(e) {
-    e.preventDefault();
-    $('div#form-olvidado').toggle('500');
-  });
-  $('#acceso2').click(function(e) {
-    e.preventDefault();
-    $('div#form-olvidado').toggle('500');
-  });
-  $('#acceso2').click(function(e) {
-    e.preventDefault();
-    $('div#form-olvidado2').toggle('500');
-  });
-});
 // fin login
