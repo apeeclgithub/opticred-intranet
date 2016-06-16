@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Optic-Red Intranet</title>
 		<script src="../../public/js/jquery-2.2.4.min.js"></script>
+		<script src="../../public/js/bootstrap/bootstrap.min.js"></script>
 		<script src="../../public/js/jquery.dataTables.min.js"></script>
 		<script src="../../public/js/script.js"></script>
 		<script src="../../public/js/modernizr-custom.js"></script>
@@ -22,7 +23,10 @@
 		<link href="../../public/css/alertify.core.css" rel="stylesheet" type="text/css" />
 		<script src="../../public/js/alertify.min.js"></script>
 		<link href="../../public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<script src="../../public/js/bootstrap/bootstrap.min.js"></script>
+		<link href="../../public/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+		
+
+		
 
 
 		<!--[if lt IE 9 ]>

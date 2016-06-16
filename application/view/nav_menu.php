@@ -1,5 +1,5 @@
 <div class="nav-side-menu">
-    <div class="brand">Brand Logo</div>
+    <div class="brand">Optic-Red</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
         <div class="menu-list">
@@ -20,13 +20,13 @@
                     <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Cierre de Caja</a></li>
                 </ul>
                 <li  data-toggle="collapse" data-target="#inventory" class="collapsed active">
-                  <a href="#"><i class="glyphicon glyphicon-list-alt"></i> Inventario <span class="glyphicon glyphicon-menu-down alignIconRight"></span></a>
-                </li>
+                  <a href="inventario.php"><i class="glyphicon glyphicon-list-alt"></i> Inventario <!--<span class="glyphicon glyphicon-menu-down alignIconRight"></span>--></a>
+                </li><!--
                 <ul class="sub-menu collapse" id="inventory">
                     <li class="active"><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Agregar Producto</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Modificar Producto</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Eliminar Producto</a></li>
-                </ul>
+                </ul>-->
 
 
                 <li data-toggle="collapse" data-target="#service" class="collapsed">
