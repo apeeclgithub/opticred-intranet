@@ -11,7 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Optic-Red Intranet</title>
 		<script src="../../public/js/jquery-2.2.4.min.js"></script>
-		<script src="../../public/js/bootstrap/bootstrap.min.js"></script>
 		<script src="../../public/js/jquery.dataTables.min.js"></script>
 		<script src="../../public/js/script.js"></script>
 		<script src="../../public/js/modernizr-custom.js"></script>
