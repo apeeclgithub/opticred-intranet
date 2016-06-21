@@ -29,9 +29,16 @@
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
+					<label class="col-md-4 control-label" for="stock">Ingrese Rut</label>  
 					<div class="col-md-4">
-						<input name="nombre Vendedor" type="number" placeholder="123" class="form-control input-md" >
+						<input type="number" placeholder="123" class="form-control input-md" >
+					</div>
+				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="stock">Ingrese Password</label>  
+					<div class="col-md-4">
+						<input type="text" placeholder="asdasd" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
@@ -50,7 +57,8 @@
 				<tr>
 					<th>Nombre</th>
 					<th>E-Mail</th>
-					<th>Fono</th>
+					<th>Rut</th>
+					<th>Password</th>
 					<th class="widthOptions">Acciones</th>
 				</tr>
 			</thead>
@@ -59,31 +67,36 @@
 					<td>Tiger Nixon</td>
 					<td>System Architect</td>
 					<td>61</td>
-					<td><a href="#" class="alignIconTable" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span></a><a href="#" class="alignIconTable" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td>61</td>
+					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Garrett Winters</td>
 					<td>Accountant</td>
 					<td>63</td>
-					<td><a href="#" class="alignIconTable" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span></a><a href="#" class="alignIconTable" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td>61</td>
+					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Ashton Cox</td>
 					<td>Junior Technical Author</td>
 					<td>66</td>
-					<td><a href="#" class="alignIconTable" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span></a><a href="#" class="alignIconTable" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td>61</td>
+					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Cedric Kelly</td>
 					<td>Senior Javascript Developer</td>
 					<td>22</td>
-					<td><a href="#" class="alignIconTable" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span></a><a href="#" class="alignIconTable" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td>61</td>
+					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Airi Satou</td>
 					<td>Accountant</td>
 					<td>33</td>
-					<td><a href="#" class="alignIconTable" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span></a><a href="#" class="alignIconTable" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<td>61</td>
+					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 			</tbody>
 		</table>
@@ -135,13 +148,18 @@
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
+								<label class="col-md-4 control-label" for="stock">Ingrese Rut</label>  
 								<div class="col-md-4">
 									<input type="number" placeholder="123" class="form-control input-md" >
 								</div>
 							</div>
-							<!-- Button (Double) -->
-
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="stock">Ingrese Password</label>  
+								<div class="col-md-4">
+									<input type="text" placeholder="asdasd" class="form-control input-md" >
+								</div>
+							</div>
 						</fieldset>
 					</form>
 				</div>

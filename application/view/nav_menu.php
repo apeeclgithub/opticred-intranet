@@ -15,9 +15,11 @@
       </li>
       <ul class="sub-menu collapse" id="sails">
         <li><a href="#" ><span class="glyphicon glyphicon-menu-right"></span> Nueva Venta</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Modificar Venta</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Eliminar Venta</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Cierre de Caja</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Garantía</a></li>
+        <li><a href="ventasFinalizadas.php"><span class="glyphicon glyphicon-menu-right"></span> Ventas Finalizadas</a></li>
+        <li><a href="ventasPendientes.php"><span class="glyphicon glyphicon-menu-right"></span> Ventas Pendientes</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Insumos</a></li>
       </ul>
       <li  data-toggle="collapse" data-target="#inventory" class="collapsed active">
         <a href="inventario.php"><i class="glyphicon glyphicon-user"></i> Inventario <!--<span class="glyphicon glyphicon-menu-down alignIconRight"></span>--></a>

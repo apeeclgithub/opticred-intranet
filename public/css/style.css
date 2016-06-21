@@ -193,7 +193,7 @@ height: 100%;
   padding-top: 8%;
   min-height: 100%;
   height: auto;
-  max-width: 90%;
+  max-width: 96%;
   text-align: justify;
 }
 
@@ -236,7 +236,7 @@ overflow: hidden;
 /*inventario*/
 
 .dataTables_wrapper{
-  width:90% !important;
+  width:100% !important;
 }
 
 .alignIconTable{
@@ -244,11 +244,15 @@ overflow: hidden;
 }
 
 .widthOptions{
- width: 10%; 
+    width: 118px !important;
 }
 
 .addProductFormWidth{
   max-width: 90%;
+}
+/* venta finalizada*/
+.widthVerMas{
+  width: 7%;
 }
 
 
