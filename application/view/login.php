@@ -17,17 +17,17 @@
 								<span class="input-group-addon">
 									@
 								</span>
-								<input class="form-control" placeholder="Email" name="email" type="email" required="" autofocus="">
+								<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" required="" autofocus="">
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon">
 									<i class="glyphicon glyphicon-lock">
 									</i>
 								</span>
-								<input class="form-control" placeholder="Password" name="password" type="password" value="" required="">
+								<input id="userPass" class="form-control" placeholder="Password" name="password" type="password" value="" required="">
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block">
+								<button onclick="login()" type="submit" class="btn btn-primary btn-block">
 									Ingresar
 								</button>
 								<p class="help-block">
