@@ -15,7 +15,7 @@
 				<tr>
 					<th>Marco</th>
 					<th>Tienda</th>
-					<th>Precio</th>
+					<th>Monto</th>
 					<th>Detalle</th>
 					<th class="widthOptions">Acciones</th>
 				</tr>

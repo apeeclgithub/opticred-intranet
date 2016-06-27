@@ -53,6 +53,7 @@
 				<tr>
 					<th>Insumo</th>
 					<th>Tienda</th>
+					<th>Detalle</th>
 					<th>Monto</th>
 					<th class="widthOptions">Acciones</th>
 				</tr>
@@ -61,30 +62,35 @@
 				<tr>
 					<td>Tiger Nixon</td>
 					<td>System Architect</td>
+					<td>System Architectaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
 					<td>61</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Garrett Winters</td>
 					<td>Accountant</td>
+					<td>System Architect</td>
 					<td>63</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Ashton Cox</td>
 					<td>Junior Technical Author</td>
+					<td>System Architect</td>
 					<td>66</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Cedric Kelly</td>
 					<td>Senior Javascript Developer</td>
+					<td>System Architect</td>
 					<td>22</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Airi Satou</td>
 					<td>Accountant</td>
+					<td>System Architect</td>		
 					<td>33</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
