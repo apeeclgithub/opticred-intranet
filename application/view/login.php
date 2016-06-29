@@ -8,34 +8,32 @@
 					Acceso
 				</h4>
 				<div style="padding: 20px;" id="form-olvidado">
-					<form accept-charset="UTF-8" role="form" id="login-form" method="post">
-						<h4 class="">
-							Iniciar Sesión
-						</h4>
-						<fieldset>
-							<div class="form-group input-group">
-								<span class="input-group-addon">
-									@
-								</span>
-								<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" required="" autofocus="">
-							</div>
-							<div class="form-group input-group">
-								<span class="input-group-addon">
-									<i class="glyphicon glyphicon-lock">
-									</i>
-								</span>
-								<input id="userPass" class="form-control" placeholder="Password" name="password" type="password" value="" required="">
-							</div>
-							<div class="form-group">
-								<button onclick="login()" type="submit" class="btn btn-primary btn-block">
-									Ingresar
-								</button>
-								<p class="help-block">
-									<a class="pull-right text-muted" href="#" id="olvidado"><small>¿Olvidó su contraseña?</small></a>
-								</p>
-							</div>
-						</fieldset>
-					</form>
+					<h4 class="">
+						Iniciar Sesión
+					</h4>
+					<fieldset>
+						<div class="form-group input-group">
+							<span class="input-group-addon">
+								@
+							</span>
+							<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" required="" autofocus="">
+						</div>
+						<div class="form-group input-group">
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-lock">
+								</i>
+							</span>
+							<input id="userPass" class="form-control" placeholder="Password" name="password" type="password" value="" required="">
+						</div>
+						<div class="form-group">
+							<button onclick="login()" type="submit" class="btn btn-primary btn-block">
+								Ingresar
+							</button>
+							<p class="help-block">
+								<a class="pull-right text-muted" href="#" id="olvidado"><small>¿Olvidó su contraseña?</small></a>
+							</p>
+						</div>
+					</fieldset>
 				</div>
 				<div style="display: none;" id="form-olvidado1">
 					<h4 class="">

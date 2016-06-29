@@ -32,7 +32,7 @@ function login(){
         dataType    : 'json'
     }).done(function(data){
         if(data.success==true){
-           location.href="insumos.php";
+           location.href="main.php";
         }else{
             alertify.error('Datos erroneos.');
             $('input[id=userRut]').val('');
