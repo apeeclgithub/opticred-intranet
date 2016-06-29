@@ -35,7 +35,6 @@ function login(){
            location.href="main.php";
         }else{
             alertify.error('Datos erroneos.');
-            $('input[id=userRut]').val('');
             $('input[id=userPass]').val('');
         }
     })

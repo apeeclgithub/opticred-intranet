@@ -24,7 +24,7 @@
 
 		}
 
-		public function selectAllUsers(){
+		public function listUsers(){
 
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT * 

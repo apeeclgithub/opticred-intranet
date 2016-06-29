@@ -17,16 +17,17 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="marco">Ingrese Marco</label>  
 					<div class="col-md-4">
-						<input id="marco" name="marco" type="text" placeholder="marco" class="form-control input-md" >
+						<input id="marco" name="marco" type="text" placeholder="Marco" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
 					<div class="col-md-4">
-						<select id="tienda" name="tienda" class="form-control">
-							<option value="1">Option one</option>
-							<option value="2">Option two</option>
+						<select id="tienda" name="local" class="form-control">
+							<option value="" disabled selected></option>
+							<option value="1">Tercero</option>
+							<option value="2">Quinto</option>
 						</select>
 					</div>
 				</div>
@@ -71,34 +72,6 @@
 					<td>System Architect</td>
 					<td>Edinburgh</td>
 					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>Accountant</td>
-					<td>Tokyo</td>
-					<td>63</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>Junior Technical Author</td>
-					<td>San Francisco</td>
-					<td>66</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>Senior Javascript Developer</td>
-					<td>Edinburgh</td>
-					<td>22</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>Accountant</td>
-					<td>Tokyo</td>
-					<td>33</td>
 					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 			</tbody>
