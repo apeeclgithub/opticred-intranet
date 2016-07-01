@@ -14,9 +14,9 @@
         <a href="#"><i class="glyphicon glyphicon-usd"></i> Ventas <span class="glyphicon glyphicon-menu-down alignIconRight"></span></a>
       </li>
       <ul class="sub-menu collapse" id="sails">
-        <li><a href="#" ><span class="glyphicon glyphicon-menu-right"></span> Nueva Venta</a></li>
+        <li><a href="nuevaVenta.php" ><span class="glyphicon glyphicon-menu-right"></span> Nueva Venta</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Cierre de Caja</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-menu-right"></span> Garantía</a></li>
+        <li><a href="garantia.php"><span class="glyphicon glyphicon-menu-right"></span> Garantía</a></li>
         <li><a href="ventasFinalizadas.php"><span class="glyphicon glyphicon-menu-right"></span> Ventas Finalizadas</a></li>
         <li><a href="ventasPendientes.php"><span class="glyphicon glyphicon-menu-right"></span> Ventas Pendientes</a></li>
         <li><a href="insumos.php"><span class="glyphicon glyphicon-menu-right"></span> Insumos</a></li>
