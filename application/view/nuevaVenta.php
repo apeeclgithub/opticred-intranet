@@ -96,7 +96,7 @@
     <textarea class="form-control" rows="9" id="comment"></textarea>
   </div> 
   <div class="form-group col-xs-6">
-   <label for="">Lejos D. Interp (N/M):</label>
+   <label for="">Cerca D. Interp (N/M):</label>
    <input type="text" class="form-control" id="" >  
  </div>
  <div class="form-group col-xs-2">
