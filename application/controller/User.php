@@ -8,9 +8,6 @@
 
 	switch (@$_GET['action']) {
 
-		/*	
-		 *	Case 1: Login
-		 */
 		case 1:
 
 			$objUser->selectUser($_POST['userRut'], $_POST['userPass']);

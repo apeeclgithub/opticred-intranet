@@ -15,34 +15,34 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="marco">Ingrese Marco</label>  
+					<label class="col-md-4 control-label" for="proNameProduct">Ingrese Marco</label>  
 					<div class="col-md-4">
-						<input id="marco" name="marco" type="text" placeholder="Marco" class="form-control input-md" >
+						<input id="proNameProduct" name="proNameProduct" type="text" placeholder="Marco" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
+					<label class="col-md-4 control-label" for="proStoreProduct">Seleccione Tienda</label>
 					<div class="col-md-4">
-						<select id="tienda" name="local" class="form-control">
-							<option value="" disabled selected></option>
-							<option value="1">Tercero</option>
-							<option value="2">Quinto</option>
+						<select id="proStoreProduct" name="proStoreProduct" class="form-control">
+							<option value="" disabled selected>Seleccione una tienda</option>
+							<option value="Tercero">Tercero</option>
+							<option value="Quinto">Quinto</option>
 						</select>
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="precio">Ingrese Precio</label>  
+					<label class="col-md-4 control-label" for="proPriceProduct">Ingrese Precio</label>  
 					<div class="col-md-4">
-						<input id="precio" name="precio" type="number" placeholder="123" class="form-control input-md" >
+						<input id="proPriceProduct" name="proPriceProduct" type="number" placeholder="123" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="stock">Ingrese Stock</label>  
+					<label class="col-md-4 control-label" for="proStockProduct">Ingrese Stock</label>  
 					<div class="col-md-4">
-						<input id="stock" name="stock" type="number" placeholder="123" class="form-control input-md" >
+						<input id="proStockProduct" name="proStockProduct" type="number" placeholder="123" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
@@ -55,27 +55,8 @@
 			</fieldset>
 		</form>
 	</div>
-	<div>
-		<table id="inventoryTable" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Marco</th>
-					<th>Tienda</th>
-					<th>Precio</th>
-					<th>Stock</th>
-					<th class="widthOptions">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>System Architect</td>
-					<td>Edinburgh</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="inventoryTableReload">
+		<?php require '../controller/ProductInventory.php'; ?>
 	</div>
 
 	<!-- Modal Confimacion agregar producto-->
@@ -90,7 +71,7 @@
 					<p>Confirme para agregar el producto</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="addProduct()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
