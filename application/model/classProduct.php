@@ -9,7 +9,11 @@
 		public function selectProduct($proName, $proStore){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT pro_id 
+			$sql = $objConn->prepare('	SELECT 	pro_id,
+												pro_name,
+												pro_price,
+												pro_stock,
+												pro_store
 										FROM producto 
 										WHERE pro_name = :proName
 										AND pro_store = :proStore');
@@ -41,26 +45,30 @@
 
 		}
 
-		public function updateProduct($proId, $proCodigo, $proMarca, $proColor, $proStock, $proDescripcion){
+		public function updateProduct($proId, $proName, $proStore, $proPrice, $proStock){
 
 			$objConn = new Database();
 			$sql = $objConn->prepare('	UPDATE producto 
-										SET pro_codigo = :proCodigo, pro_stock = :proStock, marca_mar_id = :proMarca, color_col_id = :proColor, pro_descripcion = :proDescripcion
+										SET pro_name = :proName, 
+											pro_store = :proStore, 
+											pro_price = :proPrice, 
+											pro_stock = :proStock
 										WHERE pro_id = :proId');
 
 			$sql->bindParam(':proId', $proId);
-			$sql->bindParam(':proCodigo', $proCodigo);
-			$sql->bindParam(':proMarca', $proMarca);
-			$sql->bindParam(':proColor', $proColor);
+			$sql->bindParam(':proName', $proName);
+			$sql->bindParam(':proStore', $proStore);
+			$sql->bindParam(':proPrice', $proPrice);
 			$sql->bindParam(':proStock', $proStock);
-            $sql->bindParam(':proDescripcion', $proDescripcion);
 
-			$this->producto = $sql->execute();
+			if(!(array)$this->selectProduct($proName, $proStore)){
+				$this->product = $sql->execute();
+			}
 
-			return $this->producto;
+			return $this->product;
 
 		}
-
+//reacer como nueva funcionalidad
 		public function delProduct($proId){
 
 			$objConn = new Database();

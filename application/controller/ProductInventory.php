@@ -23,7 +23,15 @@
 						<td><?php echo $value['pro_store'];?></td>
 						<td><?php echo $value['pro_price'];?></td>
 						<td><?php echo $value['pro_stock'];?></td>
-						<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+						<td><button 
+						onclick="loadModalProduct(
+							<?php  echo $value['pro_id'];?>,
+							'<?php echo $value['pro_name'];?>',
+							'<?php echo $value['pro_store'];?>',
+							<?php  echo $value['pro_price'];?>,
+							<?php  echo $value['pro_stock'];?>)" 
+						
+						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editProductConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteProductConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 					</tr>
 					<?php
 				}
@@ -31,3 +39,8 @@
 		?>
 	</tbody>
 </table>
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+	$('#inventoryTable').DataTable();
+} );
+</script>

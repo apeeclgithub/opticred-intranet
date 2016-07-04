@@ -10,10 +10,10 @@
 
 		case 1:
 
-			$proName  = $_POST['proNameProduct'];
-			$proStore = $_POST['proStoreProduct'];
-			$proPrice = $_POST['proPriceProduct'];
-			$proStock = $_POST['proStockProduct'];
+			$proName  = $_POST['addNameProduct'];
+			$proStore = $_POST['addStoreProduct'];
+			$proPrice = $_POST['addPriceProduct'];
+			$proStock = $_POST['addStockProduct'];
  
 			$json['success'] = $objProduct->addProduct($proName, $proStore, $proPrice, $proStock);
 			echo json_encode($json);
@@ -21,6 +21,19 @@
 			break;
 
 		case 2:
+		
+			$proId  = $_POST['editIdProduct'];
+			$proName  = $_POST['editNameProduct'];
+			$proStore = $_POST['editStoreProduct'];
+			$proPrice = $_POST['editPriceProduct'];
+			$proStock = $_POST['editStockProduct'];
+
+			$json['success'] = $objProduct->updateProduct($proId, $proName, $proStore, $proPrice, $proStock);
+			echo json_encode($json);
+
+			break;
+
+		case 3:
 
 			$proId  = $_POST['proIdProduct'];
 

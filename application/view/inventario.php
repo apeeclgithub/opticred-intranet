@@ -2,11 +2,7 @@
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
 <div class="contentMain">
-	<script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#inventoryTable').DataTable();
-	} );
-	</script>
+	
 	<div>
 		<form class="form-horizontal">
 			<fieldset class="addProductFormWidth">
@@ -15,16 +11,16 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="proNameProduct">Ingrese Marco</label>  
+					<label class="col-md-4 control-label" for="addNameProduct">Ingrese Marco</label>  
 					<div class="col-md-4">
-						<input id="proNameProduct" name="proNameProduct" type="text" placeholder="Marco" class="form-control input-md" >
+						<input id="addNameProduct" name="addNameProduct" type="text" placeholder="Nombre del marco" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="proStoreProduct">Seleccione Tienda</label>
+					<label class="col-md-4 control-label" for="addStoreProduct">Seleccione Tienda</label>
 					<div class="col-md-4">
-						<select id="proStoreProduct" name="proStoreProduct" class="form-control">
+						<select id="addStoreProduct" name="addStoreProduct" class="form-control">
 							<option value="" disabled selected>Seleccione una tienda</option>
 							<option value="Tercero">Tercero</option>
 							<option value="Quinto">Quinto</option>
@@ -33,16 +29,16 @@
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="proPriceProduct">Ingrese Precio</label>  
+					<label class="col-md-4 control-label" for="addPriceProduct">Ingrese Precio</label>  
 					<div class="col-md-4">
-						<input id="proPriceProduct" name="proPriceProduct" type="number" placeholder="123" class="form-control input-md" >
+						<input id="addPriceProduct" name="addPriceProduct" type="number" placeholder="Ingrese el precio" class="form-control input-md" min="1" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="proStockProduct">Ingrese Stock</label>  
+					<label class="col-md-4 control-label" for="addStockProduct">Ingrese Stock</label>  
 					<div class="col-md-4">
-						<input id="proStockProduct" name="proStockProduct" type="number" placeholder="123" class="form-control input-md" >
+						<input id="addStockProduct" name="addStockProduct" type="number" placeholder="Ingrese la cantidad" class="form-control input-md" min="1" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
@@ -90,34 +86,36 @@
 					<form class="form-horizontal">
 						<fieldset class="">
 							<!-- Text input-->
+							<input type="hidden" name="editIdProduct" id="editIdProduct">
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="marco">Ingrese Marco</label>  
+								<label class="col-md-4 control-label" for="editNameProduct">Ingrese Marco</label>  
 								<div class="col-md-4">
-									<input id="marco" name="marco" type="text" placeholder="marco" class="form-control input-md" >
+									<input id="editNameProduct" name="editNameProduct" type="text" placeholder="Nombre del marco" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Select Basic -->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
+								<label class="col-md-4 control-label" for="editStoreProduct">Seleccione Tienda</label>
 								<div class="col-md-4">
-									<select id="tienda" name="tienda" class="form-control">
-										<option value="1">Option one</option>
-										<option value="2">Option two</option>
+									<select id="editStoreProduct" name="editStoreProduct" class="form-control">
+										<option value="" disabled selected>Seleccione una tienda</option>
+										<option value="Tercero">Tercero</option>
+										<option value="Quinto">Quinto</option>
 									</select>
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="precio">Ingrese Precio</label>  
+								<label class="col-md-4 control-label" for="editPriceProduct">Ingrese Precio</label>  
 								<div class="col-md-4">
-									<input id="precio" name="precio" type="number" placeholder="123" class="form-control input-md" >
+									<input id="editPriceProduct" name="editPriceProduct" type="number" placeholder="Ingrese el precio" class="form-control input-md" min="1">
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="stock">Ingrese Stock</label>  
+								<label class="col-md-4 control-label" for="editStockProduct">Ingrese Stock</label>  
 								<div class="col-md-4">
-									<input id="stock" name="stock" type="number" placeholder="123" class="form-control input-md" >
+									<input id="editStockProduct" name="editStockProduct" type="number" placeholder="Ingrese la cantidad" class="form-control input-md" min="1">
 								</div>
 							</div>
 							<!-- Button (Double) -->
@@ -126,7 +124,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="updateProduct()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
