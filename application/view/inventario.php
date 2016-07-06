@@ -141,9 +141,10 @@
 				</div>
 				<div class="modal-body">
 					<p>Confirme para eliminar el producto</p>
+					<input type="hidden" name="delIdProduct" id="delIdProduct">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="delProduct()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>

@@ -76,7 +76,7 @@ function addProduct(){
     };
 };
 
-function loadModalProduct(id, name, store, price, stock){
+function updateModalProduct(id, name, store, price, stock){
     $('input[id=editIdProduct]').val(id);
     $('input[id=editNameProduct]').val(name);
     $("select[id=editStoreProduct] option").prop('selected', false).filter(function() {
@@ -84,6 +84,10 @@ function loadModalProduct(id, name, store, price, stock){
     }).prop('selected', true);
     $('input[id=editPriceProduct]').val(price);
     $('input[id=editStockProduct]').val(stock);
+};
+
+function deleteModalProduct(id){
+    $('input[id=delIdProduct]').val(id);
 };
 
 function updateProduct(){
@@ -114,6 +118,29 @@ function updateProduct(){
                 alertify.success("Marco modificado exitosamente.");
             }else{
                 alertify.error("Marco ya existe.");
+            }
+        })
+    };
+};
+
+function delProduct(){
+    var params = {
+        'delIdProduct'    : $('input[id=delIdProduct]').val()
+    };
+    if ($('input[id=delIdProduct]').val() === '') {
+        alertify.error("No se selecciono ningun producto.");
+    }else{
+        $.ajax({
+            url : '../controller/Product.php?action=3',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#inventoryTableReload").load('../controller/ProductInventory.php');
+                alertify.error("Marco eliminado exitosamente.");
+            }else{
+                alertify.error("Marco no existe.");
             }
         })
     };

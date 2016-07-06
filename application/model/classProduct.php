@@ -16,7 +16,8 @@
 												pro_store
 										FROM producto 
 										WHERE pro_name = :proName
-										AND pro_store = :proStore');
+										AND pro_store = :proStore
+										AND pro_active = 1');
 			$sql->bindParam(':proName', $proName);
 			$sql->bindParam(':proStore', $proStore);
 			$sql->execute();
@@ -24,6 +25,27 @@
 
 			return $this->product;
 			
+		}
+
+		public function activateProduct($proName, $proStore, $proPrice, $proStock){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE producto 
+										SET	pro_active = 1,
+											pro_price = :proPrice, 
+											pro_stock = :proStock
+										WHERE pro_name = :proName
+										AND pro_store = :proStore');
+
+			$sql->bindParam(':proName', $proName);
+			$sql->bindParam(':proStore', $proStore);
+			$sql->bindParam(':proPrice', $proPrice);
+			$sql->bindParam(':proStock', $proStock);
+
+			$this->product = $sql->execute();
+
+			return $this->product;
+
 		}
 
 		public function addProduct($proName, $proStore, $proPrice, $proStock){
@@ -68,11 +90,13 @@
 			return $this->product;
 
 		}
-//reacer como nueva funcionalidad
+
 		public function delProduct($proId){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	DELETE FROM producto WHERE pro_id = :proId');
+			$sql = $objConn->prepare('	UPDATE producto 
+										SET	pro_active = 0
+										WHERE pro_id = :proId');
 
 			$sql->bindParam(':proId', $proId);
 
@@ -89,7 +113,8 @@
 												pro_price,
 												pro_stock,
 												pro_store
-										FROM producto');
+										FROM producto
+										WHERE pro_active = 1');
 
 			$this->product = $sql->execute();
 			$this->product = $sql->fetchAll(PDO::FETCH_ASSOC);

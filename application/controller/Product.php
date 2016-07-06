@@ -14,8 +14,13 @@
 			$proStore = $_POST['addStoreProduct'];
 			$proPrice = $_POST['addPriceProduct'];
 			$proStock = $_POST['addStockProduct'];
- 
+
 			$json['success'] = $objProduct->addProduct($proName, $proStore, $proPrice, $proStock);
+ 
+			if($json['success'] != true){
+				$json['success'] = $objProduct->activateProduct($proName, $proStore, $proPrice, $proStock);
+			}
+
 			echo json_encode($json);
 
 			break;
@@ -35,7 +40,7 @@
 
 		case 3:
 
-			$proId  = $_POST['proIdProduct'];
+			$proId  = $_POST['delIdProduct'];
 
 			$json['success'] = $objProduct->delProduct($proId);
 		    echo json_encode($json);
