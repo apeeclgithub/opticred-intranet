@@ -52,7 +52,7 @@
 		</form>
 	</div>
 	<div id="inventoryTableReload">
-		<?php require '../controller/ProductInventory.php'; ?>
+		<?php require '../controller/ProductTable.php'; ?>
 	</div>
 
 	<!-- Modal Confimacion agregar producto-->

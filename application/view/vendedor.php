@@ -2,11 +2,6 @@
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
 <div class="contentMain">
-	<script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#vendedorTabla').DataTable();
-	} );
-	</script>
 	<div>
 		<form class="form-horizontal">
 			<fieldset class="addProductFormWidth">
@@ -15,91 +10,55 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
+					<label class="col-md-4 control-label" for="addNameUser">Ingrese Nombre</label>  
 					<div class="col-md-4">
-						<input name="marco" type="text" placeholder="marco" class="form-control input-md" >
+						<input name="addNameUser" id="addNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" >
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="precio">Ingrese E-Mail</label>  
+					<label class="col-md-4 control-label" for="addMailUser">Ingrese E-Mail</label>  
 					<div class="col-md-4">
-						<input iname="precio" type="text" placeholder="aa@aa.cl" class="form-control input-md" >
+						<input name="addMailUser" id="addMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="stock">Ingrese Rut</label>  
+					<label class="col-md-4 control-label" for="addRutUser">Ingrese Rut</label>  
 					<div class="col-md-4">
-						<input type="number" placeholder="123" class="form-control input-md" >
+						<input name="addRutUser" id="addRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="stock">Ingrese Password</label>  
+					<label class="col-md-4 control-label" for="addPassUser">Ingrese Password</label>  
 					<div class="col-md-4">
-						<input type="text" placeholder="asdasd" class="form-control input-md" >
+						<input name="addPassUser" id="addPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
+					</div>
+				</div>
+				<!-- Select Basic -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="addStoreUser">Seleccione Tienda</label>
+					<div class="col-md-4">
+						<select id="addStoreUser" name="addStoreUser" class="form-control">
+							<option value="" disabled selected>Seleccione una tienda</option>
+							<option value="Tercero">Tercero</option>
+							<option value="Quinto">Quinto</option>
+						</select>
 					</div>
 				</div>
 				<!-- Button (Double) -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="button1id"></label>
 					<div class="col-md-8">
-						<button type="button" id="button1id" name="button1id" class="btn btn-success" data-toggle="modal" data-target="#addProductConfirmDialog">Agregar Vendedor</button>
+						<button type="button" id="button1id" name="button1id" class="btn btn-success" data-toggle="modal" data-target="#addVendedorConfirmDialog">Agregar Vendedor</button>
 					</div>
 				</div>
 			</fieldset>
 		</form>
 	</div>
-	<div>
-		<table id="vendedorTabla" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>E-Mail</th>
-					<th>Rut</th>
-					<th>Password</th>
-					<th class="widthOptions">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>System Architect</td>
-					<td>61</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>Accountant</td>
-					<td>63</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>Junior Technical Author</td>
-					<td>66</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>Senior Javascript Developer</td>
-					<td>22</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>Accountant</td>
-					<td>33</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editVendedorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteVendedorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="userTableReload">
+		<?php require '../controller/UserTable.php'; ?>
 	</div>
 
 	<!-- Modal Confimacion agregar producto-->
@@ -114,7 +73,7 @@
 					<p>Confirme para agregar el vendedor</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="addUser()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -133,38 +92,50 @@
 					<form class="form-horizontal">
 						<fieldset class="">
 							<!-- Text input-->
+							<input type="hidden" name="editIdUser" id="editIdUser">
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
+								<label class="col-md-4 control-label" for="editNameUser">Ingrese Nombre</label>  
 								<div class="col-md-4">
-									<input type="text" placeholder="marco" class="form-control input-md" >
+									<input name="editNameUser" id="editNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" >
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="editMailUser">Ingrese E-Mail</label>  
+								<div class="col-md-4">
+									<input name="editMailUser" id="editMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="precio">Ingrese E-mail</label>  
+								<label class="col-md-4 control-label" for="editRutUser">Ingrese Rut</label>  
 								<div class="col-md-4">
-									<input type="number" placeholder="123" class="form-control input-md" >
+									<input name="editRutUser" id="editRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="stock">Ingrese Rut</label>  
+								<label class="col-md-4 control-label" for="editPassUser">Ingrese Password</label>  
 								<div class="col-md-4">
-									<input type="number" placeholder="123" class="form-control input-md" >
+									<input name="editPassUser" id="editPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
 								</div>
 							</div>
-							<!-- Text input-->
+							<!-- Select Basic -->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="stock">Ingrese Password</label>  
+								<label class="col-md-4 control-label" for="editStoreUser">Seleccione Tienda</label>
 								<div class="col-md-4">
-									<input type="text" placeholder="asdasd" class="form-control input-md" >
+									<select id="editStoreUser" name="editStoreUser" class="form-control">
+										<option value="" disabled selected>Seleccione una tienda</option>
+										<option value="Tercero">Tercero</option>
+										<option value="Quinto">Quinto</option>
+									</select>
 								</div>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="updateUser()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -181,9 +152,10 @@
 				</div>
 				<div class="modal-body">
 					<p>Confirme para eliminar el vendedor</p>
+					<input type="hidden" name="delIdUser" id="delIdUser">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="delUser()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
