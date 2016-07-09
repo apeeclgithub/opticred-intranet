@@ -6,7 +6,7 @@
 			<th>Rut</th>
 			<th>Password</th>
 			<th>Tienda</th>
-			<th class="widthOptions">Acciones</th>
+			<th class="widthOptions text-center">Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,7 +25,7 @@
 						<td><?php echo $value['usu_rut'];	?></td>
 						<td><?php echo $value['usu_pass'];	?></td>
 						<td><?php echo $value['usu_store'];	?></td>
-						<td><button 
+						<td class="text-center"><button 
 						onclick="updateModalUser(
 							 <?php echo $value['usu_id'];	?>,
 							'<?php echo $value['usu_name'];	?>',
