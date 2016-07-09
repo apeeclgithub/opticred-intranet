@@ -1,6 +1,6 @@
-<div class="nav-side-menu">
+<div class="nav-side-menu menuHeight">
   <div class="brand">Optic-Red</div>
-  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  <i class="glyphicon glyphicon-menu-hamburger toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
   <div class="menu-list">
 
