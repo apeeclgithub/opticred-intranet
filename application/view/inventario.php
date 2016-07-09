@@ -89,14 +89,14 @@
 							<input type="hidden" name="editIdProduct" id="editIdProduct">
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editNameProduct">Ingrese Marco</label>  
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<input id="editNameProduct" name="editNameProduct" type="text" placeholder="Nombre del marco" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Select Basic -->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editStoreProduct">Seleccione Tienda</label>
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<select id="editStoreProduct" name="editStoreProduct" class="form-control">
 										<option value="" disabled selected>Seleccione una tienda</option>
 										<option value="Tercero">Tercero</option>
@@ -107,14 +107,14 @@
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editPriceProduct">Ingrese Precio</label>  
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<input id="editPriceProduct" name="editPriceProduct" type="number" placeholder="Ingrese el precio" class="form-control input-md" min="1">
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editStockProduct">Ingrese Stock</label>  
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<input id="editStockProduct" name="editStockProduct" type="number" placeholder="Ingrese la cantidad" class="form-control input-md" min="1">
 								</div>
 							</div>
