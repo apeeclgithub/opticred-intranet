@@ -115,14 +115,14 @@
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input type="text" placeholder="Nombre" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input type="number" placeholder="123" class="form-control input-md" >
 								</div>
 							</div>

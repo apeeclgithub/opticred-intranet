@@ -6,7 +6,7 @@
       <div class="row">
         <div class="form-group col-xs-6">
           <label for="">N° Boleta</label>
-          <input type="test" class="form-control" id="" disabled="disabled">
+          <input type="number" class="form-control" id="" disabled="disabled">
         </div>
         <div class="form-group col-xs-5">
           <label for="">Fecha</label>
