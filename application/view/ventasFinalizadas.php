@@ -17,7 +17,7 @@
 					<th>Tienda</th>
 					<th>Monto</th>
 					<th>Detalle</th>
-					<th class="widthOptions">Acciones</th>
+					<th class="widthOptions text-center">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,35 +26,35 @@
 					<td>System Architect</td>
 					<td>Edinburgh</td>
 					<td class="widthVerMas"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</button></td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Garrett Winters</td>
 					<td>Accountant</td>
 					<td>Tokyo</td>
 					<td><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</button></td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Ashton Cox</td>
 					<td>Junior Technical Author</td>
 					<td>San Francisco</td>
 					<td><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</button></td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Cedric Kelly</td>
 					<td>Senior Javascript Developer</td>
 					<td>Edinburgh</td>
 					<td><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</button></td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
 					<td>Airi Satou</td>
 					<td>Accountant</td>
 					<td>Tokyo</td>
 					<td><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</button></td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editSailConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 			</tbody>
 		</table>

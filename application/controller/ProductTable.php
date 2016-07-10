@@ -5,7 +5,7 @@
 			<th>Tienda</th>
 			<th>Precio</th>
 			<th>Stock</th>
-			<th class="widthOptions">Acciones</th>
+			<th class="widthOptions text-center">Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,7 +23,7 @@
 						<td><?php echo $value['pro_store'];?></td>
 						<td><?php echo $value['pro_price'];?></td>
 						<td><?php echo $value['pro_stock'];?></td>
-						<td><button 
+						<td class="text-center"><button 
 						onclick="updateModalProduct(
 							<?php  echo $value['pro_id'];?>,
 							'<?php echo $value['pro_name'];?>',

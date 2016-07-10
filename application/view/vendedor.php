@@ -95,35 +95,35 @@
 							<input type="hidden" name="editIdUser" id="editIdUser">
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editNameUser">Ingrese Nombre</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input name="editNameUser" id="editNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" >
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editMailUser">Ingrese E-Mail</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input name="editMailUser" id="editMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editRutUser">Ingrese Rut</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input name="editRutUser" id="editRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editPassUser">Ingrese Password</label>  
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<input name="editPassUser" id="editPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Select Basic -->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editStoreUser">Seleccione Tienda</label>
-								<div class="col-md-4">
+								<div class="col-md-7">
 									<select id="editStoreUser" name="editStoreUser" class="form-control">
 										<option value="" disabled selected>Seleccione una tienda</option>
 										<option value="Tercero">Tercero</option>

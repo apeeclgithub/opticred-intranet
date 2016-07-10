@@ -16,13 +16,14 @@
 		<script src="../../public/js/modernizr-custom.js"></script>
 		<link href="../../public/css/dataTables.jqueryui.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/reset.css" rel="stylesheet" type="text/css" />
-		<link href="../../public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/alertify.bootstrap.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/alertify.core.css" rel="stylesheet" type="text/css" />
 		<script src="../../public/js/alertify.min.js"></script>
 		<link href="../../public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="../../public/css/style.css" rel="stylesheet" type="text/css" />
+
 		
 
 		

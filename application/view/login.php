@@ -16,14 +16,14 @@
 							<span class="input-group-addon">
 								@
 							</span>
-							<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" required="" autofocus="">
+							<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" autofocus="">
 						</div>
 						<div class="form-group input-group">
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-lock">
 								</i>
 							</span>
-							<input id="userPass" class="form-control" placeholder="Password" name="password" type="password" value="" required="">
+							<input id="userPass" class="form-control" placeholder="Password" name="password" type="password" value="">
 						</div>
 						<div class="form-group">
 							<button onclick="login()" type="submit" class="btn btn-primary btn-block">
@@ -50,7 +50,7 @@
 								<span class="input-group-addon">
 									@
 								</span>
-								<input class="form-control" placeholder="Email" name="email" type="email" required="">
+								<input class="form-control" placeholder="Email" name="email" type="email" >
 							</div>
 							<button type="submit" class="btn btn-primary btn-block" id="btn-olvidado">
 								Continuar
