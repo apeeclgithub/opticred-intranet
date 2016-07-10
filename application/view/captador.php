@@ -2,11 +2,6 @@
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
 <div class="contentMain">
-	<script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#captadorTabla').DataTable();
-	} );
-	</script>
 	<div>
 		<form class="form-horizontal">
 			<fieldset class="addProductFormWidth">
@@ -15,16 +10,16 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
+					<label class="col-md-4 control-label" for="addNameCaptador">Ingrese Nombre</label>  
 					<div class="col-md-4">
-						<input name="marco" type="text" placeholder="marco" class="form-control input-md" >
+						<input name="addNameCaptador" id="addNameCaptador" type="text" placeholder="Nombre del captador" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
+					<label class="col-md-4 control-label" for="addPhoneCaptador">Ingrese Teléfono</label>  
 					<div class="col-md-4">
-						<input name="nombre Captador" type="number" placeholder="123" class="form-control input-md" >
+						<input name="addPhoneCaptador" id="addPhoneCaptador" type="text" placeholder="Teléfono del captador" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
@@ -37,53 +32,12 @@
 			</fieldset>
 		</form>
 	</div>
-	<div>
-		<table id="captadorTabla" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Fono</th>
-					<th>Comisión</th>
-					<th class="widthOptions">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>61</td>
-					<td>61</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>63</td>
-					<td>61</td>					
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>66</td>
-					<td>66</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>22</td>
-					<td>66</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>33</td>
-					<td>66</td>
-					<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="captadorTableReload">
+		<?php require '../controller/CaptadorTable.php'; ?>
 	</div>
 
-	<!-- Modal Confimacion agregar producto-->
-	<div class="modal fade" id="addProductConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+	<!-- Modal Confimacion agregar captador-->
+	<div class="modal fade" id="addCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -94,7 +48,7 @@
 					<p>Confirme para agregar Captador</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="addCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -113,24 +67,25 @@
 					<form class="form-horizontal">
 						<fieldset class="">
 							<!-- Text input-->
+							<input type="hidden" name="editIdCaptador" id="editIdCaptador">
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
+								<label class="col-md-4 control-label" for="editNameCaptador">Ingrese Nombre</label>  
 								<div class="col-md-4">
-									<input type="text" placeholder="Nombre" class="form-control input-md" >
+									<input name="editNameCaptador" id="editNameCaptador" type="text" placeholder="Nombre del captador" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
+								<label class="col-md-4 control-label" for="editPhoneCaptador">Ingrese Teléfono</label>  
 								<div class="col-md-4">
-									<input type="number" placeholder="123" class="form-control input-md" >
+									<input name="editPhoneCaptador" id="editPhoneCaptador" type="text" placeholder="Teléfono del captador" class="form-control input-md" >
 								</div>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="updateCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -147,9 +102,10 @@
 				</div>
 				<div class="modal-body">
 					<p>Confirme para eliminar el Captador</p>
+					<input type="hidden" name="delIdCaptador" id="delIdCaptador">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="delCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>

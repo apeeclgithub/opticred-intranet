@@ -1,8 +1,7 @@
 <?php include('header.php');?>
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
-<div class="contentMain">
-	
+<div class="contentMain">	
 	<div>
 		<form class="form-horizontal">
 			<fieldset class="addProductFormWidth">
