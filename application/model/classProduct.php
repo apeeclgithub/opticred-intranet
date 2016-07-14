@@ -18,8 +18,10 @@
 										WHERE pro_name = :proName
 										AND pro_store = :proStore
 										AND pro_active = 1');
+
 			$sql->bindParam(':proName', $proName);
 			$sql->bindParam(':proStore', $proStore);
+			
 			$sql->execute();
 			$this->product = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -83,10 +85,8 @@
 			$sql->bindParam(':proPrice', $proPrice);
 			$sql->bindParam(':proStock', $proStock);
 
-			if(!(array)$this->selectProduct($proName, $proStore)){
-				$this->product = $sql->execute();
-			}
-
+			$this->product = $sql->execute();
+			
 			return $this->product;
 
 		}
