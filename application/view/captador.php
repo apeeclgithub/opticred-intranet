@@ -32,54 +32,9 @@
 			</fieldset>
 		</form>
 	</div>
-<<<<<<< HEAD
+	
 	<div id="captadorTableReload">
 		<?php require '../controller/CaptadorTable.php'; ?>
-=======
-	<div>
-		<table id="captadorTabla" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Fono</th>
-					<th>Comisión</th>
-					<th class="widthOptions text-center">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>61</td>
-					<td>61</td>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>63</td>
-					<td>61</td>					
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>66</td>
-					<td>66</td>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>22</td>
-					<td>66</td>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>33</td>
-					<td>66</td>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-			</tbody>
-		</table>
->>>>>>> origin/master
 	</div>
 
 	<!-- Modal Confimacion agregar captador-->
@@ -115,28 +70,16 @@
 							<!-- Text input-->
 							<input type="hidden" name="editIdCaptador" id="editIdCaptador">
 							<div class="form-group">
-<<<<<<< HEAD
 								<label class="col-md-4 control-label" for="editNameCaptador">Ingrese Nombre</label>  
 								<div class="col-md-4">
 									<input name="editNameCaptador" id="editNameCaptador" type="text" placeholder="Nombre del captador" class="form-control input-md" >
-=======
-								<label class="col-md-4 control-label" for="marco">Ingrese Nombre</label>  
-								<div class="col-md-7">
-									<input type="text" placeholder="Nombre" class="form-control input-md" >
->>>>>>> origin/master
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-<<<<<<< HEAD
 								<label class="col-md-4 control-label" for="editPhoneCaptador">Ingrese Teléfono</label>  
 								<div class="col-md-4">
 									<input name="editPhoneCaptador" id="editPhoneCaptador" type="text" placeholder="Teléfono del captador" class="form-control input-md" >
-=======
-								<label class="col-md-4 control-label" for="stock">Ingrese Teléfono</label>  
-								<div class="col-md-7">
-									<input type="number" placeholder="123" class="form-control input-md" >
->>>>>>> origin/master
 								</div>
 							</div>
 						</fieldset>
