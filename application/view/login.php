@@ -14,7 +14,7 @@
 					<fieldset>
 						<div class="form-group input-group">
 							<span class="input-group-addon">
-								@
+								<i class="glyphicon glyphicon-user"></i>
 							</span>
 							<input id="userRut" class="form-control" placeholder="Rut" name="rut" type="text" autofocus="">
 						</div>

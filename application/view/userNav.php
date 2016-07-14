@@ -22,7 +22,7 @@
                                         <p class="text-left"><strong>Nombre Apellido</strong></p>
                                         <p class="text-left small">mail@@gmail.com</p>
                                         <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm">Cambiar Contraseña</a>
+                                            <a href="#" class="btn btn-primary btn-block btn-sm">Cambiar Datos</a>
                                         </p>
                                     </div>
                                 </div>
