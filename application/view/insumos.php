@@ -17,14 +17,14 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="marco">Ingrese Insumo</label>  
 					<div class="col-md-4">
-						<input type="text" placeholder="marco" class="form-control input-md" >
+						<input type="text" placeholder="Insumo" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
 					<div class="col-md-4">
-						<select id="tienda" name="tienda" class="form-control">
+						<select id="tienda" name="tienda" placeholder="Tienda" class="form-control">
 							<option value="1">Option one</option>
 							<option value="2">Option two</option>
 						</select>
@@ -32,16 +32,24 @@
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
+					<label class="col-md-4 control-label" for="precio">Ingrese Detalle</label>  
+					<div class="col-md-4">
+						<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
 					<label class="col-md-4 control-label" for="precio">Ingrese Monto</label>  
 					<div class="col-md-4">
-						<input type="number" placeholder="123" class="form-control input-md" >
+						<input type="number" placeholder="Monto" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="button1id"></label>
 					<div class="col-md-8">
-						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addProductConfirmDialog">Agregar Producto</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addSuppliesConfirmDialog">Agregar Insumo</button>
 					</div>
 				</div>
 			</fieldset>
@@ -55,6 +63,7 @@
 					<th>Tienda</th>
 					<th>Detalle</th>
 					<th>Monto</th>
+					<th>Fecha</th>
 					<th class="widthOptions text-center">Acciones</th>
 				</tr>
 			</thead>
@@ -64,6 +73,7 @@
 					<td>System Architect</td>
 					<td>System Architectaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
 					<td>61</td>
+					<th>Fecha</th>
 					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
@@ -71,6 +81,7 @@
 					<td>Accountant</td>
 					<td>System Architect</td>
 					<td>63</td>
+					<th>Fecha</th>
 					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
@@ -78,6 +89,7 @@
 					<td>Junior Technical Author</td>
 					<td>System Architect</td>
 					<td>66</td>
+					<th>Fecha</th>
 					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
@@ -85,6 +97,7 @@
 					<td>Senior Javascript Developer</td>
 					<td>System Architect</td>
 					<td>22</td>
+					<th>Fecha</th>
 					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 				<tr>
@@ -92,6 +105,7 @@
 					<td>Accountant</td>
 					<td>System Architect</td>		
 					<td>33</td>
+					<th>Fecha</th>
 					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 				</tr>
 			</tbody>
@@ -99,7 +113,7 @@
 	</div>
 
 	<!-- Modal Confimacion agregar producto-->
-	<div class="modal fade" id="addProductConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal fade" id="addSuppliesConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -130,16 +144,16 @@
 						<fieldset class="">
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="marco">Ingrese Insumo</label>  
-								<div class="col-md-4">
-									<input id="marco" name="marco" type="text" placeholder="marco" class="form-control input-md" >
+								<label class="col-md-4 control-label" for="marco">Editar Insumo</label>  
+								<div class="col-md-7">
+									<input type="text" placeholder="Insumo" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Select Basic -->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
-								<div class="col-md-4">
-									<select id="tienda" name="tienda" class="form-control">
+								<div class="col-md-7">
+									<select id="tienda" name="tienda" placeholder="Tienda" class="form-control">
 										<option value="1">Option one</option>
 										<option value="2">Option two</option>
 									</select>
@@ -147,9 +161,17 @@
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="precio">Ingrese Monto</label>  
-								<div class="col-md-4">
-									<input id="precio" name="precio" type="number" placeholder="123" class="form-control input-md" >
+								<label class="col-md-4 control-label" for="precio">Editar Detalle</label>  
+								<div class="col-md-7">
+									<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="precio">Editar Monto</label>  
+								<div class="col-md-7">
+									<input type="number" placeholder="Monto" class="form-control input-md" >
 								</div>
 							</div>
 						</fieldset>

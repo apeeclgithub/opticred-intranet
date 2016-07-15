@@ -34,6 +34,7 @@ function login(){
         if(data.success==true){
            location.href="main.php";
         }else{
+            alertify.set('notifier','position', 'top-right');
             alertify.error('Datos erroneos.');
             $('input[id=userPass]').val('');
         }
@@ -48,12 +49,16 @@ function addProduct(){
         'addStockProduct' : $('input[id=addStockProduct]').val()
     };
     if ($('input[id=addNameProduct]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el marco.");
     }else if($('select[id=addStoreProduct]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe seleccionar una tienda.");
     }else if($('input[id=addPriceProduct]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un precio para el marco.");
     }else if($('input[id=addStockProduct]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar la cantidad de marcos.");
     }else{
         $.ajax({
@@ -64,12 +69,14 @@ function addProduct(){
         }).done(function(data){
             if(data.success==true){
                 $("#inventoryTableReload").load('../controller/ProductTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.success("Marco agregado exitosamente.");
                 $('input[id=addNameProduct]').val('');
                 $('select[id=addStoreProduct]').val('');
                 $('input[id=addPriceProduct]').val('');
                 $('input[id=addStockProduct]').val('');
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Marco ya existe.");
             }
         })
@@ -99,12 +106,16 @@ function updateProduct(){
         'editStockProduct' : $('input[id=editStockProduct]').val()
     };
     if ($('input[id=editNameProduct]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el marco.");
     }else if($('select[id=editStoreProduct]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe seleccionar una tienda.");
     }else if($('input[id=editPriceProduct]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un precio para el marco.");
     }else if($('input[id=editStockProduct]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar la cantidad de marcos.");
     }else{
         $.ajax({
@@ -115,8 +126,10 @@ function updateProduct(){
         }).done(function(data){
             if(data.success==true){
                 $("#inventoryTableReload").load('../controller/ProductTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.success("Marco modificado exitosamente.");
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Marco ya existe.");
             }
         })
@@ -128,6 +141,7 @@ function delProduct(){
         'delIdProduct'    : $('input[id=delIdProduct]').val()
     };
     if ($('input[id=delIdProduct]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("No se selecciono ningun producto.");
     }else{
         $.ajax({
@@ -138,8 +152,10 @@ function delProduct(){
         }).done(function(data){
             if(data.success==true){
                 $("#inventoryTableReload").load('../controller/ProductTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Marco eliminado exitosamente.");
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Marco no existe.");
             }
         })
@@ -155,14 +171,19 @@ function addUser(){
         'addStoreUser'    : $('select[id=addStoreUser]').val()
     };
     if ($('input[id=addNameUser]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el vendedor.");
     }else if($('input[id=addMailUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un email para el vendedor.");
     }else if($('input[id=addRutUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un rut para el vendedor.");
     }else if($('input[id=addPassUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar una password para el vendedor.");
     }else if($('select[id=addStoreUser]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe seleccionar una tienda para el vendedor.");
     }else{
         $.ajax({
@@ -173,6 +194,7 @@ function addUser(){
         }).done(function(data){
             if(data.success==true){
                 $("#userTableReload").load('../controller/UserTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.success("Vendedor agregado exitosamente.");
                 $('input[id=addNameUser]').val('');
                 $('input[id=addMailUser]').val('');
@@ -180,6 +202,7 @@ function addUser(){
                 $('input[id=addPassUser]').val('');
                 $('select[id=addStoreUser]').val('');
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor ya existe.");
             }
         })
@@ -211,16 +234,22 @@ function updateUser(){
         'editStoreUser' : $('select[id=editStoreUser]').val()
     };
     if ($('input[id=editIdUser]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Error de id.");
     }else if($('input[id=editNameUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el vendedor.");
     }else if($('input[id=editMailUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un email para el vendedor.");
     }else if($('input[id=editRutUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un rut para el vendedor.");
     }else if($('input[id=editPassUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar una password para el vendedor.");
     }else if($('select[id=editStoreUser]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
         alertify.error("Debe seleccionar una tienda.");
     }else{
         $.ajax({
@@ -231,8 +260,10 @@ function updateUser(){
         }).done(function(data){
             if(data.success==true){
                 $("#userTableReload").load('../controller/UserTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.success("Vendedor modificado exitosamente.");
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor ya existe.");
             }
         })
@@ -244,6 +275,7 @@ function delUser(){
         'delIdUser'    : $('input[id=delIdUser]').val()
     };
     if ($('input[id=delIdUser]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
         alertify.error("No se selecciono ningun vendedor.");
     }else{
         $.ajax({
@@ -254,8 +286,10 @@ function delUser(){
         }).done(function(data){
             if(data.success==true){
                 $("#userTableReload").load('../controller/UserTable.php');
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor eliminado exitosamente.");
             }else{
+                alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor no existe.");
             }
         })
