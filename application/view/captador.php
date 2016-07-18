@@ -104,6 +104,7 @@
 				<div class="modal-body">
 					<p>Confirme para eliminar el Captador</p>
 					<input type="hidden" name="delIdCaptador" id="delIdCaptador">
+					<input type="hidden" name="delTotalCaptador" id="delTotalCaptador">
 				</div>
 				<div class="modal-footer">
 					<button onclick="delCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>

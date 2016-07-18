@@ -25,10 +25,9 @@
 						onclick="updateModalCaptador(
 							 <?php echo $value['cap_id'];	?>,
 							'<?php echo $value['cap_name'];	?>',
-							'<?php echo $value['cap_phone'];	?>',
-							<?php echo $value['cap_total'];	?>)" 
+							'<?php echo $value['cap_phone'];	?>')" 
 						
-						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalCaptador(<?php echo $value['cap_id'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalCaptador(<?php echo $value['cap_id'];?>,<?php echo $value['cap_total']; ?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 					</tr>
 					<?php
 				}

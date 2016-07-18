@@ -38,7 +38,7 @@
 			$json['success'] = $objUser->addUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
  
 			if($json['success'] != true){
-				$json['success'] = $objProduct->activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
+				$json['success'] = $objUser->activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
 			}
 
 			echo json_encode($json);
