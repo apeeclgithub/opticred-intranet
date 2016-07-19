@@ -183,7 +183,7 @@
  </div>
 </div>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateSailConfirmDialog">Actualizar</button>
-<button type="button" class="btn btn-danger">Volver</button>
+<button type="button" class="btn btn-danger">Cancelar</button>
 <br><br><br> 
 </div>
   <!-- Modal confirmacion producto-->

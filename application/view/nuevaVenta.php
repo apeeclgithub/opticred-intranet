@@ -3,6 +3,7 @@
 <?php include('userNav.php') ?>
 <div class="contentMain">
   <legend>Nueva Venta</legend>
+  <p><h3><u>Si desea finalizar la venta presionar el botón "Finalizar Venta" que se encuentra al final de la página</u></h3><p>
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="">N° Boleta</label>
@@ -54,17 +55,25 @@
    <input type="text" class="form-control" id="" >  
  </div>   
 </div> 
+<legend>Armazones disponibles para venta</legend>
+<div class=" col-xs-11">
+  <div id="inventoryTableReload">
+    <?php require '../controller/ProductTableSail.php'; ?>
+  </div>
+</div>
+<legend>Armazones agregados a la venta</legend>
+<div class=" col-xs-11">
+  <div id="inventoryTableReload">
+    <?php require '../controller/ProductTableSailAdd.php'; ?>
+  </div>
+</div>
 <legend>Lejos</legend>
 <div class="row">
   <div class="form-group col-xs-5">
-    <label for="comment">Tipo Armazón:</label>
-    <textarea class="form-control" rows="9" id="comment"></textarea>
+    <label for="comment">Lejos D. Interp (N/M):</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
   </div> 
-  <div class="form-group col-xs-6">
-   <label for="">Lejos D. Interp (N/M):</label>
-   <input type="text" class="form-control" id="" >  
- </div>
- <div class="form-group col-xs-2">
+  <div class="form-group col-xs-2">
    <label for="">Od. Esf:</label>
    <input type="text" class="form-control" id="" >  
  </div>
@@ -92,14 +101,10 @@
 <legend>Cerca</legend>
 <div class="row">
   <div class="form-group col-xs-5">
-    <label for="comment">Tipo Armazón:</label>
-    <textarea class="form-control" rows="9" id="comment"></textarea>
+    <label for="comment">Cerca D. Interp (N/M):</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
   </div> 
-  <div class="form-group col-xs-6">
-   <label for="">Cerca D. Interp (N/M):</label>
-   <input type="text" class="form-control" id="" >  
- </div>
- <div class="form-group col-xs-2">
+  <div class="form-group col-xs-2">
    <label for="">Od. Esf:</label>
    <input type="text" class="form-control" id="" >  
  </div>
@@ -180,6 +185,27 @@
    <input type="text" class="form-control" id="" >  
  </div>
 </div>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Finalizar Venta</button>
+<button type="button" class="btn btn-danger">Limpiar</button>
 <br><br><br> 
+
 </div>
+  <!-- Modal confirmacion Venta-->
+  <div class="modal fade" id="finalSailConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Finalizar Venta</h4>
+        </div>
+        <div class="modal-body">
+          <p>Confirme para finalizar la venta</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Aceptar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <?php include('footer.php') ?>
