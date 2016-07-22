@@ -3,65 +3,53 @@
 <?php include('userNav.php') ?>
 <div class="contentMain">
   <legend>Nueva Venta</legend>
-  <p><h3><u>Si desea finalizar la venta presionar el botón "Finalizar Venta" que se encuentra al final de la página</u></h3><p>
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="">N° Boleta</label>
-      <input type="number" class="form-control" id="" disabled="disabled">
+      <input type="text" class="form-control" id="">
     </div>
-    <div class="form-group col-xs-5">
-      <label for="">Fecha</label>
-      <input type="date" class="form-control" id="" >
+    <div class="form-group col-xs-4">
+      <label for="addSaleDate">Fecha</label>
+      <input type="date" class="form-control" id="addSaleDate" disabled="disabled" >
     </div>
   </div>
   <div class="row">
-    <div class="form-group col-xs-11">
+    <div class="form-group col-xs-7">
      <label for="">Señor (a):</label>
-     <input type="date" class="form-control" id="" >  
-   </div>   
+     <input type="text" class="form-control" id="" >  
+   </div> 
+   <div class="form-group col-xs-3">
+     <label for="">Fono:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>    
  </div>
- <div class="row">
-  <div class="form-group col-xs-8">
-   <label for="">Dirección:</label>
-   <input type="text" class="form-control" id="" >  
- </div>   
- <div class="form-group col-xs-3">
-   <label for="">Fono:</label>
-   <input type="text" class="form-control" id="" >  
- </div>   
-</div>  
-<div class="row">
-  <div class="form-group col-xs-6">
-   <label for="">Ciudad:</label>
-   <input type="text" class="form-control" id="" >  
- </div>   
- <div class="form-group col-xs-5">
-  <label for="sel1">Vendedor:</label>
-  <select class="form-control" id="sel1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-  </select>
-</div>   
-</div> 
-<div class="row">
-  <div class="form-group col-xs-6">
-   <label for="">N° Receta:</label>
-   <input type="text" class="form-control" id="" >  
- </div>   
- <div class="form-group col-xs-5">
-   <label for="">Doctor:</label>
-   <input type="text" class="form-control" id="" >  
- </div>   
-</div> 
-<legend>Armazones disponibles para venta</legend>
 <div class=" col-xs-11">
-  <div id="inventoryTableReload">
-    <?php require '../controller/ProductTableSail.php'; ?>
+
+<!-- Modal agregar lentes-->
+  <div class="modal fade" id="addLenteDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Armazones disponibles para venta</h4>
+        </div>
+        <div class="modal-body">
+          <div id="inventorySaleTableReload">
+            <?php require '../controller/ProductTableSale.php'; ?>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
 <legend>Armazones agregados a la venta</legend>
+
+<button type="button" id="buttonAdd1" name="buttonAdd1" class="btn btn-info" data-toggle="modal" data-target="#addLenteDialog"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar Armazón</button>
+
+<p>&nbsp;</p><!--phernandez quitar esta mierda de aca y hacerlo con css-->
 <div class=" col-xs-11">
   <div id="inventoryTableReload">
     <?php require '../controller/ProductTableSailAdd.php'; ?>

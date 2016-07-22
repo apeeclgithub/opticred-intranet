@@ -2,8 +2,7 @@
 	<thead>
 		<tr>
 			<th>Marco</th>
-			<th>Tienda</th>
-			<th>Precio</th>
+			<th>Tipo</th>
 			<th>Stock</th>
 			<th class="widthOptions text-center">Acciones</th>
 		</tr>
@@ -20,8 +19,12 @@
 					?>
 					<tr>
 						<td><?php echo $value['pro_name'];?></td>
-						<td><?php echo $value['pro_store'];?></td>
-						<td><input type="text" class="form-control inputWidthSail"></td>
+						<td><select id="addSaleType" name="addSaleType" class="form-control">
+							<option value="" disabled selected>Seleccione tipo de armazón</option>
+							<option value="Lejos">Lejos</option>
+							<option value="Cerca">Cerca</option>
+							<option value="Sol">Sol</option>
+						</select></td>
 						<td><?php echo $value['pro_stock'];?></td>
 						<td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar a venta</button></td>
 					</tr>
