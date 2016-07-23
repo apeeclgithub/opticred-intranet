@@ -27,7 +27,7 @@
 
 <!-- Modal agregar lentes-->
   <div class="modal fade" id="addLenteDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
+    <div class="modal-dialog widthAddSailProductDialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -47,7 +47,7 @@
 
 <legend>Armazones agregados a la venta</legend>
 
-<button type="button" id="buttonAdd1" name="buttonAdd1" class="btn btn-info" data-toggle="modal" data-target="#addLenteDialog"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar Armazón</button>
+<button type="button" id="buttonAdd1" name="buttonAdd1" class="btn btn-info btn-lg center-block" data-toggle="modal" data-target="#addLenteDialog"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar Armazón</button>
 
 <p>&nbsp;</p><!--phernandez quitar esta mierda de aca y hacerlo con css-->
 <div class=" col-xs-11">

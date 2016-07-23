@@ -324,3 +324,7 @@ a:active {
 .inputWidthSail{
   width: 100% !important;
 }
+
+.widthAddSailProductDialog{
+  width:56%;
+}
