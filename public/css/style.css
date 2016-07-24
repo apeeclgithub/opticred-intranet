@@ -60,7 +60,7 @@ a:active {
   width: 15%;
   height: 100%;
   color: #e1ffff;
-  z-index: 999999;
+  z-index: 888888;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
@@ -321,10 +321,18 @@ a:active {
 
   /*NUEVA VENTA*/
 
-.inputWidthSail{
-  width: 100% !important;
-}
+  .inputWidthSail{
+    width: 100% !important;
+  }
 
-.widthAddSailProductDialog{
-  width:56%;
-}
+  .widthAddSailProductDialog{
+    width:56%;
+  }
+
+  .widthPaySupplyDialog{
+    width:80%;
+  }
+
+  .indexPaySupplyDialog{
+    z-index: 999999;
+  }
