@@ -136,7 +136,7 @@
                   <th>Fecha</th>
                   <th>Monto</th>
                   <th>Monto a pagar</th>
-                  <th class="widthOptions text-center">Acciones</th>
+                  <th class="widthOptions text-center">Acción</th>
                 </tr>
               </thead>
               <tbody>

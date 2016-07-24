@@ -5,7 +5,7 @@
 			<th>Fono</th>
 			<th>Comisión</th>
 			<th>Monto a Pagar</th>
-			<th class="widthOptions">Acciones</th>
+			<th class="widthOptions">Acción</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,7 +23,7 @@
 						<td><?php echo $value['cap_phone'];	?></td>
 						<td><?php echo $value['cap_total'];	?></td>
 						<td><input type="number" class="form-control" id=""></td>
-						<td><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
+						<td class="text-center"><button class="btn btn-info btn-xs "><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
 					</tr>
 					<?php
 				}

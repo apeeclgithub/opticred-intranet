@@ -21,7 +21,7 @@
 						<td><?php echo $value['cap_name'];	?></td>
 						<td><?php echo $value['cap_phone'];	?></td>
 						<td><?php echo $value['cap_total'];	?></td>
-						<td><button 
+						<td class="text-center"><button 
 						onclick="updateModalCaptador(
 							 <?php echo $value['cap_id'];	?>,
 							'<?php echo $value['cap_name'];	?>',
