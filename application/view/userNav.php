@@ -19,8 +19,8 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>Nombre Apellido</strong></p>
-                                        <p class="text-left small">mail@@gmail.com</p>
+                                        <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
+                                        <p class="text-left small"><?php echo $_SESSION['user']['mail']?></p>
                                         <p class="text-left">
                                             <a href="cambiarDatosUsuario.php" class="btn btn-primary btn-block btn-sm">Cambiar Datos</a>
                                         </p>
@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="#" class="btn btn-danger btn-block">Logout</a>
+                                            <a href="logout.php" class="btn btn-danger btn-block">Logout</a>
                                         </p>
                                     </div>
                                 </div>

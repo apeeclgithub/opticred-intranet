@@ -9,7 +9,13 @@
 		public function loginUser($userRut, $userPass){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	usu_id 
+			$sql = $objConn->prepare('	SELECT 	usu_id,
+												usu_name,
+												usu_rut,
+												usu_mail,
+												usu_store,
+												usu_type,
+												usu_pass 
 										FROM 	usuario 
 										WHERE 	usu_rut = :userRut
 										AND 	usu_pass = :userPass

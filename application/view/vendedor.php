@@ -141,7 +141,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Modal eliminar producto-->
 	<div class="modal fade" id="deleteVendedorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
@@ -163,3 +162,4 @@
 	</div>
 </div>
 <?php include('footer.php') ?>
+

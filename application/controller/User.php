@@ -17,7 +17,14 @@
 			foreach ( (array) $objUser as $key ) {
 				foreach ($key as $key2 => $value) {
 					if(is_numeric($value['usu_id'])){
-						$_SESSION['usuario'] = $value['usu_id'];
+						$_SESSION['user'] = array(
+							'name' => $value['usu_name'],
+							'type' => $value['usu_type'],
+							'store'=> $value['usu_store'],
+							'mail' => $value['usu_mail'],
+							'rut'  => $value['usu_rut'],
+							'pass' => $value['usu_pass']
+							);
 						$json['success'] = true;
 					}		
 				}

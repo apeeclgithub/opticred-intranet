@@ -37,4 +37,7 @@
 	
 	</head>
 	<body>
-	<?php ini_set("error_reporting", E_ALL);?>
+	<?php 
+		session_start();
+		ini_set("error_reporting", E_ALL);
+	?>
