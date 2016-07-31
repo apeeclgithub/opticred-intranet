@@ -21,7 +21,7 @@
       </li>
       <ul class="sub-menu collapse" id="empleados">
         <a href="vendedor.php"><li><span class="glyphicon glyphicon-menu-right"></span> Vendedor</li></a>
-        <a href="Captador.php"><li><span class="glyphicon glyphicon-menu-right"></span> Captador</li></a>
+        <a href="captador.php"><li><span class="glyphicon glyphicon-menu-right"></span> Captador</li></a>
       </ul>      
     </ul>
   </div>

@@ -13,16 +13,11 @@
                         <li>
                             <div class="navbar-login">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <p class="text-center">
-                                            <span class="glyphicon glyphicon-user icon-size"></span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
                                         <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
-                                        <p class="text-left small"><?php echo $_SESSION['user']['mail']?></p>
-                                        <p class="text-left">
-                                            <a href="cambiarDatosUsuario.php" class="btn btn-primary btn-block btn-sm">Cambiar Datos</a>
+                                        <p class="text-left"><?php echo $_SESSION['user']['mail']?></p>
+                                        <p>
+                                            <a href="cambiarDatosUsuario.php" class="btn btn-primary btn-block">Cambiar Datos</a>
                                         </p>
                                     </div>
                                 </div>
