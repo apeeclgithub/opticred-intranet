@@ -2,11 +2,6 @@
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
 <div class="contentMain">
-	<script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#tablaInsumos').DataTable();
-	} );
-	</script>
 	<div>
 		<form class="form-horizontal">
 			<fieldset class="addProductFormWidth">
@@ -20,6 +15,13 @@
 						<input type="text" placeholder="Insumo" class="form-control input-md" >
 					</div>
 				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="precio">Ingrese Detalle</label>  
+					<div class="col-md-4">
+						<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
+					</div>
+				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
@@ -30,14 +32,6 @@
 						</select>
 					</div>
 				</div>
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="precio">Ingrese Detalle</label>  
-					<div class="col-md-4">
-						<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
-					</div>
-				</div>
-
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="precio">Ingrese Monto</label>  
@@ -55,61 +49,9 @@
 			</fieldset>
 		</form>
 	</div>
-	<div>
-		<table id="tablaInsumos" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>Insumo</th>
-					<th>Tienda</th>
-					<th>Detalle</th>
-					<th>Monto</th>
-					<th>Fecha</th>
-					<th class="widthOptions text-center">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>System Architect</td>
-					<td>System Architectaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-					<td>61</td>
-					<th>Fecha</th>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>Accountant</td>
-					<td>System Architect</td>
-					<td>63</td>
-					<th>Fecha</th>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>Junior Technical Author</td>
-					<td>System Architect</td>
-					<td>66</td>
-					<th>Fecha</th>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>Senior Javascript Developer</td>
-					<td>System Architect</td>
-					<td>22</td>
-					<th>Fecha</th>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>Accountant</td>
-					<td>System Architect</td>		
-					<td>33</td>
-					<th>Fecha</th>
-					<td class="text-center"><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
-				</tr>
-			</tbody>
-		</table>
+
+	<div id="insumoTableReload">
+		<?php require '../controller/InsumoTable.php'; ?>
 	</div>
 
 	<!-- Modal Confimacion agregar producto-->
