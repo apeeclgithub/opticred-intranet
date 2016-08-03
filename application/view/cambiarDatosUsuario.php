@@ -21,37 +21,37 @@
 
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="addNameUser">Modificar Nombre</label>  
+          <label class="col-md-4 control-label" for="editNameUser">Modificar Nombre</label>  
           <div class="col-md-4">
-            <input name="addNameUser" id="addNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" >
+            <input name="editNameUser" id="editNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" ><?php echo $_SESSION['user']['name']?></input>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="addMailUser">Modificar E-Mail</label>  
+          <label class="col-md-4 control-label" for="editMailUser">Modificar E-Mail</label>  
           <div class="col-md-4">
-            <input name="addMailUser" id="addMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" >
+            <input name="editMailUser" id="editMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" ><?php echo $_SESSION['user']['mail']?>
           </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="addRutUser">Modificar Rut</label>  
+          <label class="col-md-4 control-label" for="editRutUser">Modificar Rut</label>  <?php echo $_SESSION['user']['rut']?>
           <div class="col-md-4">
-            <input name="addRutUser" id="addRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
+            <input name="editRutUser" id="editRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
           </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="addPassUser">Modificar Password</label>  
+          <label class="col-md-4 control-label" for="editPassUser">Modificar Password</label>  <?php echo $_SESSION['user']['pass']?>
           <div class="col-md-4">
-            <input name="addPassUser" id="addPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
+            <input name="editPassUser" id="editPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
           </div>
         </div>
         <!-- Select Basic -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="addStoreUser">Seleccione Tienda</label>
+          <label class="col-md-4 control-label" for="editStoreUser">Seleccione Tienda</label>
           <div class="col-md-4">
-            <select id="addStoreUser" name="addStoreUser" class="form-control">
+            <select id="editStoreUser" name="editStoreUser" class="form-control" disabled="disabled">
               <option value="" disabled selected>Seleccione una tienda</option>
               <option value="Tercero">Tercero</option>
               <option value="Quinto">Quinto</option>
@@ -62,7 +62,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="button1id"></label>
           <div class="col-md-8">
-            <button type="button" id="button1id" name="button1id" class="btn btn-success" data-toggle="modal" data-target="#addVendedorConfirmDialog">Modificar Datos</button>
+            <button  type="button" id="button1id" name="button1id" class="btn btn-success" data-toggle="modal" data-target="#updateDataConfirmDialog">Modificar Datos</button>
             <button type="button" class="btn btn-danger">Volver</button>
           </div>
         </div>
@@ -70,4 +70,23 @@
     </form>
   </div>
 </div>
+  <!-- Modal editar datos-->
+  <div class="modal fade" id="updateDataConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Editar tus datos</h4>
+        </div>
+        <div class="modal-body">
+          <p>Confirme para finalizar la actualización  de sus datos</p>
+          <input type="hidden" name="delIdUser" id="delIdUser">
+        </div>
+        <div class="modal-footer">
+          <button onclick="updateUser()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <?php include('footer.php') ?>

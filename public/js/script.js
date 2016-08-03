@@ -221,6 +221,16 @@ function updateModalUser(id, name, mail, rut, pass, store){
     }).prop('selected', true); 
 };
 
+function updateUserLogged(name, mail, rut, pass){
+    $('input[id=editNameUser]').val(name);
+    $('input[id=editMailUser]').val(mail);
+    $('input[id=editRutUser]').val(rut);
+    $('input[id=editPassUser]').val(pass);
+    $("select[id=editStoreUser] option").prop('selected', false).filter(function() {
+        return $(this).text() == store;
+    }).prop('selected', true); 
+};
+
 function deleteModalUser(id){
     $('input[id=delIdUser]').val(id);
 };
@@ -266,6 +276,45 @@ function updateUser(){
             }else{
                 alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor ya existe.");
+            }
+        })
+    };
+};
+
+function updateUserLogg(){
+    var params = {
+        'editNameUser'  : $('input[id=editNameUser]').val(),
+        'editMailUser'  : $('input[id=editMailUser]').val(),
+        'editRutUser' : $('input[id=editRutUser]').val(),
+        'editPassUser' : $('input[id=editPassUser]').val(),
+        'editStoreUser' : $('select[id=editStoreUser]').val()
+    };
+    if($('input[id=editNameUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un nombre.");
+    }else if($('input[id=editMailUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un email.");
+    }else if($('input[id=editRutUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un rut.");
+    }else if($('input[id=editPassUser]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar una password.");
+    }else{
+        $.ajax({
+            url : '../controller/User.php?action=5',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#userDataLogged").load('../view/userNav.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Datos modificados exitosamente.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Error al modificar datos.");
             }
         })
     };

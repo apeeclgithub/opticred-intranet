@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top colorFixNav" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top colorFixNav" role="navigation" id="userDataLogged">
     <div class="container"> 
 
         <div class="collapse navbar-collapse">
@@ -17,7 +17,25 @@
                                         <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
                                         <p class="text-left"><?php echo $_SESSION['user']['mail']?></p>
                                         <p>
-                                            <a href="cambiarDatosUsuario.php" class="btn btn-primary btn-block">Cambiar Datos</a>
+
+                                         <?php   if ( isset($_POST['editNameUser'] ) ) {
+                                                $_SESSION['user']['name']   = $value['usu_name'];}
+                                                if ( isset($_POST['editMailUser'] ) ) {
+                                                $_SESSION['user']['mail']   = $value['usu_mail'];}
+
+                                                if ( isset($_POST['editRutUser'] ) ) {
+                                                $_SESSION['user']['rut']   = $value['usu_rut'];}
+
+                                                if ( isset($_POST['editPassUser'] ) ) {
+                                                $_SESSION['user']['pass']   = $value['usu_pass'];
+                                            }
+                                         ?>
+                                            <button onclick="location.href = 'cambiarDatosusuario.php';updateUserLogged(
+                                            '<?php echo $value['usu_name']; ?>',
+                                            '<?php echo $value['usu_mail']; ?>',
+                                            '<?php echo $value['usu_rut'];  ?>',
+                                            '<?php echo $value['usu_pass']; ?>)" class="btn btn-primary btn-block">Cambiar Datos</button>
+
                                         </p>
                                     </div>
                                 </div>
