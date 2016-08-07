@@ -19,7 +19,7 @@
         <!-- Form Name -->
         <legend>Modifica tus datos</legend>
 
-        <!-- Text input-->
+        <!-- Text input--><?php echo $_SESSION['user']['id']?>
         <div class="form-group">
           <label class="col-md-4 control-label" for="editNameUser">Modificar Nombre</label>  
           <div class="col-md-4">
@@ -45,17 +45,6 @@
           <label class="col-md-4 control-label" for="editPassUser">Modificar Password</label>  <?php echo $_SESSION['user']['pass']?>
           <div class="col-md-4">
             <input name="editPassUser" id="editPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
-          </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="editStoreUser">Seleccione Tienda</label>
-          <div class="col-md-4">
-            <select id="editStoreUser" name="editStoreUser" class="form-control" disabled="disabled">
-              <option value="" disabled selected>Seleccione una tienda</option>
-              <option value="Tercero">Tercero</option>
-              <option value="Quinto">Quinto</option>
-            </select>
           </div>
         </div>
         <!-- Button (Double) -->

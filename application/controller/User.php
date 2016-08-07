@@ -76,13 +76,13 @@
 		
 		case 5:
 
+			$usuId    = $_POST['editIdUser'];
 			$usuName  = $_POST['editNameUser'];
 			$usuMail  = $_POST['editMailUser'];
 			$usuRut   = $_POST['editRutUser'];
 			$usuPass  = $_POST['editPassUser'];
-			$usuStore = $_POST['editStoreUser'];
 
-			$json['success'] = $objUser->updateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
+			$json['success'] = $objUser->updateUser($usuId, $usuName, $usuMail, $usuRut, $usuPass);
 			echo json_encode($json);
 
 			break;	

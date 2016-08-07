@@ -17,7 +17,6 @@
                                         <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
                                         <p class="text-left"><?php echo $_SESSION['user']['mail']?></p>
                                         <p>
-
                                          <?php   if ( isset($_POST['editNameUser'] ) ) {
                                                 $_SESSION['user']['name']   = $value['usu_name'];}
                                                 if ( isset($_POST['editMailUser'] ) ) {
@@ -31,6 +30,7 @@
                                             }
                                          ?>
                                             <button onclick="location.href = 'cambiarDatosusuario.php';updateUserLogged(
+                                            '<?php echo $value['usu_id']; ?>',
                                             '<?php echo $value['usu_name']; ?>',
                                             '<?php echo $value['usu_mail']; ?>',
                                             '<?php echo $value['usu_rut'];  ?>',
