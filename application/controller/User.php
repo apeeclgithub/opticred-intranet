@@ -82,8 +82,21 @@
 			$usuMailSession  = $_POST['editMailUserSession'];
 			$usuRutSession   = $_POST['editRutUserSession'];
 			$usuPassSession  = $_POST['editPassUserSession'];
+			$usuStoreSession = $_POST['editStoreUserSession'];
 
-			$json['success'] = $objUser->updateUser($usuIdSession, $usuNameSession, $usuMailSession, $usuRutSession, $usuPassSession);
+			$json['success'] = $objUser->updateUser($usuIdSession, $usuNameSession, $usuMailSession, $usuRutSession, $usuPassSession, $usuStoreSession);
+
+			if($json['success'] == true){
+				$_SESSION['user'] = array(
+					'id'   => $usuIdSession,
+					'name' => $usuNameSession,
+					'type' => 2,
+					'store'=> $usuStoreSession,
+					'mail' => $usuMailSession,
+					'rut'  => $usuRutSession,
+					'pass' => $usuPassSession
+					);
+			}
 			echo json_encode($json);
 
 			break;	

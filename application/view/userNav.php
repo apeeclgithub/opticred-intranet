@@ -17,13 +17,7 @@
                                         <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
                                         <p class="text-left"><?php echo $_SESSION['user']['mail']?></p>
                                         <p>
-                                            <a href="cambiarDatosUsuario.php" onclick="updateUserLogged(
-                                            <?php echo $_SESSION['user']['id'];    ?>,
-                                            '<?php echo $_SESSION['user']['name']; ?>',
-                                            '<?php echo $_SESSION['user']['mail']; ?>',
-                                            '<?php echo $_SESSION['user']['rut']; ?>',
-                                            '<?php echo $_SESSION['user']['pass'];  ?>')" class="btn btn-primary btn-block">Cambiar Datos</a>
-
+                                            <a href="cambiarDatosUsuario.php" class="btn btn-primary btn-block">Cambiar Datos</a>
                                         </p>
                                     </div>
                                 </div>

@@ -42,57 +42,6 @@ function login(){
     })
 }
 
-function updateUserLogged(id, name, mail, rut, pass){
-    $('input[id=editIdUserSession]').val(id);
-    $('input[id=editNameUserSession]').val(name);
-    $('input[id=editMailUserSession]').val(mail);
-    $('input[id=editRutUserSession]').val(rut);
-    $('input[id=editPassUserSession]').val(pass);
-};
-
-
-function updateUserLogg(){
-    var params = {
-        'editIdUserSession'    : $('input[id=editIdUserSession]').val(),
-        'editNameUserSession'  : $('input[id=editNameUserSession]').val(),
-        'editMailUserSession'  : $('input[id=editMailUserSession]').val(),
-        'editRutUserSession' : $('input[id=editRutUserSession]').val(),
-        'editPassUserSession' : $('input[id=editPassUserSession]').val()
-      };
-    if ($('input[id=editIdUserSession]').val() === '') {
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Error de id.");
-    }else if($('input[id=editNameUserSession]').val() === ''){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe ingresar un nombre.");
-    }else if($('input[id=editMailUserSession]').val() === ''){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe ingresar un email.");
-    }else if($('input[id=editRutUserSession]').val() === ''){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe ingresar un rut.");
-    }else if($('input[id=editPassUserSession]').val() === ''){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe ingresar una password.");
-    }else{
-        $.ajax({
-            url : '../controller/User.php?action=5',
-            type : 'post',
-            data : params,
-            dataType : 'json'
-        }).done(function(data){
-            if(data.success==true){
-                $("#userDataLogged").load('../view/userNav.php');
-                alertify.set('notifier','position', 'top-right');
-                alertify.success("Datos modificados exitosamente.");
-            }else{
-                alertify.set('notifier','position', 'top-right');
-                alertify.error("Error al modificar datos.");
-            }
-        })
-    };
-};
-
 function addProduct(){
     var params = {
         'addNameProduct'  : $('input[id=addNameProduct]').val(),
@@ -318,6 +267,45 @@ function updateUser(){
             }else{
                 alertify.set('notifier','position', 'top-right');
                 alertify.error("Vendedor ya existe.");
+            }
+        })
+    };
+};
+
+function updateUserSession(){
+    var params = {
+        'editIdUserSession'    : $('input[id=editIdUserSession]').val(),
+        'editNameUserSession'  : $('input[id=editNameUserSession]').val(),
+        'editMailUserSession'  : $('input[id=editMailUserSession]').val(),
+        'editRutUserSession'   : $('input[id=editRutUserSession]').val(),
+        'editPassUserSession'  : $('input[id=editPassUserSession]').val(),
+        'editStoreUserSession' : $('input[id=editStoreUserSession]').val()
+    };
+    if ($('input[id=editNameUserSession]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un nombre.");
+    }else if($('input[id=editMailUserSession]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un email.");
+    }else if($('input[id=editRutUserSession]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un rut.");
+    }else if($('input[id=editPassUserSession]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar una password.");
+    }else{
+        $.ajax({
+            url : '../controller/User.php?action=5',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Datos modificados correctamente.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Datos no modificados.");
             }
         })
     };
