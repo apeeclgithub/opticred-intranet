@@ -48,6 +48,10 @@ a:active {
   margin-top: 12%;
 }
 
+.noHover{
+  color:black !important;
+}
+
 /* NAV BAR*/
 .nav-side-menu {
   overflow: auto;
