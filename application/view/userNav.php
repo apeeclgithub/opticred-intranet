@@ -17,24 +17,12 @@
                                         <p class="text-left"><strong><?php echo $_SESSION['user']['name']?></strong></p>
                                         <p class="text-left"><?php echo $_SESSION['user']['mail']?></p>
                                         <p>
-                                         <?php   if ( isset($_POST['editNameUser'] ) ) {
-                                                $_SESSION['user']['name']   = $value['usu_name'];}
-                                                if ( isset($_POST['editMailUser'] ) ) {
-                                                $_SESSION['user']['mail']   = $value['usu_mail'];}
-
-                                                if ( isset($_POST['editRutUser'] ) ) {
-                                                $_SESSION['user']['rut']   = $value['usu_rut'];}
-
-                                                if ( isset($_POST['editPassUser'] ) ) {
-                                                $_SESSION['user']['pass']   = $value['usu_pass'];
-                                            }
-                                         ?>
-                                            <button onclick="location.href = 'cambiarDatosusuario.php';updateUserLogged(
-                                            '<?php echo $value['usu_id']; ?>',
-                                            '<?php echo $value['usu_name']; ?>',
-                                            '<?php echo $value['usu_mail']; ?>',
-                                            '<?php echo $value['usu_rut'];  ?>',
-                                            '<?php echo $value['usu_pass']; ?>)" class="btn btn-primary btn-block">Cambiar Datos</button>
+                                            <a href="cambiarDatosUsuario.php" onclick="updateUserLogged(
+                                            <?php echo $_SESSION['user']['id'];    ?>,
+                                            '<?php echo $_SESSION['user']['name']; ?>',
+                                            '<?php echo $_SESSION['user']['mail']; ?>',
+                                            '<?php echo $_SESSION['user']['rut']; ?>',
+                                            '<?php echo $_SESSION['user']['pass'];  ?>')" class="btn btn-primary btn-block">Cambiar Datos</a>
 
                                         </p>
                                     </div>

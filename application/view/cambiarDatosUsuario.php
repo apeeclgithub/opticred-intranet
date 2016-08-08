@@ -19,32 +19,33 @@
         <!-- Form Name -->
         <legend>Modifica tus datos</legend>
 
-        <!-- Text input--><?php echo $_SESSION['user']['id']?>
+        <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="editNameUser">Modificar Nombre</label>  
+          <input type="hidden" name="editIdUserSession" id="editIdUserSession">
+          <label class="col-md-4 control-label" for="editNameUserSession">Modificar Nombre</label>  
           <div class="col-md-4">
-            <input name="editNameUser" id="editNameUser" type="text" placeholder="Nombre del vendedor" class="form-control input-md" ><?php echo $_SESSION['user']['name']?></input>
+            <input name="editNameUserSession" id="editNameUserSession" type="text" placeholder="Nombre del vendedor" class="form-control input-md" ></input>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label" for="editMailUser">Modificar E-Mail</label>  
+          <label class="col-md-4 control-label" for="editMailUserSession">Modificar E-Mail</label>  
           <div class="col-md-4">
-            <input name="editMailUser" id="editMailUser" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" ><?php echo $_SESSION['user']['mail']?>
+            <input name="editMailUserSession" id="editMailUserSession" type="text" placeholder="vendedor@opticred.cl" class="form-control input-md" >
           </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="editRutUser">Modificar Rut</label>  <?php echo $_SESSION['user']['rut']?>
+          <label class="col-md-4 control-label" for="editRutUserSession">Modificar Rut</label>
           <div class="col-md-4">
-            <input name="editRutUser" id="editRutUser" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
+            <input name="editRutUserSession" id="editRutUserSession" type="text" placeholder="Rut del vendedor" class="form-control input-md" >
           </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="editPassUser">Modificar Password</label>  <?php echo $_SESSION['user']['pass']?>
+          <label class="col-md-4 control-label" for="editPassUserSession">Modificar Password</label>
           <div class="col-md-4">
-            <input name="editPassUser" id="editPassUser" type="text" placeholder="Password del vendedor" class="form-control input-md" >
+            <input name="editPassUserSession" id="editPassUserSession" type="text" placeholder="Password del vendedor" class="form-control input-md" >
           </div>
         </div>
         <!-- Button (Double) -->

@@ -18,6 +18,7 @@
 				foreach ($key as $key2 => $value) {
 					if(is_numeric($value['usu_id'])){
 						$_SESSION['user'] = array(
+							'id'	=> $value['usu_id'],
 							'name' => $value['usu_name'],
 							'type' => $value['usu_type'],
 							'store'=> $value['usu_store'],
@@ -76,13 +77,13 @@
 		
 		case 5:
 
-			$usuId    = $_POST['editIdUser'];
-			$usuName  = $_POST['editNameUser'];
-			$usuMail  = $_POST['editMailUser'];
-			$usuRut   = $_POST['editRutUser'];
-			$usuPass  = $_POST['editPassUser'];
+			$usuIdSession    = $_POST['editIdUserSession'];
+			$usuNameSession  = $_POST['editNameUserSession'];
+			$usuMailSession  = $_POST['editMailUserSession'];
+			$usuRutSession   = $_POST['editRutUserSession'];
+			$usuPassSession  = $_POST['editPassUserSession'];
 
-			$json['success'] = $objUser->updateUser($usuId, $usuName, $usuMail, $usuRut, $usuPass);
+			$json['success'] = $objUser->updateUser($usuIdSession, $usuNameSession, $usuMailSession, $usuRutSession, $usuPassSession);
 			echo json_encode($json);
 
 			break;	

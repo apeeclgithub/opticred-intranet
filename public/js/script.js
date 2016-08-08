@@ -42,36 +42,36 @@ function login(){
     })
 }
 
-function updateUserLogged(id,name, mail, rut, pass){
-    $('input[id=editIdUser]').val(id);
-    $('input[id=editNameUser]').val(name);
-    $('input[id=editMailUser]').val(mail);
-    $('input[id=editRutUser]').val(rut);
-    $('input[id=editPassUser]').val(pass);
+function updateUserLogged(id, name, mail, rut, pass){
+    $('input[id=editIdUserSession]').val(id);
+    $('input[id=editNameUserSession]').val(name);
+    $('input[id=editMailUserSession]').val(mail);
+    $('input[id=editRutUserSession]').val(rut);
+    $('input[id=editPassUserSession]').val(pass);
 };
 
 
 function updateUserLogg(){
     var params = {
-        'editIdUser'    : $('input[id=editIdUser]').val(),
-        'editNameUser'  : $('input[id=editNameUser]').val(),
-        'editMailUser'  : $('input[id=editMailUser]').val(),
-        'editRutUser' : $('input[id=editRutUser]').val(),
-        'editPassUser' : $('input[id=editPassUser]').val()
+        'editIdUserSession'    : $('input[id=editIdUserSession]').val(),
+        'editNameUserSession'  : $('input[id=editNameUserSession]').val(),
+        'editMailUserSession'  : $('input[id=editMailUserSession]').val(),
+        'editRutUserSession' : $('input[id=editRutUserSession]').val(),
+        'editPassUserSession' : $('input[id=editPassUserSession]').val()
       };
-    if ($('input[id=editIdUser]').val() === '') {
+    if ($('input[id=editIdUserSession]').val() === '') {
         alertify.set('notifier','position', 'top-right');
         alertify.error("Error de id.");
-    }else if($('input[id=editNameUser]').val() === ''){
+    }else if($('input[id=editNameUserSession]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre.");
-    }else if($('input[id=editMailUser]').val() === ''){
+    }else if($('input[id=editMailUserSession]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un email.");
-    }else if($('input[id=editRutUser]').val() === ''){
+    }else if($('input[id=editRutUserSession]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un rut.");
-    }else if($('input[id=editPassUser]').val() === ''){
+    }else if($('input[id=editPassUserSession]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar una password.");
     }else{
