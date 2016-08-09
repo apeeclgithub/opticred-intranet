@@ -33,7 +33,7 @@ function login(){
         dataType    : 'json'
     }).done(function(data){
         if(data.success==true){
-           location.href="main.php";
+           location.href=data.main;          
         }else{
             alertify.set('notifier','position', 'top-right');
             alertify.error('Datos erroneos.');

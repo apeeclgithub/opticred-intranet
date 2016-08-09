@@ -27,6 +27,12 @@
 							'pass' => $value['usu_pass']
 							);
 						$json['success'] = true;
+						if($value['usu_type'] == 1){
+							$json['main'] = 'dashboard.php';
+						}else if($value['usu_type'] == 2){
+							$json['main'] = 'nuevaVenta.php';
+						}
+						
 					}		
 				}
 			}
