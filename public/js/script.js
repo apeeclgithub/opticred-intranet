@@ -442,3 +442,48 @@ function delCaptador(){
         })
     };
 };
+
+function addInsumo(){
+    alert(new Date());
+    var params = {
+        'addNameInsumo'  : $('input[id=addNameInsumo]').val(),
+        'addDetailInsumo' : $('textarea[id=addDetailInsumo]').val(),
+        'addStoreInsumo' : $('select[id=addStoreInsumo]').val(),   
+        'addPriceInsumo' : $('input[id=addPriceInsumo]').val(),
+        'addDateInsumo' : new Date()
+    };
+    if ($('input[id=addNameInsumo]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un nombre para el insumo.");
+    }else if($('select[id=addStoreInsumo]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe seleccionar una tienda.");
+    }else if($('textarea[id=addDetailInsumo]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un detalle para el insumo.");
+    }else if($('input[id=addPriceInsumo]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar el precio del insumo.");
+    }else{
+        $.ajax({
+            url : '../controller/Insumo.php?action=1',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#insumoTableReload").load('../controller/InsumoTable.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Insumo agregado exitosamente.");
+                $('input[id=addNameInsumo]').val('');
+                $('select[id=addStoreInsumo]').val('');
+                $('textarea[id=addDetailInsumo]').val('');
+                $('input[id=addPriceInsumo]').val('');
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Error al agregar el insumo.");
+            }
+        })
+    };
+};
+

@@ -10,33 +10,34 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="marco">Ingrese Insumo</label>  
+					<label class="col-md-4 control-label" for="addNameInsumo">Ingrese Insumo</label>  
 					<div class="col-md-4">
-						<input type="text" placeholder="Insumo" class="form-control input-md" >
+						<input type="text" id="addNameInsumo" name="addNameInsumo" placeholder="Ingrese insumo" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="precio">Ingrese Detalle</label>  
+					<label class="col-md-4 control-label" for="addDetailInsumo">Ingrese Detalle</label>  
 					<div class="col-md-4">
-						<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
+						<textarea class="form-control" id="addDetailInsumo" name="addDetailInsumo" rows="4" placeholder="Detalle del insumo" id="comment"></textarea>
 					</div>
 				</div>
 				<!-- Select Basic -->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
+					<label class="col-md-4 control-label" for="addStoreInsumo">Seleccione Tienda</label>
 					<div class="col-md-4">
-						<select id="tienda" name="tienda" placeholder="Tienda" class="form-control">
-							<option value="1">Option one</option>
-							<option value="2">Option two</option>
+						<select id="addStoreInsumo" name="addStoreInsumo" class="form-control">
+							<option value="" disabled selected>Seleccione una tienda</option>
+							<option value="Tercero">Tercero</option>
+							<option value="Quinto">Quinto</option>
 						</select>
 					</div>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="precio">Ingrese Monto</label>  
+					<label class="col-md-4 control-label" for="addPriceInsumo">Ingrese Precio</label>  
 					<div class="col-md-4">
-						<input type="number" placeholder="Monto" class="form-control input-md" >
+						<input type="number" id="addPriceInsumo" name="addPriceInsumo" placeholder="Ingrese el precio" class="form-control input-md" >
 					</div>
 				</div>
 				<!-- Button (Double) -->
@@ -66,7 +67,7 @@
 					<p>Confirme para agregar el Insumo</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="addInsumo()" data-dismiss="modal" type="button" class="btn btn-success">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
