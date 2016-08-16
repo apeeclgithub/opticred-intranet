@@ -24,20 +24,11 @@
 		<link href="../../public/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/style.css" rel="stylesheet" type="text/css" />
 
-		
-
-		
-
-
 		<!--[if lt IE 9 ]>
-<script type="text/javascript" src="../../public/js/html5shiv.min.js"></script>
-<script type="text/javascript" src="../../public/js/html5shiv-printshiv.min.js"></script>
-<script type="text/javascript" src="../../public/js/respond.min.js"></script>
-<![endif]-->
+			<script type="text/javascript" src="../../public/js/html5shiv.min.js"></script>
+			<script type="text/javascript" src="../../public/js/html5shiv-printshiv.min.js"></script>
+			<script type="text/javascript" src="../../public/js/respond.min.js"></script>
+		<![endif]-->
 	
 	</head>
 	<body>
-	<?php 
-		session_start();
-		ini_set("error_reporting", E_ALL);
-	?>
