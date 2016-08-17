@@ -8,7 +8,7 @@
 
 		public function listInsumos(){
 
-			$today = date("Y-m-d");
+			$today = $this->getDate();
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  ins_id,
@@ -26,6 +26,21 @@
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $this->insumo;
+
+		}
+
+		public function getDate(){
+
+			$year = date("Y-");
+			$month = date("m-");
+
+			if(date("G")>4){
+				$day = date("d");
+			}else{
+				$day = date("d")-1;
+			}
+
+			return $year.$month.$day;
 
 		}
 
