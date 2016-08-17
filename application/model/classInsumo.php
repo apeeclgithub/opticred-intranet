@@ -92,9 +92,9 @@
 
 			$sql->bindParam(':insId', $insId);
 
-			$this->product = $sql->execute();
+			$this->insumo = $sql->execute();
 
-			return $this->product;
+			return $this->insumo;
 		}
 
 	}
