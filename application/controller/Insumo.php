@@ -24,22 +24,22 @@
 
 		case 2:
 		
-			$proId  = $_POST['editIdProduct'];
-			$proName  = $_POST['editNameProduct'];
-			$proStore = $_POST['editStoreProduct'];
-			$proPrice = $_POST['editPriceProduct'];
-			$proStock = $_POST['editStockProduct'];
+			$insId  = $_POST['editIdInsumo'];
+			$insName  = $_POST['editNameInsumo'];
+			$insDesc = $_POST['editDescInsumo'];
+			$insStore = $_POST['editStoreInsumo'];
+			$insTotal = $_POST['editTotalInsumo'];
 
-			$json['success'] = $objProduct->updateProduct($proId, $proName, $proStore, $proPrice, $proStock);
+			$json['success'] = $objInsumo->updateInsumo($insId, $insName, $insDesc, $insStore, $insTotal);
 			echo json_encode($json);
 
 			break;
 
 		case 3:
 
-			$proId  = $_POST['delIdProduct'];
+			$insId  = $_POST['delIdInsumo'];
 
-			$json['success'] = $objProduct->delProduct($proId);
+			$json['success'] = $objInsumo->delInsumo($insId);
 		    echo json_encode($json);
 			break;
 		

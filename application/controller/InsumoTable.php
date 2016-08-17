@@ -26,7 +26,7 @@
 						<td><?php echo $value['ins_total'];?></td>
 						<td><?php echo $value['ins_date'];?></td>
 						<td class="text-center"><button 
-						onclick="updateModalInsumos(
+						onclick="updateModalInsumo(
 							<?php  echo $value['ins_id'];?>,
 							'<?php echo $value['ins_name'];?>',
 							'<?php echo $value['ins_desc'];?>',

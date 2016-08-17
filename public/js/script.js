@@ -444,7 +444,6 @@ function delCaptador(){
 };
 
 function addInsumo(){
-    alert(new Date());
     var params = {
         'addNameInsumo'  : $('input[id=addNameInsumo]').val(),
         'addDetailInsumo' : $('textarea[id=addDetailInsumo]').val(),
@@ -487,3 +486,81 @@ function addInsumo(){
     };
 };
 
+function updateModalInsumo(id, name, desc, store, total){
+    $('input[id=editIdInsumo]').val(id);
+    $('input[id=editNameInsumo]').val(name);
+    $('textarea[id=editDescInsumo]').val(desc);
+    $("select[id=editStoreInsumo] option").prop('selected', false).filter(function() {
+        return $(this).text() == store;
+    }).prop('selected', true); 
+    $('input[id=editTotalInsumo]').val(id);
+};
+
+function deleteModalInsumo(id){
+    $('input[id=delIdInsumo]').val(id);
+};
+
+function updateInsumo(){
+    var params = {
+        'editIdInsumo'    : $('input[id=editIdInsumo]').val(),
+        'editNameInsumo'  : $('input[id=editNameInsumo]').val(),
+        'editDescInsumo'  : $('textarea[id=editDescInsumo]').val(),
+        'editStoreInsumo'  : $('select[id=editStoreInsumo]').val(),
+        'editTotalInsumo'  : $('input[id=editTotalInsumo]').val()
+    };
+    if ($('input[id=editIdInsumo]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Error de id.");
+    }else if($('input[id=editNameInsumo]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un nombre para el insumo.");
+    }else if($('select[id=editStoreInsumo]').val() <= '0'){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe seleccionar una tienda.");
+    }else if($('input[id=editTotalInsumo]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar un valor para el insumo.");
+    }else{
+        $.ajax({
+            url : '../controller/Insumo.php?action=2',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#insumoTableReload").load('../controller/InsumoTable.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Insumo modificado exitosamente.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Insumo no modificado.");
+            }
+        })
+    };
+};
+
+function delInsumo(){
+    var params = {
+        'delIdInsumo'    : $('input[id=delIdInsumo]').val()
+    };
+    if ($('input[id=delIdInsumo]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("No se selecciono ningun insumo.");
+    }else{
+        $.ajax({
+            url : '../controller/Insumo.php?action=3',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#insumoTableReload").load('../controller/InsumoTable.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Insumo eliminado exitosamente.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Insumo no existe.");
+            }
+        })
+    };
+};

@@ -62,6 +62,41 @@
 
 		}
 
+		public function updateInsumo($insId, $insName, $insDesc, $insStore, $insTotal){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE insumo 
+										SET ins_name = :insName, 
+											ins_desc = :insDesc, 
+											ins_store = :insStore, 
+											ins_total = :insTotal
+										WHERE ins_id = :insId');
+
+			$sql->bindParam(':insId', $insId);
+			$sql->bindParam(':insName', $insName);
+			$sql->bindParam(':insDesc', $insDesc);
+			$sql->bindParam(':insStore', $insStore);
+			$sql->bindParam(':insTotal', $insTotal);
+
+			$this->insumo = $sql->execute();
+			
+			return $this->insumo;
+
+		}
+
+		public function delInsumo($insId){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	DELETE FROM insumo
+										WHERE ins_id = :insId');
+
+			$sql->bindParam(':insId', $insId);
+
+			$this->product = $sql->execute();
+
+			return $this->product;
+		}
+
 	}
 
 ?>

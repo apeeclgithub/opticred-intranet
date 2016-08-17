@@ -86,42 +86,44 @@
 					<form class="form-horizontal">
 						<fieldset class="">
 							<!-- Text input-->
+							<input type="hidden" name="editIdInsumo" id="editIdInsumo">
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="marco">Editar Insumo</label>  
+								<label class="col-md-4 control-label" for="editNameInsumo">Editar Insumo</label>  
 								<div class="col-md-7">
-									<input type="text" placeholder="Insumo" class="form-control input-md" >
+									<input name="editNameInsumo" id="editNameInsumo" type="text" placeholder="Insumo" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- Select Basic -->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="tienda">Seleccione Tienda</label>
-								<div class="col-md-7">
-									<select id="tienda" name="tienda" placeholder="Tienda" class="form-control">
-										<option value="1">Option one</option>
-										<option value="2">Option two</option>
+								<label class="col-md-4 control-label" for="editStoreInsumo">Seleccione Tienda</label>
+								<div class="col-md-4">
+									<select id="editStoreInsumo" name="editStoreInsumo" class="form-control">
+										<option value="" disabled selected>Seleccione una tienda</option>
+										<option value="Tercero">Tercero</option>
+										<option value="Quinto">Quinto</option>
 									</select>
 								</div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="precio">Editar Detalle</label>  
+								<label class="col-md-4 control-label" for="editDescInsumo">Editar Detalle</label>  
 								<div class="col-md-7">
-									<textarea class="form-control" rows="4" placeholder="Detalle" id="comment"></textarea>
+									<textarea name="editDescInsumo" class="form-control" rows="4" placeholder="Detalle" id="editDescInsumo"></textarea>
 								</div>
 							</div>
 
 							<!-- Text input-->
 							<div class="form-group">
-								<label class="col-md-4 control-label" for="precio">Editar Monto</label>  
+								<label class="col-md-4 control-label" for="editTotalInsumo">Editar Monto</label>  
 								<div class="col-md-7">
-									<input type="number" placeholder="Monto" class="form-control input-md" >
+									<input id="editTotalInsumo" name="editTotalInsumo" type="number" placeholder="Monto" class="form-control input-md" >
 								</div>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="updateInsumo()" data-dismiss="modal" type="button" class="btn btn-success">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -133,6 +135,7 @@
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
+			<input type="hidden" name="delIdInsumo" id="delIdInsumo">
 				<div class="modal-header">
 					<h4 class="modal-title">Eliminar Insumo</h4>
 				</div>
@@ -140,7 +143,7 @@
 					<p>Confirme para eliminar el Insumo</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="delInsumo()" data-dismiss="modal" type="button" class="btn btn-success">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
