@@ -24,10 +24,6 @@
           <br><br>
           <div class="row">
             <div class="form-group col-xs-4">
-              <label for="">Efectivo</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
-            </div>
-            <div class="form-group col-xs-4">
               <label for="">Total</label>
               <input type="number" class="form-control" id="" disabled="disabled">
             </div>
@@ -44,10 +40,6 @@
           <button type="button" class="btn btn-info " data-toggle="modal" data-target="#addPaySupplyDialog"><span class="glyphicon glyphicon-usd"></span>&nbsp;Agregar Pago de Insumo</button>
           <br><br>
           <div class="row">
-            <div class="form-group col-xs-4">
-              <label for="">Efectivo</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
-            </div>
             <div class="form-group col-xs-4">
               <label for="">Total</label>
               <input type="number" class="form-control" id="" disabled="disabled">
