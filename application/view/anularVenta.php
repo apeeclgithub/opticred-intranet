@@ -26,7 +26,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Monto Mensual</strong></div>
           <div class="panel-body">Monto vendido por tienda</div>
-          <div class="panel-body"><img src="../../public/img/barr.jpg" class="img-responsive center-block"></div>
+          <div class="panel-body"><img src="../../public/img/chart.gif" class="img-responsive center-block"></div>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>N° Ventas Mensual</strong></div>
           <div class="panel-body">Monto vendido por tienda</div>
-          <div class="panel-body"><img src="../../public/img/barr.jpg" class="img-responsive center-block"></div>
+          <div class="panel-body"><img src="../../public/img/chart.gif" class="img-responsive center-block"></div>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@
       <div class="form-group col-xs-5">
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Monto Comisión Pendiente</strong></div>
-          <div class="panel-body"><img src="../../public/img/barra.png" class="img-responsive center-block"></div>
+          <div class="panel-body"><img src="../../public/img/chart.gif" class="img-responsive center-block"></div>
         </div>
       </div>
     </div>
