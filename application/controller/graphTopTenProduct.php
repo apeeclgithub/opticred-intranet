@@ -3,15 +3,22 @@
 			require '../model/classGraph.php';
 			$objTopTepProduct = new TopTenGraph();
 			$objTopTepProduct->listTopTen();
+
+			$json[0] = array('Nombre', 'Cantidad');
+			$i = 1;
+
 			foreach ( (array) $objTopTepProduct as $key ) {
 				foreach ($key as $key2 => $value) {
-						$pro_name[] = $value['pro_name'];	
-						$cantidad[] = (int)$value['cantidad'];
 
+					$json[$i] = array($value['pro_name'], (int)$value['cantidad']);
+
+
+					$i++;
 
 				}
 
 			}
-			echo json_encode(array($pro_name,$cantidad));
+			
+			echo json_encode($json);
 			//echo json_encode($data);
 		?>
