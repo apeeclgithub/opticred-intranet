@@ -6,6 +6,73 @@
 
 		private $chart;
 
+		public function dailyAmountPerStore(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('SELECT 
+									  (SELECT COALESCE(SUM(VEN_TOTAL),0) 
+									   FROM venta
+									   WHERE VEN_STORE = \'Tercero\'
+									     AND VEN_DATE=CURDATE()) AS tienda,
+
+									  (SELECT COALESCE(SUM(VEN_TOTAL),0)
+									   FROM venta
+									   WHERE VEN_STORE = \'Quinto\'
+									     AND VEN_DATE=CURDATE()) AS tienda');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+		}
+/*
+		public function monthAmountPerStore(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('     SELECT DISTINCT MONTH(VEN_DATE) as mes,
+  (SELECT COALESCE(SUM(VEN_TOTAL),0) 
+   FROM venta
+   WHERE VEN_STORE = \'Tercero\'
+     AND YEAR(VEN_DATE)=YEAR(CURDATE())) AS tienda,
+
+  (SELECT COALESCE(SUM(VEN_TOTAL),0)
+   FROM venta
+   WHERE VEN_STORE = \'Quinto\'
+     AND YEAR(VEN_DATE)=YEAR(CURDATE())) AS tienda FROM venta');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+		}*/
+
+		public function sailsActualDay(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT COUNT(*) AS cantidad,
+										       VEN_STORE AS tienda
+										FROM venta
+										WHERE VEN_DATE = CURDATE()
+										GROUP BY VEN_STORE');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->chart;
+		}	
+
+		public function sailsActualMonth(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT COUNT(*) AS cantidad,
+										 VEN_STORE AS tienda
+										FROM venta
+										WHERE MONTH(VEN_DATE) = MONTH(CURDATE())
+										GROUP BY MONTH(VEN_DATE),
+										         VEN_STORE');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->chart;
+		}	
+
 		public function listTopTen(){
 
 			$objConn = new Database();
