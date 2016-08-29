@@ -18,7 +18,7 @@
         	var data = google.visualization.arrayToDataTable(dataChartDailyAmountPerStore);
 
         var options = {
-          title: 'Monto Diario por tienda',
+          title: 'Monto Diario vendido por tienda',
           is3D: true,
         };
 

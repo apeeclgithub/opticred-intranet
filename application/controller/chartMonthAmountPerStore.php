@@ -4,13 +4,13 @@
 		$objMonthAmountPerStore = new Chart();
 		$objMonthAmountPerStore->monthAmountPerStore();
 
-		$json[0] = array('Mes', 'Tienda','Monto');
+		$json[0] = array('Tienda','Monto');
 		$i = 1;
 
 		foreach ( (array) $objMonthAmountPerStore as $key ) {
 			foreach ($key as $key2 => $value) {
 
-				$json[$i] = array((int)$value['mes'],$value['tienda'], (int)$value['VEN_TOTAL']);
+				$json[$i] = array($value['tienda'], (int)$value['monto']);
 				$i++;
 			}
 		}

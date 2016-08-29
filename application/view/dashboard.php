@@ -17,14 +17,14 @@
     <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
-          <div class="panel-heading"><strong>Monto Diario por tienda</strong></div>
-          <div class="panel-body"><img src="../../public/img/chart.gif" class="img-responsive center-block"></div>
+          <div class="panel-heading"><strong>Monto Diario Vendido por tienda $</strong></div>
+          <div class="panel-body"><?php include('chartDailyAmountPerStore.php') ?></div>
         </div>
       </div>
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
-          <div class="panel-heading"><strong>Monto Mes Actual por tienda</strong></div>
-          <div class="panel-body"><img src="../../public/img/barr.jpg" class="img-responsive center-block"></div>
+          <div class="panel-heading"><strong>Monto Mes Actual por tienda $</strong></div>
+          <div class="panel-body"><?php include('chartMonthAmountPerStore.php') ?></div>
         </div>
       </div>
     </div>
