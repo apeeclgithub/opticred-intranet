@@ -1,16 +1,17 @@
 <?php include('header.php');?>
 <?php include('nav_menu.php') ?>
 <?php include('userNav.php') ?>
+<script type="text/javascript">window.onload=nuevaVenta();</script>
 <div class="contentMain">
   <legend>Nueva Venta</legend>
   <div class="row">
     <div class="form-group col-xs-6">
-      <label for="">N° Boleta</label>
-      <input type="text" class="form-control" id="">
+      <label for="addSaleNumber">N° Boleta</label>
+      <input type="text" class="form-control" id="addSaleNumber" name="addSaleNumber" disabled="disabled">
     </div>
     <div class="form-group col-xs-4">
       <label for="addSaleDate">Fecha</label>
-      <input type="date" class="form-control" id="addSaleDate" disabled="disabled" >
+      <input type="text" class="form-control" id="addSaleDate" name="addSaleDate" disabled="disabled" >
     </div>
   </div>
   <div class="row">
@@ -25,36 +26,10 @@
  </div>
 <div class=" col-xs-11">
 
-<!-- Modal agregar lentes-->
-  <div class="modal fade" id="addLenteDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog widthAddSailProductDialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Armazones disponibles para venta</h4>
-        </div>
-        <div class="modal-body">
-          <div id="inventorySaleTableReload">
-            <?php require '../controller/ProductTableSale.php'; ?>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<?php var_dump($_SESSION['user'])?>
 
 <legend>Armazones agregados a la venta</legend>
 
-<button type="button" id="buttonAdd1" name="buttonAdd1" class="btn btn-info btn-lg center-block" data-toggle="modal" data-target="#addLenteDialog"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar Armazón</button>
-
-<p>&nbsp;</p><!--phernandez quitar esta mierda de aca y hacerlo con css-->
-<div class=" col-xs-11">
-  <div id="inventoryTableReload">
-    <?php require '../controller/ProductTableSailAdd.php'; ?>
-  </div>
-</div>
 <legend>Lejos</legend>
 <div class="row">
   <div class="form-group col-xs-5">

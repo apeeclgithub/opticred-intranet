@@ -564,3 +564,35 @@ function delInsumo(){
         })
     };
 };
+
+function cambiarTienda(tienda){
+    var params = {
+        'tienda'    : (tienda == 'Quinto')? 'Tercero' : 'Quinto'
+    };
+    $.ajax({
+            url : '../controller/User.php?action=6',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#reloadNav").load('../view/userNav.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Cambio de tienda realizado con exito.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("No se pudo realizar el cambio de tienda.");
+            }
+        })
+}
+
+function nuevaVenta(){
+    $.ajax({
+            url : '../controller/Sale.php?action=1',
+            type : 'post',
+            dataType : 'json'
+        }).done(function(data){
+            $('input[id=addSaleNumber]').val(data.number);
+        }
+    );
+}

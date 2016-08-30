@@ -110,6 +110,17 @@
 		default:
 
 			break;
+
+		case 6:
+
+			$tienda = $_POST['tienda'];
+
+			$json['success'] = $objUser->cambioTienda($_SESSION['user']['id'], $tienda);
+			if($json == true){
+				$_SESSION['user']['store'] = $tienda;
+			}
+		    echo json_encode($json);
+			break;	
 	}
 
 ?>

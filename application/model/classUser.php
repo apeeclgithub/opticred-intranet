@@ -179,6 +179,20 @@
 
 		}
 
+		public function cambioTienda($id, $tienda){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE usuario 
+										SET	usu_store = :tienda
+										WHERE usu_id = :id');
+
+			$sql->bindParam(':id', $id);
+			$sql->bindParam(':tienda', $tienda);
+
+			$this->user = $sql->execute();
+
+			return $this->user;
+		}
 	}
 
 ?>
