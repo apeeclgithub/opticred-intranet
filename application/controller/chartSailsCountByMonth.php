@@ -1,13 +1,13 @@
 		<?php
 
 		require '../model/classChart.php';
-		$objSailsQtyByMonth = new Chart();
-		$objSailsQtyByMonth->sailsQtyByMonth();
+		$objSailsCountByMonth = new Chart();
+		$objSailsCountByMonth->sailsCountByMonth();
 
 		$json[0] = array('Mes','Tercero', 'Quinto');
 		$i = 1;
 
-		foreach ( (array) $objSailsQtyByMonth as $key ) {
+		foreach ( (array) $objSailsCountByMonth as $key ) {
 			foreach ($key as $key2 => $value) {
 
 				if($value['mes'] == '1'){

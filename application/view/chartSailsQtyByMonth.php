@@ -11,20 +11,25 @@
     	}).responseText;
     	
     	dataChartSailsQtyByMonth = JSON.parse(dataChartSailsQtyByMonth);
-    	google.load("visualization", "1", {packages:["columnchart"]});
+    	google.load("visualization", "0", {packages: ['corechart', 'bar']});
       	google.setOnLoadCallback(sailsQtyByMonth);
       
       	function sailsQtyByMonth() {
         	var data = google.visualization.arrayToDataTable(dataChartSailsQtyByMonth);
 
     var options = {
-width: 600, height: 300, is3D: true, title: 'Cantidad de ventas Mensualmente',
-hAxis: {title: 'MESES'},
-        vAxis: {title: 'CANTIDAD'}
+chartArea: {width: '50%'}, is3D: true, title: 'Monto ventas mensuales por tienda ($)',
+    hAxis: {
+      title: 'Monto($)',
+      minValue: 0
+    },
+    vAxis: {
+      title: 'Meses'
+    }
     };
 
 
-        	var chartSailsQtyByMonth = new google.visualization.ColumnChart(document.getElementById('chartSailsQtyByMonth'));
+        	var chartSailsQtyByMonth = new google.visualization.BarChart(document.getElementById('chartSailsQtyByMonth'));
         	chartSailsQtyByMonth.draw(data, options);
       	}
 	</script>

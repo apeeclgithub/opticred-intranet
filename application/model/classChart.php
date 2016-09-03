@@ -67,13 +67,32 @@
 		public function sailsQtyByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT COUNT(*) cantidad,VEN_STORE AS tienda, MONTH(VEN_DATE) as mes FROM venta WHERE YEAR(VEN_DATE) = YEAR(CURDATE()) GROUP BY mes, tienda');
+			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE) as mes,
+										       SUM(case when VEN_STORE=\'Tercero\' then VEN_TOTAL else 0 end) as tercero, 
+										       SUM(case when VEN_STORE=\'Quinto\' then VEN_TOTAL else 0 end) AS quinto
+										FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE)
+										GROUP BY mes');
 
 			$this->chart = $sql->execute();
 			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $this->chart;
-		}	
+		}
+
+		public function sailsCountByMonth(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE) as mes,
+									       SUM(if(VEN_STORE = \'Tercero\', 1, 0)) as tercero, 
+									       SUM(if(VEN_STORE = \'Quinto\', 1, 0)) AS quinto
+									FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE)
+									GROUP BY mes');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->chart;
+		}
 
 		public function listTopTen(){
 

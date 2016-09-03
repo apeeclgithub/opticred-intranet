@@ -42,12 +42,20 @@
         </div>
       </div>
     </div>
+    <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
-          <div class="panel-heading"><strong>Cantidad Ventas Mensuales por tienda</strong></div>
-          <div class="panel-body"><img src="../../public/img/sales.gif" class="img-responsive center-block"></div>
+          <div class="panel-heading"><strong>Monto ventas mensuales por tienda ($)</strong></div>
+          <div class="panel-body"><?php include('chartSailsQtyByMonth.php') ?></div>
         </div>
       </div>
+      <div class="form-group col-xs-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><strong>N° de ventas mensuales por tienda</strong></div>
+          <div class="panel-body"><?php include('chartSailsCountByMonth.php') ?></div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
@@ -55,22 +63,20 @@
           <div class="panel-body"><?php include('chartTopTenProduct.php') ?></div>
         </div>
       </div>
-    </div>
-    <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Ventas realizadas por captador</strong></div>
           <div class="panel-body"><?php include('chartSellerTotalSails.php') ?></div>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Comisión ganada por captador</strong></div>
           <div class="panel-body"><?php include('chartSellerComission.php') ?></div>
         </div>
       </div>
-    </div>
-    <div class="row">
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Monto Comisión Pendiente Por Captador</strong></div>
