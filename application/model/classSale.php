@@ -20,6 +20,26 @@
 
 		}
 
+		public function getDate(){
+
+			$year = date("Y");
+			$month = date("m");
+
+			if(date("H")>5){
+				$day = date("d");
+				$hour = date("H")-5;
+			}else{
+				$day = date("d")-1;
+				$hour = date("H")+19;
+			}
+
+			$min = date("i");
+
+
+			return $day."-".$month."-".$year." ".$hour.":".$min;
+
+		}
+
 	}
 
 ?>

@@ -34,7 +34,7 @@
 			$year = date("Y-");
 			$month = date("m-");
 
-			if(date("G")>4){
+			if(date("H")>5){
 				$day = date("d");
 			}else{
 				$day = date("d")-1;

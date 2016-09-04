@@ -584,6 +584,10 @@ function cambiarTienda(tienda){
                 alertify.error("No se pudo realizar el cambio de tienda.");
             }
         })
+
+        setTimeout(function(){
+            location.reload();
+        },2000);
 }
 
 function nuevaVenta(){
@@ -593,6 +597,7 @@ function nuevaVenta(){
             dataType : 'json'
         }).done(function(data){
             $('input[id=addSaleNumber]').val(data.number);
+            $('input[id=addSaleDate]').val(data.date);
         }
     );
 }

@@ -9,13 +9,15 @@
 
 		case 1:
 
-			$objSale->maxNumber('Tercero');
+			$objSale->maxNumber($_SESSION['user']['store']);
 
 			foreach ( (array) $objSale as $key ) {
 				foreach ($key as $key2 => $value) {
 					$json['number'] = intval($value['max']);
 				}
 			}
+
+			$json['date'] = $objSale->getDate();
 			
 			echo json_encode($json);
 
