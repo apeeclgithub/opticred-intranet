@@ -26,7 +26,7 @@
  </div>
 <div class=" col-xs-11">
 
-<?php var_dump($_SESSION['user'])?>
+<!--<?php var_dump($_SESSION['user'])?>-->
 
 <legend>Armazones agregados a la venta</legend>
 
