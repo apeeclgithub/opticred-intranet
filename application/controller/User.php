@@ -121,6 +121,37 @@
 			}
 		    echo json_encode($json);
 			break;	
+
+		case 7:
+
+			$rutRecover = $_POST['rutRecover'];
+
+			$json['success'] = $objUser->recoverPasword($rutRecover);
+
+			if($json['success'] == true){
+
+				echo "armar correo";
+				//http://localhost:8080/github%20apee/opticred-intranet/application/controller/User.php?action=7&rutRecover=123
+				$to      = 'mario.meneses.a@gmail.com';
+				$subject = 'Recuperar Contraseña';
+				$message = 'La contraseña del usuario con rut: es ';
+				$headers = 'From: webmaster@example.com' . "\r\n" .
+				    'Reply-To: webmaster@example.com' . "\r\n" .
+				    'X-Mailer: PHP/' . phpversion();
+
+				$sentmail = mail($to, $subject, $message, $headers);
+				
+				if($sentmail==1)
+				{
+					$json['success'] = true;
+				}else{
+					$json['success'] = false;
+				}
+			}
+
+
+		    echo json_encode($json);
+		break;	
 	}
 
 ?>

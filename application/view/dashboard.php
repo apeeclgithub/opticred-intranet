@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <!-- Fixed navbar -->
 	<!--   <div class="stickNav">  <div class="btn-group stickNavButton" role="group">
     <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,9 +80,11 @@
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
           <div class="panel-heading"><strong>Monto Comisión Pendiente Por Captador</strong></div>
-          <div class="panel-body"><img src="../../public/img/barra.png" class="img-responsive center-block"></div>
+          <div class="panel-body">CAPTADOR 1: $123123123</div>
+          <div class="panel-body">CAPTADOR 1: $123123123</div>
+          <div class="panel-body">CAPTADOR 1: $123123123</div>
         </div>
       </div>
     </div>
   </div>
-  <?php include('footer.php') ?>
+  <?php include('footer.php'); ?>

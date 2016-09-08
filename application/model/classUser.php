@@ -193,6 +193,43 @@
 
 			return $this->user;
 		}
+
+		public function recoverPasword($rutRecover){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT 	USU_RUT,
+												USU_MAIL,
+												USU_PASS,
+												USU_NAME
+										FROM 	usuario 
+										WHERE 	USU_RUT = :userRut');
+
+			$sql->bindParam(':userRut', $rutRecover);
+
+			$this->user = $sql->execute();
+			$this->user = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->user;
+		}
+
+		public function send_mail($email,$message,$subject){      
+			require_once('mailer/class.phpmailer.php');
+			$mail = new PHPMailer();
+			$mail->IsSMTP(); 
+			$mail->SMTPDebug  = 0;                     
+			$mail->SMTPAuth   = true;                  
+			$mail->SMTPSecure = "ssl";                 
+			$mail->Host       = "smtp.gmail.com";      
+			$mail->Port       = 465;             
+			$mail->AddAddress($email);
+			$mail->Username="yourgmailid@gmail.com";  
+			$mail->Password="yourgmailpassword";            
+			$mail->SetFrom('you@yourdomain.com','Coding Cage');
+			$mail->AddReplyTo("you@yourdomain.com","Coding Cage");
+			$mail->Subject    = $subject;
+			$mail->MsgHTML($message);
+			$mail->Send();
+		} 
 	}
 
 ?>

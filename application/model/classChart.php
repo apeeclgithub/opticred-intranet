@@ -12,7 +12,7 @@
 			$sql = $objConn->prepare('SELECT SUM(VEN_TOTAL) AS monto,
 										       VEN_STORE AS tienda
 										FROM venta
-										WHERE VEN_DATE = CURDATE()
+										WHERE VEN_DATE_CREATE = CURDATE()
 										GROUP BY VEN_STORE');
 
 			$this->chart = $sql->execute();
@@ -25,8 +25,8 @@
 			$sql = $objConn->prepare(' SELECT SUM(VEN_TOTAL) AS monto,
 										 VEN_STORE AS tienda
 										FROM venta
-										WHERE MONTH(VEN_DATE) = MONTH(CURDATE())
-										GROUP BY MONTH(VEN_DATE),
+										WHERE MONTH(VEN_DATE_CREATE) = MONTH(CURDATE())
+										GROUP BY MONTH(VEN_DATE_CREATE),
 										         VEN_STORE');
 
 			$this->chart = $sql->execute();
@@ -39,7 +39,7 @@
 			$sql = $objConn->prepare('	SELECT COUNT(*) AS cantidad,
 										       VEN_STORE AS tienda
 										FROM venta
-										WHERE VEN_DATE = CURDATE()
+										WHERE VEN_DATE_CREATE = CURDATE()
 										GROUP BY VEN_STORE');
 
 			$this->chart = $sql->execute();
@@ -54,8 +54,8 @@
 			$sql = $objConn->prepare('	SELECT COUNT(*) AS cantidad,
 										 VEN_STORE AS tienda
 										FROM venta
-										WHERE MONTHNAME(VEN_DATE) = MONTH(CURDATE())
-										GROUP BY MONTH(VEN_DATE),
+										WHERE MONTHNAME(VEN_DATE_CREATE) = MONTH(CURDATE())
+										GROUP BY MONTH(VEN_DATE_CREATE),
 										         VEN_STORE');
 
 			$this->chart = $sql->execute();
@@ -67,10 +67,10 @@
 		public function sailsQtyByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE) as mes,
+			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE_CREATE) as mes,
 										       SUM(case when VEN_STORE=\'Tercero\' then VEN_TOTAL else 0 end) as tercero, 
 										       SUM(case when VEN_STORE=\'Quinto\' then VEN_TOTAL else 0 end) AS quinto
-										FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE)
+										FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE_CREATE)
 										GROUP BY mes');
 
 			$this->chart = $sql->execute();
@@ -82,10 +82,10 @@
 		public function sailsCountByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE) as mes,
+			$sql = $objConn->prepare('  SELECT MONTH(VEN_DATE_CREATE) as mes,
 									       SUM(if(VEN_STORE = \'Tercero\', 1, 0)) as tercero, 
 									       SUM(if(VEN_STORE = \'Quinto\', 1, 0)) AS quinto
-									FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE)
+									FROM venta WHERE YEAR(CURDATE())=YEAR(VEN_DATE_CREATE)
 									GROUP BY mes');
 
 			$this->chart = $sql->execute();

@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <div class="contentMain">
 	<script type="text/javascript" language="javascript">
 	$(document).ready(function() {
@@ -84,4 +84,4 @@
 		</div>
 	</div>
 </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

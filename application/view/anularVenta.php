@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <!-- Fixed navbar -->
 	<!--   <div class="stickNav">  <div class="btn-group stickNavButton" role="group">
     <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,4 +83,4 @@
       </div>
     </div>
   </div>
-  <?php include('footer.php') ?>
+  <?php include('footer.php'); ?>

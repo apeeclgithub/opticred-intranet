@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <div class="contentMain">
 	<div>
 		<form class="form-horizontal">
@@ -114,4 +114,4 @@
 		</div>
 	</div>
 </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

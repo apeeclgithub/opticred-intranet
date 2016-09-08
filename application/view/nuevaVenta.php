@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <script type="text/javascript">window.onload=nuevaVenta();</script>
 <div class="contentMain">
   <legend>Nueva Venta</legend>
@@ -171,4 +171,4 @@
       </div>
     </div>
   </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

@@ -50,9 +50,9 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-user"></i>
 							</span>
-							<input class="form-control" placeholder="Rut" name="rut" type="rut" >
+							<input class="form-control" id="rutRecover" placeholder="Rut" name="rutRecover" type="rutRecover" >
 						</div>
-						<button type="submit" class="btn btn-primary btn-block" id="btn-olvidado">
+						<button type="submit" onclick="recoverPasword()" class="btn btn-primary btn-block" id="btn-olvidado">
 							Continuar
 						</button>
 						<p class="help-block">
@@ -65,4 +65,4 @@
 		</div>
 	</div>
 </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

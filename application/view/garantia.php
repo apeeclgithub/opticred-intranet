@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php') ;?>
   <div class="contentMain">
       <legend>Garantía</legend>
       <div class="row">
@@ -182,4 +182,4 @@
     </div>
     <br><br><br> 
   </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

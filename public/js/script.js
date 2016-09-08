@@ -588,7 +588,7 @@ function cambiarTienda(tienda){
         setTimeout(function(){
             location.reload();
         },2000);
-}
+};
 
 function nuevaVenta(){
     $.ajax({
@@ -600,4 +600,28 @@ function nuevaVenta(){
             $('input[id=addSaleDate]').val(data.date);
         }
     );
-}
+};
+
+function goBack() {
+    window.history.back();
+};
+
+function recoverPasword(){
+    var params = {
+        'rutRecover'    : $('input[id=rutRecover]').val()
+    };
+        $.ajax({
+            url : '../controller/User.php?action=7',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Se ha enviado e-mail con la contraseña.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Rut inválido.");
+            }
+        })
+    };

@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <div class="contentMain">
   <legend>Venta Finalizada</legend>
   <div class="row">
@@ -183,4 +183,4 @@
 <button type="button" class="btn btn-danger">Volver</button>
 <br><br><br> 
 </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

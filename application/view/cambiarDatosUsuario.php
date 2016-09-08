@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 	    <!-- Fixed navbar -->
 	<!--   <div class="stickNav">  <div class="btn-group stickNavButton" role="group">
     <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
           <label class="col-md-4 control-label" for="button1id"></label>
           <div class="col-md-8">
             <button  type="button" id="button1id" name="button1id" class="btn btn-success" data-toggle="modal" data-target="#updateDataConfirmDialog">Modificar Datos</button>
-            <button type="button" class="btn btn-danger">Volver</button>
+            <button type="button" onclick="goBack()" class="btn btn-danger">Volver</button>
           </div>
         </div>
       </fieldset>
@@ -79,4 +79,4 @@
       </div>
     </div>
   </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>

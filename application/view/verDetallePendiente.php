@@ -1,6 +1,6 @@
 <?php include('header.php');?>
-<?php include('nav_menu.php') ?>
-<?php include('userNav.php') ?>
+<?php include('nav_menu.php'); ?>
+<?php include('userNav.php'); ?>
 <div class="contentMain">
   <legend>Venta Pendiente</legend>
   <p><h3><u>Si desea guardar los cambios debe presionar el botón Actualizar que se encuentra al final de la página</u></h3><p>
@@ -208,4 +208,4 @@
       </div>
     </div>
   </div>
-<?php include('footer.php') ?>
+<?php include('footer.php'); ?>
