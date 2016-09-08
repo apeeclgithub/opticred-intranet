@@ -35,8 +35,7 @@
 
 			$min = date("i");
 
-
-			return $day."-".$month."-".$year." ".$hour.":".$min;
+			return $day."-".$month."-".$year." ".$hour.":".$min ;
 
 		}
 
