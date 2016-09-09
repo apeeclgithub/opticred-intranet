@@ -120,27 +120,34 @@
 
 		case 7:
 
-			$rutRecover = $_POST['rutRecover'];
+			$rutRecover = $_GET['rutRecover'];
 
 			$json['success'] = $objUser->recoverPasword($rutRecover);
-			$send = true;
 			if($json['success'] == true){
 
-				//http://localhost:8080/github%20apee/opticred-intranet/application/controller/User.php?action=7&rutRecover=123
+				foreach ( (array) $objUser as $key ) {
+				foreach ($key as $key2 => $value) {
+					$mail = $value['USU_MAIL'];
+					$password = $value['USU_PASS'];
+				}
+			}
+
+
 				$to      = 'mario.meneses.a@gmail.com';
-				$subject = 'Recuperar Contraseña';
-				$message = 'La contraseña del usuario con rut: es ';
-				$headers = 'From: webmaster@example.com' . "\r\n" .
-				    'Reply-To: webmaster@example.com' . "\r\n" .
+				$subject = 'Recuperar Contraseña Optic-Red';
+				$message = 'La contraseña del usuario de Optic-Red: es '.$password;
+				$headers = 'From: Optic-Red'.'' . "\r\n" .
 				    'X-Mailer: PHP/' . phpversion();
 
 				$sentmail = @mail($to, $subject, $message, $headers);
 				
 				if(!$sentmail)
 				{
+					$json['msg'] = 'No se pudo enviar el mensaje';
 					$json['success'] = false;
 				}else{
 					$json['success'] = true;
+          			 $json['msg'] = 'Mensaje enviado exitosamente.';
 				}
 			}
 
