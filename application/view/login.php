@@ -39,7 +39,7 @@
 				<h4 class="">
 					¿Olvidó su contraseña?
 				</h4>
-				<form accept-charset="UTF-8" role="form" id="login-recordar" method="post">
+				<div accept-charset="UTF-8" role="form" id="login-recordar" method="post">
 					<fieldset>
 						<span class="help-block">
 							Ingrese Rut que utiliza para iniciar sesión.
@@ -50,7 +50,7 @@
 							<span class="input-group-addon">
 								<i class="glyphicon glyphicon-user"></i>
 							</span>
-							<input class="form-control" id="rutRecover" placeholder="Rut" name="rutRecover" type="rutRecover" >
+							<input class="form-control" id="rutRecover" placeholder="Rut" name="rutRecover" type="text" >
 						</div>
 						<button type="submit" onclick="recoverPasword()" class="btn btn-primary btn-block" id="btn-olvidado">
 							Continuar
@@ -60,7 +60,7 @@
 
 						</p>
 					</fieldset>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>

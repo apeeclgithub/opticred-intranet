@@ -653,7 +653,7 @@ function recoverPasword(){
                 alertify.error("Se ha enviado e-mail con la contraseña.");
             }else{
                 alertify.set('notifier','position', 'top-right');
-                alertify.error("Rut inválido.");
+                alertify.error("Error al enviar correo.");
             }
         })
     };

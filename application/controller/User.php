@@ -107,10 +107,6 @@
 
 			break;	
 
-		default:
-
-			break;
-
 		case 6:
 
 			$tienda = $_POST['tienda'];
@@ -127,10 +123,9 @@
 			$rutRecover = $_POST['rutRecover'];
 
 			$json['success'] = $objUser->recoverPasword($rutRecover);
-
+			$send = true;
 			if($json['success'] == true){
 
-				echo "armar correo";
 				//http://localhost:8080/github%20apee/opticred-intranet/application/controller/User.php?action=7&rutRecover=123
 				$to      = 'mario.meneses.a@gmail.com';
 				$subject = 'Recuperar Contraseña';
@@ -139,19 +134,23 @@
 				    'Reply-To: webmaster@example.com' . "\r\n" .
 				    'X-Mailer: PHP/' . phpversion();
 
-				$sentmail = mail($to, $subject, $message, $headers);
+				$sentmail = @mail($to, $subject, $message, $headers);
 				
-				if($sentmail==1)
+				if(!$sentmail)
 				{
-					$json['success'] = true;
-				}else{
 					$json['success'] = false;
+				}else{
+					$json['success'] = true;
 				}
 			}
 
 
 		    echo json_encode($json);
 		break;	
+
+		default:
+
+		break;
 	}
 
 ?>
