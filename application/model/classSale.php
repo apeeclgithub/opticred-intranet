@@ -6,14 +6,14 @@
 
 		private $sale;
 
-		public function addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura){
+		public function addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venTotal, $venSaldo){
 
 			$dia = $this->getDia();
 			$hora = $this->getHora();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO venta (ven_correlative, ven_store, ven_name, ven_phone, ven_date_create, ven_hour, ven_cristal, ven_altura) 
-										VALUES (:venNumber, :venStore, :venClient, :venPhone, :venDay, :venHour, :venCristal, :venAltura)');
+			$sql = $objConn->prepare('	INSERT INTO venta (ven_correlative, ven_store, ven_name, ven_phone, ven_date_create, ven_hour, ven_cristal, ven_altura, ven_total, ven_saldo) 
+										VALUES (:venNumber, :venStore, :venClient, :venPhone, :venDay, :venHour, :venCristal, :venAltura, :venTotal, :venSaldo)');
 		
 			$sql->bindParam(':venNumber', $venNumber);
 			$sql->bindParam(':venDay', $dia);
@@ -23,6 +23,8 @@
 			$sql->bindParam(':venPhone', $venPhone);
 			$sql->bindParam(':venCristal', $venCristal);
 			$sql->bindParam(':venAltura', $venAltura);
+			$sql->bindParam(':venTotal', $venTotal);
+			$sql->bindParam(':venSaldo', $venSaldo);
 
 			$this->sale = $sql->execute();
 

@@ -612,9 +612,10 @@ function agregarVenta(){
         'addSaleClient'    : $('input[id=addSaleClient]').val(),
         'addSalePhono'    : $('input[id=addSalePhono]').val(),
         'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
-        'addSaleAltura'    : $('input[id=addSaleAltura]').val()
+        'addSaleAltura'    : $('input[id=addSaleAltura]').val(),
+        'addSaleTotal'    : $('input[id=addSaleTotal]').val(),
+        'addSaleSaldo'    : $('input[id=addSaleSaldo]').val()
     };
-    //alert(params['addSaleStore']);
     $.ajax({
         url : '../controller/Sale.php?action=2',
         type : 'post',

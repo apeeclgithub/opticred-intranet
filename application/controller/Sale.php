@@ -32,8 +32,10 @@
 			$venPhone  = $_POST['addSalePhono'];
 			$venCristal  = $_POST['addSaleCristal'];
 			$venAltura  = $_POST['addSaleAltura'];
+			$venTotal  = $_POST['addSaleTotal'];
+			$venSaldo  = $_POST['addSaleSaldo'];
 
-			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura);
+			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venTotal, $venSaldo);
  
 			/*if($json['success'] != true){
 				$json['success'] = $objUser->activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
