@@ -25,6 +25,82 @@
      <input type="text" class="form-control" id="addSalePhono" name="addSalePhono" >  
    </div>    
  </div>
+
+ <legend>Lejos</legend>
+  <div class="row">
+    <div class="form-group col-xs-4">
+      <label for="comment">Lejos D. Interp (N/M):</label>
+      <input type="text" class="form-control" id="comment" >
+    </div> 
+    <div class="form-group col-xs-2">
+     <label for="">Od. Esf:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>
+   <div class="form-group col-xs-2">
+     <label for="">Cil:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>
+   <div class="form-group col-xs-2">
+     <label for="">Eje:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>
+  </div>
+  <div class="row">
+   <div class="form-group col-xs-4">
+     <label for="">Seleccione un marco:</label>
+     <div id="productCerca"><?php require '../controller/ProductSelectCerca.php'; ?></div>  
+   </div>
+   <div class="form-group col-xs-2">
+     <label for="">Od. Esf:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>
+   <div class="form-group col-xs-2">
+     <label for="">Cil:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>
+   <div class="form-group col-xs-2">
+     <label for="">Eje:</label>
+     <input type="text" class="form-control" id="" >  
+   </div>  
+  </div>
+  <legend>Cerca</legend>
+    <div class="row">
+      <div class="form-group col-xs-4">
+        <label for="comment">Cerca D. Interp (N/M):</label>
+        <input class="form-control" id="comment" >
+      </div> 
+      <div class="form-group col-xs-2">
+       <label for="">Od. Esf:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>
+     <div class="form-group col-xs-2">
+       <label for="">Cil:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>
+     <div class="form-group col-xs-2">
+       <label for="">Eje:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-4">
+       <label for="">Seleccione un marco:</label>
+       <div id="productCerca"><?php require '../controller/ProductSelectLejos.php'; ?></div>  
+     </div>
+     <div class="form-group col-xs-2">
+       <label for="">Od. Esf:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>
+     <div class="form-group col-xs-2">
+       <label for="">Cil:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>
+     <div class="form-group col-xs-2">
+       <label for="">Eje:</label>
+       <input type="text" class="form-control" id="" >  
+     </div>  
+    </div>
+
  <legend>Montos</legend> 
   <div class="row">
     <div class="form-group col-xs-3">
