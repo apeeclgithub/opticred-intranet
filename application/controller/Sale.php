@@ -4,6 +4,7 @@
 	require '../model/classSale.php';
 
 	$objSale= new Sale();
+	$json['success'] = false; 
 
 	switch (@$_GET['action']) {
 
@@ -18,6 +19,25 @@
 			}
 
 			$json['date'] = $objSale->getDate();
+			
+			echo json_encode($json);
+
+			break;
+
+		case 2:
+			
+			$venNumber  = $_POST['addSaleNumber'];
+			$venStore  = $_POST['addSaleStore'];
+			$venClient  = $_POST['addSaleClient'];
+			$venPhone  = $_POST['addSalePhono'];
+			$venCristal  = $_POST['addSaleCristal'];
+			$venAltura  = $_POST['addSaleAltura'];
+
+			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura);
+ 
+			/*if($json['success'] != true){
+				$json['success'] = $objUser->activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
+			}*/
 			
 			echo json_encode($json);
 

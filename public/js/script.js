@@ -597,9 +597,41 @@ function nuevaVenta(){
             dataType : 'json'
         }).done(function(data){
             $('input[id=addSaleNumber]').val(data.number);
-            $('input[id=addSaleDate]').val(data.date);
+            $('input[id=addSaleDateCreate]').val(data.date);
+            $('input[id=addSaleTotal]').val(0);
+            $('input[id=addSaleAbono]').val(0);
+            $('input[id=addSaleSaldo]').val(0);
         }
     );
+};
+
+function agregarVenta(){
+    var params = {
+        'addSaleNumber'    : $('input[id=addSaleNumber]').val(),
+        'addSaleStore'    : $('input[id=addSaleStore]').val(),
+        'addSaleClient'    : $('input[id=addSaleClient]').val(),
+        'addSalePhono'    : $('input[id=addSalePhono]').val(),
+        'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
+        'addSaleAltura'    : $('input[id=addSaleAltura]').val()
+    };
+    //alert(params['addSaleStore']);
+    $.ajax({
+        url : '../controller/Sale.php?action=2',
+        type : 'post',
+        data : params,
+        dataType : 'json'
+    }).done(function(data){
+        if(data.success==true){
+            alertify.set('notifier','position', 'top-right');
+            alertify.success("Se ha generado la venta exitosamente.");
+            setTimeout(function(){
+                location.reload();
+            },2000);
+        }else{
+            alertify.set('notifier','position', 'top-right');
+            alertify.error("No se pudo concretar la venta.");
+        }
+    });
 };
 
 function goBack() {
