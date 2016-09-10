@@ -119,39 +119,31 @@
 			break;	
 
 		case 7:
-
 			$rutRecover = $_GET['rutRecover'];
 
 			$json['success'] = $objUser->recoverPasword($rutRecover);
-			if($json['success'] == true){
-
-				foreach ( (array) $objUser as $key ) {
+							foreach ( (array) $objUser as $key ) {
 				foreach ($key as $key2 => $value) {
 					$mail = $value['USU_MAIL'];
 					$password = $value['USU_PASS'];
 				}
 			}
 
-
 				$to      = 'mario.meneses.a@gmail.com';
-				$subject = 'Recuperar Contraseña Optic-Red';
-				$message = 'La contraseña del usuario de Optic-Red: es '.$password;
-				$headers = 'From: Optic-Red'.'' . "\r\n" .
+				$subject = 'Recuperar Password';
+				$message = 'El password para ingresar al sistema de Optic-Red es: ';
+				$headers = 'From: Optic-Red' . "\r\n" .
+				    'Reply-To: webmaster@example.com' . "\r\n" .
 				    'X-Mailer: PHP/' . phpversion();
 
-				$sentmail = @mail($to, $subject, $message, $headers);
-				
+				$sentmail= @mail($to, $subject, $message, $headers);
+
 				if(!$sentmail)
 				{
-					$json['msg'] = 'No se pudo enviar el mensaje';
 					$json['success'] = false;
 				}else{
 					$json['success'] = true;
-          			 $json['msg'] = 'Mensaje enviado exitosamente.';
 				}
-			}
-
-
 		    echo json_encode($json);
 		break;	
 
