@@ -105,11 +105,11 @@
   <div class="row">
     <div class="form-group col-xs-3">
      <label for="addSaleTotal">Total:</label>
-     <input type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" >  
+     <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" >  
    </div>
     <div class="form-group col-xs-4">
      <label for="addSaleAbono">Abono:</label>
-     <input type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
+     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
    </div>
     <div class="form-group col-xs-3">
      <label for="addSaleSaldo">Saldo:</label>

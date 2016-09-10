@@ -605,6 +605,10 @@ function nuevaVenta(){
     );
 };
 
+function totales(){
+    $('input[id=addSaleSaldo]').val($('input[id=addSaleTotal]').val()-$('input[id=addSaleAbono]').val());
+}
+
 function agregarVenta(){
     var params = {
         'addSaleNumber'    : $('input[id=addSaleNumber]').val(),
