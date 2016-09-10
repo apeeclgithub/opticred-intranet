@@ -29,8 +29,8 @@
  <legend>Lejos</legend>
   <div class="row">
     <div class="form-group col-xs-4">
-      <label for="comment">Lejos D. Interp (N/M):</label>
-      <input type="text" class="form-control" id="comment" >
+      <label for="addSaleLejos">Lejos D. Interp (N/M):</label>
+      <input type="text" class="form-control" id="addSalePhono" name="addSalePhono" >
     </div> 
     <div class="form-group col-xs-2">
      <label for="">Od. Esf:</label>
