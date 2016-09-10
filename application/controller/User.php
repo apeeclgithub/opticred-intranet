@@ -124,11 +124,15 @@
 			$objUser->recoverPasword($rutRecover);
 							foreach ( (array) $objUser as $key ) {
 				foreach ($key as $key2 => $value) {
-				//	$mail = ;
-				//	$password = $value['USU_PASS'];
+					$mail = $value['USU_MAIL'];
+					$password = $value['USU_PASS'];
+
+					
+				}
+			}
 				$to      = 'mario.meneses.a@gmail.com';
 				$subject = 'Recuperar Password';
-				$message = 'El password para ingresar al sistema de Optic-Red es: '.$value['USU_MAIL']."\n"."\n".'test';
+				$message = 'El password para ingresar al sistema de Optic-Red es: '.$mail."\n"."\n".'test';
 				$headers = 'From: Optic-Red' . "\r\n" .
 				    'X-Mailer: PHP/' . phpversion();
 
@@ -140,10 +144,6 @@
 				}else{
 					$json['success'] = true;
 				}
-
-				}
-			}
-
 		    echo json_encode($json);
 		break;	
 
