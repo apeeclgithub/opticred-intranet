@@ -127,12 +127,12 @@
 					$mail = $value['USU_MAIL'];
 					$password = $value['USU_PASS'];
 
-					
+
 				}
 			}
-				$to      = 'mario.meneses.a@gmail.com';
+				$to      = $mail;
 				$subject = 'Recuperar Password';
-				$message = 'El password para ingresar al sistema de Optic-Red es: '.$mail."\n"."\n".'test';
+				$message = 'El password para ingresar al sistema de Optic-Red es: '."\n"."\n".$password."\n"."\n".'';
 				$headers = 'From: Optic-Red' . "\r\n" .
 				    'X-Mailer: PHP/' . phpversion();
 

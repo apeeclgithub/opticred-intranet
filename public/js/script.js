@@ -655,10 +655,10 @@ function recoverPasword(){
         }).done(function(data){
             if(data.success==true){
                 alertify.set('notifier','position', 'top-right');
-                alertify.success("Se ha enviado e-mail con la contraseña.");
+                alertify.success("Se ha enviado e-mail asociado al rut con la contraseña correspondiente.");
             }else{
                 alertify.set('notifier','position', 'top-right');
-                alertify.error("Error al enviar correo.");
+                alertify.error("Datos inválidos.");
             }
         })
     };
