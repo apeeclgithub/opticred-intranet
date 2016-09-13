@@ -618,7 +618,21 @@ function agregarVenta(){
         'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
         'addSaleAltura'    : $('input[id=addSaleAltura]').val(),
         'addSaleTotal'    : $('input[id=addSaleTotal]').val(),
-        'addSaleSaldo'    : $('input[id=addSaleSaldo]').val()
+        'addSaleSaldo'    : $('input[id=addSaleSaldo]').val(),
+        'lejos_l_1'    : $('input[id=lejos_l_1]').val(),
+        'lejos_o_1'    : $('input[id=lejos_o_1]').val(),
+        'lejos_c_1'    : $('input[id=lejos_c_1]').val(),
+        'lejos_e_1'    : $('input[id=lejos_e_1]').val(),
+        'lejos_o_2'    : $('input[id=lejos_o_2]').val(),
+        'lejos_c_2'    : $('input[id=lejos_c_2]').val(),
+        'lejos_e_2'    : $('input[id=lejos_e_2]').val(),
+        'cerca_l_1'    : $('input[id=cerca_l_1]').val(),
+        'cerca_o_1'    : $('input[id=cerca_o_1]').val(),
+        'cerca_c_1'    : $('input[id=cerca_c_1]').val(),
+        'cerca_e_1'    : $('input[id=cerca_e_1]').val(),
+        'cerca_o_2'    : $('input[id=cerca_o_2]').val(),
+        'cerca_c_2'    : $('input[id=cerca_c_2]').val(),
+        'cerca_e_2'    : $('input[id=cerca_e_2]').val()
     };
     $.ajax({
         url : '../controller/Sale.php?action=2',

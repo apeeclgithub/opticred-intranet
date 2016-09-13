@@ -29,75 +29,75 @@
  <legend>Lejos</legend>
   <div class="row">
     <div class="form-group col-xs-4">
-      <label for="addSaleLejos">Lejos D. Interp (N/M):</label>
-      <input type="text" class="form-control" id="addSalePhono" name="addSalePhono" >
+      <label for="lejos_l_1">Lejos D. Interp (N/M):</label>
+      <input type="text" class="form-control" id="lejos_l_1" name="lejos_l_1" >
     </div> 
     <div class="form-group col-xs-2">
-     <label for="">Od. Esf:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_o_1">Od. Esf:</label>
+     <input type="text" class="form-control" id="lejos_o_1" name="lejos_o_1" >  
    </div>
    <div class="form-group col-xs-2">
-     <label for="">Cil:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_c_1">Cil:</label>
+     <input type="text" class="form-control" id="lejos_c_1" name="lejos_c_1" >  
    </div>
    <div class="form-group col-xs-2">
-     <label for="">Eje:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_e_1">Eje:</label>
+     <input type="text" class="form-control" id="lejos_e_1" name="lejos_e_1" >  
    </div>
   </div>
   <div class="row">
    <div class="form-group col-xs-4">
-     <label for="">Seleccione un marco:</label>
-     <div id="productCerca"><?php require '../controller/ProductSelectCerca.php'; ?></div>  
+     <label for="addSaleProductLejos">Seleccione un marco:</label>
+     <div id="productLejos"><?php require '../controller/ProductSelectLejos.php'; ?></div>  
    </div>
    <div class="form-group col-xs-2">
-     <label for="">Od. Esf:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_o_2">Od. Esf:</label>
+     <input type="text" class="form-control" id="lejos_o_2" name="lejos_o_2" >  
    </div>
    <div class="form-group col-xs-2">
-     <label for="">Cil:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_c_2">Cil:</label>
+     <input type="text" class="form-control" id="lejos_c_2" name="lejos_c_2" >  
    </div>
    <div class="form-group col-xs-2">
-     <label for="">Eje:</label>
-     <input type="text" class="form-control" id="" >  
+     <label for="lejos_e_2">Eje:</label>
+     <input type="text" class="form-control" id="lejos_e_2" name="lejos_e_2" >  
    </div>  
   </div>
   <legend>Cerca</legend>
     <div class="row">
       <div class="form-group col-xs-4">
-        <label for="comment">Cerca D. Interp (N/M):</label>
-        <input class="form-control" id="comment" >
+        <label for="cerca_l_1">Cerca D. Interp (N/M):</label>
+        <input class="form-control" id="cerca_l_1" name="cerca_l_1" >
       </div> 
       <div class="form-group col-xs-2">
-       <label for="">Od. Esf:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_o_1">Od. Esf:</label>
+       <input type="text" class="form-control" id="cerca_o_1" name="cerca_o_1" >  
      </div>
      <div class="form-group col-xs-2">
-       <label for="">Cil:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_c_1">Cil:</label>
+       <input type="text" class="form-control" id="cerca_c_1" name="cerca_c_1" >  
      </div>
      <div class="form-group col-xs-2">
-       <label for="">Eje:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_e_1">Eje:</label>
+       <input type="text" class="form-control" id="cerca_e_1" name="cerca_e_1" >  
      </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-4">
        <label for="">Seleccione un marco:</label>
-       <div id="productCerca"><?php require '../controller/ProductSelectLejos.php'; ?></div>  
+       <div id="productCerca"><?php require '../controller/ProductSelectCerca.php'; ?></div>  
      </div>
      <div class="form-group col-xs-2">
-       <label for="">Od. Esf:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_o_2">Od. Esf:</label>
+       <input type="text" class="form-control" id="cerca_o_2" name="cerca_o_2">  
      </div>
      <div class="form-group col-xs-2">
-       <label for="">Cil:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_c_2">Cil:</label>
+       <input type="text" class="form-control" id="cerca_c_2" name="cerca_c_2" >  
      </div>
      <div class="form-group col-xs-2">
-       <label for="">Eje:</label>
-       <input type="text" class="form-control" id="" >  
+       <label for="cerca_e_2">Eje:</label>
+       <input type="text" class="form-control" id="cerca_e_2" name="cerca_e_2" >  
      </div>  
     </div>
 
@@ -132,7 +132,13 @@
    <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
  </div>
  </div>  
-
+ <legend>Captador/es</legend>
+ <div class="row">
+   <div class="form-group col-xs-3">
+   <label for="addSaleDateFinish">Captador 1</label>
+   <input type="text" class="form-control" id="addSaleDateFinish" name="addSaleDateFinish" disabled="disabled" >  
+  </div> 
+ </div>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Finalizar Venta</button>
 <button type="button" class="btn btn-danger">Limpiar</button>
 <br><br><br> 

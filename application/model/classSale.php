@@ -32,6 +32,28 @@
 
 		}
 
+		public function addDetail($venNumber, $lejos_l_1, $lejos_o_1, $lejos_c_1, $lejos_e_1, $lejos_o_2, $lejos_c_2, $lejos_e_2, $tipo){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	INSERT INTO detalle (ven_id, ven_l, ven_o_1, ven_c_1, ven_e_1, ven_o_2, ven_c_2, ven_e_2, det_tipo) 
+										VALUES (:venNumber, :lejos_l_1, :lejos_o_1, :lejos_c_1, :lejos_e_1, :lejos_o_2, :lejos_c_2, :lejos_e_2, :tipo)');
+		
+			$sql->bindParam(':venNumber'	, $venNumber);
+			$sql->bindParam(':lejos_l_1'	, $lejos_l_1);
+			$sql->bindParam(':lejos_o_1'	, $lejos_o_1);
+			$sql->bindParam(':lejos_c_1'	, $lejos_c_1);
+			$sql->bindParam(':lejos_e_1'	, $lejos_e_1);
+			$sql->bindParam(':lejos_o_2'	, $lejos_o_2);
+			$sql->bindParam(':lejos_c_2'	, $lejos_c_2);
+			$sql->bindParam(':lejos_e_2'	, $lejos_e_2);
+			$sql->bindParam(':tipo'	, $tipo);
+
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+
 		public function maxNumber($store){
 
 			$objConn = new Database();
