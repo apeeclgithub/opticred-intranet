@@ -126,6 +126,14 @@
 </div>
 <legend>Monto</legend> 
 <div class="row">
+<div class="form-group col-xs-3">
+     <label for="addSalePayType">Método de Pago:</label>
+     <select onkeyup="" type="text" class="form-control" id="addSalePayType" name="addSalePayType" >  <option value="" disabled selected>Método de Pago</option>
+       <option value="" >Efectivo</option>
+       <option value="" >Tarjeta</option>
+       <option value="" >Cheque</option>
+     </select>
+   </div>
   <div class="form-group col-xs-3">
    <label for="">Total:</label>
    <input type="text" class="form-control" id="" disabled="disabled">  

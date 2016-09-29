@@ -104,14 +104,22 @@
  <legend>Montos</legend> 
   <div class="row">
     <div class="form-group col-xs-3">
+     <label for="addSalePayType">Método de Pago:</label>
+     <select onkeyup="" type="text" class="form-control" id="addSalePayType" name="addSalePayType" >  <option value="" disabled selected>Método de Pago</option>
+       <option value="" >Efectivo</option>
+       <option value="" >Tarjeta</option>
+       <option value="" >Cheque</option>
+     </select>
+   </div>
+    <div class="form-group col-xs-3">
      <label for="addSaleTotal">Total:</label>
      <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" >  
    </div>
-    <div class="form-group col-xs-4">
+    <div class="form-group col-xs-2">
      <label for="addSaleAbono">Abono:</label>
      <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
    </div>
-    <div class="form-group col-xs-3">
+    <div class="form-group col-xs-2">
      <label for="addSaleSaldo">Saldo:</label>
      <input type="text" class="form-control" id="addSaleSaldo" name="addSaleSaldo" disabled="disabled" >  
    </div> 
