@@ -20,12 +20,38 @@
           <h3 class="panel-title">Pago de Comisión</h3>
         </div>
         <div class="panel-body">
-          <button type="button" class="btn btn-info " data-toggle="modal" data-target="#addPayCommissionDialog"><span class="glyphicon glyphicon-usd"></span>&nbsp;Agregar Pago de Comisión</button>
-          <br><br>
           <div class="row">
-            <div class="form-group col-xs-4">
-              <label for="">Total</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
+            <div class="form-group col-xs-6">
+              <label for="">Captador</label>
+              <select class="form-control" id="sel1">
+                <option>Captador 1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <div class="form-group col-xs-3">
+              <label for="">Monto</label>
+              <input type="number" class="form-control" id="">
+            </div>
+            <div class="form-group col-xs-2">
+              <br>
+              <button type="button" class="btn btn-info">&nbsp;Aceptar</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="">Captador</label><br>
+              <label for="">NOMBRE cptador 1</label>
+            </div>
+            <div class="form-group col-xs-3">
+              <label for="">Monto</label><br>
+              <label for="">2313123213</label><br>
+              <label for="">2313123213</label>
+            </div>
+            <div class="form-group col-xs-2">
+              <br>
+              <button onclick="" class="btn btn-danger" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-remove"></span></button>
             </div>
           </div>
         </div>
@@ -37,12 +63,37 @@
           <h3 class="panel-title">Pago de Insumos</h3>
         </div>
         <div class="panel-body">
-          <button type="button" class="btn btn-info " data-toggle="modal" data-target="#addPaySupplyDialog"><span class="glyphicon glyphicon-usd"></span>&nbsp;Agregar Pago de Insumo</button>
-          <br><br>
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="">Insumo</label><br>
+              <label for="">NOMBRE insumo 1</label>
+            </div>
+            <div class="form-group col-xs-3">
+              <label for="">Monto</label><br>
+              <label for="">2313123213</label><br>
+              <label for="">2313123213</label>
+            </div>
+            <div class="form-group col-xs-2">
+              <br>
+              <button onclick="" class="btn btn-danger" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cristales</h3>
+        </div>
+        <div class="panel-body">
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Total</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
+              <input type="number" class="form-control" id="">
+            </div>
+            <div class="form-group col-xs-4"><br>
+              <button type="button" class="btn btn-info">&nbsp;Pagar</button>
             </div>
           </div>
         </div>
@@ -109,146 +160,21 @@
       </div>
     </div>
   </div>
-  <!-- Modal agregar pago insumo-->
-  <div class="modal fade indexPaySupplyDialog" id="addPaySupplyDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog widthPaySupplyDialog">
+    <!-- Modal eliminar producto-->
+  <div class="modal fade" id="deleteCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Pagar insumo</h4>
+          <h4 class="modal-title">Eliminar Captador</h4>
         </div>
         <div class="modal-body">
-          <div>
-            <table id="tablaInsumos" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Insumo</th>
-                  <th>Tienda</th>
-                  <th>Detalle</th>
-                  <th>Fecha</th>
-                  <th>Monto</th>
-                  <th>Monto a pagar</th>
-                  <th class="widthOptions text-center">Acción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>System Architectaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                  <th>Fecha</th>
-                  <td>61</td>
-                  <th><input type="number" class="form-control" id=""></th>
-                  <td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
-                </tr>
-                <tr>
-                  <td>Garrett Winters</td>
-                  <td>Accountant</td>
-                  <td>System Architect</td>
-                  <th>Fecha</th>
-                  <td>63</td>
-                  <th><input type="number" class="form-control" id=""></th>
-                  <td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
-                </tr>
-                <tr>
-                  <td>Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>System Architect</td>
-                  <th>Fecha</th>
-                  <td>66</td>
-                  <th><input type="number" class="form-control" id=""></th>
-                  <td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
-                </tr>
-                <tr>
-                  <td>Cedric Kelly</td>
-                  <td>Senior Javascript Developer</td>
-                  <td>System Architect</td>
-                  <th>Fecha</th>
-                  <td>22</td>
-                  <th><input type="number" class="form-control" id=""></th>
-                  <td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
-                </tr>
-                <tr>
-                  <td>Airi Satou</td>
-                  <td>Accountant</td>
-                  <td>System Architect</td>   
-                  <th>Fecha</th>
-                  <td>33</td>
-                  <th><input type="number" class="form-control" id=""></th>
-                  <td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Insumo</button></td>
-                </tr>
-              </tbody>
-            </table>
-
-          </div>
-          <!-- Modal confirmar pago de insumo
-          <div class="modal fade" id="paySupplyConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Pagar insumo</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Confirme para pagar el insumo</p>
-                  <input type="hidden" name="delIdProduct" id="delIdProduct">
-                </div>
-                <div class="modal-footer">
-                  <button onclick="delProduct()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                </div>
-              </div>
-            </div>
-          </div>-->
-        </div><br><br>
-        <div class="form-group col-xs-4">
-          <label for="">Total</label>
-          <input type="number" class="form-control" id="" disabled="disabled">
+          <p>Confirme para eliminar el Captador</p>
+          <input type="hidden" name="delIdCaptador" id="delIdCaptador">
+          <input type="hidden" name="delTotalCaptador" id="delTotalCaptador">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal agregar pago Comision-->
-  <div class="modal fade indexPaySupplyDialog" id="addPayCommissionDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog widthPaySupplyDialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Pagar Comisión</h4>
-        </div>
-        <div class="modal-body">
-          <div>
-            <div id="captadorTableReload">
-              <?php require '../controller/CaptadorTablePay.php'; ?>
-            </div>
-          </div>
-          <!-- Modal confirmar pago de comision
-          <div class="modal fade" id="paySupplyConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Pagar insumo</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Confirme para pagar la Comisión</p>
-                  <input type="hidden" name="delIdProduct" id="delIdProduct">
-                </div>
-                <div class="modal-footer">
-                  <button onclick="delProduct()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                </div>
-              </div>
-            </div>
-          </div>-->
-        </div>
-        <br><br>
-        <div class="form-group col-xs-4">
-          <label for="">Total</label>
-          <input type="number" class="form-control" id="" disabled="disabled">
-        </div>
-        <div class="modal-footer">
+          <button onclick="delCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
