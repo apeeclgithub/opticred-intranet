@@ -9,17 +9,18 @@
 		public function loginUser($userRut, $userPass){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	usu_id,
-												usu_name,
-												usu_rut,
-												usu_mail,
-												usu_store,
-												usu_type,
-												usu_pass 
-										FROM 	usuario 
-										WHERE 	usu_rut = :userRut
-										AND 	usu_pass = :userPass
-										AND 	usu_active = 1');
+			$sql = $objConn->prepare('	SELECT 	USU_ID,
+												USU_NAME,
+												USU_RUT,
+												USU_MAIL,
+												TIE_NAME,
+												USU_TYPE,
+												USU_PASS
+										FROM 	USUARIO 
+										INNER JOIN TIENDA ON USUARIO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE 	USU_RUT = :userRut
+										AND 	USU_PASS = :userPass
+										AND 	USU_ACTIVE = 1');
 
 			$sql->bindParam(':userRut', $userRut);
 			$sql->bindParam(':userPass', $userPass);
@@ -182,8 +183,8 @@
 		public function cambioTienda($id, $tienda){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE usuario 
-										SET	usu_store = :tienda
+			$sql = $objConn->prepare('	UPDATE USUARIO 
+										SET	TIENDA_TIE_ID = :tienda
 										WHERE usu_id = :id');
 
 			$sql->bindParam(':id', $id);

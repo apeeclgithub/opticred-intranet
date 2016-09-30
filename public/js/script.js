@@ -567,7 +567,7 @@ function delInsumo(){
 
 function cambiarTienda(tienda){
     var params = {
-        'tienda'    : (tienda == 'Quinto')? 'Tercero' : 'Quinto'
+        'tienda'    : tienda
     };
     $.ajax({
             url : '../controller/User.php?action=6',

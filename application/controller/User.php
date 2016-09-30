@@ -7,7 +7,8 @@
 	$objUser= new User();
 
 	switch (@$_GET['action']) {
-
+		
+		//AQUI SE HACE LOGIN CON LOS DATOS DEL USUARIO
 		case 1:
 			$usuRut  = $_POST['userRut'];
 			$usuPass = $_POST['userPass'];
@@ -16,20 +17,20 @@
 
 			foreach ( (array) $objUser as $key ) {
 				foreach ($key as $key2 => $value) {
-					if(is_numeric($value['usu_id'])){
+					if(is_numeric($value['USU_ID'])){
 						$_SESSION['user'] = array(
-							'id'	=> $value['usu_id'],
-							'name' => $value['usu_name'],
-							'type' => $value['usu_type'],
-							'store'=> $value['usu_store'],
-							'mail' => $value['usu_mail'],
-							'rut'  => $value['usu_rut'],
-							'pass' => $value['usu_pass']
+							'id'	=> $value['USU_ID'],
+							'name' => $value['USU_NAME'],
+							'type' => $value['USU_TYPE'],
+							'store'=> $value['TIE_NAME'],
+							'mail' => $value['USU_MAIL'],
+							'rut'  => $value['USU_RUT'],
+							'pass' => $value['USU_PASS']
 							);
 						$json['success'] = true;
-						if($value['usu_type'] == 1){
+						if($value['USU_TYPE'] == 1){
 							$json['main'] = 'dashboard.php';
-						}else if($value['usu_type'] == 2){
+						}else if($value['USU_TYPE'] == 2){
 							$json['main'] = 'nuevaVenta.php';
 						}
 						
@@ -41,6 +42,7 @@
 
 			break;
 
+		//METODO PARA AGREGAR UN USUARIO A LA BBDD
 		case 2:
 
 			$usuName  = $_POST['addNameUser'];
@@ -59,6 +61,7 @@
 
 			break;
 
+		//METODO PARA MODIFICAR LOS USUARIOS DE LA BBDD
 		case 3:
 		
 			$usuId    = $_POST['editIdUser'];
@@ -73,6 +76,7 @@
 
 			break;
 
+		//METODO PARA ELIMINAR USUARIOS DE LA BBDD 
 		case 4:
 
 			$usuId    = $_POST['delIdUser'];
@@ -81,6 +85,7 @@
 		    echo json_encode($json);
 			break;
 		
+		//METODO PARA MOFIFICAR LOS DATOS DE LA SESSION DE LA APLICACION
 		case 5:
 
 			$usuIdSession    = $_POST['editIdUserSession'];
@@ -107,9 +112,16 @@
 
 			break;	
 
+		//METODO PARA CAMBIAR DE TIENDA AL USUARIO ADMINISTRADOR
 		case 6:
 
 			$tienda = $_POST['tienda'];
+			
+			if($tienda == 1){
+				$tienda = 2;
+			}else if($tienda == 2){
+				$tienda = 1;
+			}
 
 			$json['success'] = $objUser->cambioTienda($_SESSION['user']['id'], $tienda);
 			if($json == true){
@@ -118,6 +130,7 @@
 		    echo json_encode($json);
 			break;	
 
+		//METODO QUE ENVIA EL EMAIL PARA RECUPERAR LA CONTRASEÑA
 		case 7:
 			$rutRecover = $_POST['rutRecover'];
 
