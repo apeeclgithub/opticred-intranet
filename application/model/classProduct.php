@@ -108,13 +108,13 @@
 		public function listProducts(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT  pro_id,
-												pro_name,
-												pro_price,
-												pro_stock,
-												pro_store
-										FROM producto
-										WHERE pro_active = 1');
+			$sql = $objConn->prepare('	SELECT  PRO_ID,
+												PRO_NAME,
+												PRO_PRICE,
+												PRO_STOCK,
+												TIENDA_TIE_ID
+										FROM PRODUCTO
+										WHERE PRO_ACTIVE = 1');
 
 			$this->product = $sql->execute();
 			$this->product = $sql->fetchAll(PDO::FETCH_ASSOC);
