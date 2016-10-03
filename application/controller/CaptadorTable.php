@@ -18,14 +18,13 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<td><?php echo $value['cap_name'];	?></td>
-						<td><?php echo $value['cap_phone'];	?></td>
-						<td><?php echo $value['cap_total'];	?></td>
+						<td><?php echo $value['CAP_NAME'];	?></td>
+						<td><?php echo $value['CAP_PHONE'];	?></td>
 						<td class="text-center"><button 
 						onclick="updateModalCaptador(
-							 <?php echo $value['cap_id'];	?>,
-							'<?php echo $value['cap_name'];	?>',
-							'<?php echo $value['cap_phone'];	?>')" 
+							 <?php echo $value['CAP_ID'];	?>,
+							'<?php echo $value['CAP_NAME'];	?>',
+							'<?php echo $value['CAP_PHONE'];	?>')" 
 						
 						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalCaptador(<?php echo $value['cap_id'];?>,<?php echo $value['cap_total']; ?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 					</tr>

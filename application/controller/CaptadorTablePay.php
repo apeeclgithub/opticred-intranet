@@ -19,8 +19,8 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<td><?php echo $value['cap_name'];	?></td>
-						<td><?php echo $value['cap_phone'];	?></td>
+						<td><?php echo $value['CAP_NAME'];	?></td>
+						<td><?php echo $value['CAP_PHONE'];	?></td>
 						<td><?php echo $value['cap_total'];	?></td>
 						<td><input type="number" class="form-control" id=""></td>
 						<td class="text-center"><button class="btn btn-info btn-xs "><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
