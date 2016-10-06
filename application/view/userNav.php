@@ -53,13 +53,13 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Actualmente se encuentra en la tienda del "<?php echo ($_SESSION['user']['store'] == 2)? 'Quinto' : 'Tercero' ?>"</h4>
+                <h4 class="modal-title">Actualmente se encuentra en la tienda del "<?php echo ($_SESSION['user']['store'] == 'Tercero')? 'Quinto' : 'Tercero' ?>"</h4>
             </div>
             <div class="modal-body">
-                <p>¿Desea cambiar a la tienda del "<?php echo ($_SESSION['user']['store'] == 1)? 'Quinto' : 'Tercero' ?>"</p>
+                <p>¿Desea cambiar a la tienda del "<?php echo ($_SESSION['user']['store'] == 'Quinto')? 'Tercero' : 'Quinto' ?>"</p>
             </div>
             <div class="modal-footer">
-                <button onclick="cambiarTienda('<?php echo $_SESSION['user']['store']; ?>')" data-dismiss="modal" type="button" class="btn btn-success">Aceptar</button>
+                <button onclick="cambiarTienda('<?php echo ($_SESSION['user']['store'] == 'Tercero')? '1' : '2' ?>')" data-dismiss="modal" type="button" class="btn btn-success">Aceptar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>

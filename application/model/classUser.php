@@ -185,7 +185,7 @@
 			$objConn = new Database();
 			$sql = $objConn->prepare('	UPDATE USUARIO 
 										SET	TIENDA_TIE_ID = :tienda
-										WHERE usu_id = :id');
+										WHERE USU_ID = :id');
 
 			$sql->bindParam(':id', $id);
 			$sql->bindParam(':tienda', $tienda);

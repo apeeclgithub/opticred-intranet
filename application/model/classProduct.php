@@ -9,15 +9,15 @@
 		public function selectProduct($proName, $proStore){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	pro_id,
-												pro_name,
-												pro_price,
-												pro_stock,
-												pro_store
-										FROM producto 
-										WHERE pro_name = :proName
-										AND pro_store = :proStore
-										AND pro_active = 1');
+			$sql = $objConn->prepare('	SELECT 	PRO_ID,
+												PRO_NAME,
+												PRO_PRICE,
+												PRO_STOCK,
+												TIENDA_TIE_ID
+										FROM PRODUCTO 
+										WHERE PRO_NAME = :proName
+										AND TIENDA_TIE_ID = :proStore
+										AND PRO_ACTIVE = 1');
 
 			$sql->bindParam(':proName', $proName);
 			$sql->bindParam(':proStore', $proStore);
@@ -32,12 +32,12 @@
 		public function activateProduct($proName, $proStore, $proPrice, $proStock){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE producto 
-										SET	pro_active = 1,
-											pro_price = :proPrice, 
-											pro_stock = :proStock
-										WHERE pro_name = :proName
-										AND pro_store = :proStore');
+			$sql = $objConn->prepare('	UPDATE PRODUCTO 
+										SET	PRO_ACTIVE = 1,
+											PRO_PRICE = :proPrice, 
+											PRO_STOCK = :proStock
+										WHERE PRO_NAME = :proName
+										AND TIENDA_TIE_ID = :proStore');
 
 			$sql->bindParam(':proName', $proName);
 			$sql->bindParam(':proStore', $proStore);
@@ -53,8 +53,8 @@
 		public function addProduct($proName, $proStore, $proPrice, $proStock){
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO producto (pro_name, pro_store, pro_price, pro_stock) 
-										VALUES (:proName, :proStore, :proPrice, :proStock)');
+			$sql = $objConn->prepare('	INSERT INTO PRODUCTO (PRO_NAME, TIENDA_TIE_ID, PRO_PRICE, PRO_STOCK, PRO_ACTIVE) 
+										VALUES (:proName, :proStore, :proPrice, :proStock, 1)');
 		
 			$sql->bindParam(':proName', $proName);
 			$sql->bindParam(':proStore', $proStore);
@@ -72,12 +72,12 @@
 		public function updateProduct($proId, $proName, $proStore, $proPrice, $proStock){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE producto 
-										SET pro_name = :proName, 
-											pro_store = :proStore, 
-											pro_price = :proPrice, 
-											pro_stock = :proStock
-										WHERE pro_id = :proId');
+			$sql = $objConn->prepare('	UPDATE PRODUCTO 
+										SET PRO_NAME = :proName, 
+											TIENDA_TIE_ID = :proStore, 
+											PRO_PRICE = :proPrice, 
+											PRO_STOCK = :proStock
+										WHERE PRO_ID = :proId');
 
 			$sql->bindParam(':proId', $proId);
 			$sql->bindParam(':proName', $proName);
@@ -94,9 +94,9 @@
 		public function delProduct($proId){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE producto 
-										SET	pro_active = 0
-										WHERE pro_id = :proId');
+			$sql = $objConn->prepare('	UPDATE PRODUCTO 
+										SET	PRO_ACTIVE = 0
+										WHERE PRO_ID = :proId');
 
 			$sql->bindParam(':proId', $proId);
 
@@ -112,8 +112,9 @@
 												PRO_NAME,
 												PRO_PRICE,
 												PRO_STOCK,
-												TIENDA_TIE_ID
+												TIE_NAME
 										FROM PRODUCTO
+										INNER JOIN TIENDA ON PRODUCTO.TIENDA_TIE_ID = TIENDA.TIE_ID
 										WHERE PRO_ACTIVE = 1');
 
 			$this->product = $sql->execute();
