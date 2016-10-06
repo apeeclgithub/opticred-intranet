@@ -20,20 +20,20 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<td><?php echo $value['ins_name'];?></td>
-						<td><?php echo $value['ins_desc'];?></td>
-						<td><?php echo $value['ins_store'];?></td>
-						<td><?php echo $value['ins_total'];?></td>
-						<td><?php echo $value['ins_date'];?></td>
+						<td><?php echo $value['INS_NAME'];?></td>
+						<td><?php echo $value['INS_DESC'];?></td>
+						<td><?php echo $value['TIE_NAME'];?></td>
+						<td><?php echo $value['INS_TOTAL'];?></td>
+						<td><?php echo $value['INS_DATE'];?></td>
 						<td class="text-center"><button 
 						onclick="updateModalInsumo(
-							<?php  echo $value['ins_id'];?>,
-							'<?php echo $value['ins_name'];?>',
-							'<?php echo $value['ins_desc'];?>',
-							'<?php  echo $value['ins_store'];?>',
-							<?php  echo $value['ins_total'];?>)" 
+							<?php  echo $value['INS_ID'];?>,
+							'<?php echo $value['INS_NAME'];?>',
+							'<?php echo $value['INS_DESC'];?>',
+							'<?php  echo $value['TIE_NAME'];?>',
+							<?php  echo $value['INS_TOTAL'];?>)" 
 						
-						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalInsumo(<?php  echo $value['ins_id'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalInsumo(<?php  echo $value['INS_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 					</tr>
 					<?php
 				}

@@ -11,14 +11,15 @@
 			$today = $this->getDate();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT  ins_id,
-												ins_name,
-												ins_desc,
-												ins_total,
-												ins_store,
-												ins_date
-										FROM insumo
-										WHERE ins_date = :today ');
+			$sql = $objConn->prepare('	SELECT  INS_ID,
+												INS_NAME,
+												INS_DESC,
+												INS_TOTAL,
+												TIE_NAME,
+												INS_DATE
+										FROM INSUMO
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE INS_DATE = :today ');
 
 			$sql->bindParam(':today', $today);
 
@@ -47,7 +48,7 @@
 		public function addInsumo($insName, $insDetail, $insStore, $insPrice, $insDate){
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO insumo (ins_name, ins_desc, ins_store, ins_total, ins_date) 
+			$sql = $objConn->prepare('	INSERT INTO INSUMO (INS_NAME, INS_DESC, TIENDA_TIE_ID, INS_TOTAL, INS_DATE) 
 										VALUES (:insName, :insDetail, :insStore, :insPrice, :insDate)');
 		
 			$sql->bindParam(':insName', 	$insName);
@@ -65,12 +66,12 @@
 		public function updateInsumo($insId, $insName, $insDesc, $insStore, $insTotal){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE insumo 
-										SET ins_name = :insName, 
-											ins_desc = :insDesc, 
-											ins_store = :insStore, 
-											ins_total = :insTotal
-										WHERE ins_id = :insId');
+			$sql = $objConn->prepare('	UPDATE INSUMO 
+										SET INS_NAME = :insName, 
+											INS_DESC = :insDesc, 
+											TIENDA_TIE_ID = :insStore, 
+											INS_TOTAL = :insTotal
+										WHERE INS_ID = :insId');
 
 			$sql->bindParam(':insId', $insId);
 			$sql->bindParam(':insName', $insName);
@@ -87,8 +88,8 @@
 		public function delInsumo($insId){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	DELETE FROM insumo
-										WHERE ins_id = :insId');
+			$sql = $objConn->prepare('	DELETE FROM INSUMO
+										WHERE INS_ID = :insId');
 
 			$sql->bindParam(':insId', $insId);
 
