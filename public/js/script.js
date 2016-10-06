@@ -493,7 +493,7 @@ function updateModalInsumo(id, name, desc, store, total){
     $("select[id=editStoreInsumo] option").prop('selected', false).filter(function() {
         return $(this).text() == store;
     }).prop('selected', true); 
-    $('input[id=editTotalInsumo]').val(id);
+    $('input[id=editTotalInsumo]').val(total);
 };
 
 function deleteModalInsumo(id){
