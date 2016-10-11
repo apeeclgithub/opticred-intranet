@@ -42,8 +42,8 @@
 					<div class="col-md-4">
 						<select id="addStoreUser" name="addStoreUser" class="form-control">
 							<option value="" disabled selected>Seleccione una tienda</option>
-							<option value="Tercero">Tercero</option>
-							<option value="Quinto">Quinto</option>
+							<option value="1">Tercero</option>
+							<option value="2">Quinto</option>
 						</select>
 					</div>
 				</div>
@@ -126,8 +126,8 @@
 								<div class="col-md-7">
 									<select id="editStoreUser" name="editStoreUser" class="form-control">
 										<option value="" disabled selected>Seleccione una tienda</option>
-										<option value="Tercero">Tercero</option>
-										<option value="Quinto">Quinto</option>
+										<option value="1">Tercero</option>
+										<option value="2">Quinto</option>
 									</select>
 								</div>
 							</div>

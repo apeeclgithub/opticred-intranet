@@ -9,11 +9,10 @@
 		public function listCaptadores(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT captador.CAP_ID, CAP_NAME, CAP_PHONE
-										FROM captador 
-										
+			$sql = $objConn->prepare('	SELECT CAP_ID, CAP_NAME, CAP_PHONE
+										FROM CAPTADOR 
 										WHERE CAP_ACTIVE = 1
-										GROUP BY captador.CAP_ID');
+										GROUP BY CAP_ID');
 
 			$this->captador = $sql->execute();
 			$this->captador = $sql->fetchAll(PDO::FETCH_ASSOC);
