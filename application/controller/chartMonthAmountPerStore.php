@@ -10,7 +10,7 @@
 		foreach ( (array) $objMonthAmountPerStore as $key ) {
 			foreach ($key as $key2 => $value) {
 
-				$json[$i] = array($value['tienda'], (int)$value['monto']);
+				$json[$i] = array($value['TIE_NAME'], (int)$value['monto']);
 				$i++;
 			}
 		}

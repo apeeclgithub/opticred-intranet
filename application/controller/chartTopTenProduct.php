@@ -10,7 +10,7 @@
 		foreach ( (array) $objTopTepProduct as $key ) {
 			foreach ($key as $key2 => $value) {
 
-				$json[$i] = array($value['pro_name'], (int)$value['cantidad']);
+				$json[$i] = array($value['PRO_NAME'], (int)$value['cantidad']);
 
 
 				$i++;
