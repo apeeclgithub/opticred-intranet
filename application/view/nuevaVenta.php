@@ -2,9 +2,12 @@
 <?php include('nav_menu.php'); ?>
 <?php include('userNav.php'); ?>
 <script type="text/javascript">window.onload=nuevaVenta();</script>
+
+
 <div class="contentMain">
   <legend>Nueva Venta</legend>
   <input type="hidden" name="addSaleStore" id="addSaleStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
+  <input type="hidden" name="addSaleId" id="addSaleId" <?php echo 'value="'.$_SESSION["user"]["id"].'"'; ?> />
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="addSaleNumber">N° Boleta</label>
@@ -48,7 +51,7 @@
   <div class="row">
    <div class="form-group col-xs-4">
      <label for="addSaleProductLejos">Seleccione un marco:</label>
-     <div id="productLejos"><?php require '../controller/ProductSelectLejos.php'; ?></div>  
+     <div class="ui-widget"><input type="text" class="form-control" id="tags"></div>
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_o_2">Od. Esf:</label>
@@ -106,9 +109,9 @@
     <div class="form-group col-xs-3">
      <label for="addSalePayType">Método de Pago:</label>
      <select onkeyup="" type="text" class="form-control" id="addSalePayType" name="addSalePayType" >  <option value="" disabled selected>Método de Pago</option>
-       <option value="" >Efectivo</option>
-       <option value="" >Tarjeta</option>
-       <option value="" >Cheque</option>
+       <option value="1" >Efectivo</option>
+       <option value="2" >Tarjeta</option>
+       <option value="3" >Cheque</option>
      </select>
    </div>
     <div class="form-group col-xs-3">

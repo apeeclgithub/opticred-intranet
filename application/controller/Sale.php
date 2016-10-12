@@ -30,13 +30,16 @@
 			$venStore  = $_POST['addSaleStore'];
 			$venClient  = $_POST['addSaleClient'];
 			$venPhone  = $_POST['addSalePhono'];
-			$venCristal  = $_POST['addSaleCristal'];
-			$venAltura  = $_POST['addSaleAltura'];
+			$usuId  = $_POST['addSaleId'];
 			$venTotal  = $_POST['addSaleTotal'];
-			$venSaldo  = $_POST['addSaleSaldo'];
+			/*$venCristal  = $_POST['addSaleCristal'];
+			$venAltura  = $_POST['addSaleAltura'];
+			
+			$venSaldo  = $_POST['addSaleSaldo'];*/
 
-			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venTotal, $venSaldo);
-			$tipoLejos='Lejos';
+			//$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venSaldo);
+			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal);
+			/*$tipoLejos='Lejos';
        		$lejos_l_1=$_POST['lejos_l_1'];
 	        $lejos_o_1=$_POST['lejos_o_1'];
 	        $lejos_c_1=$_POST['lejos_c_1'];
@@ -59,9 +62,7 @@
 	        }
 
  
-			/*if($json['success'] != true){
-				$json['success'] = $objUser->activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore);
-			}*/
+			*/
 			
 			echo json_encode($json);
 

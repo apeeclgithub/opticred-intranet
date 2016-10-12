@@ -6,25 +6,28 @@
 
 		private $sale;
 
-		public function addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venTotal, $venSaldo){
-
+		//public function addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venSaldo){
+		public function addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal){
 			$dia = $this->getDia();
 			$hora = $this->getHora();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO venta (ven_correlative, ven_store, ven_name, ven_phone, ven_date_create, ven_hour, ven_cristal, ven_altura, ven_total, ven_saldo) 
-										VALUES (:venNumber, :venStore, :venClient, :venPhone, :venDay, :venHour, :venCristal, :venAltura, :venTotal, :venSaldo)');
-		
+			$sql = $objConn->prepare('	INSERT INTO VENTA (VEN_CORRELATIVE, TIENDA_TIE_ID, 	VEN_CLI_NAME, VEN_CLI_PHONE, USUARIO_USU_ID, VEN_DATE_CREATE, VEN_HOUR_CREATE, VEN_TOTAL) 
+										VALUES (:venNumber, :venStore, :venClient, :venPhone, :usuId, :venDay, :venHour, :venTotal)');
+			//$sql = $objConn->prepare('	INSERT INTO venta (ven_correlative, ven_store, ven_name, ven_phone, ven_date_create, ven_hour, ven_cristal, ven_altura, ven_total, ven_saldo) 
+			//							VALUES (:venNumber, :venStore, :venClient, :venPhone, :venDay, :venHour, :venCristal, :venAltura, :venTotal, :venSaldo)');
 			$sql->bindParam(':venNumber'	, $venNumber);
-			$sql->bindParam(':venDay'		, $dia);
-			$sql->bindParam(':venHour'		, $hora);
 			$sql->bindParam(':venStore'		, $venStore);
 			$sql->bindParam(':venClient'	, $venClient);
 			$sql->bindParam(':venPhone'		, $venPhone);
-			$sql->bindParam(':venCristal'	, $venCristal);
-			$sql->bindParam(':venAltura'	, $venAltura);
+			$sql->bindParam(':usuId'		, $usuId);
+			$sql->bindParam(':venDay'		, $dia);
+			$sql->bindParam(':venHour'		, $hora);
 			$sql->bindParam(':venTotal'		, $venTotal);
-			$sql->bindParam(':venSaldo'		, $venSaldo);
+			/*$sql->bindParam(':venCristal'	, $venCristal);
+			$sql->bindParam(':venAltura'	, $venAltura);
+			
+			$sql->bindParam(':venSaldo'		, $venSaldo);*/
 
 			$this->sale = $sql->execute();
 
@@ -57,7 +60,7 @@
 		public function maxNumber($store){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT MAX(ven_correlative)+1 AS max FROM venta WHERE ven_store = :store');
+			$sql = $objConn->prepare('	SELECT MAX(VEN_CORRELATIVE)+1 AS max FROM VENTA WHERE TIENDA_TIE_ID = :store');
 
 			$sql->bindParam(':store', $store);
 

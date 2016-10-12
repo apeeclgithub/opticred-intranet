@@ -101,7 +101,6 @@
 				$_SESSION['user'] = array(
 					'id'   => $usuIdSession,
 					'name' => $usuNameSession,
-					'type' => 2,
 					'store'=> $usuStoreSession,
 					'mail' => $usuMailSession,
 					'rut'  => $usuRutSession,
@@ -116,12 +115,6 @@
 		case 6:
 
 			$tienda = $_POST['tienda'];
-			
-			if($tienda == 1){
-				$tienda = 2;
-			}else if($tienda == 2){
-				$tienda = 1;
-			}
 
 			$json['success'] = $objUser->cambioTienda($_SESSION['user']['id'], $tienda);
 			if($json == true){
