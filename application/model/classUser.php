@@ -119,32 +119,6 @@
 
 		}
 
-
-		public function updateUserLogg($usuId, $usuName, $usuMail, $usuRut, $usuPass, $usuStore){
-
-			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE USUARIO 
-										SET USU_NAME = :usuName, 
-											USU_MAIL = :usuMail, 
-											USU_RUT = :usuRut, 
-											USU_PASS = :usuPass,
-											TIENDA_TIE_ID = :usuStore
-										WHERE USU_ID = :usuId');
-
-			$sql->bindParam(':usuId', $usuId);
-			$sql->bindParam(':usuName', $usuName);
-			$sql->bindParam(':usuMail', $usuMail);
-			$sql->bindParam(':usuRut', $usuRut);
-			$sql->bindParam(':usuPass', $usuPass);
-			$sql->bindParam(':usuStore', $usuStore);
-
-			//falta agregar un metodo para no repetir usuarios
-			$this->user = $sql->execute();
-
-			return $this->user;
-
-		}
-
 		public function delUser($usuId){
 
 			$objConn = new Database();
