@@ -120,23 +120,6 @@
 			return $this->chart;
 		}
 
-		public function sellerComission(){
-
-			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	captador.CAP_ID,
-										   		CAP_NAME,
-										    	SUM(com_total) AS CAP_TOTAL
-										FROM 	captador
-										INNER JOIN comision ON captador.CAP_ID = comision.CAP_ID
-										WHERE 	CAP_ACTIVE = 1
-										GROUP BY captador.CAP_ID ORDER BY CAP_TOTAL DESC');
-
-			$this->chart = $sql->execute();
-			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-			return $this->chart;
-		}
-
 		public function sellerTotalSails(){
 
 			$objConn = new Database();
@@ -144,7 +127,7 @@
 										       cap.CAP_NAME,
 										  (SELECT COUNT(*)
 										   FROM comision
-										   WHERE comision.CAP_ID = cap.CAP_ID ) VENTAPORCAPTADOR
+										   WHERE comision.CAPTADOR_CAP_ID = cap.CAP_ID ) VENTAPORCAPTADOR
 										FROM captador cap
 										ORDER BY VENTAPORCAPTADOR DESC LIMIT 10');
 
@@ -152,8 +135,43 @@
 			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $this->chart;
+		}		
+
+		public function sellerComission(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT captador.CAP_ID,
+										       CAP_NAME,
+										       SUM(COM_TOTAL) AS CAP_TOTAL
+										FROM captador
+										INNER JOIN comision ON captador.CAP_ID = comision.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1
+										GROUP BY captador.CAP_ID
+										ORDER BY CAP_TOTAL DESC');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->chart;
 		}
 
+		public function pendingCommission(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT captador.CAP_ID,
+										       CAP_NAME,
+										       SUM(COM_TOTAL)-SUM(COM_PAID) AS CAP_TOTAL
+										FROM captador
+										INNER JOIN comision ON captador.CAP_ID = comision.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1
+										GROUP BY captador.CAP_ID
+										ORDER BY CAP_TOTAL DESC');
+
+			$this->chart = $sql->execute();
+			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->chart;
+		}
 	}
 
 ?>

@@ -79,10 +79,8 @@
       </div>
       <div class="form-group col-xs-6">
         <div class="panel panel-primary">
-          <div class="panel-heading"><strong>Monto Comisión Pendiente Por Captador</strong></div>
-          <div class="panel-body">CAPTADOR 1: $123123123</div>
-          <div class="panel-body">CAPTADOR 1: $123123123</div>
-          <div class="panel-body">CAPTADOR 1: $123123123</div>
+          <div class="panel-heading"><strong>Monto Comisión por Pagar al Captador</strong></div>
+          <div class="panel-body"><?php include('chartPendingCommission.php') ?></div>
         </div>
       </div>
     </div>
