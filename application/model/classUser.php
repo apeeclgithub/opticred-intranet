@@ -35,11 +35,11 @@
 		public function selectUser($userRut, $userMail){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	usu_id 
-										FROM 	usuario 
-										WHERE 	usu_rut = :userRut
-										AND 	usu_mail = :userMail
-										AND 	usu_active = 1');
+			$sql = $objConn->prepare('	SELECT 	USU_ID 
+										FROM 	USUARIO 
+										WHERE 	USU_RUT = :userRut
+										AND 	USU_MAIL = :userMail
+										AND 	USU_ACTIVE = 1');
 
 			$sql->bindParam(':userRut', $userRut);
 			$sql->bindParam(':userMail', $userMail);
@@ -54,8 +54,8 @@
 		public function addUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore){
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('INSERT INTO usuario (usu_name, usu_mail, usu_rut, usu_pass, usu_store, usu_type) 
-										VALUES (:usuName, :usuMail, :usuRut, :usuPass, :usuStore, 2)');
+			$sql = $objConn->prepare('INSERT INTO USUARIO (USU_NAME, USU_MAIL, USU_RUT, USU_PASS, TIENDA_TIE_ID, USU_TYPE, USU_ACTIVE) 
+										VALUES (:usuName, :usuMail, :usuRut, :usuPass, :usuStore, 2, 1)');
 		
 			$sql->bindParam(':usuName', $usuName);
 			$sql->bindParam(':usuMail', $usuMail);
@@ -74,11 +74,11 @@
 		public function activateUser($usuName, $usuMail, $usuRut, $usuPass, $usuStore){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE usuario 
-										SET	usu_active = 1,
-											usu_name = :usuName, 
-											usu_pass = :usuPass,
-											usu_store = :usuStore
+			$sql = $objConn->prepare('	UPDATE USUARIO 
+										SET	USU_ACTIVE = 1,
+											USU_NAME = :usuName, 
+											USU_PASS = :usuPass,
+											TIENDA_TIE_ID = :usuStore
 										WHERE pro_mail = :usuMail
 										AND pro_rut = :usuRut');
 
@@ -97,13 +97,13 @@
 		public function updateUser($usuId, $usuName, $usuMail, $usuRut, $usuPass, $usuStore){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE usuario 
-										SET usu_name = :usuName, 
-											usu_mail = :usuMail, 
-											usu_rut = :usuRut, 
-											usu_pass = :usuPass,
-											usu_store = :usuStore
-										WHERE usu_id = :usuId');
+			$sql = $objConn->prepare('	UPDATE USUARIO 
+										SET USU_NAME = :usuName, 
+											USU_MAIL = :usuMail, 
+											USU_RUT = :usuRut, 
+											USU_PASS = :usuPass,
+											TIENDA_TIE_ID = :usuStore
+										WHERE USU_ID = :usuId');
 
 			$sql->bindParam(':usuId', $usuId);
 			$sql->bindParam(':usuName', $usuName);
@@ -123,13 +123,13 @@
 		public function updateUserLogg($usuId, $usuName, $usuMail, $usuRut, $usuPass, $usuStore){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE usuario 
-										SET usu_name = :usuName, 
-											usu_mail = :usuMail, 
-											usu_rut = :usuRut, 
-											usu_pass = :usuPass,
-											usu_store = :usuStore
-										WHERE usu_id = :usuId');
+			$sql = $objConn->prepare('	UPDATE USUARIO 
+										SET USU_NAME = :usuName, 
+											USU_MAIL = :usuMail, 
+											USU_RUT = :usuRut, 
+											USU_PASS = :usuPass,
+											TIENDA_TIE_ID = :usuStore
+										WHERE USU_ID = :usuId');
 
 			$sql->bindParam(':usuId', $usuId);
 			$sql->bindParam(':usuName', $usuName);
@@ -148,9 +148,9 @@
 		public function delUser($usuId){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	UPDATE usuario 
-										SET	usu_active = 0
-										WHERE usu_id = :usuId');
+			$sql = $objConn->prepare('	UPDATE USUARIO 
+										SET	USU_ACTIVE = 0
+										WHERE USU_ID = :usuId');
 
 			$sql->bindParam(':usuId', $usuId);
 
@@ -163,15 +163,16 @@
 		public function listUsers(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT 	usu_id, 
-												usu_name, 
-												usu_mail, 
-												usu_rut, 
-												usu_pass, 
-												usu_store 
-										FROM 	usuario
-										WHERE 	usu_type = 2
-										AND 	usu_active = 1');
+			$sql = $objConn->prepare('	SELECT 	USU_ID, 
+												USU_NAME, 
+												USU_MAIL, 
+												USU_RUT, 
+												USU_PASS, 
+												TIE_NAME 
+										FROM 	USUARIO
+										INNER JOIN TIENDA ON USUARIO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE 	USU_TYPE = 2
+										AND 	USU_ACTIVE = 1');
 
 			$this->user = $sql->execute();
 			$this->user = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -202,7 +203,7 @@
 												USU_MAIL,
 												USU_PASS,
 												USU_NAME
-										FROM 	usuario 
+										FROM 	USUARIO 
 										WHERE 	USU_RUT = :userRut');
 
 			$sql->bindParam(':userRut', $rutRecover);

@@ -20,13 +20,16 @@
 					<tr>
 						<td><?php echo $value['CAP_NAME'];	?></td>
 						<td><?php echo $value['CAP_PHONE'];	?></td>
+						<td><?php 
+						$objMonto = new Captador();
+						echo array_values((array)$objMonto->traeMonto($value['CAP_ID']))[0]; ?></td>
 						<td class="text-center"><button 
 						onclick="updateModalCaptador(
 							 <?php echo $value['CAP_ID'];	?>,
 							'<?php echo $value['CAP_NAME'];	?>',
 							'<?php echo $value['CAP_PHONE'];	?>')" 
 						
-						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalCaptador(<?php echo $value['cap_id'];?>,<?php echo $value['cap_total']; ?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editCaptadorConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalCaptador(<?php echo $value['CAP_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
 					</tr>
 					<?php
 				}
