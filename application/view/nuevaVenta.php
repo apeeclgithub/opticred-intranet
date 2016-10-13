@@ -88,7 +88,7 @@
     <div class="row">
       <div class="form-group col-xs-4">
        <label for="">Seleccione un marco:</label>
-       <div id="productCerca"><?php require '../controller/ProductSelectCerca.php'; ?></div>  
+       <div id="productCerca"></div>  
      </div>
      <div class="form-group col-xs-2">
        <label for="cerca_o_2">Od. Esf:</label>
