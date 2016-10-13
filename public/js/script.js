@@ -679,9 +679,9 @@ function recoverPasword(){
         })
     };
 
-function marcos() {
+function marcos(tienda) {
     var availableTags = $.ajax({
-    		url:'../controller/Product.php?action=4',
+    		url:'../controller/Product.php?action=4&tienda='.concat(tienda),
     		type:'post',
     		dataType:'json',
     		async:false    		

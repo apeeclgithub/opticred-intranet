@@ -123,6 +123,22 @@
 			return $this->product;
 
 		}
+		
+		public function listProductSale($tienda){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT  PRO_NAME
+										FROM PRODUCTO
+										WHERE TIENDA_TIE_ID = :tienda');
+
+			$sql->bindParam(':tienda', $tienda);
+			
+			$this->product = $sql->execute();
+			$this->product = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->product;
+
+		}
 
 	}
 
