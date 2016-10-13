@@ -678,3 +678,16 @@ function recoverPasword(){
             }
         })
     };
+
+function marcos() {
+    var availableTags = $.ajax({
+    		url:'../controller/Product.php?action=4',
+    		type:'post',
+    		dataType:'json',
+    		async:false    		
+    	}).responseText;
+	$obj = JSON.parse(availableTags);
+    $( "#tags" ).autocomplete({
+      source: $obj
+    });
+  };

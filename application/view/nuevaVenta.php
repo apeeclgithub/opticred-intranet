@@ -2,7 +2,20 @@
 <?php include('nav_menu.php'); ?>
 <?php include('userNav.php'); ?>
 <script type="text/javascript">window.onload=nuevaVenta();</script>
-
+<script>
+/*   $( function() {
+    var availableTags = $.ajax({
+    		url:'../controller/Product.php?action=4',
+    		type:'get',
+    		dataType:'json',
+    		async:false    		
+    	}).responseText;
+	$obj = JSON.parse(availableTags);
+    $( "#tags" ).autocomplete({
+      source: $obj
+    });
+  } ); */
+  </script>
 
 <div class="contentMain">
   <legend>Nueva Venta</legend>
@@ -51,7 +64,7 @@
   <div class="row">
    <div class="form-group col-xs-4">
      <label for="addSaleProductLejos">Seleccione un marco:</label>
-     <div class="ui-widget"><input type="text" class="form-control" id="tags"></div>
+     <div class="ui-widget"><input onclick="marcos()" type="text" class="form-control" id="tags"></div>
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_o_2">Od. Esf:</label>

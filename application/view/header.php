@@ -14,6 +14,7 @@
 		<script src="../../public/js/jquery-2.2.4.min.js"></script>
 		<script src="../../public/js/jquery.dataTables.min.js"></script>
 		<script src="../../public/js/script.js"></script>
+		<script src="../../public/js/jquery-ui.js"></script>
 		<script src="../../public/js/modernizr-custom.js"></script>
 		<link href="../../public/css/dataTables.jqueryui.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../public/css/reset.css" rel="stylesheet" type="text/css" />
