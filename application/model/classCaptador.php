@@ -135,5 +135,23 @@
 			return $this->captador;
 		}
 
+		public function pendingCommission(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT captador.CAP_ID,
+										       CAP_NAME,
+										       SUM(COM_TOTAL)-SUM(COM_PAID) AS CAP_TOTAL
+										FROM captador
+										INNER JOIN comision ON captador.CAP_ID = comision.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1
+										GROUP BY captador.CAP_ID
+										ORDER BY CAP_TOTAL DESC');
+
+			$this->captador = $sql->execute();
+			$this->captador = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->captador;
+		}
+
 	}
 ?>

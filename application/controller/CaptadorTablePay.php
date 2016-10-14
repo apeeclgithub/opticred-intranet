@@ -2,7 +2,6 @@
 	<thead>
 		<tr>
 			<th>Nombre</th>
-			<th>Fono</th>
 			<th>Comisión</th>
 			<th>Monto a Pagar</th>
 			<th class="widthOptions">Acción</th>
@@ -13,18 +12,21 @@
 
 			require '../model/classCaptador.php';
 			$objCaptador = new Captador();
-			$objCaptador->listCaptadores();
+			$objCaptador->pendingCommission();
 
 			foreach ( (array) $objCaptador as $key ) {
 				foreach ($key as $key2 => $value) {
 					?>
+					<?php if ($value['CAP_TOTAL'] >0 ): ?>
+						
+					
 					<tr>
 						<td><?php echo $value['CAP_NAME'];	?></td>
-						<td><?php echo $value['CAP_PHONE'];	?></td>
-						<td><?php echo $value['cap_total'];	?></td>
+						<td><?php echo $value['CAP_TOTAL'];	?></td>
 						<td><input type="number" class="form-control" id=""></td>
-						<td class="text-center"><button class="btn btn-info btn-xs "><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
+						<td class="text-center"><button class="btn btn-info btn-xs " data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
 					</tr>
+					<?php endif ?>
 					<?php
 				}
 			}

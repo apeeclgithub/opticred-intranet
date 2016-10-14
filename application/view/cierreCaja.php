@@ -40,18 +40,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-xs-11">
               <label for="">Captador</label><br>
-              <label for="">NOMBRE cptador 1</label>
-            </div>
-            <div class="form-group col-xs-3">
-              <label for="">Monto</label><br>
-              <label for="">2313123213</label><br>
-              <label for="">2313123213</label>
-            </div>
-            <div class="form-group col-xs-2">
-              <br>
-              <button onclick="" class="btn btn-danger" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-remove"></span></button>
+              <div id="captadorTableReload">
+                <?php require '../controller/CaptadorTablePay.php'; ?>
+              </div>
             </div>
           </div>
         </div>
@@ -70,7 +63,7 @@
             </div>
             <div class="form-group col-xs-3">
               <label for="">Monto</label><br>
-              <label for="">2313123213</label><br>
+              <label for="">GRILLA Q SOLO MUESTRE LOS INSUMOS DEL DIA YA QUE LA PLATA FUE RETIRADA DE LA CAJA</label><br>
               <label for="">2313123213</label>
             </div>
             <div class="form-group col-xs-2">
@@ -89,7 +82,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="form-group col-xs-4">
-              <label for="">Total</label>
+              <label for="">Total PONEN MANUAL EL MONTO</label>
               <input type="number" class="form-control" id="">
             </div>
             <div class="form-group col-xs-4"><br>
@@ -160,21 +153,21 @@
       </div>
     </div>
   </div>
-    <!-- Modal eliminar producto-->
-  <div class="modal fade" id="deleteCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+    <!-- Modal pagar captador -->
+  <div class="modal fade" id="PayCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Eliminar Captador</h4>
+          <h4 class="modal-title">Pagar al Captador</h4>
         </div>
         <div class="modal-body">
-          <p>Confirme para eliminar el Captador</p>
-          <input type="hidden" name="delIdCaptador" id="delIdCaptador">
-          <input type="hidden" name="delTotalCaptador" id="delTotalCaptador">
+          <p>Confirme para pagar el Captador</p>
+          <input type="hidden" name="payIdCaptador" id="payIdCaptador">
+          <input type="hidden" name="payTotalCaptador" id="payTotalCaptador">
         </div>
         <div class="modal-footer">
-          <button onclick="delCaptador()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+          <button onclick="" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
