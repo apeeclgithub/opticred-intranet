@@ -616,11 +616,11 @@ function agregarVenta(){
         'addSaleClient'    : $('input[id=addSaleClient]').val(),
         'addSalePhono'     : $('input[id=addSalePhono]').val(),
 		'addSaleId'		   : $('input[id=addSaleId]').val(),
-		'addSaleTotal'    : $('input[id=addSaleTotal]').val()
-        /*'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
+		'addSaleTotal'    : $('input[id=addSaleTotal]').val(),
+        'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
         'addSaleAltura'    : $('input[id=addSaleAltura]').val(),
         
-        'addSaleSaldo'    : $('input[id=addSaleSaldo]').val(),
+        /*'addSaleSaldo'    : $('input[id=addSaleSaldo]').val(),*/
         'lejos_l_1'    : $('input[id=lejos_l_1]').val(),
         'lejos_o_1'    : $('input[id=lejos_o_1]').val(),
         'lejos_c_1'    : $('input[id=lejos_c_1]').val(),
@@ -634,7 +634,8 @@ function agregarVenta(){
         'cerca_e_1'    : $('input[id=cerca_e_1]').val(),
         'cerca_o_2'    : $('input[id=cerca_o_2]').val(),
         'cerca_c_2'    : $('input[id=cerca_c_2]').val(),
-        'cerca_e_2'    : $('input[id=cerca_e_2]').val()*/
+        'cerca_e_2'    : $('input[id=cerca_e_2]').val(),
+		'addSaleProductLejos'    : $('input[id=addSaleProductLejos]').val()
     };
     $.ajax({
         url : '../controller/Sale.php?action=2',
@@ -687,7 +688,7 @@ function marcos(tienda) {
     		async:false    		
     	}).responseText;
 	$obj = JSON.parse(availableTags);
-    $( "#tags" ).autocomplete({
+    $( "#addSaleProductLejos" ).autocomplete({
       source: $obj
     });
   };

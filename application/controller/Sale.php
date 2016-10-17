@@ -32,37 +32,50 @@
 			$venPhone  = $_POST['addSalePhono'];
 			$usuId  = $_POST['addSaleId'];
 			$venTotal  = $_POST['addSaleTotal'];
-			/*$venCristal  = $_POST['addSaleCristal'];
-			$venAltura  = $_POST['addSaleAltura'];
 			
-			$venSaldo  = $_POST['addSaleSaldo'];*/
+			
+			//$venSaldo  = $_POST['addSaleSaldo'];
 
-			//$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $venCristal, $venAltura, $venSaldo);
 			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal);
-			/*$tipoLejos='Lejos';
-       		$lejos_l_1=$_POST['lejos_l_1'];
-	        $lejos_o_1=$_POST['lejos_o_1'];
-	        $lejos_c_1=$_POST['lejos_c_1'];
-	        $lejos_e_1=$_POST['lejos_e_1'];
-	        $lejos_o_2=$_POST['lejos_o_2'];
-	        $lejos_c_2=$_POST['lejos_c_2'];
-	        $lejos_e_2=$_POST['lejos_e_2'];
-	        $tipoCerca='Cerca';
-	        $cerca_l_1=$_POST['cerca_l_1'];
-	        $cerca_o_1=$_POST['cerca_o_1'];
-	        $cerca_c_1=$_POST['cerca_c_1'];
-	        $cerca_e_1=$_POST['cerca_e_1'];
-	        $cerca_o_2=$_POST['cerca_o_2'];
-	        $cerca_c_2=$_POST['cerca_c_2'];
-	        $cerca_e_2=$_POST['cerca_e_2'];
-
-	        if($json['success'] == true){
-	        	$objSale->addDetail($venNumber, $lejos_l_1, $lejos_o_1, $lejos_c_1, $lejos_e_1, $lejos_o_2, $lejos_c_2, $lejos_e_2, $tipoLejos);
-	        	$objSale->addDetail($venNumber, $cerca_l_1, $cerca_o_1, $cerca_c_1, $cerca_e_1, $cerca_o_2, $cerca_c_2, $cerca_e_2, $tipoCerca);
+			
+			$ventaId = "";
+			foreach ( (array) $objSale->getUltima($venStore) as $key ) {
+				foreach ($key as $value) {
+					$ventaId = $value;
+				}
+			}
+			
+			if($json['success'] == true){
+				
+				$venCristal  = $_POST['addSaleCristal'];
+				$venAltura  = $_POST['addSaleAltura'];
+				
+	        	$objSale->addDespacho($ventaId, $venCristal, $venAltura);
 	        }
 
- 
-			*/
+	        if($json['success'] == true){
+				
+				$tipoLejos='Lejos';
+				$nameLejos=$_POST['addSaleProductLejos'];
+				$lejos_l_1=$_POST['lejos_l_1'];
+				$lejos_o_1=$_POST['lejos_o_1'];
+				$lejos_c_1=$_POST['lejos_c_1'];
+				$lejos_e_1=$_POST['lejos_e_1'];
+				$lejos_o_2=$_POST['lejos_o_2'];
+				$lejos_c_2=$_POST['lejos_c_2'];
+				$lejos_e_2=$_POST['lejos_e_2'];
+				$tipoCerca='Cerca';
+				$cerca_l_1=$_POST['cerca_l_1'];
+				$cerca_o_1=$_POST['cerca_o_1'];
+				$cerca_c_1=$_POST['cerca_c_1'];
+				$cerca_e_1=$_POST['cerca_e_1'];
+				$cerca_o_2=$_POST['cerca_o_2'];
+				$cerca_c_2=$_POST['cerca_c_2'];
+				$cerca_e_2=$_POST['cerca_e_2'];
+				
+	        	$objSale->addDetail($ventaId, $lejos_l_1, $lejos_o_1, $lejos_c_1, $lejos_e_1, $lejos_o_2, $lejos_c_2, $lejos_e_2, $tipoLejos, $nameLejos, $venStore);
+	        	//$objSale->addDetail($venNumber, $cerca_l_1, $cerca_o_1, $cerca_c_1, $cerca_e_1, $cerca_o_2, $cerca_c_2, $cerca_e_2, $tipoCerca, $nameLejos, $venStore);
+	        }
 			
 			echo json_encode($json);
 

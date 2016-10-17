@@ -53,7 +53,9 @@
 			
 			foreach ( (array) $objProduct->listProductSale($tienda) as $key ) {
 				foreach ($key as $value) {
+					if($value!=''){
 					array_push($array, $value);
+					}
 				}
 			}
 			

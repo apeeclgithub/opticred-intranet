@@ -64,7 +64,7 @@
   <div class="row">
    <div class="form-group col-xs-4">
      <label for="addSaleProductLejos">Seleccione un marco:</label>
-     <div class="ui-widget"><input onclick="marcos(<?php echo $_SESSION['user']['store']; ?>)" type="text" class="form-control" id="tags"></div>
+     <div class="ui-widget"><input onclick="marcos(<?php echo $_SESSION['user']['store']; ?>)" type="text" class="form-control" id="addSaleProductLejos" name="addSaleProductLejos"></div>
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_o_2">Od. Esf:</label>
