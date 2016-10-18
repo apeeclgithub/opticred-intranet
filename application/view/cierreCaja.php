@@ -21,25 +21,6 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="form-group col-xs-6">
-              <label for="">Captador</label>
-              <select class="form-control" id="sel1">
-                <option>Captador 1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="form-group col-xs-3">
-              <label for="">Monto</label>
-              <input type="number" class="form-control" id="">
-            </div>
-            <div class="form-group col-xs-2">
-              <br>
-              <button type="button" class="btn btn-info">&nbsp;Aceptar</button>
-            </div>
-          </div>
-          <div class="row">
             <div class="form-group col-xs-11">
               <label for="">Captador</label><br>
               <div id="captadorTableReload">
@@ -53,22 +34,15 @@
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Pago de Insumos</h3>
+          <h3 class="panel-title">Insumos de día</h3>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-xs-11">
               <label for="">Insumo</label><br>
-              <label for="">NOMBRE insumo 1</label>
-            </div>
-            <div class="form-group col-xs-3">
-              <label for="">Monto</label><br>
-              <label for="">GRILLA Q SOLO MUESTRE LOS INSUMOS DEL DIA YA QUE LA PLATA FUE RETIRADA DE LA CAJA</label><br>
-              <label for="">2313123213</label>
-            </div>
-            <div class="form-group col-xs-2">
-              <br>
-              <button onclick="" class="btn btn-danger" data-toggle="modal" data-target="#deleteCaptadorConfirmDialog"><span class="glyphicon glyphicon-remove"></span></button>
+              <div id="insumoTableReload">
+                <?php require '../controller/InsumoTableClosingCash.php'; ?>
+              </div>
             </div>
           </div>
         </div>
@@ -101,15 +75,19 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Efectivo</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
+              <input type="number" class="form-control" id="showCashSysClosingCash" disabled="disabled">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Tarjetas</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
+              <input type="number" class="form-control" id="showCardSysClosingCash" disabled="disabled">
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="">Cheque</label>
+              <input type="number" class="form-control" id="showDocsSysClosingCash" disabled="disabled">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Total</label>
-              <input type="number" class="form-control" id="" disabled="disabled">
+              <input type="number" class="form-control" id="showTotalSysClosingCash" disabled="disabled">
             </div>
           </div>
         </div>
@@ -124,15 +102,19 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Efectivo</label>
-              <input type="number" class="form-control" id="">
+              <input type="number" class="form-control" id="cashClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Tarjetas</label>
-              <input type="number" class="form-control" id="">
+              <input type="number" class="form-control" id="cardClosingCash">
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="">Cheque</label>
+              <input type="number" class="form-control" id="docsSysClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Total</label>
-              <input type="number" class="form-control" id="">
+              <input type="number" class="form-control" id="totalClosingCash">
             </div>
           </div>
         </div>
@@ -153,24 +135,25 @@
       </div>
     </div>
   </div>
-    <!-- Modal pagar captador -->
-  <div class="modal fade" id="PayCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Pagar al Captador</h4>
-        </div>
-        <div class="modal-body">
-          <p>Confirme para pagar el Captador</p>
-          <input type="hidden" name="payIdCaptador" id="payIdCaptador">
-          <input type="hidden" name="payTotalCaptador" id="payTotalCaptador">
-        </div>
-        <div class="modal-footer">
-          <button onclick="" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        </div>
+</div>
+<!-- Modal pagar captador -->
+<div class="modal fade" id="PayCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Pagar al Captador</h4>
+      </div>
+      <div class="modal-body">
+        <p>Confirme para pagar el Captador</p>
+        <input type="hidden" name="payIdCaptador" id="payIdCaptador">
+        <input type="hidden" name="payTotalCaptador" id="payTotalCaptador">
+      </div>
+      <div class="modal-footer">
+        <button onclick="" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
-  <?php include('footer.php'); ?>
+</div>
+<?php include('footer.php'); ?>
