@@ -61,7 +61,7 @@
 		public function addDetail($venNumber, $lejos_l_1, $lejos_o_1, $lejos_c_1, $lejos_e_1, $lejos_o_2, $lejos_c_2, $lejos_e_2, $tipo, $name, $tienda){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO detalle (VENTA_VEN_ID, DET_INTERP, DET_OD_1, DET_CLI_1, DET_EJE_1, DET_OD_2, DET_CLI_2, DET_EJE_2, DET_TYPE, PRODUCTO_PRO_ID, DET_PRO_PRICE) 
+			$sql = $objConn->prepare('	INSERT INTO DETALLE (VENTA_VEN_ID, DET_INTERP, DET_OD_1, DET_CLI_1, DET_EJE_1, DET_OD_2, DET_CLI_2, DET_EJE_2, DET_TYPE, PRODUCTO_PRO_ID, DET_PRO_PRICE) 
 										VALUES (:venNumber, :lejos_l_1, :lejos_o_1, :lejos_c_1, :lejos_e_1, :lejos_o_2, :lejos_c_2, :lejos_e_2, :tipo, 
 										COALESCE((SELECT PRO_ID FROM PRODUCTO WHERE PRO_NAME = :name AND TIENDA_TIE_ID = :tienda),0), COALESCE((SELECT PRO_PRICE FROM PRODUCTO WHERE PRO_NAME = :name AND TIENDA_TIE_ID = :tienda),0))');
 		
@@ -76,6 +76,24 @@
 			$sql->bindParam(':tipo'	, $tipo);
 			$sql->bindParam(':name'	, $name);
 			$sql->bindParam(':tienda'	, $tienda);
+
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		
+		public function primerAbono($abono, $venta, $metodo){
+			$dia = $this->getDia();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	INSERT INTO ABONO (ABO_DATE, ABO_TOTAL, VENTA_VEN_ID, METODO_PAGO_MET_ID) 
+										VALUES (:dia, :abono, :venta, :metodo)');
+		
+			$sql->bindParam(':dia'		, $dia);
+			$sql->bindParam(':abono'	, $abono);
+			$sql->bindParam(':venta'	, $venta);
+			$sql->bindParam(':metodo'	, $metodo);
 
 			$this->sale = $sql->execute();
 

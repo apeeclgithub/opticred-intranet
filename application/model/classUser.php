@@ -13,11 +13,10 @@
 												USU_NAME,
 												USU_RUT,
 												USU_MAIL,
-												TIE_NAME,
+												TIENDA_TIE_ID,
 												USU_TYPE,
 												USU_PASS
-										FROM 	USUARIO 
-										INNER JOIN TIENDA ON USUARIO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										FROM 	USUARIO
 										WHERE 	USU_RUT = :userRut
 										AND 	USU_PASS = :userPass
 										AND 	USU_ACTIVE = 1');

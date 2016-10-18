@@ -22,7 +22,7 @@
 							'id'	=> $value['USU_ID'],
 							'name' => $value['USU_NAME'],
 							'type' => $value['USU_TYPE'],
-							'store'=> $value['TIE_NAME'],
+							'store'=> $value['TIENDA_TIE_ID'],
 							'mail' => $value['USU_MAIL'],
 							'rut'  => $value['USU_RUT'],
 							'pass' => $value['USU_PASS']

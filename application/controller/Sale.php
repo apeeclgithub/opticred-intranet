@@ -65,6 +65,7 @@
 				$lejos_c_2=$_POST['lejos_c_2'];
 				$lejos_e_2=$_POST['lejos_e_2'];
 				$tipoCerca='Cerca';
+				$nameCerca=$_POST['addSaleProductCerca'];
 				$cerca_l_1=$_POST['cerca_l_1'];
 				$cerca_o_1=$_POST['cerca_o_1'];
 				$cerca_c_1=$_POST['cerca_c_1'];
@@ -74,8 +75,18 @@
 				$cerca_e_2=$_POST['cerca_e_2'];
 				
 	        	$objSale->addDetail($ventaId, $lejos_l_1, $lejos_o_1, $lejos_c_1, $lejos_e_1, $lejos_o_2, $lejos_c_2, $lejos_e_2, $tipoLejos, $nameLejos, $venStore);
-	        	//$objSale->addDetail($venNumber, $cerca_l_1, $cerca_o_1, $cerca_c_1, $cerca_e_1, $cerca_o_2, $cerca_c_2, $cerca_e_2, $tipoCerca, $nameLejos, $venStore);
+	        	$objSale->addDetail($ventaId, $cerca_l_1, $cerca_o_1, $cerca_c_1, $cerca_e_1, $cerca_o_2, $cerca_c_2, $cerca_e_2, $tipoCerca, $nameCerca, $venStore);
 	        }
+			
+			if($json['success'] == true){
+				
+				$tipoPago  = $_POST['addSalePayType'];
+				$abono  = $_POST['addSaleAbono'];
+				
+	        	$objSale->primerAbono($abono, $ventaId, $tipoPago);
+	        }
+			
+			
 			
 			echo json_encode($json);
 

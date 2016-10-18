@@ -619,8 +619,6 @@ function agregarVenta(){
 		'addSaleTotal'    : $('input[id=addSaleTotal]').val(),
         'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
         'addSaleAltura'    : $('input[id=addSaleAltura]').val(),
-        
-        /*'addSaleSaldo'    : $('input[id=addSaleSaldo]').val(),*/
         'lejos_l_1'    : $('input[id=lejos_l_1]').val(),
         'lejos_o_1'    : $('input[id=lejos_o_1]').val(),
         'lejos_c_1'    : $('input[id=lejos_c_1]').val(),
@@ -635,7 +633,10 @@ function agregarVenta(){
         'cerca_o_2'    : $('input[id=cerca_o_2]').val(),
         'cerca_c_2'    : $('input[id=cerca_c_2]').val(),
         'cerca_e_2'    : $('input[id=cerca_e_2]').val(),
-		'addSaleProductLejos'    : $('input[id=addSaleProductLejos]').val()
+		'addSaleProductLejos'    : $('input[id=addSaleProductLejos]').val(),
+		'addSaleProductCerca'    : $('input[id=addSaleProductCerca]').val(),
+		'addSalePayType'    	 : $('select[id=addSalePayType]').val(),
+        'addSaleAbono'    		 : $('input[id=addSaleAbono]').val()
     };
     $.ajax({
         url : '../controller/Sale.php?action=2',
@@ -678,17 +679,4 @@ function recoverPasword(){
                 alertify.error("Datos inválidos.");
             }
         })
-    };
-
-function marcos(tienda) {
-    var availableTags = $.ajax({
-    		url:'../controller/Product.php?action=4&tienda='.concat(tienda),
-    		type:'post',
-    		dataType:'json',
-    		async:false    		
-    	}).responseText;
-	$obj = JSON.parse(availableTags);
-    $( "#addSaleProductLejos" ).autocomplete({
-      source: $obj
-    });
-  };
+};
