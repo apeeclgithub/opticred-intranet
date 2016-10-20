@@ -693,7 +693,7 @@ function cuadrarCaja(){
     var cardReal = $('input[id=cardClosingCash]').val();
     var docsReal = $('input[id=docsClosingCash]').val();
         $('input[id=totalClosingCash]').val(Number(cashReal)+Number(docsReal)+Number(cardReal));
-        var sistema = $('input[id=showTotalSysClosingCash]').val();
+        var sistema = $('input[id=showTotalFinalSysClosingCash]').val();
         var real = $('input[id=totalClosingCash]').val();
         $('input[id=diffClosingCash]').val(Number(sistema)-Number(real))
 };

@@ -116,15 +116,15 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Efectivo</label>
-              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="cashClosingCash">
+              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="cashClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Tarjetas</label>
-              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="cardClosingCash">
+              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="cardClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Cheque</label>
-              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="docsClosingCash">
+              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="docsClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Total</label>
