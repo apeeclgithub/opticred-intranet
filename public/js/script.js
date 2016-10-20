@@ -680,3 +680,20 @@ function recoverPasword(){
             }
         })
 };
+
+function discountCristal(){
+
+    var cristalPay = $('input[id=cristalPay]').val();
+    var systemTotal = $('input[id=showTotalSysClosingCash]').val();
+    $('input[id=showTotalFinalSysClosingCash]').val(Number(systemTotal)-Number(cristalPay))
+};
+
+function cuadrarCaja(){
+    var cashReal = $('input[id=cashClosingCash]').val();
+    var cardReal = $('input[id=cardClosingCash]').val();
+    var docsReal = $('input[id=docsClosingCash]').val();
+        $('input[id=totalClosingCash]').val(Number(cashReal)+Number(docsReal)+Number(cardReal));
+        var sistema = $('input[id=showTotalSysClosingCash]').val();
+        var real = $('input[id=totalClosingCash]').val();
+        $('input[id=diffClosingCash]').val(Number(sistema)-Number(real))
+};
