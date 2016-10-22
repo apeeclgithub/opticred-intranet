@@ -86,7 +86,20 @@
 	        	$objSale->primerAbono($abono, $ventaId, $tipoPago);
 	        }
 			
-			
+			if($json['success'] == true){
+				
+				$cap1  = $_POST['addSaleCap1'];
+				$cap2  = $_POST['addSaleCap2'];
+				
+				$val = ($cap2==null)?0.50:0.25;
+				$paid = (($venTotal*0.10)<$abono)?'Si':'No';
+
+				if($cap1!=null){
+					$objSale->addComision($venTotal, $paid, $ventaId, $cap1, $nameLejos, $nameCerca, $val);
+				}else if($cap2!=null){
+					$objSale->addComision($venTotal, $paid, $ventaId, $cap2, $nameLejos, $nameCerca, $val);
+				}
+	        }			
 			
 			echo json_encode($json);
 

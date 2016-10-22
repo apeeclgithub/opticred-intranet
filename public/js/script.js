@@ -633,28 +633,39 @@ function agregarVenta(){
         'cerca_o_2'    : $('input[id=cerca_o_2]').val(),
         'cerca_c_2'    : $('input[id=cerca_c_2]').val(),
         'cerca_e_2'    : $('input[id=cerca_e_2]').val(),
+		'addSaleCap1'    : $('input[id=addSaleCap1]').val(),
+        'addSaleCap2'    : $('input[id=addSaleCap2]').val(),
 		'addSaleProductLejos'    : $('input[id=addSaleProductLejos]').val(),
 		'addSaleProductCerca'    : $('input[id=addSaleProductCerca]').val(),
 		'addSalePayType'    	 : $('select[id=addSalePayType]').val(),
         'addSaleAbono'    		 : $('input[id=addSaleAbono]').val()
     };
-    $.ajax({
-        url : '../controller/Sale.php?action=2',
-        type : 'post',
-        data : params,
-        dataType : 'json'
-    }).done(function(data){
-        if(data.success==true){
-            alertify.set('notifier','position', 'top-right');
-            alertify.success("Se ha generado la venta exitosamente.");
-            /*setTimeout(function(){
-                location.reload();
-            },2000);*/
-        }else{
-            alertify.set('notifier','position', 'top-right');
-            alertify.error("No se pudo concretar la venta.");
-        }
-    });
+	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Debe ingresar un medio de pago");
+	}else if($('input[id=addSaleCap1]').val()==''){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Debe seleccionar un captador al menos.");
+	}else{
+		$.ajax({
+			url : '../controller/Sale.php?action=2',
+			type : 'post',
+			data : params,
+			dataType : 'json'
+		}).done(function(data){
+			if(data.success==true){
+				alertify.set('notifier','position', 'top-right');
+				alertify.success("Se ha generado la venta exitosamente.");
+				/*setTimeout(function(){
+					location.reload();
+				},2000);*/
+			}else{
+				alertify.set('notifier','position', 'top-right');
+				alertify.error("No se pudo concretar la venta.");
+			}
+		});
+	}
+    
 };
 
 function goBack() {

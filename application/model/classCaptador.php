@@ -152,6 +152,20 @@
 
 			return $this->captador;
 		}
+		
+		public function listCaptadorSale(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT  CAP_NAME
+										FROM CAPTADOR
+										WHERE CAP_ACTIVE = 1');
+			
+			$this->captador = $sql->execute();
+			$this->captador = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->captador;
+
+		}
 
 	}
 ?>

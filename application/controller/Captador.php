@@ -41,6 +41,22 @@
 			$json['success'] = $objCaptador->delCaptador($capId);
 		    echo json_encode($json);
 			break;
+			
+		case 4:
+
+			$array = array();
+			
+			foreach ( (array) $objCaptador->listCaptadorSale() as $key ) {
+				foreach ($key as $value) {
+					if($value!=''){
+					array_push($array, $value);
+					}
+				}
+			}
+			
+			echo json_encode($array);
+			
+			break;
 		
 		default:
 

@@ -78,9 +78,25 @@
 			$sql->bindParam(':tienda'	, $tienda);
 
 			$this->sale = $sql->execute();
+			$this->descuento($name, $tienda);
 
 			return $this->sale;
 
+		}
+		
+		public function descuento($name, $tienda){
+			$objConn = new Database();
+			$sql = $objConn->prepare('UPDATE PRODUCTO 
+										SET PRO_STOCK = PRO_STOCK - 1
+										WHERE PRO_NAME = :name
+										AND TIENDA_TIE_ID = :tienda');
+			
+			$sql->bindParam(':name'	, $name);
+			$sql->bindParam(':tienda'	, $tienda);
+			
+			if($name!=null){
+				$this->sale = $sql->execute();
+			}
 		}
 		
 		public function primerAbono($abono, $venta, $metodo){
@@ -99,6 +115,46 @@
 
 			return $this->sale;
 
+		}
+		
+		public function addComision($total, $paid, $venta, $captador, $nameLejos, $nameCerca, $val){
+			$dia = $this->getDia();
+			foreach ((array) $this->getTotal($nameLejos,$nameCerca)as $key ) {
+				foreach ($key as $key2 => $value) {
+					$ggg = intval($value);
+				}
+			}
+			
+			$asd = ($total-$ggg)*$val;
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	INSERT INTO COMISION (COM_TOTAL, COM_PAID, VENTA_VEN_ID, CAPTADOR_CAP_ID) 
+										VALUES (:asd, :paid, :venta, (SELECT CAP_ID FROM CAPTADOR WHERE CAP_NAME = :captador))');
+		
+			$sql->bindParam(':asd'		, $asd);
+			$sql->bindParam(':paid'	, $paid);
+			$sql->bindParam(':venta'	, $venta);
+			$sql->bindParam(':captador'	, $captador);
+
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		
+		public function getTotal($marco1, $marco2){
+			$objConn = new Database();
+			$sql = $objConn->prepare('SELECT COALESCE((SELECT PRO_PRICE FROM PRODUCTO 
+										WHERE PRO_NAME = :marco1), 0)+
+										COALESCE((SELECT PRO_PRICE FROM PRODUCTO WHERE PRO_NAME = :marco2), 0) AS SUMA
+										FROM PRODUCTO LIMIT 1');
+		
+			$sql->bindParam(':marco1', $marco1);
+			$sql->bindParam(':marco2', $marco2);
+			
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+			return $this->sale;
 		}
 
 		public function maxNumber($store){
@@ -164,5 +220,12 @@
 		}
 
 	}
+/*	$obj = new Sale();
+	$obj->getTotal('marco','marco');
+	foreach ((array) $obj->getTotal('marco','marco')as $key ) {
+		foreach ($key as $key2 => $value) {
+			echo $ggg = intval($value);
+		}
+	}*/
 	
 ?>

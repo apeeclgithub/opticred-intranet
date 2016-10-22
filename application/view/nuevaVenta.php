@@ -19,6 +19,21 @@
       source: $obj
     });
   } );
+  $( function() {
+    var availableTags = $.ajax({
+    		url:'../controller/Captador.php?action=4',
+    		type:'post',
+    		dataType:'json',
+    		async:false    		
+    	}).responseText;
+	$obj = JSON.parse(availableTags);
+    $( "#addSaleCap1" ).autocomplete({
+      source: $obj
+    });
+	$( "#addSaleCap2" ).autocomplete({
+      source: $obj
+    });
+  } );
   </script>
 
 <div class="contentMain">
@@ -126,7 +141,7 @@
     <div class="form-group col-xs-3">
      <label for="addSalePayType">Método de Pago:</label>
      <select type="text" class="form-control" id="addSalePayType" name="addSalePayType">  
-		<option value="" disabled selected>Método de Pago</option>
+		<option value="4" disabled selected>Método de Pago</option>
        <option value="1">Efectivo</option>
        <option value="2">Tarjeta</option>
        <option value="3">Cheque</option>
@@ -164,8 +179,12 @@
  <legend>Captador/es</legend>
  <div class="row">
    <div class="form-group col-xs-3">
-   <label for="addSaleDateFinish">Captador 1</label>
-   <input type="text" class="form-control" id="addSaleDateFinish" name="addSaleDateFinish" disabled="disabled" >  
+   <label for="addSaleCap1">Captador 1</label>
+   <input type="text" class="form-control" id="addSaleCap1" name="addSaleCap1" >  
+  </div> 
+  <div class="form-group col-xs-3">
+   <label for="addSaleCap2">Captador 2</label>
+   <input type="text" class="form-control" id="addSaleCap2" name="addSaleCap2" >  
   </div> 
  </div>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Ingresar Venta</button>
