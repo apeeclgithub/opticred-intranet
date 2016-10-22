@@ -2,7 +2,6 @@
 	<thead>
 		<tr>
 			<th>Insumo</th>
-			<th>Tienda</th>
 			<th>Detalle</th>
 			<th>Monto</th>
 			<th>Fecha</th>
@@ -19,27 +18,37 @@
 			foreach ($key as $key2 => $value) {
 				?>
 				<?php $hoy = date('Y-m-d');?>
+				<?php if ($_SESSION["user"]["store"] == 1){
+					$tienda = 'Tercero';
+				} 
+				?>
+				<?php if ($_SESSION["user"]["store"] == 2){
+					$tienda = 'Quinto';
+				}
+				?>
+
 				<?php if ($value['INS_DATE'] == $hoy): ?>
+				<?php if ($value['TIE_NAME'] == $tienda): ?>
 				<tr>
 					<td><?php echo $value['INS_NAME'];?></td>
 					<td><?php echo $value['INS_DESC'];?></td>
-					<td><?php echo $value['TIE_NAME'];?></td>
 					<td><?php echo $value['INS_TOTAL'];?></td>
 					<td><?php echo $value['INS_DATE'];?></td>
 
 				</tr>
 			<?php endif ?>
-			<?php
-		}
+		<?php endif ?>
+		<?php
 	}
+}
 
 
-	?>	
+?>	
 </tbody>
 </table>
 <?php
 $objInsumo = new Insumo();
-$objInsumo->totalInsumoClosingCash();
+$objInsumo->totalInsumoClosingCash($_SESSION["user"]["store"]);
 
 foreach ( (array) $objInsumo as $key ) {
 	foreach ($key as $key2 => $value) {

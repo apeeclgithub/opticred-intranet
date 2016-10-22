@@ -12,6 +12,22 @@
       <li><a href="#">Dropdown link</a></li>
     </ul>
   </div></div>-->
+  <script type="text/javascript">
+    $( function() {
+    var availableTags = $.ajax({
+        url:'../controller/Captador.php?action=4',
+        type:'post',
+        dataType:'json',
+        async:false       
+      }).responseText;
+  $obj = JSON.parse(availableTags);
+    $( "#closingCashPayCaptador" ).autocomplete({
+      source: $obj
+    });
+  } );
+  </script>
+ 
+  <input type="hidden" name="insStore" id="insStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <div class="contentMain">
     <legend>Cierre Caja</legend>
     <div class="row">
@@ -21,11 +37,22 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="form-group col-xs-11">
+            <div class="form-group col-xs-4">
               <label for="">Captador</label><br>
+              <input type="text" class="form-control" id="closingCashPayCaptador" name="closingCashPayCaptador" >  
               <div id="captadorTableReload">
                 <?php require '../controller/CaptadorTablePay.php'; ?>
               </div>
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="">Monto a pagar</label>
+              <input type="number" class="form-control" id="inputPayCaptadorTotal">
+            </div>
+          </div>
+          <div class="row">
+           <div class="form-group col-xs-4">
+            <span class="form-control" id="sum">0</span>
+              <button class="btn btn-info btn-default " onclick="suma();" data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button>
             </div>
           </div>
         </div>
@@ -56,7 +83,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="form-group col-xs-4">
-              <label for="">Total PONEN MANUAL EL MONTO</label>
+              <label for="">Total</label>
               <input type="number" onkeyup="discountCristal()" class="form-control" id="cristalPay">
             </div><!--
             <div class="form-group col-xs-4"><br>
@@ -164,10 +191,41 @@
         <input type="hidden" name="payTotalCaptador" id="payTotalCaptador">
       </div>
       <div class="modal-footer">
-        <button onclick="" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+        <button onclick="" type="button" class="btn btn-success" onclick="" data-dismiss="modal">Aceptar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+
+    //iterate through each textboxes and add keyup
+    //handler to trigger sum event
+    $("#inputPayCaptador").each(function() {
+
+      $(this).keyup(function(){
+        calculateSum();
+      });
+    });
+
+  });
+
+  function calculateSum() {
+
+    var sum = 0;
+    //iterate through each textboxes and add the values
+    $("#inputPayCaptador").each(function() {
+
+      //add only if the value is number
+      if(!isNaN(this.value) && this.value.length!=0) {
+        sum += parseFloat(this.value);
+      }
+
+    });
+    //.toFixed() method will roundoff the final sum to 2 decimal places
+    $("#sum").html(sum.toFixed(0));
+  }
+</script>
 <?php include('footer.php'); ?>

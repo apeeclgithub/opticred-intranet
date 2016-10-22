@@ -121,7 +121,7 @@
 
 		}
 
-		public function totalInsumoClosingCash(){
+		public function totalInsumoClosingCash($insStore){
 
 			$today = $this->getDate();
 			
@@ -129,10 +129,10 @@
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
 										FROM INSUMO
 										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = :today');
+										WHERE INS_DATE = :today AND TIE_ID = :insStore');
 
+			$sql->bindParam(':insStore', $insStore);
 			$sql->bindParam(':today', $today);
-
 			$this->insumo = $sql->execute();
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
 
