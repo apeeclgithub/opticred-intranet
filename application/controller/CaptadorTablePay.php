@@ -23,7 +23,7 @@
 					<tr>
 						<td><?php echo $value['CAP_NAME'];	?></td>
 						<td><?php echo $value['CAP_TOTAL'];	?></td>
-						<td><input type="number" class="form-control" id=""></td>
+						<td><input type="number" class="form-control" id="captador<?php echo $value['CAP_ID'];?>"></td>
 						<td class="text-center"><button class="btn btn-info btn-xs " data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
 					</tr>
 					<?php endif ?>

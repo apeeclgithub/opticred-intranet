@@ -693,18 +693,20 @@ function recoverPasword(){
 };
 
 function discountCristal(){
-
+    var insumo = $('input[id=showCashSysClosingCash]').val();
     var cristalPay = $('input[id=cristalPay]').val();
     var systemTotal = $('input[id=showTotalSysClosingCash]').val();
-    $('input[id=showTotalFinalSysClosingCash]').val(Number(systemTotal)-Number(cristalPay))
+    $('input[id=totalClosingCash]').val(Number(systemTotal)-Number(cristalPay)-Number(insumo))
 };
 
 function cuadrarCaja(){
     var cashReal = $('input[id=cashClosingCash]').val();
     var cardReal = $('input[id=cardClosingCash]').val();
     var docsReal = $('input[id=docsClosingCash]').val();
+    var cristalPay = $('input[id=cristalPay]').val();
+    var insumo = $('input[id=showCashSysClosingCash]').val();
         $('input[id=totalClosingCash]').val(Number(cashReal)+Number(docsReal)+Number(cardReal));
         var sistema = $('input[id=showTotalFinalSysClosingCash]').val();
         var real = $('input[id=totalClosingCash]').val();
-        $('input[id=diffClosingCash]').val(Number(sistema)-Number(real))
+        $('input[id=diffClosingCash]').val((Number(sistema)-Number(real)-Number(cristalPay)-Number(insumo)))
 };

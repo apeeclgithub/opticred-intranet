@@ -22,7 +22,7 @@
 										               WHEN b.MET_NAME=\'Tarjeta\' THEN a.ABO_TOTAL
 										               ELSE 0
 										           END) AS tarjeta
-										FROM abono a
+										FROM ABONO a
 										INNER JOIN metodo_pago b ON b.MET_ID=a.METODO_PAGO_MET_ID
 										WHERE CURDATE()=ABO_DATE
 										GROUP BY dia');

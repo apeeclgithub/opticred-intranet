@@ -19,10 +19,10 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<td><?php echo $value['pro_name'];?></td>
-						<td><?php echo $value['pro_store'];?></td>
+						<td><?php echo $value['PRO_NAME'];?></td>
+						<td><?php echo $value['PRO_STORE'];?></td>
 						<td><input type="text" class="form-control inputWidthSail"></td>
-						<td><?php echo $value['pro_stock'];?></td>
+						<td><?php echo $value['PRO_STOCK'];?></td>
 						<td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar a venta</button></td>
 					</tr>
 					<?php

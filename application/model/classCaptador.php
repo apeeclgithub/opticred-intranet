@@ -138,13 +138,13 @@
 		public function pendingCommission(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT captador.CAP_ID,
+			$sql = $objConn->prepare('	SELECT CAPTADOR.CAP_ID,
 										       CAP_NAME,
 										       SUM(COM_TOTAL)-SUM(COM_PAID) AS CAP_TOTAL
-										FROM captador
-										INNER JOIN comision ON captador.CAP_ID = comision.CAPTADOR_CAP_ID
+										FROM CAPTADOR
+										INNER JOIN COMISION ON CAPTADOR.CAP_ID = COMISION.CAPTADOR_CAP_ID
 										WHERE CAP_ACTIVE = 1
-										GROUP BY captador.CAP_ID
+										GROUP BY CAPTADOR.CAP_ID
 										ORDER BY CAP_TOTAL DESC');
 
 			$this->captador = $sql->execute();

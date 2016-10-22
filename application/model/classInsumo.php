@@ -18,8 +18,7 @@
 												TIE_NAME,
 												INS_DATE
 										FROM INSUMO
-										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = :today ');
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID');
 
 			$sql->bindParam(':today', $today);
 
@@ -96,6 +95,51 @@
 			$this->insumo = $sql->execute();
 
 			return $this->insumo;
+		}
+
+		public function listInsumosClosingCash(){
+
+			$today = $this->getDate();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT  INS_ID,
+												INS_NAME,
+												INS_DESC,
+												INS_TOTAL,
+												TIE_NAME,
+												INS_DATE
+										FROM INSUMO
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE INS_DATE = :today ');
+
+			$sql->bindParam(':today', $today);
+
+			$this->insumo = $sql->execute();
+			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->insumo;
+
+		}
+
+		public function totalInsumoClosingCash(){
+
+			$today = $this->getDate();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
+										FROM INSUMO
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE INS_DATE = :today');
+
+			$sql->bindParam(':today', $today);
+
+			$this->insumo = $sql->execute();
+			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->insumo;
+
+
+			
 		}
 
 	}

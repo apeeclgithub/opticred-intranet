@@ -20,12 +20,16 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
+						<?php $hoy = date('Y-m-d');?>
 						<td><?php echo $value['INS_NAME'];?></td>
 						<td><?php echo $value['INS_DESC'];?></td>
 						<td><?php echo $value['TIE_NAME'];?></td>
 						<td><?php echo $value['INS_TOTAL'];?></td>
 						<td><?php echo $value['INS_DATE'];?></td>
-						<td class="text-center"><button 
+
+						<td class="text-center">
+							<?php if ($value['INS_DATE'] == $hoy): ?>
+							<button 
 						onclick="updateModalInsumo(
 							<?php  echo $value['INS_ID'];?>,
 							'<?php echo $value['INS_NAME'];?>',
@@ -34,6 +38,7 @@
 							<?php  echo $value['INS_TOTAL'];?>)" 
 						
 						class="btn btn-info btn-xs" data-toggle="modal" data-target="#editInsumoConfirmDialog"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Editar</button>&nbsp;&nbsp;<button onclick="deleteModalInsumo(<?php  echo $value['INS_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteInsumoConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Eliminar</button></td>
+						<?php endif ?>
 					</tr>
 					<?php
 				}

@@ -11,29 +11,50 @@
 	<tbody>
 		<?php
 
-			require '../model/classInsumo.php';
-			$objInsumo = new Insumo();
-			$objInsumo->listInsumos();
+		require '../model/classInsumo.php';
+		$objInsumo = new Insumo();
+		$objInsumo->listInsumos();
 
-			foreach ( (array) $objInsumo as $key ) {
-				foreach ($key as $key2 => $value) {
-					?>
-					<tr>
-						<td><?php echo $value['INS_NAME'];?></td>
-						<td><?php echo $value['INS_DESC'];?></td>
-						<td><?php echo $value['TIE_NAME'];?></td>
-						<td><?php echo $value['INS_TOTAL'];?></td>
-						<td><?php echo $value['INS_DATE'];?></td>
-					</tr>
-					<?php
-				}
-			}
-		?>
-	</tbody>
+		foreach ( (array) $objInsumo as $key ) {
+			foreach ($key as $key2 => $value) {
+				?>
+				<?php $hoy = date('Y-m-d');?>
+				<?php if ($value['INS_DATE'] == $hoy): ?>
+				<tr>
+					<td><?php echo $value['INS_NAME'];?></td>
+					<td><?php echo $value['INS_DESC'];?></td>
+					<td><?php echo $value['TIE_NAME'];?></td>
+					<td><?php echo $value['INS_TOTAL'];?></td>
+					<td><?php echo $value['INS_DATE'];?></td>
+
+				</tr>
+			<?php endif ?>
+			<?php
+		}
+	}
+
+
+	?>	
+</tbody>
 </table>
+<?php
+$objInsumo = new Insumo();
+$objInsumo->totalInsumoClosingCash();
+
+foreach ( (array) $objInsumo as $key ) {
+	foreach ($key as $key2 => $value) {
+		?>
+		<div class="form-group col-xs-4">
+			<label for="">Total Insumos del día:</label>
+			<input type="number" class="form-control" id="showCashSysClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
+		</div>
+		<?php
+	}
+}
+?>
 
 <script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#tablaInsumos').DataTable();
-	} );
+$(document).ready(function() {
+	$('#tablaInsumos').DataTable();
+} );
 </script>

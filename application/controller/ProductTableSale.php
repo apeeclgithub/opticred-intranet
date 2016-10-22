@@ -18,14 +18,14 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<td><?php echo $value['pro_name'];?></td>
+						<td><?php echo $value['PRO_NAME'];?></td>
 						<td><select id="addSaleType" name="addSaleType" class="form-control">
 							<option value="" disabled selected>Seleccione tipo de armazón</option>
 							<option value="Lejos">Lejos</option>
 							<option value="Cerca">Cerca</option>
 							<option value="Sol">Sol</option>
 						</select></td>
-						<td><?php echo $value['pro_stock'];?></td>
+						<td><?php echo $value['PRO_STOCK'];?></td>
 						<td class="text-center"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Agregar a venta</button></td>
 					</tr>
 					<?php
