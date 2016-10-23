@@ -104,6 +104,14 @@
 			echo json_encode($json);
 
 			break;
+			
+		case 3:
+
+			$id = $_GET['id'];
+
+			$objSale->getSale($id);
+
+			break;
 
 	}
 

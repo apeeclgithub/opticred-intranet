@@ -29,6 +29,22 @@
 
 		}
 		
+		public function getSale($id){
+			$dia = $this->getDia();
+			$hora = $this->getHora();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	INSERT INTO VENTA (VEN_CORRELATIVE, TIENDA_TIE_ID, 	VEN_CLI_NAME, VEN_CLI_PHONE, USUARIO_USU_ID, VEN_DATE_CREATE, VEN_HOUR_CREATE, VEN_COM_TOTAL) 
+										VALUES (:venNumber, :venStore, :venClient, :venPhone, :usuId, :venDay, :venHour, :venTotal)');
+
+			$sql->bindParam(':id'	, $id);
+
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		
 		public function getUltima($tienda){
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT MAX(VEN_ID) AS max FROM VENTA WHERE TIENDA_TIE_ID = :tienda');
@@ -42,13 +58,11 @@
 		}
 		
 		public function addDespacho($ventaId, $venCristal, $venAltura){
-			$dia = $this->getDia();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO DESPACHO (DES_DATE, DES_CRISTAL, DES_ALTURA, VENTA_VEN_ID) 
-										VALUES (:dia, :venCristal, :venAltura, :ventaId)');
+			$sql = $objConn->prepare('	INSERT INTO DESPACHO (DES_CRISTAL, DES_ALTURA, VENTA_VEN_ID) 
+										VALUES (:venCristal, :venAltura, :ventaId)');
 
-			$sql->bindParam(':dia'			, $dia);
 			$sql->bindParam(':venCristal'	, $venCristal);
 			$sql->bindParam(':venAltura'	, $venAltura);
 			$sql->bindParam(':ventaId'		, $ventaId);
@@ -218,14 +232,26 @@
 			return $day."-".$month."-".$year." ".$hour.":".$min ;
 
 		}
+		
+		public function listSalePending(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT VEN_CORRELATIVE, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
+										(VEN_COM_TOTAL-SUM(ABO_TOTAL)) AS PENDIENTE
+										FROM VENTA
+										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
+										INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
+										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
+										WHERE DESPACHO.DES_DATE IS NULL
+										GROUP BY VEN_CORRELATIVE');
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
 
 	}
-/*	$obj = new Sale();
-	$obj->getTotal('marco','marco');
-	foreach ((array) $obj->getTotal('marco','marco')as $key ) {
-		foreach ($key as $key2 => $value) {
-			echo $ggg = intval($value);
-		}
-	}*/
 	
 ?>

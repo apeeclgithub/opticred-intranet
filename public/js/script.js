@@ -616,8 +616,8 @@ function agregarVenta(){
         'addSaleClient'    : $('input[id=addSaleClient]').val(),
         'addSalePhono'     : $('input[id=addSalePhono]').val(),
 		'addSaleId'		   : $('input[id=addSaleId]').val(),
-		'addSaleTotal'    : $('input[id=addSaleTotal]').val(),
-        'addSaleCristal'    : $('input[id=addSaleCristal]').val(),
+		'addSaleTotal'     : $('input[id=addSaleTotal]').val(),
+        'addSaleCristal'   : $('input[id=addSaleCristal]').val(),
         'addSaleAltura'    : $('input[id=addSaleAltura]').val(),
         'lejos_l_1'    : $('input[id=lejos_l_1]').val(),
         'lejos_o_1'    : $('input[id=lejos_o_1]').val(),
@@ -690,6 +690,21 @@ function recoverPasword(){
                 alertify.error("Datos inválidos.");
             }
         })
+};
+
+function pendienteVenta(id){
+	$.ajax({
+		url : '../controller/Sale.php?action=3?id='.concat(id),
+		type : 'post',
+		data : params,
+		dataType : 'json'
+	}).done(function(data){
+		if(data.success==true){
+
+		}else{
+
+		}
+	});
 };
 
 function discountCristal(){
