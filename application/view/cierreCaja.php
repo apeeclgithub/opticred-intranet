@@ -33,26 +33,18 @@
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Pago de Comisión</h3>
+          <h3 class="panel-title">Pago de Comisión a captador</h3>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="form-group col-xs-4">
-              <label for="">Captador</label><br>
-              <input type="text" class="form-control" id="closingCashPayCaptador" name="closingCashPayCaptador" >  
+            <div class="form-group col-xs-11">
               <div id="captadorTableReload">
                 <?php require '../controller/CaptadorTablePay.php'; ?>
               </div>
             </div>
             <div class="form-group col-xs-4">
-              <label for="">Monto a pagar</label>
+              <label for="">Total a pagar</label>
               <input type="number" class="form-control" id="inputPayCaptadorTotal">
-            </div>
-          </div>
-          <div class="row">
-           <div class="form-group col-xs-4">
-            <span class="form-control" id="sum">0</span>
-              <button class="btn btn-info btn-default " onclick="suma();" data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button>
             </div>
           </div>
         </div>
@@ -197,35 +189,4 @@
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function(){
-
-    //iterate through each textboxes and add keyup
-    //handler to trigger sum event
-    $("#inputPayCaptador").each(function() {
-
-      $(this).keyup(function(){
-        calculateSum();
-      });
-    });
-
-  });
-
-  function calculateSum() {
-
-    var sum = 0;
-    //iterate through each textboxes and add the values
-    $("#inputPayCaptador").each(function() {
-
-      //add only if the value is number
-      if(!isNaN(this.value) && this.value.length!=0) {
-        sum += parseFloat(this.value);
-      }
-
-    });
-    //.toFixed() method will roundoff the final sum to 2 decimal places
-    $("#sum").html(sum.toFixed(0));
-  }
-</script>
 <?php include('footer.php'); ?>
