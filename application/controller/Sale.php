@@ -108,8 +108,17 @@
 		case 3:
 
 			$id = $_GET['id'];
+			$json['success'] = true;
+			foreach ( (array) $objSale->getSale($id) as $key ) {
 
-			$objSale->getSale($id);
+				$json['id'] 			= $key['VEN_ID'];
+				$json['correlative'] 	= $key['VEN_CORRELATIVE'];
+				$json['date'] 	= $key['VEN_DATE_CREATE'];
+				$json['hour'] 	= $key['VEN_HOUR_CREATE'];
+					
+			}
+			
+			echo json_encode($json);
 
 			break;
 

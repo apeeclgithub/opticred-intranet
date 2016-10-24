@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 <?php include('nav_menu.php'); ?>
 <?php include('userNav.php'); ?>
-<script type="text/javascript">window.onload=pendienteVenta($('input[id=pendId]').val());</script>
+<script type="text/javascript">window.onload=pendienteVenta(<?php echo $_GET['id'];?>);</script>
 <div class="contentMain">
   <legend>Nueva Venta</legend>
   <input type="text" name="pendId" id="pendId" <?php echo 'value="'.$_GET["id"].'"'; ?> />

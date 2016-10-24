@@ -30,16 +30,17 @@
 		}
 		
 		public function getSale($id){
-			$dia = $this->getDia();
-			$hora = $this->getHora();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO VENTA (VEN_CORRELATIVE, TIENDA_TIE_ID, 	VEN_CLI_NAME, VEN_CLI_PHONE, USUARIO_USU_ID, VEN_DATE_CREATE, VEN_HOUR_CREATE, VEN_COM_TOTAL) 
-										VALUES (:venNumber, :venStore, :venClient, :venPhone, :usuId, :venDay, :venHour, :venTotal)');
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, VEN_DATE_CREATE, VEN_HOUR_CREATE, 
+										VEN_CLI_NAME, VEN_CLI_PHONE, VEN_COM_TOTAL
+										FROM VENTA
+										WHERE VEN_ID = :id');
 
 			$sql->bindParam(':id'	, $id);
 
 			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $this->sale;
 

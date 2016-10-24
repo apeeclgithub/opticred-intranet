@@ -693,17 +693,14 @@ function recoverPasword(){
 };
 
 function pendienteVenta(id){
+	
 	$.ajax({
-		url : '../controller/Sale.php?action=3?id='.concat(id),
+		url : '../controller/Sale.php?action=3&id='.concat(id),
 		type : 'post',
 		data : params,
 		dataType : 'json'
-	}).done(function(data){
-		if(data.success==true){
-
-		}else{
-
-		}
+	}).always(function(data){
+		alert();
 	});
 };
 
