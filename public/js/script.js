@@ -697,10 +697,9 @@ function pendienteVenta(id){
 	$.ajax({
 		url : '../controller/Sale.php?action=3&id='.concat(id),
 		type : 'post',
-		data : params,
 		dataType : 'json'
 	}).always(function(data){
-		alert();
+		alert(data.id);
 	});
 };
 
