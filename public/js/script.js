@@ -721,3 +721,38 @@ function cuadrarCaja(){
         var real = $('input[id=totalClosingCash]').val();
         $('input[id=diffClosingCash]').val((Number(sistema)-Number(real)-Number(cristalPay)-Number(insumo)))
 };
+
+function dataCaptadorPay(id, name, total, pay){
+    $('input[id=payIdCaptador]').val(id);
+    $('input[id=payNameCaptador]').val(name);
+    $('input[id=payComissionCaptador]').val(total);
+    $('input[id=payTotalCaptador]').val(pay);
+};
+
+function insertPayComission(){
+    var params = {
+        'payTotalCaptador'  : $('input[id=payTotalCaptador]').val(),
+        'payIdCaptador'    : $('input[id=payIdCaptador]').val()
+    };
+    if ($('input[id=payTotalCaptador]').val() === '') {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Ingrese monto de comisión a pagar.");
+    }else{
+        $.ajax({
+            url : '../controller/ClosingCash.php?action=1',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#captadorTableReload").load('../controller/CaptadorTablePay.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Comisión pagada.");
+                $('input[id=payTotalCaptador]').val('');
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Error al pagar comisión.");
+            }
+        })
+    };
+};

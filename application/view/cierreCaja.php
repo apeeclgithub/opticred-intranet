@@ -180,10 +180,12 @@
       <div class="modal-body">
         <p>Confirme para pagar el Captador</p>
         <input type="hidden" name="payIdCaptador" id="payIdCaptador">
+        <input type="hidden" name="payNameCaptador" id="payNameCaptador">
+        <input type="hidden" name="payComissionCaptador" id="payComissionCaptador">
         <input type="hidden" name="payTotalCaptador" id="payTotalCaptador">
       </div>
       <div class="modal-footer">
-        <button onclick="" type="button" class="btn btn-success" onclick="" data-dismiss="modal">Aceptar</button>
+        <button onclick="insertPayComission();" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>

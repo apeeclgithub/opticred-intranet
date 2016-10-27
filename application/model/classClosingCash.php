@@ -33,6 +33,40 @@
 			return $this->closingCash;
 
 		}
+
+
+		public function insertPayComission($payTotalCaptador, $payIdCaptador){
+
+			$payDate = $this->getDia();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('INSERT INTO PAGO (PAG_TOTAL, PAG_DATE, CAPTADOR_CAP_ID) 
+										VALUES (:payTotalCaptador, :payDate, :payIdCaptador)');
+		
+			$sql->bindParam(':payTotalCaptador', $payTotalCaptador);
+			$sql->bindParam(':payDate', $payDate);
+			$sql->bindParam(':payIdCaptador', $payIdCaptador);
+
+			$this->closingCash = $sql->execute();
+
+			return $this->closingCash;
+
+		}
+
+		public function getDia(){
+
+			$year = date("Y");
+			$month = date("m");
+
+			if(date("H")>5){
+				$day = date("d");
+			}else{
+				$day = date("d")-1;
+			}
+
+			return $year."-".$month."-".$day;
+
+		}
 	}
 
 ?>

@@ -23,8 +23,14 @@
 					<tr>
 						<td><?php echo $value['CAP_NAME'];	?></td>
 						<td><?php echo $value['CAP_TOTAL'];	?></td>
-						<td><input type="text" class="form-control" onkeyup="calculateSum();" name="inputPayCaptador" id="inputPayCaptador"></td>
-						<td class="text-center"><button class="btn btn-info btn-xs " data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button></td>
+						<td><input type="number" class="form-control" name="inputPayCaptador<?php echo $value['CAP_NAME'];	?>" id="inputPayCaptador<?php echo $value['CAP_NAME'];	?>"></td>
+						<td class="text-center">
+							<button onclick="dataCaptadorPay(
+							 <?php echo $value['CAP_ID'];	?>,
+							'<?php echo $value['CAP_NAME'];	?>',
+							'<?php echo $value['CAP_TOTAL'];	?>',
+							document.getElementById('inputPayCaptador<?php echo $value['CAP_NAME'];	?>').value)"  class="btn btn-info btn-xs " data-toggle="modal" data-target="#PayCaptadorConfirmDialog" ><span class="glyphicon glyphicon-usd"></span>&nbsp;Pagar Comisión</button>
+						</td>
 					</tr>
 					<?php endif ?>
 					<?php
