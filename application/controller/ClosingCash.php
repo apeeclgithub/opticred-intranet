@@ -13,7 +13,7 @@
 			$payIdCaptador  	= $_POST['payIdCaptador'];
 			$payTotalCaptador  	= $_POST['payTotalCaptador'];
 
-			$json['success'] = $objClosingCash->insertPayComission($payIdCaptador, $payTotalCaptador);
+			$json['success'] = $objClosingCash->insertPayComission($payTotalCaptador, $payIdCaptador);
 			echo json_encode($json);
 
 			break;

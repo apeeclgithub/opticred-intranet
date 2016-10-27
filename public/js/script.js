@@ -747,7 +747,7 @@ function insertPayComission(){
             if(data.success==true){
                 $("#captadorTableReload").load('../controller/CaptadorTablePay.php');
                 alertify.set('notifier','position', 'top-right');
-                alertify.error("Comisión pagada.");
+                alertify.success("Comisión pagada.");
                 $('input[id=payTotalCaptador]').val('');
             }else{
                 alertify.set('notifier','position', 'top-right');
