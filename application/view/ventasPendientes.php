@@ -38,7 +38,7 @@
 						<td><?php echo $value['ABO_TOTAL'];	?></td>
 						<td><?php echo $value['PENDIENTE'];	?></td>
 						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
-						<td><a href="verDetallePendiente.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
+						<td><a href="verDetallePendiente.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
 						<td><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
 					</tr>
 					<?php

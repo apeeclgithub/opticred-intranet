@@ -3,8 +3,8 @@
 <?php include('userNav.php'); ?>
 <script type="text/javascript">window.onload=pendienteVenta(<?php echo $_GET['id'];?>);</script>
 <div class="contentMain">
-  <legend>Nueva Venta</legend>
-  <input type="text" name="pendId" id="pendId" <?php echo 'value="'.$_GET["id"].'"'; ?> />
+  <legend>Venta Pendiente</legend>
+  <input type="hidden" name="pendId" id="pendId" <?php echo 'value="'.$_GET["id"].'"'; ?> />
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="addSaleNumber">N° Boleta</label>
@@ -18,11 +18,11 @@
   <div class="row">
     <div class="form-group col-xs-7">
      <label for="addSaleClient">Señor (a):</label>
-     <input id="addSaleClient" name="addSaleClient" type="text" class="form-control" >  
+     <input id="addSaleClient" name="addSaleClient" type="text" class="form-control" disabled="disabled">  
    </div> 
    <div class="form-group col-xs-3">
      <label for="addSalePhono">Fono:</label>
-     <input type="text" class="form-control" id="addSalePhono" name="addSalePhono" >  
+     <input type="text" class="form-control" id="addSalePhono" name="addSalePhono" disabled="disabled">  
    </div>    
  </div>
 

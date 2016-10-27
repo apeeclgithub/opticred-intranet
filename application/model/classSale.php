@@ -237,7 +237,7 @@
 		public function listSalePending(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT VEN_CORRELATIVE, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
 										(VEN_COM_TOTAL-SUM(ABO_TOTAL)) AS PENDIENTE
 										FROM VENTA
 										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
