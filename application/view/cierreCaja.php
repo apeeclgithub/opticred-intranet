@@ -52,7 +52,7 @@
               </div>
             </div>
             <div id ="paidOutCommisionTotal">
-              <?php require '../controller/ClosingCashListPaidOutCommision.php'; ?>
+              <?php require '../controller/ClosingCashTotalPaidCommision.php'; ?>
             </div>
           </div>
         </div>

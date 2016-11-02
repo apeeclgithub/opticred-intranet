@@ -2,7 +2,7 @@
 
   //require '../model/classClosingCash.php';
   $objClosingCash = new ClosingCash();
-  $objClosingCash->listPaidOutCommision();
+  $objClosingCash->totalPaidOutCommision();
 
   foreach ( (array) $objClosingCash as $key ) {
     foreach ($key as $key2 => $value) {

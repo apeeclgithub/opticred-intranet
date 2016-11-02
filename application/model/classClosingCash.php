@@ -104,7 +104,7 @@
 			return $this->closingCash;
 		}
 
-		public function listPaidOutCommision(){
+		public function totalPaidOutCommision(){
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT

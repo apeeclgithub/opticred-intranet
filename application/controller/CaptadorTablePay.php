@@ -1,4 +1,4 @@
-<table id="captadorTabla" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
+<table id="captadorTablaPay" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -41,6 +41,6 @@
 </table>
 <script type="text/javascript" language="javascript">
 	$(document).ready(function() {
-		$('#captadorTabla').DataTable();
+		$('#captadorTablaPay').DataTable();
 	} );
 </script>
