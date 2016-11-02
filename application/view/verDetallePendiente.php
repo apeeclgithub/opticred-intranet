@@ -109,38 +109,56 @@
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleAbono">Abonado a la venta:</label>
-     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
+     <input type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
    </div>
   </div>
-
+  <div class="row">
+    <div class="form-group col-xs-3">
+     <label for="addSalePayType">Método de Pago:</label>
+     <select type="text" class="form-control" id="addSalePayType" name="addSalePayType">  
+		<option value="4">Método de Pago</option>
+       <option value="1">Efectivo</option>
+       <option value="2">Tarjeta</option>
+       <option value="3">Cheque</option>
+     </select>
+   </div>
+    <div class="form-group col-xs-2">
+     <label for="addSaleAbono2">Abono:</label>
+     <input onkeyup="pendienteSaldo()" value="0" type="text" class="form-control" id="addSaleAbono2" name="addSaleAbono2" >  
+   </div>
+    <div class="form-group col-xs-2">
+     <label for="addSaleSaldo2">Saldo:</label>
+     <input type="text" class="form-control" id="addSaleSaldo2" name="addSaleSaldo2" disabled="disabled" >  
+   </div> 
+  </div>
+</br></br>
 <legend>Datos Entrega</legend>
 <div class="row">
   <div class="form-group col-xs-3">
-   <label for="addSaleDateFinish">Realizar Entrega: <input type="checkbox" id="addSaleDateFinish" name="addSaleDateFinish" ></label>
-   <input type="text" class="form-control" id="addSaleDateFinish" name="addSaleDateFinish" disabled="disabled" >  
-  </div>  
+	</br>
+   <label for="addSaleDateFinish">Realizar Entrega de marcos: <input onChange="finaliza()" type="checkbox" id="addSaleDateFinish" name="addSaleDateFinish" ></label>
+   </div>  
   <div class="form-group col-xs-4">
    <label for="addSaleCristal">Tipo Cristal:</label>
-   <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" >  
+   <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" disabled="disabled">  
  </div> 
  <div class="form-group col-xs-3">
    <label for="addSaleAltura">Altura:</label>
-   <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
+   <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" disabled="disabled">  
  </div>
  </div>  
  <legend>Captador/es</legend>
  <div class="row">
    <div class="form-group col-xs-3">
    <label for="addSaleCap1">Captador 1</label>
-   <input type="text" class="form-control" id="addSaleCap1" name="addSaleCap1" >  
+   <input type="text" class="form-control" id="addSaleCap1" name="addSaleCap1" disabled="disabled">  
   </div> 
   <div class="form-group col-xs-3">
    <label for="addSaleCap2">Captador 2</label>
-   <input type="text" class="form-control" id="addSaleCap2" name="addSaleCap2" >  
+   <input type="text" class="form-control" id="addSaleCap2" name="addSaleCap2" disabled="disabled">  
   </div> 
  </div>
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Ingresar Venta</button>
-<button type="button" class="btn btn-danger">Limpiar</button>
+<button id="test" type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Guardar Cambios</button>
 <br><br><br> 
 <!-- Modal confirmacion Venta-->
   <div class="modal fade" id="finalSailConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -148,13 +166,13 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Ingresar Venta</h4>
+          <h4 class="modal-title">Guardar cambios</h4>
         </div>
         <div class="modal-body">
-          <p>Confirme para ingresar la venta</p>
+          <p>Confirme para guardar los cambios</p>
         </div>
         <div class="modal-footer">
-          <button onclick="agregarVenta()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+          <button onclick="saveSale()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
       </div>

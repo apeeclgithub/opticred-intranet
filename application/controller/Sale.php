@@ -147,8 +147,45 @@
 					
 			}
 			
+			foreach ( (array) $objSale->getDelivery($id) as $key ) {
+
+				$json['cristal'] 			= $key['DES_CRISTAL'];
+				$json['altura'] 				= $key['DES_ALTURA'];
+					
+			}
+			$pila = array();
+			foreach ( (array) $objSale->getCaptador($id) as $key ) {
+
+				array_push ($pila, $key['CAP_NAME']);
+					
+			}
+			
+			foreach ( (array) $objSale->getAbono($id) as $key ) {
+
+				$json['abono'] = $key['ABONOS'];
+					
+			}
+			
+			$json['cap'] = $pila;
+			
 			echo json_encode($json);
 
+			break;
+			
+		case 4:
+			$json['success'] = true;
+			$tipo  = $_POST['addSalePayType'];
+			$abono  = $_POST['addSaleAbono2'];
+			$date  = $_POST['finishDate'];
+			$id  = $_POST['id'];
+			
+			if($date){
+				$objSale->updateDelivery($id);
+			}
+			$json['date'] = $date;
+			
+			echo json_encode($json);
+		
 			break;
 
 	}

@@ -185,7 +185,7 @@
  </div>
  <div class="row"><div class="form-group col-xs-9"><label>si no agrega algún captador, la comisión será asignada a la tienda.</label></div></div></br>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Ingresar Venta</button>
-<button type="button" class="btn btn-danger">Limpiar</button>
+<button type="button" onclick="location.reload()" class="btn btn-danger">Limpiar</button>
 <br><br><br> 
 <!-- Modal confirmacion Venta-->
   <div class="modal fade" id="finalSailConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">

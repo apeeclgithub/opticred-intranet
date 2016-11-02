@@ -643,9 +643,6 @@ function agregarVenta(){
 	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
-	}else if($('input[id=addSaleCap1]').val()==''){
-		alertify.set('notifier','position', 'top-right');
-		alertify.error("Debe seleccionar un captador al menos.");
 	}else{
 		$.ajax({
 			url : '../controller/Sale.php?action=2',
@@ -719,7 +716,71 @@ function pendienteVenta(id){
 		$('input[id=cerca_c_2]').val(data.Ccli2);
 		$('input[id=cerca_e_2]').val(data.Ceje2);
 		$('input[id=addSaleProductcerca]').val(data.Cname);
+		$('input[id=addSaleCristal]').val(data.cristal);
+		$('input[id=addSaleAltura]').val(data.altura);
+		$('input[id=addSaleCap1]').val(data.cap[0]);
+		$('input[id=addSaleCap2]').val(data.cap[1]);
+		$('input[id=addSaleAbono]').val(data.abono);
+		$('input[id=addSaleSaldo2]').val(data.total - data.abono);
 	});
+};
+
+function finaliza(){
+	if(document.getElementById('addSaleDateFinish').checked){
+		if($('input[id=addSaleSaldo2]').val()==0){
+			document.getElementById('test').innerHTML = 'Finalizar Venta';
+		}
+	}
+};
+
+function saveSale(){
+	var test = false;
+	if(document.getElementById('addSaleDateFinish').checked){
+		test = true;
+	}
+	var params = {
+        'addSalePayType'    : $('select[id=addSalePayType]').val(),
+		'addSaleAbono2'    : $('input[id=addSaleAbono2]').val(),
+		'finishDate'		: test,
+		'id'				: $('input[id=pendId]').val()
+    };
+	alert(test);
+	if($('select[id=addSalePayType]').val()==4){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Debe ingresar un medio de pago");
+	}else if($('input[id=addSaleAbono2]').val()==0){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Debe ingresar un monto");
+	}else if((document.getElementById('addSaleDateFinish').checked)&& $('input[id=addSaleSaldo2]').val()!=0){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("No se puede finalizar una venta con un monto pendiente");
+	}else{
+		$.ajax({
+			url : '../controller/Sale.php?action=4',
+			type : 'post',
+			data : params,
+			dataType : 'json'
+		}).done(function(data){
+			if(data.success==true){
+				alertify.set('notifier','position', 'top-right');
+				alertify.success("Se ha guardado exitosamente los cambios.");
+				alertify.success(data.date);
+				setTimeout(function(){
+					//location.href='ventasPendientes.php';
+				},2000);
+			}else{
+				alertify.set('notifier','position', 'top-right');
+				alertify.error("No se pudo guardar los nuevos datos.");
+			}
+		});
+	}
+};
+
+function pendienteSaldo(){
+    var total = $('input[id=addSaleTotal]').val();
+    var abono1 = $('input[id=addSaleAbono]').val();
+    var abono2 = $('input[id=addSaleAbono2]').val();
+    $('input[id=addSaleSaldo2]').val(Number(total)-Number(abono1)-Number(abono2))
 };
 
 function discountCristal(){

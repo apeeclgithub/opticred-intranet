@@ -66,6 +66,69 @@
 
 		}
 		
+		public function getCaptador($id){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT CAP_NAME
+										FROM CAPTADOR
+										INNER JOIN COMISION ON CAPTADOR.CAP_ID = COMISION.CAPTADOR_CAP_ID
+										WHERE COMISION.VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id'	, $id);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
+		public function getAbono($id){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT SUM(ABO_TOTAL) AS ABONOS
+										FROM ABONO
+										WHERE VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id'	, $id);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
+		public function updateDelivery($id){
+			$dia = $this->getDia();
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE DESPACHO SET
+										DES_DATE = :dia
+										WHERE VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id'	, $id);
+			$sql->bindParam(':dia'	, $dia);
+
+			$this->sale = $sql->execute();
+
+		}
+		
+		public function getDelivery($id){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT DES_CRISTAL, DES_ALTURA
+										FROM DESPACHO
+										WHERE VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id'	, $id);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
 		public function getUltima($tienda){
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT MAX(VEN_ID) AS max FROM VENTA WHERE TIENDA_TIE_ID = :tienda');
@@ -274,5 +337,4 @@
 		}
 
 	}
-	
 ?>
