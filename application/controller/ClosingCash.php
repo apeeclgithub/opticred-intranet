@@ -1,7 +1,7 @@
 <?php
 	
 	session_start();
-	include '../model/classClosingCash.php';
+	require '../model/classClosingCash.php';
 	$json['success'] = false; 
 
 	$objClosingCash= new ClosingCash();
