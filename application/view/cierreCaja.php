@@ -13,20 +13,20 @@
     </ul>
   </div></div>-->
   <script type="text/javascript">
-    $( function() {
+  $( function() {
     var availableTags = $.ajax({
-        url:'../controller/Captador.php?action=4',
-        type:'post',
-        dataType:'json',
-        async:false       
-      }).responseText;
-  $obj = JSON.parse(availableTags);
+      url:'../controller/Captador.php?action=4',
+      type:'post',
+      dataType:'json',
+      async:false       
+    }).responseText;
+    $obj = JSON.parse(availableTags);
     $( "#closingCashPayCaptador" ).autocomplete({
       source: $obj
     });
   } );
   </script>
- 
+
   <input type="hidden" name="insStore" id="insStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <div class="contentMain">
     <legend>Cierre Caja</legend>
@@ -38,13 +38,21 @@
         <div class="panel-body">
           <div class="row">
             <div class="form-group col-xs-11">
-              <div id="captadorTableReload">
+              <div id="captadorTablePayReload">
                 <?php require '../controller/CaptadorTablePay.php'; ?>
               </div>
             </div>
-            <div class="form-group col-xs-4">
-              <label for="">Total a pagar</label>
-              <input type="number" class="form-control" id="inputPayCaptadorTotal">
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="form-group col-xs-11">
+              <div id="captadorTablePaidOutReload">
+                <?php require '../controller/CaptadorTablePaidOut.php'; ?>
+              </div>
+            </div>
+            <div id ="paidOutCommisionTotal">
+              <?php require '../controller/ClosingCashListPaidOutCommision.php'; ?>
             </div>
           </div>
         </div>
@@ -90,40 +98,9 @@
         <div class="panel-heading">
           <h3 class="panel-title">Sistema</h3>
         </div>
-        <?php
-
-        require '../model/classClosingCash.php';
-        $objClosingCash = new ClosingCash();
-        $objClosingCash->listClosingCash();
-
-        foreach ( (array) $objClosingCash as $key ) {
-          foreach ($key as $key2 => $value) {
-            ?> 
-            <div class="panel-body">
-              <div class="row">
-                <div class="form-group col-xs-4">
-                  <label for="">Efectivo</label>
-                  <input type="number" class="form-control" id="showCashSysClosingCash" value="<?php echo $value['efectivo'];?>" disabled="disabled">
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for="">Tarjetas</label>
-                  <input type="number" class="form-control" id="showCardSysClosingCash" value="<?php echo $value['tarjeta'];?>" disabled="disabled">
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for="">Cheque</label>
-                  <input type="number" class="form-control" id="showDocsSysClosingCash" value="<?php echo $value['cheque'];?>" disabled="disabled">
-                </div>
-                <div class="form-group col-xs-4">
-                  <label for="">Total</label>
-                  <input type="hidden" class="form-control" id="showTotalSysClosingCash" value="<?php echo $value['cheque']+$value['tarjeta']+$value['efectivo'];?>" disabled="disabled">
-                  <input type="number" class="form-control" id="showTotalFinalSysClosingCash" value="<?php echo $value['cheque']+$value['tarjeta']+$value['efectivo'];?>" disabled="disabled">
-                </div>
-              </div>
-            </div>
-            <?php
-          }
-        }
-        ?>
+        <div id="showTotals">
+          <?php require '../controller/ClosingCashShowTotal.php'; ?>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -186,6 +163,27 @@
       </div>
       <div class="modal-footer">
         <button onclick="insertPayComission();" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal eliminar pago al captador -->
+<div class="modal fade" id="PaidOutCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar pago al Captador</h4>
+      </div>
+      <div class="modal-body">
+        <p>Confirme para eliminar el pago al Captador</p>
+        <input type="hidden" name="paidOutIdCaptador" id="paidOutIdCaptador">
+        <input type="hidden" name="paidOutNameCaptador" id="paidOutNameCaptador">
+        <input type="hidden" name="paidOutComissionCaptador" id="paidOutComissionCaptador">
+      </div>
+      <div class="modal-footer">
+        <button onclick="deletePaidOutComission();" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>

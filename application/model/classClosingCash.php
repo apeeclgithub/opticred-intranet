@@ -67,6 +67,58 @@
 			return $year."-".$month."-".$day;
 
 		}
+
+		public function listCaptadorPaidOut(){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT CAPTADOR.CAP_ID,
+										       CAP_NAME,
+										       SUM(PAG_TOTAL) AS PAG_CAP
+										FROM CAPTADOR
+										INNER JOIN PAGO ON CAPTADOR.CAP_ID = PAGO.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1
+										  AND PAG_DATE = CURDATE()
+										GROUP BY CAP_NAME');
+
+			$this->closingCash = $sql->execute();
+			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->closingCash;
+
+		}
+
+		public function deletePaidOutComission($paidOutIdCaptador){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	DELETE FROM 
+											PAGO
+										WHERE 
+											PAG_DATE = CURDATE() 
+										AND 
+											CAPTADOR_CAP_ID = :paidOutIdCaptador');
+
+			$sql->bindParam(':paidOutIdCaptador', $paidOutIdCaptador);
+
+			$this->closingCash = $sql->execute();
+
+			return $this->closingCash;
+		}
+
+		public function listPaidOutCommision(){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT
+										       SUM(PAG_TOTAL) AS PAG_CAP
+										FROM  PAGO
+										WHERE PAG_DATE = CURDATE()');
+
+			$this->closingCash = $sql->execute();
+			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->closingCash;
+
+		}
+
 	}
 
 ?>

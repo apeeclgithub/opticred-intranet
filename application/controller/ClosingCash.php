@@ -1,7 +1,7 @@
 <?php
 	
 	session_start();
-	require '../model/classClosingCash.php';
+	include '../model/classClosingCash.php';
 	$json['success'] = false; 
 
 	$objClosingCash= new ClosingCash();
@@ -14,6 +14,15 @@
 			$payTotalCaptador  	= $_POST['payTotalCaptador'];
 
 			$json['success'] = $objClosingCash->insertPayComission($payTotalCaptador, $payIdCaptador);
+			echo json_encode($json);
+
+			break;
+
+		case 2:
+
+			$paidOutIdCaptador  = $_POST['paidOutIdCaptador'];
+
+			$json['success'] = $objClosingCash->deletePaidOutComission($paidOutIdCaptador);
 			echo json_encode($json);
 
 			break;

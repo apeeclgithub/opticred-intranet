@@ -747,7 +747,9 @@ function insertPayComission(){
             dataType : 'json'
         }).done(function(data){
             if(data.success==true){
-                $("#captadorTableReload").load('../controller/CaptadorTablePay.php');
+                $("#captadorTablePayReload").load('../controller/CaptadorTablePay.php');
+                $("#captadorTablePaidOutReload").load('../controller/CaptadorTablePaidOut.php');
+                $("#paidOutCommisionTotal").load('../controller/ClosingCashListPaidOutCommision.php');
                 alertify.set('notifier','position', 'top-right');
                 alertify.success("Comisión pagada.");
                 $('input[id=payTotalCaptador]').val('');
@@ -758,3 +760,33 @@ function insertPayComission(){
         })
     };
 };
+
+function dataToDeletePaidCaptador(id, name, paid){
+    $('input[id=paidOutIdCaptador]').val(id);
+    $('input[id=paidOutNameCaptador]').val(name);
+    $('input[id=paidOutComissionCaptador]').val(paid);
+};
+
+function deletePaidOutComission(){
+    var params = {
+        'paidOutIdCaptador'    : $('input[id=paidOutIdCaptador]').val()
+    };
+        $.ajax({
+            url : '../controller/ClosingCash.php?action=2',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                $("#captadorTablePayReload").load('../controller/CaptadorTablePay.php');
+                $("#captadorTablePaidOutReload").load('../controller/CaptadorTablePaidOut.php');
+                $("#paidOutCommisionTotal").load('../controller/ClosingCashListPaidOutCommision.php');
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Pago eliminado.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Error al eliminar pago de comisión.");
+            }
+        })
+};
+
