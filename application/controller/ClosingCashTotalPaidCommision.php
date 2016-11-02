@@ -1,6 +1,6 @@
 <?php
 
-  //require '../model/classClosingCash.php';
+  include_once '../model/classClosingCash.php';
   $objTotalPaidOutCommision = new ClosingCash();
   $objTotalPaidOutCommision->totalPaidOutCommision();
 
