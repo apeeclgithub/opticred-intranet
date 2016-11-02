@@ -1,16 +1,16 @@
-<table id="captadorTabla" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
+<table id="captadorTablaPaidOut" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
 	<thead>
 		<tr>
 			<th>Nombre</th>
 			<th>Comisión Pagada HOY</th>
-			<th class="widthOptions">Acciones</th>
+			<th class="widthOptions">Acción</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php
 
 			require '../model/classClosingCash.php';
-			$objPaidCaptador = new closingCash();
+			$objPaidCaptador = new ClosingCash();
 			$objPaidCaptador->listCaptadorPaidOut();
 
 			foreach ( (array) $objPaidCaptador as $key ) {
@@ -35,6 +35,6 @@
 </table>
 <script type="text/javascript" language="javascript">
 	$(document).ready(function() {
-		$('#captadorTabla').DataTable();
+		$('#captadorTablaPaidOut').DataTable();
 	} );
 </script>

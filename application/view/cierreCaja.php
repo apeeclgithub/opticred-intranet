@@ -51,7 +51,7 @@
                 <?php require '../controller/CaptadorTablePaidOut.php'; ?>
               </div>
             </div>
-            <div id ="paidOutCommisionTotalReload">
+            <div id="paidOutCommisionTotalReload">
               <?php require '../controller/ClosingCashTotalPaidCommision.php'; ?>
             </div>
           </div>
