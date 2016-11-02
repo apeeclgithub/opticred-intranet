@@ -1,10 +1,10 @@
 <?php
 
   //require '../model/classClosingCash.php';
-  $objClosingCash = new ClosingCash();
-  $objClosingCash->totalPaidOutCommision();
+  $objTotalPaidOutCommision = new ClosingCash();
+  $objTotalPaidOutCommision->totalPaidOutCommision();
 
-  foreach ( (array) $objClosingCash as $key ) {
+  foreach ( (array) $objTotalPaidOutCommision as $key ) {
     foreach ($key as $key2 => $value) {
       ?> 
       <div class="form-group col-xs-4">

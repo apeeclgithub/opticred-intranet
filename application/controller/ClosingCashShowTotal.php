@@ -1,10 +1,10 @@
 <?php
 
         //require '../model/classClosingCash.php';
-        $objClosingCash = new ClosingCash();
-        $objClosingCash->listClosingCash();
+        $objClosingCashTotal = new ClosingCash();
+        $objClosingCashTotal->listClosingCash();
 
-        foreach ( (array) $objClosingCash as $key ) {
+        foreach ( (array) $objClosingCashTotal as $key ) {
           foreach ($key as $key2 => $value) {
             ?> 
             <div class="panel-body">

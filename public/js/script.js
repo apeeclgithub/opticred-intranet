@@ -749,7 +749,7 @@ function insertPayComission(){
             if(data.success==true){
                 $("#captadorTablePayReload").load('../controller/CaptadorTablePay.php');
                 $("#captadorTablePaidOutReload").load('../controller/CaptadorTablePaidOut.php');
-                $("#paidOutCommisionTotal").load('../controller/ClosingCashListPaidOutCommision.php');
+                $("#paidOutCommisionTotalReload").load('../controller/ClosingCashTotalPaidCommision.php');
                 alertify.set('notifier','position', 'top-right');
                 alertify.success("Comisión pagada.");
                 $('input[id=payTotalCaptador]').val('');
@@ -780,7 +780,7 @@ function deletePaidOutComission(){
             if(data.success==true){
                 $("#captadorTablePayReload").load('../controller/CaptadorTablePay.php');
                 $("#captadorTablePaidOutReload").load('../controller/CaptadorTablePaidOut.php');
-                $("#paidOutCommisionTotal").load('../controller/ClosingCashListPaidOutCommision.php');
+                $("#paidOutCommisionTotalReload").load('../controller/ClosingCashTotalPaidCommision.php');
                 alertify.set('notifier','position', 'top-right');
                 alertify.success("Pago eliminado.");
             }else{
