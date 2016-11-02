@@ -117,6 +117,33 @@
 				$json['hour'] 	= $key['VEN_HOUR_CREATE'];
 				$json['name'] 	= $key['VEN_CLI_NAME'];
 				$json['phone'] 	= $key['VEN_CLI_PHONE'];
+				$json['total'] 	= $key['VEN_COM_TOTAL'];
+					
+			}
+			
+			foreach ( (array) $objSale->getDetail($id, 'Lejos') as $key ) {
+
+				$json['Linterp'] 			= $key['DET_INTERP'];
+				$json['Lod1'] 				= $key['DET_OD_1'];
+				$json['Lcli1'] 				= $key['DET_CLI_1'];
+				$json['Leje1'] 				= $key['DET_EJE_1'];
+				$json['Lod2'] 				= $key['DET_OD_2'];
+				$json['Lcli2'] 				= $key['DET_CLI_2'];
+				$json['Leje2'] 				= $key['DET_EJE_2'];
+				$json['Lname'] 				= $key['PRO_NAME'];
+					
+			}
+			
+			foreach ( (array) $objSale->getDetail($id, 'Cerca') as $key ) {
+
+				$json['Cinterp'] 			= $key['DET_INTERP'];
+				$json['Cod1'] 				= $key['DET_OD_1'];
+				$json['Ccli1'] 				= $key['DET_CLI_1'];
+				$json['Ceje1'] 				= $key['DET_EJE_1'];
+				$json['Cod2'] 				= $key['DET_OD_2'];
+				$json['Ccli2'] 				= $key['DET_CLI_2'];
+				$json['Ceje2'] 				= $key['DET_EJE_2'];
+				$json['Cname'] 				= $key['PRO_NAME'];
 					
 			}
 			

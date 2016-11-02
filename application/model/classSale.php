@@ -46,6 +46,26 @@
 
 		}
 		
+		public function getDetail($id, $tipo){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT DET_INTERP, DET_OD_1, DET_CLI_1, DET_EJE_1, 
+										DET_OD_2, DET_CLI_2, DET_EJE_2, PRO_NAME
+										FROM DETALLE
+										INNER JOIN PRODUCTO ON DETALLE.PRODUCTO_PRO_ID = PRODUCTO.PRO_ID
+										WHERE VENTA_VEN_ID = :id
+										AND DET_TYPE = :tipo');
+
+			$sql->bindParam(':id'	, $id);
+			$sql->bindParam(':tipo'	, $tipo);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
 		public function getUltima($tienda){
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT MAX(VEN_ID) AS max FROM VENTA WHERE TIENDA_TIE_ID = :tienda');

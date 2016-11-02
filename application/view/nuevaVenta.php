@@ -141,7 +141,7 @@
     <div class="form-group col-xs-3">
      <label for="addSalePayType">Método de Pago:</label>
      <select type="text" class="form-control" id="addSalePayType" name="addSalePayType">  
-		<option value="4" disabled selected>Método de Pago</option>
+		<option value="4">Método de Pago</option>
        <option value="1">Efectivo</option>
        <option value="2">Tarjeta</option>
        <option value="3">Cheque</option>
@@ -153,7 +153,7 @@
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleAbono">Abono:</label>
-     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
+     <input onkeyup="totales()" value="0" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleSaldo">Saldo:</label>
@@ -163,10 +163,6 @@
 
 <legend>Datos Entrega</legend>
 <div class="row">
-  <div class="form-group col-xs-3">
-   <label for="addSaleDateFinish">Realizar Entrega: <input type="checkbox" id="addSaleDateFinish" name="addSaleDateFinish" ></label>
-   <input type="text" class="form-control" id="addSaleDateFinish" name="addSaleDateFinish" disabled="disabled" >  
-  </div>  
   <div class="form-group col-xs-4">
    <label for="addSaleCristal">Tipo Cristal:</label>
    <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" >  
@@ -185,8 +181,9 @@
   <div class="form-group col-xs-3">
    <label for="addSaleCap2">Captador 2</label>
    <input type="text" class="form-control" id="addSaleCap2" name="addSaleCap2" >  
-  </div> 
+  </div>
  </div>
+ <div class="row"><div class="form-group col-xs-9"><label>si no agrega algún captador, la comisión será asignada a la tienda.</label></div></div></br>
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#finalSailConfirmDialog">Ingresar Venta</button>
 <button type="button" class="btn btn-danger">Limpiar</button>
 <br><br><br> 

@@ -30,100 +30,87 @@
   <div class="row">
     <div class="form-group col-xs-4">
       <label for="lejos_l_1">Lejos D. Interp (N/M):</label>
-      <input type="text" class="form-control" id="lejos_l_1" name="lejos_l_1" >
+      <input type="text" class="form-control" id="lejos_l_1" name="lejos_l_1" disabled="disabled">
     </div> 
     <div class="form-group col-xs-2">
      <label for="lejos_o_1">Od. Esf:</label>
-     <input type="text" class="form-control" id="lejos_o_1" name="lejos_o_1" >  
+     <input type="text" class="form-control" id="lejos_o_1" name="lejos_o_1" disabled="disabled">  
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_c_1">Cil:</label>
-     <input type="text" class="form-control" id="lejos_c_1" name="lejos_c_1" >  
+     <input type="text" class="form-control" id="lejos_c_1" name="lejos_c_1" disabled="disabled">  
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_e_1">Eje:</label>
-     <input type="text" class="form-control" id="lejos_e_1" name="lejos_e_1" >  
+     <input type="text" class="form-control" id="lejos_e_1" name="lejos_e_1" disabled="disabled">  
    </div>
   </div>
   <div class="row">
    <div class="form-group col-xs-4">
      <label for="addSaleProductLejos">Seleccione un marco:</label>
-     <div class="ui-widget"><input type="text" class="form-control" id="addSaleProductLejos" name="addSaleProductLejos"></div>
+     <div class="ui-widget"><input type="text" class="form-control" id="addSaleProductLejos" name="addSaleProductLejos"disabled="disabled"></div>
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_o_2">Od. Esf:</label>
-     <input type="text" class="form-control" id="lejos_o_2" name="lejos_o_2" >  
+     <input type="text" class="form-control" id="lejos_o_2" name="lejos_o_2" disabled="disabled">  
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_c_2">Cil:</label>
-     <input type="text" class="form-control" id="lejos_c_2" name="lejos_c_2" >  
+     <input type="text" class="form-control" id="lejos_c_2" name="lejos_c_2" disabled="disabled">  
    </div>
    <div class="form-group col-xs-2">
      <label for="lejos_e_2">Eje:</label>
-     <input type="text" class="form-control" id="lejos_e_2" name="lejos_e_2" >  
+     <input type="text" class="form-control" id="lejos_e_2" name="lejos_e_2" disabled="disabled">  
    </div>  
   </div>
   <legend>Cerca</legend>
     <div class="row">
       <div class="form-group col-xs-4">
         <label for="cerca_l_1">Cerca D. Interp (N/M):</label>
-        <input class="form-control" id="cerca_l_1" name="cerca_l_1" >
+        <input class="form-control" id="cerca_l_1" name="cerca_l_1" disabled="disabled">
       </div> 
       <div class="form-group col-xs-2">
        <label for="cerca_o_1">Od. Esf:</label>
-       <input type="text" class="form-control" id="cerca_o_1" name="cerca_o_1" >  
+       <input type="text" class="form-control" id="cerca_o_1" name="cerca_o_1" disabled="disabled">  
      </div>
      <div class="form-group col-xs-2">
        <label for="cerca_c_1">Cil:</label>
-       <input type="text" class="form-control" id="cerca_c_1" name="cerca_c_1" >  
+       <input type="text" class="form-control" id="cerca_c_1" name="cerca_c_1" disabled="disabled">  
      </div>
      <div class="form-group col-xs-2">
        <label for="cerca_e_1">Eje:</label>
-       <input type="text" class="form-control" id="cerca_e_1" name="cerca_e_1" >  
+       <input type="text" class="form-control" id="cerca_e_1" name="cerca_e_1" disabled="disabled">  
      </div>
     </div>
     <div class="row">
       <div class="form-group col-xs-4">
      <label for="addSaleProductCerca">Seleccione un marco:</label>
-     <div class="ui-widget"><input type="text" class="form-control" id="addSaleProductCerca" name="addSaleProductCerca"></div>
+     <div class="ui-widget"><input type="text" class="form-control" id="addSaleProductCerca" name="addSaleProductCerca" disabled="disabled"></div>
    </div>
      <div class="form-group col-xs-2">
        <label for="cerca_o_2">Od. Esf:</label>
-       <input type="text" class="form-control" id="cerca_o_2" name="cerca_o_2">  
+       <input type="text" class="form-control" id="cerca_o_2" name="cerca_o_2" disabled="disabled">  
      </div>
      <div class="form-group col-xs-2">
        <label for="cerca_c_2">Cil:</label>
-       <input type="text" class="form-control" id="cerca_c_2" name="cerca_c_2" >  
+       <input type="text" class="form-control" id="cerca_c_2" name="cerca_c_2" disabled="disabled">  
      </div>
      <div class="form-group col-xs-2">
        <label for="cerca_e_2">Eje:</label>
-       <input type="text" class="form-control" id="cerca_e_2" name="cerca_e_2" >  
+       <input type="text" class="form-control" id="cerca_e_2" name="cerca_e_2" disabled="disabled">  
      </div>  
     </div>
 
  <legend>Montos</legend> 
   <div class="row">
     <div class="form-group col-xs-3">
-     <label for="addSalePayType">Método de Pago:</label>
-     <select type="text" class="form-control" id="addSalePayType" name="addSalePayType">  
-		<option value="4" disabled selected>Método de Pago</option>
-       <option value="1">Efectivo</option>
-       <option value="2">Tarjeta</option>
-       <option value="3">Cheque</option>
-     </select>
-   </div>
-    <div class="form-group col-xs-3">
-     <label for="addSaleTotal">Total:</label>
-     <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" >  
+     <label for="addSaleTotal">Total de la venta:</label>
+     <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" disabled="disabled">  
    </div>
     <div class="form-group col-xs-2">
-     <label for="addSaleAbono">Abono:</label>
-     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
+     <label for="addSaleAbono">Abonado a la venta:</label>
+     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
    </div>
-    <div class="form-group col-xs-2">
-     <label for="addSaleSaldo">Saldo:</label>
-     <input type="text" class="form-control" id="addSaleSaldo" name="addSaleSaldo" disabled="disabled" >  
-   </div> 
   </div>
 
 <legend>Datos Entrega</legend>
