@@ -150,7 +150,8 @@
 			foreach ( (array) $objSale->getDelivery($id) as $key ) {
 
 				$json['cristal'] 			= $key['DES_CRISTAL'];
-				$json['altura'] 				= $key['DES_ALTURA'];
+				$json['altura'] 			= $key['DES_ALTURA'];
+				$json['finish'] 			= $key['DES_DATE'];
 					
 			}
 			$pila = array();
@@ -185,6 +186,7 @@
 			}
 			
 			$objSale->primerAbono($abono, $id, $tipo);
+			$objSale->pagarComision($id);
 			
 			echo json_encode($json);
 		

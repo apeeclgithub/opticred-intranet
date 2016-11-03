@@ -15,53 +15,37 @@
 				<tr>
 					<th>N° de Venta</th>
 					<th>Tienda</th>
-					<th>Monto</th>
-					<th class="widthVerMas">Detalle</th>
+					<th >Monto Cancelado</th>
 					<th>Fecha Venta</th>
+					<th>Fecha Cierre</th>
+					<th class="widthVerMas">Detalle</th>
 					<th class="widthOptions text-center">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Tiger Nixon</td>
-					<td>System Architect</td>
-					<td>Edinburgh</td>
-					<td><a href="verDetalleFinalizada.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-					<th>Fecha Venta</th>
-					<td class="text-center"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
-				</tr>
-				<tr>
-					<td>Garrett Winters</td>
-					<td>Accountant</td>
-					<td>Tokyo</td>
-					<td><a href="verDetalleFinalizada.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-					<th>Fecha Venta</th>
-					<td class="text-center"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
-				</tr>
-				<tr>
-					<td>Ashton Cox</td>
-					<td>Junior Technical Author</td>
-					<td>San Francisco</td>
-					<td><a href="verDetalleFinalizada.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-					<th>Fecha Venta</th>
-					<td class="text-center"<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
-				</tr>
-				<tr>
-					<td>Cedric Kelly</td>
-					<td>Senior Javascript Developer</td>
-					<td>Edinburgh</td>
-					<td><a href="verDetalleFinalizada.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-					<th>Fecha Venta</th>
-					<td class="text-center"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
-				</tr>
-				<tr>
-					<td>Airi Satou</td>
-					<td>Accountant</td>
-					<td>Tokyo</td>
-					<td><a href="verDetalleFinalizada.php" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-					<th>Fecha Venta</th>
-					<td class="text-center"><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
-				</tr>
+				<?php
+
+			require '../model/classSale.php';
+			$objSale = new Sale();
+			$objSale->listSaleFinishing();
+
+			foreach ( (array) $objSale as $key ) {
+				foreach ($key as $key2 => $value) {
+					?>
+					<tr>
+						<td><?php echo $value['VEN_CORRELATIVE'];	?></td>
+						<td><?php echo $value['TIE_NAME'];	?></td>
+						<td><?php echo $value['VEN_COM_TOTAL'];	?></td>
+						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
+						<td><?php echo $value['DES_DATE'];	?></td>
+						<td><a href="verDetalleFinalizada.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
+						<td><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
+					</tr>
+					<?php
+				}
+			}
+		?>
+				
 			</tbody>
 		</table>
 	</div>

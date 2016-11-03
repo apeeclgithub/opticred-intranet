@@ -722,6 +722,7 @@ function pendienteVenta(id){
 		$('input[id=addSaleCap2]').val(data.cap[1]);
 		$('input[id=addSaleAbono]').val(data.abono);
 		$('input[id=addSaleSaldo2]').val(data.total - data.abono);
+		$('input[id=addSaleDateFinish]').val(data.finish);
 	});
 };
 
@@ -740,11 +741,10 @@ function saveSale(){
 	}
 	var params = {
         'addSalePayType'    : $('select[id=addSalePayType]').val(),
-		'addSaleAbono2'    : $('input[id=addSaleAbono2]').val(),
+		'addSaleAbono2'     : $('input[id=addSaleAbono2]').val(),
 		'finishDate'		: test,
 		'id'				: $('input[id=pendId]').val()
     };
-	alert(test);
 	if($('select[id=addSalePayType]').val()==4){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
@@ -764,10 +764,9 @@ function saveSale(){
 			if(data.success==true){
 				alertify.set('notifier','position', 'top-right');
 				alertify.success("Se ha guardado exitosamente los cambios.");
-				alertify.success(data.date);
 				setTimeout(function(){
-					//location.href='ventasPendientes.php';
-				},2000);
+					location.href='ventasPendientes.php';
+				},3000);
 			}else{
 				alertify.set('notifier','position', 'top-right');
 				alertify.error("No se pudo guardar los nuevos datos.");

@@ -113,10 +113,24 @@
 
 		}
 		
+		public function pagarComision($id){
+			$res = 'Si';
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE COMISION SET
+										COM_PAID = :res
+										WHERE VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id'	, $id);
+			$sql->bindParam(':res'	, $res);
+
+			$this->sale = $sql->execute();
+
+		}
+		
 		public function getDelivery($id){
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT DES_CRISTAL, DES_ALTURA
+			$sql = $objConn->prepare('	SELECT DES_CRISTAL, DES_ALTURA, DES_DATE
 										FROM DESPACHO
 										WHERE VENTA_VEN_ID = :id');
 
@@ -327,6 +341,23 @@
 										INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
 										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
 										WHERE DESPACHO.DES_DATE IS NULL
+										GROUP BY VEN_CORRELATIVE');
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
+		public function listSaleFinishing(){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIE_NAME, VEN_COM_TOTAL, VEN_DATE_CREATE, DES_DATE
+										FROM VENTA
+										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
+										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
+										WHERE DESPACHO.DES_DATE IS NOT NULL
 										GROUP BY VEN_CORRELATIVE');
 
 			$this->sale = $sql->execute();
