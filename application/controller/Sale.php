@@ -179,10 +179,12 @@
 			$date  = $_POST['finishDate'];
 			$id  = $_POST['id'];
 			
-			if($date){
+			if($date == 'final'){
 				$objSale->updateDelivery($id);
+				
 			}
-			$json['date'] = $date;
+			
+			$objSale->primerAbono($abono, $id, $tipo);
 			
 			echo json_encode($json);
 		
