@@ -734,9 +734,9 @@ function finaliza(){
 };
 
 function saveSale(){
-	var test = false;
+	var test = 'update';
 	if(document.getElementById('addSaleDateFinish').checked){
-		test = true;
+		test = 'final';
 	}
 	var params = {
         'addSalePayType'    : $('select[id=addSalePayType]').val(),
