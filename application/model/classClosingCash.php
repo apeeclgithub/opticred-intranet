@@ -119,6 +119,22 @@
 
 		}
 
+		public function insertCrystal($criTotal, $criTie){
+
+			$criDate = $this->getDia();
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	INSERT INTO CRISTAL (CRI_TOTAL, CRI_DATE, TIENDA_TIE_ID) 
+										VALUES (:criTotal, :criDate, :criTie)');
+		
+			$sql->bindParam(':criTotal', $criTotal);
+			$sql->bindParam(':criDate', $criDate);
+			$sql->bindParam(':criTie', $criTie);
+
+			return $this->closingCash;
+
+		}
+
 	}
 
 ?>
