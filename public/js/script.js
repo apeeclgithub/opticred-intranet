@@ -734,9 +734,9 @@ function finaliza(){
 };
 
 function saveSale(){
-	var test = false;
+	var test = 'update';
 	if(document.getElementById('addSaleDateFinish').checked){
-		test = true;
+		test = 'final';
 	}
 	var params = {
         'addSalePayType'    : $('select[id=addSalePayType]').val(),
@@ -744,7 +744,6 @@ function saveSale(){
 		'finishDate'		: test,
 		'id'				: $('input[id=pendId]').val()
     };
-	alert(test);
 	if($('select[id=addSalePayType]').val()==4){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
@@ -764,10 +763,9 @@ function saveSale(){
 			if(data.success==true){
 				alertify.set('notifier','position', 'top-right');
 				alertify.success("Se ha guardado exitosamente los cambios.");
-				alertify.success(data.date);
 				setTimeout(function(){
-					//location.href='ventasPendientes.php';
-				},2000);
+					location.href='ventasPendientes.php';
+				},3000);
 			}else{
 				alertify.set('notifier','position', 'top-right');
 				alertify.error("No se pudo guardar los nuevos datos.");
