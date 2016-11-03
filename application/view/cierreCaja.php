@@ -84,11 +84,8 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Total</label>
-              <input type="number" onkeyup="discountCristal()" class="form-control" id="cristalPay">
-            </div><!--
-            <div class="form-group col-xs-4"><br>
-              <button type="button" class="btn btn-info">&nbsp;Pagar</button>
-            </div>-->
+              <input type="number" onkeyup="discountFromTotal();cuadrarCaja();" class="form-control" id="cristalPay">
+            </div>
           </div>
         </div>
       </div>
@@ -112,15 +109,15 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Efectivo</label>
-              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="cashClosingCash">
+              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="cashClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Tarjetas</label>
-              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="cardClosingCash">
+              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="cardClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Cheque</label>
-              <input type="number" onkeyup="discountCristal();cuadrarCaja()" class="form-control" id="docsClosingCash">
+              <input type="number" onkeyup="cuadrarCaja()" class="form-control" id="docsClosingCash">
             </div>
             <div class="form-group col-xs-4">
               <label for="">Total</label>
@@ -130,6 +127,7 @@
         </div>
       </div>
     </div>
+     <input type="hidden" class="form-control" id="discountClosingCash">
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -142,6 +140,13 @@
             </div>
           </div>
         </div>
+          <div class="row">
+            <div class="form-group col-xs-4">
+              <div class="form-group col-xs-4"><br>
+              <button type="button" onclick="dataToCloseCash((document.getElementById('totalClosingCash').value),(document.getElementById('diffClosingCash').value))"  data-toggle="modal" data-target="#CloseCashConfirmDialog" class="btn btn-info">&nbsp;Cerrar Caja</button>
+            </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -184,6 +189,28 @@
       </div>
       <div class="modal-footer">
         <button onclick="deletePaidOutComission();" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal cerrar caja -->
+<div class="modal fade" id="CloseCashConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Cerrar caja</h4>
+      </div>
+      <div class="modal-body">
+        <p>Confirme para Cerrar la Caja</p>
+        <input type="hidden" name="criTotal" id="criTotal">
+        <input type="hidden" name="criTie" id="criTie" value ="<?php echo $_SESSION["user"]["store"] ?>">
+        <input type="hidden" name="diffTotal" id="diffTotal">
+      </div>
+      <div class="modal-footer">
+        <button onclick="insertCrystal();" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>

@@ -27,6 +27,16 @@
 
 			break;
 
+		case 3:
+
+			$criTotal  	= $_POST['criTotal'];
+			$criTie  	= $_POST['criTie'];
+
+			$json['success'] = $objClosingCash->insertCrystal($criTotal, $criTie);
+			echo json_encode($json);
+
+			break;
+
 		default:
 
 			break;

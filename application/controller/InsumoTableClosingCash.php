@@ -12,12 +12,11 @@
 
 		require '../model/classInsumo.php';
 		$objInsumo = new Insumo();
-		$objInsumo->listInsumos();
+		$objInsumo->listInsumosClosingCash();
 
 		foreach ( (array) $objInsumo as $key ) {
 			foreach ($key as $key2 => $value) {
 				?>
-				<?php $hoy = date('Y-m-d');?>
 				<?php if ($_SESSION["user"]["store"] == 1){
 					$tienda = 'Tercero';
 				} 
@@ -27,7 +26,6 @@
 				}
 				?>
 
-				<?php if ($value['INS_DATE'] == $hoy): ?>
 				<?php if ($value['TIE_NAME'] == $tienda): ?>
 				<tr>
 					<td><?php echo $value['INS_NAME'];?></td>
@@ -37,7 +35,6 @@
 
 				</tr>
 			<?php endif ?>
-		<?php endif ?>
 		<?php
 	}
 }
@@ -55,7 +52,7 @@ foreach ( (array) $objInsumo as $key ) {
 		?>
 		<div class="form-group col-xs-4">
 			<label for="">Total Insumos del día:</label>
-			<input type="number" class="form-control" id="showCashSysClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
+			<input type="number" class="form-control" id="showInsumoTotalClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
 		</div>
 		<?php
 	}

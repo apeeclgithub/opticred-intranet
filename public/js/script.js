@@ -783,23 +783,26 @@ function pendienteSaldo(){
     $('input[id=addSaleSaldo2]').val(Number(total)-Number(abono1)-Number(abono2))
 };
 
-function discountCristal(){
-    var insumo = $('input[id=showCashSysClosingCash]').val();
+function discountFromTotal(){
+    var paidComission = $('input[id=showPaidOutReload]').val();
+    var insumo = $('input[id=showInsumoTotalClosingCash]').val();
     var cristalPay = $('input[id=cristalPay]').val();
     var systemTotal = $('input[id=showTotalSysClosingCash]').val();
-    $('input[id=totalClosingCash]').val(Number(systemTotal)-Number(cristalPay)-Number(insumo))
+    $('input[id=discountClosingCash]').val(Number(cristalPay)+Number(insumo)+Number(paidComission))
 };
 
 function cuadrarCaja(){
     var cashReal = $('input[id=cashClosingCash]').val();
     var cardReal = $('input[id=cardClosingCash]').val();
     var docsReal = $('input[id=docsClosingCash]').val();
-    var cristalPay = $('input[id=cristalPay]').val();
-    var insumo = $('input[id=showCashSysClosingCash]').val();
-        $('input[id=totalClosingCash]').val(Number(cashReal)+Number(docsReal)+Number(cardReal));
-        var sistema = $('input[id=showTotalFinalSysClosingCash]').val();
-        var real = $('input[id=totalClosingCash]').val();
-        $('input[id=diffClosingCash]').val((Number(sistema)-Number(real)-Number(cristalPay)-Number(insumo)))
+    var discountFromTotal = $('input[id=discountClosingCash]').val();
+    $('input[id=totalClosingCash]').val(Number(cashReal)+Number(discountFromTotal)+Number(cardReal)+Number(docsReal));
+
+    var totalReal = $('input[id=totalClosingCash]').val();
+    var totalSystem = $('input[id=showTotalFinalSysClosingCash]').val();
+
+
+    var difference = $('input[id=diffClosingCash]').val(Number(totalSystem)-Number(totalReal));
 };
 
 function dataCaptadorPay(id, name, total, pay){
@@ -868,3 +871,37 @@ function deletePaidOutComission(){
         })
 };
 
+function dataToCloseCash(totalClosingCash, diffTotal){
+    $('input[id=criTotal]').val(totalClosingCash);
+    $('input[id=diffTotal]').val(diffTotal);
+};
+
+
+function insertCrystal(){
+    var params = {
+        'criTotal'   : $('input[id=criTotal]').val(),
+        'criTie'     : $('input[id=criTie]').val()
+    };
+    if ($('input[id=diffTotal]').val() != 0) {
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Existe una diferencia en el cierre de caja.");
+    }else if($('input[id=criTotal]').val() === ''){
+        alertify.set('notifier','position', 'top-right');
+        alertify.error("Debe ingresar correctamente el total.");
+    }else{
+        $.ajax({
+            url : '../controller/ClosingCash.php?action=3',
+            type : 'post',
+            data : params,
+            dataType : 'json'
+        }).done(function(data){
+            if(data.success==true){
+                alertify.set('notifier','position', 'top-right');
+                alertify.success("Caja cerrada.");
+            }else{
+                alertify.set('notifier','position', 'top-right');
+                alertify.error("Error al cerrar caja.");
+            }
+        })
+    };
+};
