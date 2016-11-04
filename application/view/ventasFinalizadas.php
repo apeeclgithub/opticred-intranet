@@ -39,7 +39,7 @@
 						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
 						<td><?php echo $value['DES_DATE'];	?></td>
 						<td><a href="verDetalleFinalizada.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-						<td><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
+						<td><button onclick="cargarAnula(<?php echo $value['VEN_ID'];?>, <?php echo $value['TIENDA_TIE_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
 					</tr>
 					<?php
 				}
@@ -59,9 +59,11 @@
 				</div>
 				<div class="modal-body">
 					<p>Confirme para anular la venta</p>
+					<input type="hidden" id="anulaId" name="anulaId" >
+					<input type="hidden" id="anulaTienda" name="anulaTienda" >
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Aceptar</button>
+					<button onclick="anularVenta()" type="button" class="btn btn-success">Aceptar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>

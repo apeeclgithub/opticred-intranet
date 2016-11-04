@@ -254,6 +254,19 @@
 			echo json_encode($json);
 
 			break;
+			
+		case 6:
+			$json['success'] = true;
+			$id  = $_POST['id'];
+			$tienda  = $_POST['tienda'];
+			
+			$objSale->anularVenta($id);
+			$objSale->anularAbono($id);
+			$objSale->anularProducto($id);
+
+			echo json_encode($json);
+		
+			break;
 
 	}
 

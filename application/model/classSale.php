@@ -334,13 +334,14 @@
 		public function listSalePending(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIENDA_TIE_ID, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
 										(VEN_COM_TOTAL-SUM(ABO_TOTAL)) AS PENDIENTE
 										FROM VENTA
 										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
 										INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
 										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
 										WHERE DESPACHO.DES_DATE IS NULL
+										AND VEN_DATE_CREATE IS NOT NULL
 										GROUP BY VEN_CORRELATIVE');
 
 			$this->sale = $sql->execute();
@@ -366,6 +367,45 @@
 			return $this->sale;
 
 		}
+		
+		public function anularVenta($id){
 
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE VENTA SET 
+										VEN_DATE_CREATE = NULL,
+										VEN_COM_TOTAL = 0
+										WHERE VEN_ID = :id');
+			$sql->bindParam(':id', $id);
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		public function anularAbono($id){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE ABONO SET 
+										ABO_TOTAL = 0
+										WHERE VENTA_VEN_ID = :id');
+			$sql->bindParam(':id', $id);
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		public function anularProducto($id){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	UPDATE PRODUCTO
+										INNER JOIN DETALLE ON DETALLE.PRODUCTO_PRO_ID = PRODUCTO.PRO_ID
+										SET PRO_STOCK = PRO_STOCK+1
+										WHERE VENTA_VEN_ID = :id');
+			$sql->bindParam(':id', $id);
+			$this->sale = $sql->execute();
+
+			return $this->sale;
+
+		}
+		
 	}
 ?>

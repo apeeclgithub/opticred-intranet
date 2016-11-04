@@ -643,6 +643,12 @@ function agregarVenta(){
 	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
+	}else if($('input[id=addSaleTotal]').val()==0){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Debe ingresar un monto");
+	}else if($('input[id=addSaleProductLejos]').val()=='' && $('input[id=addSaleProductCerca]').val()==''){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Seleccione al menos un marco");
 	}else{
 		$.ajax({
 			url : '../controller/Sale.php?action=2',
@@ -760,6 +766,9 @@ function agregarGarantia(){
 	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
+	}else if($('input[id=addSaleProductLejos]').val()=='' && $('input[id=addSaleProductCerca]').val()==''){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Seleccione al menos un marco");
 	}else{
 		$.ajax({
 			url : '../controller/Sale.php?action=5',
@@ -981,4 +990,35 @@ function insertCrystal(){
         })
     };
 };
+
+function cargarAnula(id, tienda){
+	$('input[id=anulaId]').val(id);
+    $('input[id=anulaTienda]').val(tienda);
+}
+
+function anularVenta(){
+    var params = {
+        'id'   : $('input[id=anulaId]').val(),
+        'tienda'     : $('input[id=anulaTienda]').val()
+    };
+
+	$.ajax({
+		url : '../controller/Sale.php?action=6',
+		type : 'post',
+		data : params,
+		dataType : 'json'
+	}).done(function(data){
+		if(data.success==true){
+			alertify.set('notifier','position', 'top-right');
+			alertify.success("Venta anulada.");
+			setTimeout(function(){
+				location.href='ventasPendientes.php';
+			},3000);
+		}else{
+			alertify.set('notifier','position', 'top-right');
+			alertify.error("Error al anular la venta.");
+		}
+	})
+};
+
 
