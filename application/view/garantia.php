@@ -25,6 +25,7 @@
   <legend>Venta en garantía</legend>
   <input type="hidden" name="addSaleStore" id="addSaleStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <input type="hidden" name="addSaleId" id="addSaleId" <?php echo 'value="'.$_SESSION["user"]["id"].'"'; ?> />
+  <input type="hidden" name="addSalePayType" id="addSalePayType" value="5" />
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="addSaleNumber">N° Boleta</label>
@@ -147,7 +148,7 @@
           <p>Confirme para ingresar la venta</p>
         </div>
         <div class="modal-footer">
-          <button onclick="agregarVenta()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+          <button onclick="agregarGarantia()" type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
