@@ -11,7 +11,6 @@
         <a href="nuevaVenta.php" ><li><span class="glyphicon glyphicon-menu-right"></span> Nueva Venta</li></a>
         <a href="ventasPendientes.php"><li><span class="glyphicon glyphicon-menu-right"></span> Ventas Pendientes</li></a>
         <a href="ventasFinalizadas.php"><li><span class="glyphicon glyphicon-menu-right"></span> Ventas Finalizadas</li></a>
-        <a href="anularVenta.php"><li><span class="glyphicon glyphicon-menu-right"></span> Anular Venta</li></a>
         <a href="garantia.php"><li><span class="glyphicon glyphicon-menu-right"></span> Garantía</li></a>
         <a href="buscarVenta.php"><li><span class="glyphicon glyphicon-menu-right"></span> Buscar Venta</li></a>
       </ul>
