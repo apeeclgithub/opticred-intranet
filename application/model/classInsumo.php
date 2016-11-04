@@ -99,7 +99,7 @@
 
 		public function listInsumosClosingCash(){
 
-			$today = $this->getDate();
+			//$today = $this->getDate();
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  INS_ID,
@@ -110,9 +110,9 @@
 												INS_DATE
 										FROM INSUMO
 										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = :today ');
+										WHERE INS_DATE = CURDATE() ');
 
-			$sql->bindParam(':today', $today);
+			//$sql->bindParam(':today', $today);
 
 			$this->insumo = $sql->execute();
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -123,16 +123,16 @@
 
 		public function totalInsumoClosingCash($insStore){
 
-			$today = $this->getDate();
+			//$today = $this->getDate();
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
 										FROM INSUMO
 										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = :today AND TIE_ID = :insStore');
+										WHERE INS_DATE = CURDATE() AND TIE_ID = :insStore');
 
 			$sql->bindParam(':insStore', $insStore);
-			$sql->bindParam(':today', $today);
+			//$sql->bindParam(':today', $today);
 			$this->insumo = $sql->execute();
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
 

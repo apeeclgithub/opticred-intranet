@@ -143,7 +143,7 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <div class="form-group col-xs-4"><br>
-              <button type="button" onclick="dataToCloseCash((document.getElementById('totalClosingCash').value),(document.getElementById('diffClosingCash').value))"  data-toggle="modal" data-target="#CloseCashConfirmDialog" class="btn btn-info">&nbsp;Cerrar Caja</button>
+              <button type="button" onclick="dataToCloseCash((document.getElementById('cristalPay').value),(document.getElementById('diffClosingCash').value))"  data-toggle="modal" data-target="#CloseCashConfirmDialog" class="btn btn-info">&nbsp;Cerrar Caja</button>
             </div>
             </div>
           </div>

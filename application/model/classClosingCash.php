@@ -9,7 +9,7 @@
 		public function listClosingCash(){
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT DAY(a.ABO_DATE) AS dia,
+			$sql = $objConn->prepare('	SELECT DAY(a.ABO_DATE) AS dia,d.TIE_ID as tienda,
 										       SUM(CASE
 										               WHEN b.MET_NAME=\'Efectivo\' THEN a.ABO_TOTAL
 										               ELSE 0
@@ -24,8 +24,12 @@
 										           END) AS tarjeta
 										FROM ABONO a
 										INNER JOIN metodo_pago b ON b.MET_ID=a.METODO_PAGO_MET_ID
+                                        INNER JOIN venta c ON c.VEN_ID=a.VENTA_VEN_ID
+                                        INNER JOIN tienda d ON d.TIE_ID=c.TIENDA_TIE_ID
 										WHERE CURDATE()=ABO_DATE
-										GROUP BY dia');
+										GROUP BY tienda, dia');
+
+
 
 			$this->closingCash = $sql->execute();
 			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -131,6 +135,8 @@
 			$sql->bindParam(':criDate', $criDate);
 			$sql->bindParam(':criTie', $criTie);
 
+			$this->closingCash = $sql->execute();
+			
 			return $this->closingCash;
 
 		}

@@ -897,6 +897,9 @@ function insertCrystal(){
             if(data.success==true){
                 alertify.set('notifier','position', 'top-right');
                 alertify.success("Caja cerrada.");
+                setTimeout(function(){
+                    location.href='dashboard.php';
+                },3000);
             }else{
                 alertify.set('notifier','position', 'top-right');
                 alertify.error("Error al cerrar caja.");

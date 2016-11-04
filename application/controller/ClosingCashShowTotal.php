@@ -7,6 +7,7 @@
         foreach ( (array) $objClosingCashTotal as $key ) {
           foreach ($key as $key2 => $value) {
             ?> 
+            <?php if ($_SESSION["user"]["store"] == $value['tienda']): ?>
             <div class="panel-body">
               <div class="row">
                 <div class="form-group col-xs-4">
@@ -28,7 +29,9 @@
                 </div>
               </div>
             </div>
+            <?php endif ?>
             <?php
           }
+          
         }
         ?>
