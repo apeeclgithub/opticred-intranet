@@ -1,6 +1,11 @@
 <?php include('header.php');?>
 <?php include('nav_menu.php'); ?>
 <?php include('userNav.php'); ?>
+<?php
+	if($_SESSION['user']['type']==2){
+		echo "<script>location.href='nuevaVenta.php';</script>";
+	}
+	?>
 <div class="contentMain">	
 	<div>
 		<form class="form-horizontal">

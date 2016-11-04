@@ -1,6 +1,11 @@
 <?php include('header.php');?>
 <?php include('nav_menu.php'); ?>
 <?php include('userNav.php'); ?>
+<?php
+	if($_SESSION['user']['type']==2){
+		echo "<script>location.href='nuevaVenta.php';</script>";
+	}
+	?>
 <!-- Fixed navbar -->
 	<!--   <div class="stickNav">  <div class="btn-group stickNavButton" role="group">
     <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

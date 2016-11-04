@@ -12,6 +12,11 @@
       <li><a href="#">Dropdown link</a></li>
     </ul>
   </div></div>-->
+  <?php
+	if($_SESSION['user']['type']==2){
+		echo "<script>location.href='nuevaVenta.php';</script>";
+	}
+	?>
   <div class="contentMain">
     <legend>Dashboard</legend>
     <div class="row">
