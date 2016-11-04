@@ -9,8 +9,10 @@
 
 		foreach ( (array) $objPendingCommission as $key ) {
 			foreach ($key as $key2 => $value) {
-
-				$json[$i] = array($value['CAP_NAME'], (int)$value['CAP_TOTAL']);
+						$comTotal = $value['COMTOTAL'];
+						$pagTotal = $value['PAGTOTAL'];
+						$totalPedding = $comTotal-$pagTotal;
+				$json[$i] = array($value['CAP_NAME'], (int)$totalPedding);
 
 
 				$i++;

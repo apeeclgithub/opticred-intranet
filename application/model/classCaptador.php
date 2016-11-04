@@ -138,14 +138,14 @@
 		public function pendingCommission(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT CAPTADOR.CAP_ID,
-										       CAP_NAME,
-										       SUM(COM_TOTAL)-SUM(COM_PAID) AS CAP_TOTAL
+			$sql = $objConn->prepare('	SELECT DISTINCT CAPTADOR.CAP_ID, CAP_NAME, 
+										(SELECT SUM(COM_TOTAL) FROM COMISION WHERE CAPTADOR_CAP_ID = CAPTADOR.CAP_ID AND COM_PAID = \'SI\') AS COMTOTAL, 
+										(SELECT SUM(PAG_TOTAL) FROM PAGO WHERE CAPTADOR_CAP_ID = CAPTADOR.CAP_ID ORDER BY CAPTADOR_CAP_ID DESC LIMIT 1) AS PAGTOTAL
 										FROM CAPTADOR
-										INNER JOIN COMISION ON CAPTADOR.CAP_ID = COMISION.CAPTADOR_CAP_ID
-										WHERE CAP_ACTIVE = 1
-										GROUP BY CAPTADOR.CAP_ID
-										ORDER BY CAP_TOTAL DESC');
+										LEFT JOIN COMISION ON CAPTADOR.CAP_ID = COMISION.CAPTADOR_CAP_ID  
+										LEFT JOIN PAGO ON CAPTADOR.CAP_ID = PAGO.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1 
+										GROUP BY CAP_ID');
 
 			$this->captador = $sql->execute();
 			$this->captador = $sql->fetchAll(PDO::FETCH_ASSOC);
