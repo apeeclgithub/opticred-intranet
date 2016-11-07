@@ -97,7 +97,9 @@
 				
 				if($cap1!=null){
 					$objSale->addComision($subTotal, $ventaId, $cap1, $nameLejos, $nameCerca, $val, $abono);
-				}else if($cap2!=null){
+				}
+				
+				if($cap2!=null){
 					$objSale->addComision($subTotal, $ventaId, $cap2, $nameLejos, $nameCerca, $val, $abono);
 				}
 	        }			
