@@ -23,9 +23,9 @@
 										               ELSE 0
 										           END) AS tarjeta
 										FROM ABONO a
-										INNER JOIN metodo_pago b ON b.MET_ID=a.METODO_PAGO_MET_ID
-                                        INNER JOIN venta c ON c.VEN_ID=a.VENTA_VEN_ID
-                                        INNER JOIN tienda d ON d.TIE_ID=c.TIENDA_TIE_ID
+										INNER JOIN METODO_PAGO b ON b.MET_ID=a.METODO_PAGO_MET_ID
+                                        INNER JOIN VENTA c ON c.VEN_ID=a.VENTA_VEN_ID
+                                        INNER JOIN TIENDA d ON d.TIE_ID=c.TIENDA_TIE_ID
 										WHERE CURDATE()=ABO_DATE
 										GROUP BY tienda, dia');
 

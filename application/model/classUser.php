@@ -78,8 +78,8 @@
 											USU_NAME = :usuName, 
 											USU_PASS = :usuPass,
 											TIENDA_TIE_ID = :usuStore
-										WHERE pro_mail = :usuMail
-										AND pro_rut = :usuRut');
+										WHERE USU_MAIL = :usuMail
+										AND USU_RUT = :usuRut');
 
 			$sql->bindParam(':usuName', $usuName);
 			$sql->bindParam(':usuPass', $usuPass);
