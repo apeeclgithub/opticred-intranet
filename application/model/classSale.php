@@ -332,18 +332,20 @@
 
 		}
 		
-		public function listSalePending(){
+		public function listSalePending($tienda){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIENDA_TIE_ID, TIE_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIENDA_TIE_ID, VEN_CLI_NAME, SUM(ABO_TOTAL) AS ABO_TOTAL, VEN_DATE_CREATE,
 										(VEN_COM_TOTAL-SUM(ABO_TOTAL)) AS PENDIENTE
 										FROM VENTA
-										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
 										INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
 										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
 										WHERE DESPACHO.DES_DATE IS NULL
 										AND VEN_DATE_CREATE IS NOT NULL
+										AND TIENDA_TIE_ID = :tienda
 										GROUP BY VEN_CORRELATIVE');
+			
+			$sql->bindParam(':tienda', $tienda);
 
 			$this->sale = $sql->execute();
 			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -352,16 +354,18 @@
 
 		}
 		
-		public function listSaleFinishing(){
+		public function listSaleFinishing($tienda){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, TIE_NAME, VEN_COM_TOTAL, VEN_DATE_CREATE, DES_DATE
+			$sql = $objConn->prepare('	SELECT VEN_ID, VEN_CORRELATIVE, VEN_CLI_NAME, VEN_COM_TOTAL, VEN_DATE_CREATE, DES_DATE, TIENDA_TIE_ID
 										FROM VENTA
-										INNER JOIN TIENDA ON VENTA.TIENDA_TIE_ID = TIENDA.TIE_ID
 										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
 										WHERE DESPACHO.DES_DATE IS NOT NULL
+										AND TIENDA_TIE_ID = :tienda
 										GROUP BY VEN_CORRELATIVE');
 
+			$sql->bindParam(':tienda', $tienda);
+			
 			$this->sale = $sql->execute();
 			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
 

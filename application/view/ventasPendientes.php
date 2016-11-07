@@ -9,13 +9,13 @@
 	} );
 	</script>
 
-	<legend>Ventas Pendientes</legend>
+	<legend>Ventas Pendientes <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
 	<div>
 		<table id="ventasPendientes" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th>N° de Venta</th>
-					<th>Tienda</th>
+					<th>Nombre Cliente</th>
 					<th >Monto Cancelado</th>
 					<th >Monto Pendiente</th>
 					<th>Fecha Venta</th>
@@ -28,14 +28,14 @@
 
 			require '../model/classSale.php';
 			$objSale = new Sale();
-			$objSale->listSalePending();
+			$objSale->listSalePending($_SESSION['user']['store']);
 
 			foreach ( (array) $objSale as $key ) {
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
 						<td><?php echo $value['VEN_CORRELATIVE'];	?></td>
-						<td><?php echo $value['TIE_NAME'];	?></td>
+						<td><?php echo $value['VEN_CLI_NAME'];	?></td>
 						<td><?php echo $value['ABO_TOTAL'];	?></td>
 						<td><?php echo $value['PENDIENTE'];	?></td>
 						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
