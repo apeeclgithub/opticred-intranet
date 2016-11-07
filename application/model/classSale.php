@@ -229,24 +229,25 @@
 
 		}
 		
-		public function addComision($total, $paid, $venta, $captador, $nameLejos, $nameCerca, $val){
+		public function addComision($total, $venta, $captador, $nameLejos, $nameCerca, $val, $abono){
 			$dia = $this->getDia();
 			foreach ((array) $this->getTotal($nameLejos,$nameCerca)as $key ) {
 				foreach ($key as $key2 => $value) {
-					$ggg = intval($value);
+					$valorMarcos = intval($value);
 				}
 			}
 			
-			$asd = ($total-$ggg)*$val;
+			$valorComision = ($total-$valorMarcos)*$val;
+			$paid = ($valorComision<$abono)?'Si':'No';
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	INSERT INTO COMISION (COM_TOTAL, COM_PAID, VENTA_VEN_ID, CAPTADOR_CAP_ID) 
-										VALUES (:asd, :paid, :venta, (SELECT CAP_ID FROM CAPTADOR WHERE CAP_NAME = :captador))');
+										VALUES (:valorComision, :paid, :venta, (SELECT CAP_ID FROM CAPTADOR WHERE CAP_NAME = :captador))');
 		
-			$sql->bindParam(':asd'		, $asd);
-			$sql->bindParam(':paid'	, $paid);
-			$sql->bindParam(':venta'	, $venta);
-			$sql->bindParam(':captador'	, $captador);
+			$sql->bindParam(':valorComision', 	$valorComision);
+			$sql->bindParam(':paid', 			$paid);
+			$sql->bindParam(':venta',	 		$venta);
+			$sql->bindParam(':captador', 		$captador);
 
 			$this->sale = $sql->execute();
 

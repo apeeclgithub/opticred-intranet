@@ -37,7 +37,7 @@
   </script>
 
 <div class="contentMain">
-  <legend>Nueva Venta</legend>
+  <legend>Nueva Venta <span style="margin: 0 600px;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
   <input type="hidden" name="addSaleStore" id="addSaleStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <input type="hidden" name="addSaleId" id="addSaleId" <?php echo 'value="'.$_SESSION["user"]["id"].'"'; ?> />
   <div class="row">
@@ -153,7 +153,7 @@
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleAbono">Abono:</label>
-     <input onkeyup="totales()" value="0" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
+     <input onkeyup="totales()" type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" >  
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleSaldo">Saldo:</label>
@@ -163,14 +163,19 @@
 
 <legend>Datos Entrega</legend>
 <div class="row">
+	<div class="form-group col-xs-3">
+	   <label for="addSaleAltura">Altura:</label>
+	   <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
+	 </div>
   <div class="form-group col-xs-4">
    <label for="addSaleCristal">Tipo Cristal:</label>
    <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" >  
  </div> 
  <div class="form-group col-xs-3">
-   <label for="addSaleAltura">Altura:</label>
-   <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
+   <label for="addSaleMontaje">Valor Montaje:</label>
+   <input type="text" class="form-control" id="addSaleMontaje" name="addSaleMontaje" >  
  </div>
+ 
  </div>  
  <legend>Captador/es</legend>
  <div class="row">

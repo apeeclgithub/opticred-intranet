@@ -638,7 +638,8 @@ function agregarVenta(){
 		'addSaleProductLejos'    : $('input[id=addSaleProductLejos]').val(),
 		'addSaleProductCerca'    : $('input[id=addSaleProductCerca]').val(),
 		'addSalePayType'    	 : $('select[id=addSalePayType]').val(),
-        'addSaleAbono'    		 : $('input[id=addSaleAbono]').val()
+        'addSaleAbono'    		 : $('input[id=addSaleAbono]').val(),
+		'addSaleMontaje'    	 : $('input[id=addSaleMontaje]').val()
     };
 	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
@@ -649,6 +650,9 @@ function agregarVenta(){
 	}else if($('input[id=addSaleProductLejos]').val()=='' && $('input[id=addSaleProductCerca]').val()==''){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Seleccione al menos un marco");
+	}else if($('input[id=addSaleMontaje]').val()==0){
+		alertify.set('notifier','position', 'top-right');
+		alertify.error("Ingrese el valor del montaje.");
 	}else{
 		$.ajax({
 			url : '../controller/Sale.php?action=2',

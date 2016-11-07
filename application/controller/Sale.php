@@ -92,12 +92,13 @@
 				$cap2  = $_POST['addSaleCap2'];
 				
 				$val = ($cap2==null)?0.50:0.25;
-				$paid = (($venTotal*0.10)<$abono)?'Si':'No';
-
+				$subTotal = ($tipoPago==2)? $venTotal * 0.90 : $venTotal;
+				$subTotal = $subTotal - $_POST['addSaleMontaje'];
+				
 				if($cap1!=null){
-					$objSale->addComision($venTotal, $paid, $ventaId, $cap1, $nameLejos, $nameCerca, $val);
+					$objSale->addComision($subTotal, $ventaId, $cap1, $nameLejos, $nameCerca, $val, $abono);
 				}else if($cap2!=null){
-					$objSale->addComision($venTotal, $paid, $ventaId, $cap2, $nameLejos, $nameCerca, $val);
+					$objSale->addComision($subTotal, $ventaId, $cap2, $nameLejos, $nameCerca, $val, $abono);
 				}
 	        }			
 			
