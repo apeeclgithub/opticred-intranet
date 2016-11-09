@@ -10,6 +10,19 @@
 	</script>
 
 	<legend>Ventas Pendientes <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
+	<div class="well">
+	<?php
+		require '../model/classSale.php';
+		$objSale = new Sale();
+		$objSale->totalesPendientes($_SESSION['user']['store']);
+		foreach ( (array) $objSale as $key ) {
+			foreach ($key as $key2 => $value) {
+				echo '<h3>Total de ventas pendientes: <span class="label label-info">'.$value['CANTIDAD'].'</span></h3>';
+				echo '<h3>Monto total adeudado: <span class="label label-info">$'.number_format($value['PENDIENTE'],0,'.','.').'</span></h3>';
+			}
+		}
+	?></div>
+	
 	<div>
 		<table id="ventasPendientes" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
 			<thead>
@@ -26,7 +39,6 @@
 			<tbody>
 				<?php
 
-			require '../model/classSale.php';
 			$objSale = new Sale();
 			$objSale->listSalePending($_SESSION['user']['store']);
 

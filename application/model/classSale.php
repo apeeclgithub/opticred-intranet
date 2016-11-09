@@ -354,6 +354,26 @@
 
 		}
 		
+		public function totalesPendientes($tienda){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT COUNT(VEN_ID) AS CANTIDAD, (SUM(VEN_COM_TOTAL)-SUM(ABO_TOTAL)) AS PENDIENTE
+										FROM VENTA
+										INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
+										INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
+										WHERE DESPACHO.DES_DATE IS NULL
+										AND VEN_DATE_CREATE IS NOT NULL
+										AND TIENDA_TIE_ID = :tienda');
+			
+			$sql->bindParam(':tienda', $tienda);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
 		public function listSaleFinishing($tienda){
 
 			$objConn = new Database();
