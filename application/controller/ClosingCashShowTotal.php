@@ -12,20 +12,20 @@
               <div class="row">
                 <div class="form-group col-xs-4">
                   <label for="">Efectivo</label>
-                  <input type="number" class="form-control" id="showCashSysClosingCash" value="<?php echo $value['efectivo'];?>" disabled="disabled">
+                  <input type="number" class="form-control" id="showCashSysClosingCash" value="<?php echo $value['EFECTIVO'];?>" disabled="disabled">
                 </div>
                 <div class="form-group col-xs-4">
                   <label for="">Tarjetas</label>
-                  <input type="number" class="form-control" id="showCardSysClosingCash" value="<?php echo $value['tarjeta'];?>" disabled="disabled">
+                  <input type="number" class="form-control" id="showCardSysClosingCash" value="<?php echo $value['TARJETA'];?>" disabled="disabled">
                 </div>
                 <div class="form-group col-xs-4">
                   <label for="">Cheque</label>
-                  <input type="number" class="form-control" id="showDocsSysClosingCash" value="<?php echo $value['cheque'];?>" disabled="disabled">
+                  <input type="number" class="form-control" id="showDocsSysClosingCash" value="<?php echo $value['CHEQUE'];?>" disabled="disabled">
                 </div>
                 <div class="form-group col-xs-4">
                   <label for="">Total</label>
-                  <input type="hidden" class="form-control" id="showTotalSysClosingCash" value="<?php echo $value['cheque']+$value['tarjeta']+$value['efectivo'];?>" disabled="disabled">
-                  <input type="number" class="form-control" id="showTotalFinalSysClosingCash" value="<?php echo $value['cheque']+$value['tarjeta']+$value['efectivo'];?>" disabled="disabled">
+                  <input type="hidden" class="form-control" id="showTotalSysClosingCash" value="<?php echo $value['CHEQUE']+$value['TARJETA']+$value['EFECTIVO'];?>" disabled="disabled">
+                  <input type="number" class="form-control" id="showTotalFinalSysClosingCash" value="<?php echo $value['CHEQUE']+$value['TARJETA']+$value['EFECTIVO'];?>" disabled="disabled">
                 </div>
               </div>
             </div>

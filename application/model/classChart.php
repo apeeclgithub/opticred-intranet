@@ -69,21 +69,21 @@
 		public function sailsQtyByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('  SELECT MONTH(a.ABO_DATE) AS mes,
+			$sql = $objConn->prepare('  SELECT MONTH(a.ABO_DATE) AS MES,
 										       SUM(CASE
 										               WHEN b.TIE_NAME=\'Tercero\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS tercero,
+										           END) AS TERCERO,
 										       SUM(CASE
 										               WHEN b.TIE_NAME=\'Quinto\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS quinto
+										           END) AS QUINTO
 										FROM ABONO a
 										INNER JOIN TIENDA b 
                                         INNER JOIN VENTA c
                                         ON b.TIE_ID=c.TIENDA_TIE_ID AND c.VEN_ID=a.VENTA_VEN_ID
 										WHERE YEAR(CURDATE())=YEAR(ABO_DATE)
-										GROUP BY mes');
+										GROUP BY MES');
 
 			$this->chart = $sql->execute();
 			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -94,15 +94,15 @@
 		public function sailsCountByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT MONTH(a.ABO_DATE) AS mes,
-									       SUM(if(b.TIE_NAME = \'Tercero\', 1, 0)) AS tercero,
-									       SUM(if(b.TIE_NAME = \'Quinto\', 1, 0)) AS quinto
+			$sql = $objConn->prepare('	SELECT MONTH(a.ABO_DATE) AS MES,
+									       SUM(if(b.TIE_NAME = \'Tercero\', 1, 0)) AS TERCERO,
+									       SUM(if(b.TIE_NAME = \'Quinto\', 1, 0)) AS QUINTO
 										FROM ABONO a
 										INNER JOIN TIENDA b 
                                         INNER JOIN VENTA c
                                         ON b.TIE_ID=c.TIENDA_TIE_ID AND c.VEN_ID=a.VENTA_VEN_ID
 										WHERE YEAR(CURDATE())=YEAR(ABO_DATE)
-										GROUP BY mes');
+										GROUP BY MES');
 
 			$this->chart = $sql->execute();
 			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);

@@ -4,52 +4,52 @@
 		$objSailsQtyByMonth = new Chart();
 		$objSailsQtyByMonth->sailsQtyByMonth();
 
-		$json[0] = array('Mes','Tercero', 'Quinto');
+		$json[0] = array('MES','TERCERO', 'QUINTO');
 		$i = 1;
 
 		foreach ( (array) $objSailsQtyByMonth as $key ) {
 			foreach ($key as $key2 => $value) {
 
-				if($value['mes'] == '1'){
-					$value['mes'] = 'ENERO';
+				if($value['MES'] == '1'){
+					$value['MES'] = 'ENERO';
 				}
-   				 if ($value['mes'] == '2'){
-  					$value['mes'] = 'FEBRERO';
+   				 if ($value['MES'] == '2'){
+  					$value['MES'] = 'FEBRERO';
    				 }
-   				 if ($value['mes'] == '3'){
-					$value['mes'] = 'MARZO';
+   				 if ($value['MES'] == '3'){
+					$value['MES'] = 'MARZO';
    				 }
   					
-  				 if ($value['mes'] == '4'){
-  				 	$value['mes'] = 'ABRIL';
+  				 if ($value['MES'] == '4'){
+  				 	$value['MES'] = 'ABRIL';
   				 }
 
-   				 if ($value['mes'] == '5'){
-  					$value['mes'] = 'MAYO';
+   				 if ($value['MES'] == '5'){
+  					$value['MES'] = 'MAYO';
    				 }
-  				 if ($value['mes'] == '6'){
-  					$value['mes'] = 'JUNIO';
+  				 if ($value['MES'] == '6'){
+  					$value['MES'] = 'JUNIO';
   				 }
-  				 if ($value['mes'] == '7'){
-  				 	$value['mes'] = 'JULIO';
+  				 if ($value['MES'] == '7'){
+  				 	$value['MES'] = 'JULIO';
   				 }
-  				 if ($value['mes'] == '8'){
-  					$value['mes'] = 'AGOSTO';
+  				 if ($value['MES'] == '8'){
+  					$value['MES'] = 'AGOSTO';
   				 }
-  				 if ($value['mes'] == '9'){
-  					$value['mes'] = 'SEPTIEMBRE';
+  				 if ($value['MES'] == '9'){
+  					$value['MES'] = 'SEPTIEMBRE';
   				 }
-  				 if ($value['mes'] == '10'){
-  					$value['mes'] = 'OCTUBRE';
+  				 if ($value['MES'] == '10'){
+  					$value['MES'] = 'OCTUBRE';
   				 }
-   				 if ($value['mes'] == '11'){
-  					$value['mes'] = 'NOVIEMBRE';
+   				 if ($value['MES'] == '11'){
+  					$value['MES'] = 'NOVIEMBRE';
    				 }
-   				 if ($value['mes'] == '12'){
-  					$value['mes'] = 'DICIEMBRE';
+   				 if ($value['MES'] == '12'){
+  					$value['MES'] = 'DICIEMBRE';
    				 }
 
-				$json[$i] = array($value['mes'], (int)$value['tercero'], (int)$value['quinto']);
+				$json[$i] = array($value['MES'], (int)$value['TERCERO'], (int)$value['QUINTO']);
 				$i++;
 			}
 		}

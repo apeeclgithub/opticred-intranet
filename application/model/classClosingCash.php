@@ -13,15 +13,15 @@
 										       SUM(CASE
 										               WHEN b.MET_NAME=\'Efectivo\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS efectivo,
+										           END) AS EFECTIVO,
 										       SUM(CASE
 										               WHEN b.MET_NAME=\'Cheque\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS cheque,
+										           END) AS CHEQUE,
 										       SUM(CASE
 										               WHEN b.MET_NAME=\'Tarjeta\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS tarjeta
+										           END) AS TARJETA
 										FROM ABONO a
 										INNER JOIN METODO_PAGO b ON b.MET_ID=a.METODO_PAGO_MET_ID
                                         INNER JOIN VENTA c ON c.VEN_ID=a.VENTA_VEN_ID
