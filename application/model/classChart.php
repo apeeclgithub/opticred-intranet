@@ -120,6 +120,7 @@
 										   FROM DETALLE
 										   WHERE DETALLE.PRODUCTO_PRO_ID = p.PRO_ID ) cantidad
 										FROM PRODUCTO p
+										WHERE  p.PRO_NAME IS NOT NULL
 										ORDER BY cantidad DESC LIMIT 10');
 
 			$this->chart = $sql->execute();
