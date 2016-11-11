@@ -12,7 +12,7 @@
         <a href="ventasPendientes.php"><li><span class="glyphicon glyphicon-menu-right"></span> Ventas Pendientes</li></a>
         <a href="ventasFinalizadas.php"><li><span class="glyphicon glyphicon-menu-right"></span> Ventas Finalizadas</li></a>
         <a href="garantia.php"><li><span class="glyphicon glyphicon-menu-right"></span> Garantía</li></a>
-        <a href="buscarVenta.php"><li><span class="glyphicon glyphicon-menu-right"></span> Buscar Venta</li></a>
+       <!-- <a href="buscarVenta.php"><li><span class="glyphicon glyphicon-menu-right"></span> Buscar Venta</li></a>-->
       </ul>
       <li  data-toggle="collapse" data-target="#empleados">
         <a href="#"><i class="glyphicon glyphicon-user"></i> Empleados <span class="glyphicon glyphicon-menu-down alignIconRight"></span></a>
