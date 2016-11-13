@@ -105,11 +105,11 @@
   <div class="row">
     <div class="form-group col-xs-3">
      <label for="addSaleTotal">Total de la venta:</label>
-     <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" disabled="disabled">  
+     <input onkeyup="totales()" type="number" class="form-control" id="addSaleTotal" name="addSaleTotal" disabled="disabled">  
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleAbono">Abonado a la venta:</label>
-     <input type="text" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
+     <input type="number" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
    </div>
   </div>
   <div class="row">
@@ -124,11 +124,11 @@
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleAbono2">Abono:</label>
-     <input onkeyup="pendienteSaldo()" value="0" type="text" class="form-control" id="addSaleAbono2" name="addSaleAbono2" >  
+     <input onkeyup="pendienteSaldo()" value="0" type="number" class="form-control" id="addSaleAbono2" name="addSaleAbono2" >  
    </div>
     <div class="form-group col-xs-2">
      <label for="addSaleSaldo2">Saldo:</label>
-     <input type="text" class="form-control" id="addSaleSaldo2" name="addSaleSaldo2" disabled="disabled" >  
+     <input type="number" class="form-control" id="addSaleSaldo2" name="addSaleSaldo2" disabled="disabled" >  
    </div> 
   </div>
 </br></br>

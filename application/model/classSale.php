@@ -289,11 +289,12 @@
 			$year = date("Y");
 			$month = date("m");
 
-			if(date("H")>5){
+			/*if(date("H")>5){
 				$day = date("d");
 			}else{
 				$day = date("d")-1;
-			}
+			}*/
+                        $day = date("d");
 
 			return $year."-".$month."-".$day;
 
@@ -306,6 +307,7 @@
 			}else{
 				$hour = date("H")+19;
 			}
+                        $hour = date("H");
 
 			$min = date("i");
 
@@ -318,13 +320,16 @@
 			$year = date("Y");
 			$month = date("m");
 
-			if(date("H")>5){
+			/*if(date("H")>5){
 				$day = date("d");
 				$hour = date("H")-5;
 			}else{
 				$day = date("d")-1;
 				$hour = date("H")+19;
-			}
+			}*/
+                        $day = date("d");
+
+                        $hour = date("H");
 
 			$min = date("i");
 
