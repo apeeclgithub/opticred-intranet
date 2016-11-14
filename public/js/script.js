@@ -639,7 +639,8 @@ function agregarVenta(){
 		'addSaleProductCerca'    : $('input[id=addSaleProductCerca]').val(),
 		'addSalePayType'    	 : $('select[id=addSalePayType]').val(),
         'addSaleAbono'    		 : $('input[id=addSaleAbono]').val(),
-		'addSaleMontaje'    	 : $('input[id=addSaleMontaje]').val()
+		'addSaleMontaje'    	 : $('input[id=addSaleMontaje]').val(),
+		'addSaleVidrios'    	 : $('input[id=addSaleVidrios]').val()
     };
 	if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleAbono]').val()!=0){
 		alertify.set('notifier','position', 'top-right');

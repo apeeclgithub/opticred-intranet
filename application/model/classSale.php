@@ -6,13 +6,13 @@
 
 		private $sale;
 
-		public function addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal){
+		public function addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal, $montaje, $vidrios){
 			$dia = $this->getDia();
 			$hora = $this->getHora();
 			
 			$objConn = new Database();
-			$sql = $objConn->prepare('	INSERT INTO VENTA (VEN_CORRELATIVE, TIENDA_TIE_ID, 	VEN_CLI_NAME, VEN_CLI_PHONE, USUARIO_USU_ID, VEN_DATE_CREATE, VEN_HOUR_CREATE, VEN_COM_TOTAL) 
-										VALUES (:venNumber, :venStore, :venClient, :venPhone, :usuId, :venDay, :venHour, :venTotal)');
+			$sql = $objConn->prepare('	INSERT INTO VENTA (VEN_CORRELATIVE, TIENDA_TIE_ID, 	VEN_CLI_NAME, VEN_CLI_PHONE, USUARIO_USU_ID, VEN_DATE_CREATE, VEN_HOUR_CREATE, VEN_COM_TOTAL, VEN_MONTAJE, VEN_CRISTALES) 
+										VALUES (:venNumber, :venStore, :venClient, :venPhone, :usuId, :venDay, :venHour, :venTotal, :montaje, :vidrios)');
 
 			$sql->bindParam(':venNumber'	, $venNumber);
 			$sql->bindParam(':venStore'		, $venStore);
@@ -22,6 +22,8 @@
 			$sql->bindParam(':venDay'		, $dia);
 			$sql->bindParam(':venHour'		, $hora);
 			$sql->bindParam(':venTotal'		, $venTotal);
+			$sql->bindParam(':montaje'		, $montaje);
+			$sql->bindParam(':vidrios'		, $vidrios);
 
 			$this->sale = $sql->execute();
 
@@ -125,6 +127,34 @@
 
 			$this->sale = $sql->execute();
 
+		}
+		
+		public function getTipoPago($id){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT *
+										FROM ABONO
+										WHERE VENTA_VEN_ID = :id
+										AND METODO_PAGO_MET_ID = 2');
+
+			$sql->bindParam(':id'	, $id);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->rowCount();
+
+			return $this->sale;
+
+		}
+		
+		public function modificarComision($id){
+			$objConn = new Database();
+			$sql = $objConn->prepare('UPDATE COMISION SET
+COM_TOTAL = (((SELECT VEN_COM_TOTAL FROM VENTA WHERE VEN_ID = :id)*0.9)-(SELECT VEN_CRISTALES FROM VENTA WHERE VEN_ID = :id)-(SELECT VEN_MONTAJE FROM VENTA WHERE VEN_ID = :id))*0.5
+WHERE VENTA_VEN_ID = :id');
+			
+			$sql->bindParam(':id'	, $id);
+			
+				$this->sale = $sql->execute();
 		}
 		
 		public function getDelivery($id){
@@ -438,4 +468,5 @@
 		}
 		
 	}
+	
 ?>

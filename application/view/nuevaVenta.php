@@ -178,8 +178,8 @@ $( function() {
    <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" >  
  </div>
  <div class="form-group col-xs-4">
-  <label for="">Monto Cristal:</label>
-   <input type="number" class="form-control" id="" name="" >  
+  <label for="addSaleVidrios">Monto Cristal:</label>
+   <input type="number" class="form-control" id="addSaleVidrios" name="addSaleVidrios" >  
  </div>  
 </div>  
 <legend>Captador/es</legend>

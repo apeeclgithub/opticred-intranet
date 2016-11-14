@@ -32,11 +32,13 @@
 			$venPhone  = $_POST['addSalePhono'];
 			$usuId  = $_POST['addSaleId'];
 			$venTotal  = $_POST['addSaleTotal'];
+			$montaje=$_POST['addSaleMontaje'];
+			$vidrios=$_POST['addSaleVidrios'];
 			
 			
 			//$venSaldo  = $_POST['addSaleSaldo'];
 
-			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal);
+			$json['success'] = $objSale->addSale($venNumber, $venStore, $venClient, $venPhone, $usuId, $venTotal, $montaje, $vidrios);
 			
 			$ventaId = "";
 			foreach ( (array) $objSale->getUltima($venStore) as $key ) {
@@ -94,6 +96,7 @@
 				$val = ($cap2==null)?0.50:0.25;
 				$subTotal = ($tipoPago==2)? $venTotal * 0.90 : $venTotal;
 				$subTotal = $subTotal - $_POST['addSaleMontaje'];
+				$subTotal = $subTotal - $_POST['addSaleVidrios'];
 				
 				if($cap1!=null){
 					$objSale->addComision($subTotal, $ventaId, $cap1, $nameLejos, $nameCerca, $val, $abono);
@@ -189,8 +192,16 @@
 			}
 			
 			$objSale->primerAbono($abono, $id, $tipo);
-			$objSale->pagarComision($id);
 			
+			if($objSale->pagarComision($id)>0 && $tipo!=2){
+				$objSale->pagarComision($id);
+			}else if($objSale->pagarComision($id)>0 && $tipo==2){
+				$objSale->pagarComision($id);
+			}else if($objSale->pagarComision($id)==0 && $tipo==2){
+				$objSale->modificarComision($id);
+			}else{
+				$objSale->pagarComision($id);
+			}
 			echo json_encode($json);
 		
 			break;

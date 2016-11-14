@@ -115,7 +115,8 @@
 												TIE_NAME
 										FROM PRODUCTO
 										INNER JOIN TIENDA ON PRODUCTO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE PRO_ACTIVE = 1');
+										WHERE PRO_ACTIVE = 1
+										AND PRO_STOCK > 0');
 
 			$this->product = $sql->execute();
 			$this->product = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -129,7 +130,9 @@
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  PRO_NAME
 										FROM PRODUCTO
-										WHERE TIENDA_TIE_ID = :tienda');
+										WHERE TIENDA_TIE_ID = :tienda
+										AND PRO_STOCK > 0
+										AND PRO_ACTIVE = 1');
 
 			$sql->bindParam(':tienda', $tienda);
 			
