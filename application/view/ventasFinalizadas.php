@@ -39,7 +39,14 @@
 						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
 						<td><?php echo $value['DES_DATE'];	?></td>
 						<td><a href="verDetalleFinalizada.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
-						<td><button onclick="cargarAnula(<?php echo $value['VEN_ID'];?>, <?php echo $value['TIENDA_TIE_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
+						<td>
+						<?php 
+							if($_SESSION['user']['type']==1){
+							?>
+								<button onclick="cargarAnula(<?php echo $value['VEN_ID'];?>, <?php echo $value['TIENDA_TIE_ID'];?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#cancelSailConfirmDialog"><span class="glyphicon glyphicon-trash"></span>&nbsp;Anular Venta</button></td>
+							<?php
+							
+							}?>
 					</tr>
 					<?php
 				}
