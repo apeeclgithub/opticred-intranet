@@ -94,14 +94,14 @@
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Sistema</h3>
+          <h3 class="panel-title">Valores Totales</h3>
         </div>
         <div id="showTotals">
           <?php require '../controller/ClosingCashShowTotal.php'; ?>
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Real</h3>
@@ -127,9 +127,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
      <input type="hidden" class="form-control" id="discountClosingCash">
-    <div class="row">
+    <!--<div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Diferencia</h3>
@@ -149,9 +149,23 @@
             </div>
           </div>
       </div>
-    </div>
-  </div>
+    </div>-->
+  <div class="row">
+            <div class="form-group col-xs-4">
+              <div class="form-group col-xs-4"><br>
+              <button type="button" onclick="dataToCloseCash((document.getElementById('cristalPay').value),(document.getElementById('diffClosingCash').value))"  data-toggle="modal" data-target="#CloseCashConfirmDialog" class="btn btn-info">&nbsp;Cerrar Caja</button>
+            </div>
+            </div>
+          </div>
+ </div>
 </div>
+		  <div class="row">
+            <div class="form-group col-xs-4">
+              <div class="form-group col-xs-4"><br>
+              <button type="button" onclick="dataToCloseCash((document.getElementById('cristalPay').value),(document.getElementById('diffClosingCash').value))"  data-toggle="modal" data-target="#CloseCashConfirmDialog" class="btn btn-info">&nbsp;Cerrar Caja</button>
+            </div>
+            </div>
+          </div>
 <!-- Modal pagar captador -->
 <div class="modal fade" id="PayCaptadorConfirmDialog" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">

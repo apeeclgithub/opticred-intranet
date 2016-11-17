@@ -833,12 +833,12 @@ function saveSale(){
 				alertify.error("No se pudo guardar los nuevos datos.");
 			}
 		});
-	}else if($('select[id=addSalePayType]').val()==4){
+	}else if($('select[id=addSalePayType]').val()==4 && $('input[id=addSaleSaldo2]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un medio de pago");
-	}else if($('input[id=addSaleAbono2]').val()==0){
+	/*}else if($('input[id=addSaleAbono2]').val()==0){
 		alertify.set('notifier','position', 'top-right');
-		alertify.error("Debe ingresar un monto");
+		alertify.error("Debe ingresar un monto");*/
 	}else if((document.getElementById('addSaleDateFinish').checked)&& $('input[id=addSaleSaldo2]').val()!=0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("No se puede finalizar una venta con un monto pendiente");
