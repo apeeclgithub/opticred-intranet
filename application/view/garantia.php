@@ -4,18 +4,18 @@
 <script type="text/javascript">window.onload=nuevaVenta();</script>
 <script>
    $( function() {
-	var tienda = $('input[id=addSaleStore]').val();
+  var tienda = $('input[id=addSaleStore]').val();
     var availableTags = $.ajax({
-    		url:'../controller/Product.php?action=4&tienda='.concat(tienda),
-    		type:'post',
-    		dataType:'json',
-    		async:false    		
-    	}).responseText;
-	$obj = JSON.parse(availableTags);
+        url:'../controller/Product.php?action=4&tienda='.concat(tienda),
+        type:'post',
+        dataType:'json',
+        async:false       
+      }).responseText;
+  $obj = JSON.parse(availableTags);
     $( "#addSaleProductLejos" ).autocomplete({
       source: $obj
     });
-	$( "#addSaleProductCerca" ).autocomplete({
+  $( "#addSaleProductCerca" ).autocomplete({
       source: $obj
     });
   } );
@@ -29,7 +29,7 @@
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="addSaleNumber">N° Boleta</label>
-      <input type="text" class="form-control" id="addSaleNumber" name="addSaleNumber" disabled="disabled">
+      <input type="text" class="form-control" id="addSaleNumber" name="addSaleNumber" >
     </div>
     <div class="form-group col-xs-4">
       <label for="addSaleDateCreate">Fecha</label>

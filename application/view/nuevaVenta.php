@@ -4,12 +4,12 @@
 <script type="text/javascript">window.onload=nuevaVenta();</script>
 <script>
 $( function() {
-	var tienda = $('input[id=addSaleStore]').val();
+  var tienda = $('input[id=addSaleStore]').val();
   var availableTags = $.ajax({
     url:'../controller/Product.php?action=4&tienda='.concat(tienda),
     type:'post',
     dataType:'json',
-    async:false    		
+    async:false       
   }).responseText;
   $obj = JSON.parse(availableTags);
   $( "#addSaleProductLejos" ).autocomplete({
@@ -24,7 +24,7 @@ $( function() {
     url:'../controller/Captador.php?action=4',
     type:'post',
     dataType:'json',
-    async:false    		
+    async:false       
   }).responseText;
   $obj = JSON.parse(availableTags);
   $( "#addSaleCap1" ).autocomplete({
@@ -43,7 +43,7 @@ $( function() {
   <div class="row">
     <div class="form-group col-xs-6">
       <label for="addSaleNumber">N° Boleta</label>
-      <input type="text" class="form-control" id="addSaleNumber" name="addSaleNumber" disabled="disabled">
+      <input type="text" class="form-control" id="addSaleNumber" name="addSaleNumber" >
     </div>
     <div class="form-group col-xs-4">
       <label for="addSaleDateCreate">Fecha</label>
@@ -163,7 +163,7 @@ $( function() {
 
 <legend>Datos Entrega</legend>
 <div class="row">
-	<div class="form-group col-xs-4">
+  <div class="form-group col-xs-4">
     <label for="addSaleAltura">Altura:</label>
     <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
   </div>
