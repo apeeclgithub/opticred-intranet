@@ -648,9 +648,9 @@ function agregarVenta(){
 	}else if($('input[id=addSaleTotal]').val()==0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Debe ingresar un monto");
-	}else if($('input[id=addSaleProductLejos]').val()=='' && $('input[id=addSaleProductCerca]').val()==''){
+	/*}else if($('input[id=addSaleProductLejos]').val()=='' && $('input[id=addSaleProductCerca]').val()==''){
 		alertify.set('notifier','position', 'top-right');
-		alertify.error("Seleccione al menos un marco");
+		alertify.error("Seleccione al menos un marco");*/
 	}else if($('input[id=addSaleMontaje]').val()==0){
 		alertify.set('notifier','position', 'top-right');
 		alertify.error("Ingrese el valor del montaje.");
