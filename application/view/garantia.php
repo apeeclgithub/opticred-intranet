@@ -122,14 +122,16 @@
      </div>  
     </div>
 
-<legend>Datos Entrega</legend>
+<!--<legend>Datos Entrega</legend>-->
+<legend>Venta asociada</legend>
 <div class="row">
-  <div class="form-group col-xs-4">
+  <!--<div class="form-group col-xs-4">
    <label for="addSaleCristal">Tipo Cristal:</label>
    <input type="text" class="form-control" id="addSaleCristal" name="addSaleCristal" >  
- </div> 
+ </div> -->
  <div class="form-group col-xs-3">
-   <label for="addSaleAltura">Altura:</label>
+   <!--<label for="addSaleAltura">Altura:</label>-->
+   <label for="addSaleAltura">Correlativo:</label>
    <input type="text" class="form-control" id="addSaleAltura" name="addSaleAltura" >  
  </div>
  </div>  
