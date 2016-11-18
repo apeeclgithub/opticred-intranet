@@ -874,22 +874,28 @@ function discountFromTotal(){
     var paidComission = $('input[id=showPaidOutReload]').val();
     var insumo = $('input[id=showInsumoTotalClosingCash]').val();
     var cristalPay = $('input[id=cristalPay]').val();
-    var systemTotal = $('input[id=showTotalSysClosingCash]').val();
+    var systemTotal = $('input[id=showTotalSysClosingCashHidden]').val();
     $('input[id=discountClosingCash]').val(Number(cristalPay)+Number(insumo)+Number(paidComission))
 };
 
 function cuadrarCaja(){
-    var cashReal = $('input[id=cashClosingCash]').val();
-    var cardReal = $('input[id=cardClosingCash]').val();
-    var docsReal = $('input[id=docsClosingCash]').val();
+
     var discountFromTotal = $('input[id=discountClosingCash]').val();
-    $('input[id=totalClosingCash]').val(Number(cashReal)+Number(discountFromTotal)+Number(cardReal)+Number(docsReal));
+    var showCashSysClosingCashHidden = $('input[id=showCashSysClosingCashHidden]').val();
+    $('input[id=sysCashMinusdiscount]').val(Number(showCashSysClosingCashHidden)-Number(discountFromTotal));
 
-    var totalReal = $('input[id=totalClosingCash]').val();
-    var totalSystem = $('input[id=showTotalFinalSysClosingCash]').val();
+    var sysCashMinusdiscount = $('input[id=sysCashMinusdiscount]').val();
+    var showCardSysClosingCash =  $('input[id=showCardSysClosingCash]').val();
+    $('input[id=showTotalFinalSysClosingCash]').val(Number(sysCashMinusdiscount)+Number(showCardSysClosingCash));
+    
+    var cashClosingCash = $('input[id=cashClosingCash]').val();
+    var cardClosingCash = $('input[id=cardClosingCash]').val();
+    var docsClosingCash = $('input[id=docsClosingCash]').val();
 
-
-    var difference = $('input[id=diffClosingCash]').val(Number(totalSystem)-Number(totalReal));
+    $('input[id=totalClosingCash]').val(Number(cashClosingCash)+Number(cardClosingCash)+Number(docsClosingCash));
+    var showTotalFinalSysClosingCash = $('input[id=showTotalFinalSysClosingCash]').val();
+    var totalClosingCash = $('input[id=totalClosingCash]').val();
+    $('input[id=diffClosingCash]').val(Number(showTotalFinalSysClosingCash)-Number(totalClosingCash));
 };
 
 function dataCaptadorPay(id, name, total, pay){
