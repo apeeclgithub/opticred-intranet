@@ -23,7 +23,14 @@
       </ul>
       <a href="inventario.php"><li>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Inventario</li></a>
       <a href="insumos.php"><li>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-copy"></span> Insumos</li></a>
-      <a href="cierreCaja.php"><li>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-lock"></span> Cierre de Caja</li></a>
+      <!--<a href="cierreCaja.php"><li>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-lock"></span> Cierre de Caja</li></a>-->
+	  <li  data-toggle="collapse" data-target="#cierres">
+        <a href="#"><i class="glyphicon glyphicon-lock"></i> Cierre de Caja <span class="glyphicon glyphicon-menu-down alignIconRight"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="cierres">
+        <a href="cierreCaja.php"><li><span class="glyphicon glyphicon-menu-right"></span> Cierre de Caja </li></a>
+        <a href="buscarCierreCaja.php"><li><span class="glyphicon glyphicon-menu-right"></span> Buscador </li></a>
+      </ul>
     </ul>
   </div>
 </div>

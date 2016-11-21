@@ -141,7 +141,7 @@
 
 		}
 
-		public function buscarCierrelistCaptadorPaid($searchDate, $searchStore){
+		public function buscarCierrelistCaptadorPaid($searchDate){
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT CAPTADOR.CAP_ID,
@@ -150,11 +150,11 @@
 										FROM CAPTADOR
 										INNER JOIN PAGO ON CAPTADOR.CAP_ID = PAGO.CAPTADOR_CAP_ID
 										WHERE CAP_ACTIVE = 1
-										  AND PAG_DATE = :searchDate  FALTA TIENDA
+										AND PAG_DATE = :searchDate
 										GROUP BY CAP_NAME');
-
+										
 			$sql->bindParam(':searchDate', $searchDate);
-			$sql->bindParam(':searchStore', $searchStore);
+			
 			$this->closingCash = $sql->execute();
 			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -182,11 +182,11 @@
 										INNER JOIN METODO_PAGO b ON b.MET_ID=a.METODO_PAGO_MET_ID
                                         INNER JOIN VENTA c ON c.VEN_ID=a.VENTA_VEN_ID
                                         INNER JOIN TIENDA d ON d.TIE_ID=c.TIENDA_TIE_ID
-										WHERE ABO_DATE=:searchDate AND TIE_ID=:searchStore
+										WHERE ABO_DATE=:searchDate AND TIE_ID=:searchStore');
 
 
-			$sql->bindParam(':searchDate', $searchDate);
-			$sql->bindParam(':searchStore', $searchStore);
+			$sql->bindParam('searchDate', $searchDate);
+			$sql->bindParam('searchStore', $searchStore);
 			$this->closingCash = $sql->execute();
 			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
 

@@ -146,11 +146,10 @@
 												INS_NAME,
 												INS_DESC,
 												INS_TOTAL,
-												TIE_NAME,
 												INS_DATE
 										FROM INSUMO
-										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = CURDATE() ');
+										WHERE INS_DATE = :searchDate
+										AND TIENDA_TIE_ID = :searchStore');
 
 
 			$sql->bindParam(':searchDate', $searchDate);
@@ -162,14 +161,13 @@
 
 		}
 
-		public function buscarCierreTotalInsumoClosingCash($searchDate, $searchStore){
+		public function buscarCierreTotalInsumosClosingCash($searchDate, $searchStore){
 
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
 										FROM INSUMO
-										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
-										WHERE INS_DATE = CURDATE() AND TIE_ID = :insStore');
+										WHERE INS_DATE = :searchDate AND TIENDA_TIE_ID = :searchStore');
 
 			$sql->bindParam(':searchDate', $searchDate);
 			$sql->bindParam(':searchStore', $searchStore);

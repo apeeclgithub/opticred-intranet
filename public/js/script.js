@@ -1032,4 +1032,9 @@ function anularVenta(){
 	})
 };
 
-
+function buscarCierre(){
+	var fechas   		= $('input[id=searchDate]').val();
+    var tiendas	    	= $('input[id=searchStore]').val();
+	$("#BuscarCierreCaptadorPaid").load('../controller/BuscarCierreCaptadorPaid.php?fecha='.concat(fechas));
+	$("#BuscarCierreInsumosClosingCash").load('../controller/BuscarCierreInsumosClosingCash.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
+}

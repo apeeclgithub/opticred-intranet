@@ -166,6 +166,21 @@
 			return $this->captador;
 
 		}
+		
+		public function captadoresTotalClosingCash($searchDate){
+
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT 	SUM(PAG_TOTAL) AS TOTAL
+										FROM PAGO
+										WHERE PAG_DATE = :searchDate');
+
+			$sql->bindParam(':searchDate', $searchDate);
+			$this->captador = $sql->execute();
+			$this->captador = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->captador;
+		}
 
 	}
 ?>

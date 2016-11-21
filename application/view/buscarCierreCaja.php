@@ -13,7 +13,6 @@
       <li><a href="#">Dropdown link</a></li>
     </ul>
   </div></div>-->
-  <input type="hidden" name="insStore" id="insStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <div class="contentMain">
     <legend>Cierre Caja Anterior</legend>
     <div class="row">
@@ -25,74 +24,17 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Fecha</label>
-              <input type="date" class="form-control" id="searchDate">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-xs-4">
-              <label for="">Tienda</label>
-              <input type="text" class="form-control" id="searchStore">
-            </div>
+              <input type="date" class="form-control" id="searchDate" name="searchDate" />
+			  <input type="hidden" class="form-control" id="searchStore" name="searchStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
+			  <button type="button" class="btn btn-success" onclick="buscarCierre()">Buscar</button>
+			</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Comisión Pagada a captador</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="form-group col-xs-11">
-              <div id="captadorTablePaidOutReload">
-                <?php require '../controller/BuscarCierreCaptadorPaid.php'; ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Insumos de día</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="form-group col-xs-11">
-              <label for="">Insumo</label><br>
-              <div id="insumoTableReload">
-                <?php require '../controller/BuscarCierreInsumoTableClosingCash.php'; ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Cristales</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="form-group col-xs-4">
-              <label for="">Total</label>
-              <input type="number" class="form-control" id="cristalPay">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Valores Totales</h3>
-        </div>
-        <div id="showTotals">
-          <?php require '../controller/ClosingCashShowTotal.php'; ?>
-        </div>
-      </div>
-    </div>
+	
+	<div id="BuscarCierreCaptadorPaid" class="row"></div>
+	<div id="BuscarCierreInsumosClosingCash" class="row"></div>
+	<div id="BuscarCierreShowTotals" class="row"></div>
+
 <?php include('footer.php'); ?>
