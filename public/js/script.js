@@ -447,16 +447,13 @@ function addInsumo(){
     var params = {
         'addNameInsumo'  : $('input[id=addNameInsumo]').val(),
         'addDetailInsumo' : $('textarea[id=addDetailInsumo]').val(),
-        'addStoreInsumo' : $('select[id=addStoreInsumo]').val(),   
+        'addStoreInsumo' : $('input[id=addStoreInsumo]').val(),   
         'addPriceInsumo' : $('input[id=addPriceInsumo]').val(),
         'addDateInsumo' : new Date()
     };
     if ($('input[id=addNameInsumo]').val() === '') {
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el insumo.");
-    }else if($('select[id=addStoreInsumo]').val() <= '0'){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe seleccionar una tienda.");
     }else if($('textarea[id=addDetailInsumo]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un detalle para el insumo.");
@@ -475,7 +472,6 @@ function addInsumo(){
                 alertify.set('notifier','position', 'top-right');
                 alertify.success("Insumo agregado exitosamente.");
                 $('input[id=addNameInsumo]').val('');
-                $('select[id=addStoreInsumo]').val('');
                 $('textarea[id=addDetailInsumo]').val('');
                 $('input[id=addPriceInsumo]').val('');
             }else{
@@ -490,9 +486,6 @@ function updateModalInsumo(id, name, desc, store, total){
     $('input[id=editIdInsumo]').val(id);
     $('input[id=editNameInsumo]').val(name);
     $('textarea[id=editDescInsumo]').val(desc);
-    $("select[id=editStoreInsumo] option").prop('selected', false).filter(function() {
-        return $(this).text() == store;
-    }).prop('selected', true); 
     $('input[id=editTotalInsumo]').val(total);
 };
 
@@ -505,7 +498,6 @@ function updateInsumo(){
         'editIdInsumo'    : $('input[id=editIdInsumo]').val(),
         'editNameInsumo'  : $('input[id=editNameInsumo]').val(),
         'editDescInsumo'  : $('textarea[id=editDescInsumo]').val(),
-        'editStoreInsumo'  : $('select[id=editStoreInsumo]').val(),
         'editTotalInsumo'  : $('input[id=editTotalInsumo]').val()
     };
     if ($('input[id=editIdInsumo]').val() === '') {
@@ -514,9 +506,6 @@ function updateInsumo(){
     }else if($('input[id=editNameInsumo]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un nombre para el insumo.");
-    }else if($('select[id=editStoreInsumo]').val() <= '0'){
-        alertify.set('notifier','position', 'top-right');
-        alertify.error("Debe seleccionar una tienda.");
     }else if($('input[id=editTotalInsumo]').val() === ''){
         alertify.set('notifier','position', 'top-right');
         alertify.error("Debe ingresar un valor para el insumo.");

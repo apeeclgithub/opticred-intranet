@@ -22,7 +22,7 @@
 						<textarea class="form-control" id="addDetailInsumo" name="addDetailInsumo" rows="4" placeholder="Detalle del insumo" id="comment"></textarea>
 					</div>
 				</div>
-				<!-- Select Basic -->
+				<!-- Select Basic 
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="addStoreInsumo">Seleccione Tienda</label>
 					<div class="col-md-4">
@@ -32,7 +32,8 @@
 							<option value="2">Quinto</option>
 						</select>
 					</div>
-				</div>
+				</div>-->
+				<input type="hidden" id="addStoreInsumo" name="addStoreInsumo" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?>/>
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="addPriceInsumo">Ingrese Precio</label>  
@@ -93,7 +94,7 @@
 									<input name="editNameInsumo" id="editNameInsumo" type="text" placeholder="Insumo" class="form-control input-md" >
 								</div>
 							</div>
-							<!-- Select Basic -->
+							<!-- Select Basic 
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editStoreInsumo">Seleccione Tienda</label>
 								<div class="col-md-4">
@@ -103,7 +104,7 @@
 										<option value="2">Quinto</option>
 									</select>
 								</div>
-							</div>
+							</div>-->
 							<!-- Text input-->
 							<div class="form-group">
 								<label class="col-md-4 control-label" for="editDescInsumo">Editar Detalle</label>  
