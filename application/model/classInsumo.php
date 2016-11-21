@@ -99,7 +99,6 @@
 
 		public function listInsumosClosingCash(){
 
-			//$today = $this->getDate();
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  INS_ID,
@@ -112,7 +111,6 @@
 										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
 										WHERE INS_DATE = CURDATE() ');
 
-			//$sql->bindParam(':today', $today);
 
 			$this->insumo = $sql->execute();
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -123,7 +121,6 @@
 
 		public function totalInsumoClosingCash($insStore){
 
-			//$today = $this->getDate();
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
@@ -132,7 +129,6 @@
 										WHERE INS_DATE = CURDATE() AND TIE_ID = :insStore');
 
 			$sql->bindParam(':insStore', $insStore);
-			//$sql->bindParam(':today', $today);
 			$this->insumo = $sql->execute();
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -140,6 +136,47 @@
 
 
 			
+		}
+
+		public function buscarCierrelistInsumosClosingCash($searchDate, $searchStore){
+
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT  INS_ID,
+												INS_NAME,
+												INS_DESC,
+												INS_TOTAL,
+												TIE_NAME,
+												INS_DATE
+										FROM INSUMO
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE INS_DATE = CURDATE() ');
+
+
+			$sql->bindParam(':searchDate', $searchDate);
+			$sql->bindParam(':searchStore', $searchStore);
+			$this->insumo = $sql->execute();
+			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->insumo;
+
+		}
+
+		public function buscarCierreTotalInsumoClosingCash($searchDate, $searchStore){
+
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
+										FROM INSUMO
+										INNER JOIN TIENDA ON INSUMO.TIENDA_TIE_ID = TIENDA.TIE_ID
+										WHERE INS_DATE = CURDATE() AND TIE_ID = :insStore');
+
+			$sql->bindParam(':searchDate', $searchDate);
+			$sql->bindParam(':searchStore', $searchStore);
+			$this->insumo = $sql->execute();
+			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->insumo;
 		}
 
 	}

@@ -141,6 +141,59 @@
 
 		}
 
+		public function buscarCierrelistCaptadorPaid($searchDate, $searchStore){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT CAPTADOR.CAP_ID,
+										       CAP_NAME,
+										       SUM(PAG_TOTAL) AS PAG_CAP
+										FROM CAPTADOR
+										INNER JOIN PAGO ON CAPTADOR.CAP_ID = PAGO.CAPTADOR_CAP_ID
+										WHERE CAP_ACTIVE = 1
+										  AND PAG_DATE = :searchDate  FALTA TIENDA
+										GROUP BY CAP_NAME');
+
+			$sql->bindParam(':searchDate', $searchDate);
+			$sql->bindParam(':searchStore', $searchStore);
+			$this->closingCash = $sql->execute();
+			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->closingCash;
+
+		}
+
+		public function buscarCierreShowTotal($searchDate, $searchStore){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT DAY(a.ABO_DATE) AS dia,d.TIE_ID as tienda,
+										       SUM(CASE
+										               WHEN b.MET_NAME=\'Efectivo\' THEN a.ABO_TOTAL
+										               ELSE 0
+										           END) AS EFECTIVO,
+										       SUM(CASE
+										               WHEN b.MET_NAME=\'Cheque\' THEN a.ABO_TOTAL
+										               ELSE 0
+										           END) AS CHEQUE,
+										       SUM(CASE
+										               WHEN b.MET_NAME=\'Tarjeta\' THEN a.ABO_TOTAL
+										               ELSE 0
+										           END) AS TARJETA
+										FROM ABONO a
+										INNER JOIN METODO_PAGO b ON b.MET_ID=a.METODO_PAGO_MET_ID
+                                        INNER JOIN VENTA c ON c.VEN_ID=a.VENTA_VEN_ID
+                                        INNER JOIN TIENDA d ON d.TIE_ID=c.TIENDA_TIE_ID
+										WHERE ABO_DATE=:searchDate AND TIE_ID=:searchStore
+
+
+			$sql->bindParam(':searchDate', $searchDate);
+			$sql->bindParam(':searchStore', $searchStore);
+			$this->closingCash = $sql->execute();
+			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->closingCash;
+
+		}
+
 	}
 
 ?>
