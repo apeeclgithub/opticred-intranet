@@ -467,6 +467,23 @@ WHERE VENTA_VEN_ID = :id');
 
 		}
 		
+		public function listaAbonos($id){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT ABO_DATE, ABO_TOTAL, MET_NAME
+										FROM ABONO
+										INNER JOIN METODO_PAGO ON METODO_PAGO.MET_ID = ABONO.METODO_PAGO_MET_ID
+										WHERE ABONO.VENTA_VEN_ID = :id');
+
+			$sql->bindParam(':id', $id);
+			
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+		
 	}
 	
 ?>

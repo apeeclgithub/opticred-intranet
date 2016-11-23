@@ -111,6 +111,10 @@
      <label for="addSaleAbono">Abonado a la venta:</label>
      <input type="number" class="form-control" id="addSaleAbono" name="addSaleAbono" disabled="disabled">  
    </div>
+   <div class="form-group col-xs-2">
+		<label for="addSaleAbono"></label>
+     <button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#verAbonos">Ver Abonos</button>  
+   </div>
   </div>
   <div class="row">
     <div class="form-group col-xs-3">
@@ -178,5 +182,6 @@
       </div>
     </div>
   </div>
+  <div id="abonos"></div>
 </div>
 <?php include('footer.php'); ?>

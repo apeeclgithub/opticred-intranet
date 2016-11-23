@@ -723,6 +723,7 @@ function pendienteVenta(id){
 		$('input[id=addSaleAbono]').val(data.abono);
 		$('input[id=addSaleSaldo2]').val(data.total - data.abono);
 		$('input[id=addSaleDateFinish]').val(data.finish);
+		$("#abonos").load('../controller/abonos.php?id='.concat(id));
 	});
 };
 

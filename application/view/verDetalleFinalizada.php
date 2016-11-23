@@ -107,6 +107,10 @@
      <label for="addSaleTotal">Total de la venta:</label>
      <input onkeyup="totales()" type="text" class="form-control" id="addSaleTotal" name="addSaleTotal" disabled="disabled">  
    </div>
+   <div class="form-group col-xs-2">
+		<label for="addSaleAbono"></label>
+     <button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#verAbonos">Ver Abonos</button>  
+   </div>
   </div>
 </br></br>
 <legend>Datos Entrega</legend>
@@ -154,5 +158,6 @@
       </div>
     </div>
   </div>
+  <div id="abonos"></div>
 </div>
 <?php include('footer.php'); ?>
