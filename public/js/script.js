@@ -1027,4 +1027,5 @@ function buscarCierre(){
     var tiendas	    	= $('input[id=searchStore]').val();
 	$("#BuscarCierreCaptadorPaid").load('../controller/BuscarCierreCaptadorPaid.php?fecha='.concat(fechas));
 	$("#BuscarCierreInsumosClosingCash").load('../controller/BuscarCierreInsumosClosingCash.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
+	$("#BuscarCierreTotales").load('../controller/BuscarCierreTotales.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
 }
