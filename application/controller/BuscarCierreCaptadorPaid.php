@@ -63,7 +63,7 @@ foreach ( (array) $objCaptador as $key ) {
 		<div class="panel-body">
 			<div class="form-group col-xs-4">
 				<label for="">Total Pagos del día:</label>
-				<input type="number" class="form-control" id="showInsumosTotalClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
+				<input type="number" class="form-control" id="showCaptadorTotalClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#buscarCierreCaptadorModal">Ver Detalles</button>
 			</div>
 			</div>

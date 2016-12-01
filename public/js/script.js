@@ -724,6 +724,10 @@ function pendienteVenta(id){
 		$('input[id=addSaleSaldo2]').val(data.total - data.abono);
 		$('input[id=addSaleDateFinish]').val(data.finish);
 		$("#abonos").load('../controller/abonos.php?id='.concat(id));
+		if((data.total - data.abono)==0){
+			document.getElementById("addSaleAbono2").disabled = true;
+			document.getElementById("addSalePayType").disabled = true;
+		}
 	});
 };
 
@@ -1028,4 +1032,5 @@ function buscarCierre(){
 	$("#BuscarCierreCaptadorPaid").load('../controller/BuscarCierreCaptadorPaid.php?fecha='.concat(fechas));
 	$("#BuscarCierreInsumosClosingCash").load('../controller/BuscarCierreInsumosClosingCash.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
 	$("#BuscarCierreTotales").load('../controller/BuscarCierreTotales.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
+	document.getElementById("sumatoria").value = $('input[id=sysCashMinusdiscount]').val() - $('input[id=showInsumosTotalClosingCash]').val() - $('input[id=showCaptadorTotalClosingCash]').val();
 }

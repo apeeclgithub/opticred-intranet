@@ -25,7 +25,8 @@
 				<tbody>
 					<tr>
 						<td>EFECTIVO</td>
-						<td><input type="number" class="form-control" id="sysCashMinusdiscount" value="<?php echo $value['EFECTIVO'];?>" disabled="disabled"></td>
+						<input type="hidden" class="form-control" id="sysCashMinusdiscount" value="<?php echo $value['EFECTIVO'];?>" >
+						<td><input type="text" class="form-control" id="sumatoria" value="" disabled="disabled"></td>
 					</tr>
 					<tr>
 						<td>TARJETA DE CREDITO</td>		
