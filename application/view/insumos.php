@@ -152,3 +152,4 @@
 	</div>
 </div>
 <?php include('footer.php'); ?>
+<script src="../../public/js/zInsumo.js"></script>

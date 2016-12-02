@@ -184,4 +184,5 @@
   </div>
   <div id="abonos"></div>
 </div>
+<script src="../../public/js/zPendienteVenta.js"></script>
 <?php include('footer.php'); ?>
