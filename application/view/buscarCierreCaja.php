@@ -37,7 +37,6 @@
 	<div id="BuscarCierreInsumosClosingCash" class="row"></div>
   <div id="BuscarCierreCristal" class="row"></div>
 	<div id="BuscarCierreTotales" class="row"></div>
-  
-<button type="button" class="btn btn-success" onclick="totales()">Ver Total Cierre de caja: </button>
+
 <?php include('footer.php'); ?>
 <script src="../../public/js/zCierreCaja.js"></script>
