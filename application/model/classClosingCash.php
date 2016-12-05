@@ -194,6 +194,24 @@
 
 		}
 
+		public function buscarCierreCristal($searchDate, $searchStore){
+			
+			$objConn = new Database();
+			$sql = $objConn->prepare('	SELECT 	CRI_TOTAL
+										FROM CRISTAL
+										WHERE CRI_DATE = :searchDate
+										AND TIENDA_TIE_ID = :searchStore');
+										
+			$sql->bindParam('searchDate', $searchDate);
+			$sql->bindParam('searchStore', $searchStore);
+			
+			$this->closingCash = $sql->execute();
+			$this->closingCash = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->closingCash;
+
+		}
+
 	}
 
 ?>

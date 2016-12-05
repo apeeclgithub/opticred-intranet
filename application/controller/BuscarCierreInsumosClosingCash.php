@@ -68,7 +68,7 @@ foreach ( (array) $objInsumo as $key ) {
 		<div class="panel-body">
 			<div class="form-group col-xs-4">
 				<label for="">Total Insumos del día:</label>
-				<input type="number" class="form-control" id="showInsumosTotalClosingCash" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
+				<input type="number" class="form-control" id="showInsumosTotalBuscarCierre" value="<?php echo $value['TOTAL'];?>" disabled="disabled">
 				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#buscarCierreInsumosModal">Ver Detalles</button>
 			</div>
 			</div>

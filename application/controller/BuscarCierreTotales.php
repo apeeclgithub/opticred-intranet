@@ -25,20 +25,20 @@
 				<tbody>
 					<tr>
 						<td>EFECTIVO</td>
-						<input type="hidden" class="form-control" id="sysCashMinusdiscount" value="<?php echo $value['EFECTIVO'];?>" >
-						<td><input type="text" class="form-control" id="sumatoria" value="" disabled="disabled"></td>
+						<input type="number" class="form-control" id="sysCashMinusdiscountBuscarCierre" value="<?php echo $value['EFECTIVO'];?>" >
+						<td><input type="text" class="form-control" id="sumatoriaBuscarCierre" value="" disabled="disabled"></td>
 					</tr>
 					<tr>
 						<td>TARJETA DE CREDITO</td>		
-						<td><input type="number" class="form-control" id="showCardSysClosingCash" value="<?php echo $value['TARJETA'];?>" disabled="disabled"></td>
+						<td><input type="number" class="form-control" id="showCardSysBuscarCierre" value="<?php echo $value['TARJETA'];?>" disabled="disabled"></td>
 					</tr>
 					<tr>
 						<td>CHEQUE</td>		
-						<td><input type="number" class="form-control" id="showDocsSysClosingCash" value="<?php echo $value['CHEQUE'];?>" disabled="disabled"></td>
+						<td><input type="number" class="form-control" id="showDocsSysBuscarCierre" value="<?php echo $value['CHEQUE'];?>" disabled="disabled"></td>
 					</tr>
 					<tr class="danger">
 						<td>TOTAL</td>		
-						<td><input type="number" class="form-control" id="showTotalFinalSysClosingCash" value="<?php echo $value['CHEQUE']+$value['TARJETA']+$value['EFECTIVO'];?>" disabled="disabled"></td>
+						<td><input type="number" class="form-control" id="showTotalFinalSysBuscarCierre" value="<?php echo $value['CHEQUE']+$value['TARJETA']+$value['EFECTIVO'];?>" disabled="disabled"></td>
 					</tr>
 				</tbody>
 			</table>

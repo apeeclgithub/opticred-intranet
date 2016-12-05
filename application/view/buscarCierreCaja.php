@@ -26,7 +26,7 @@
               <label for="">Fecha</label>
               <input type="date" class="form-control" id="searchDate" name="searchDate" />
 			  <input type="hidden" class="form-control" id="searchStore" name="searchStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
-			  <button type="button" class="btn btn-success" onclick="buscarCierre()">Buscar</button>
+			  <button type="button" class="btn btn-success" onclick="buscarCierre();">Buscar</button>
 			</div>
           </div>
         </div>
@@ -35,9 +35,9 @@
 	
 	<div id="BuscarCierreCaptadorPaid" class="row"></div>
 	<div id="BuscarCierreInsumosClosingCash" class="row"></div>
-	<div id="BuscarCierreShowTotals" class="row"></div>
+  <div id="BuscarCierreCristal" class="row"></div>
 	<div id="BuscarCierreTotales" class="row"></div>
-	
-
+  
+<button type="button" class="btn btn-success" onclick="totales()">Ver Total Cierre de caja: </button>
 <?php include('footer.php'); ?>
 <script src="../../public/js/zCierreCaja.js"></script>

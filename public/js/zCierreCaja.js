@@ -135,8 +135,23 @@ function insertCrystal(){
 function buscarCierre(){
 	var fechas   		= $('input[id=searchDate]').val();
     var tiendas	    	= $('input[id=searchStore]').val();
+
 	$("#BuscarCierreCaptadorPaid").load('../controller/BuscarCierreCaptadorPaid.php?fecha='.concat(fechas));
 	$("#BuscarCierreInsumosClosingCash").load('../controller/BuscarCierreInsumosClosingCash.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
-	$("#BuscarCierreTotales").load('../controller/BuscarCierreTotales.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
-	document.getElementById("sumatoria").value = $('input[id=sysCashMinusdiscount]').val() - $('input[id=showInsumosTotalClosingCash]').val() - $('input[id=showCaptadorTotalClosingCash]').val();
+	$("#BuscarCierreCristal").load('../controller/BuscarCierreCristal.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
+    $("#BuscarCierreTotales").load('../controller/BuscarCierreTotales.php?fecha='.concat(fechas).concat('&tienda=').concat(tiendas));
+
+}
+
+function totales(){
+    var sysCashMinusdiscountBuscarCierre= $('input[id=sysCashMinusdiscountBuscarCierre]').val();
+    var showCaptadorTotalBuscarCierre    = $('input[id=showCaptadorTotalBuscarCierre]').val();
+    var showInsumosTotalBuscarCierre    = $('input[id=showInsumosTotalBuscarCierre]').val();
+    var showCristalTotalBuscarCierre   = $('input[id=showCristalTotalBuscarCierre]').val();
+
+    $('input[id=sumatoriaBuscarCierre]').val(Number(sysCashMinusdiscountBuscarCierre)-Number(showCaptadorTotalBuscarCierre)-Number(showInsumosTotalBuscarCierre)-Number(showCristalTotalBuscarCierre));
+    var sumatoriaBuscarCierre = $('input[id=sumatoriaBuscarCierre]').val();
+    var showCardSysBuscarCierre = $('input[id=showCardSysBuscarCierre]').val();
+    var showDocsSysBuscarCierre = $('input[id=showDocsSysBuscarCierre]').val();
+    $('input[id=showTotalFinalSysBuscarCierre]').val(Number(sumatoriaBuscarCierre)+Number(showCardSysBuscarCierre)+Number(showDocsSysBuscarCierre));
 }
