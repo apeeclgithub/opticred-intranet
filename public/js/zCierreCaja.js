@@ -144,14 +144,16 @@ function buscarCierre(){
 }
 
 function totales(){
-    var sysCashMinusdiscountBuscarCierre= $('input[id=sysCashMinusdiscountBuscarCierre]').val();
-    var showCaptadorTotalBuscarCierre    = $('input[id=showCaptadorTotalBuscarCierre]').val();
-    var showInsumosTotalBuscarCierre    = $('input[id=showInsumosTotalBuscarCierre]').val();
-    var showCristalTotalBuscarCierre   = $('input[id=showCristalTotalBuscarCierre]').val();
+    var sysCashMinusdiscountBuscarCierre	= Number($('input[id=sysCashMinusdiscountBuscarCierre]').val());
+    var showCaptadorTotalBuscarCierre    	= Number($('input[id=showCaptadorTotalBuscarCierre]').val());
+    var showInsumosTotalBuscarCierre    	= Number($('input[id=showInsumosTotalBuscarCierre]').val());
+    var showCristalTotalBuscarCierre   		= Number($('input[id=showCristalTotalBuscarCierre]').val());
 
-    $('input[id=sumatoriaBuscarCierre]').val(Number(sysCashMinusdiscountBuscarCierre)-Number(showCaptadorTotalBuscarCierre)-Number(showInsumosTotalBuscarCierre)-Number(showCristalTotalBuscarCierre));
-    var sumatoriaBuscarCierre = $('input[id=sumatoriaBuscarCierre]').val();
-    var showCardSysBuscarCierre = $('input[id=showCardSysBuscarCierre]').val();
-    var showDocsSysBuscarCierre = $('input[id=showDocsSysBuscarCierre]').val();
-    $('input[id=showTotalFinalSysBuscarCierre]').val(Number(sumatoriaBuscarCierre)+Number(showCardSysBuscarCierre)+Number(showDocsSysBuscarCierre));
+	$('input[id=sumatoriaBuscarCierre]').val(Number(sysCashMinusdiscountBuscarCierre)-Number(showCaptadorTotalBuscarCierre)-Number(showInsumosTotalBuscarCierre)-Number(showCristalTotalBuscarCierre));
+	
+    var sumatoriaBuscarCierre 	= Number($('input[id=sumatoriaBuscarCierre]').val());
+    var showCardSysBuscarCierre = Number($('input[id=showCardSysBuscarCierre]').val());
+    var showDocsSysBuscarCierre = Number($('input[id=showDocsSysBuscarCierre]').val());
+    
+	$('input[id=showTotalFinalSysBuscarCierre]').val(Number(sumatoriaBuscarCierre)+Number(showCardSysBuscarCierre)+Number(showDocsSysBuscarCierre));
 }

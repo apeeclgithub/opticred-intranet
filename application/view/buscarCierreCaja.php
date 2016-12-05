@@ -35,7 +35,7 @@
 	
 	<div id="BuscarCierreCaptadorPaid" class="row"></div>
 	<div id="BuscarCierreInsumosClosingCash" class="row"></div>
-  <div id="BuscarCierreCristal" class="row"></div>
+	<div id="BuscarCierreCristal" class="row"></div>
 	<div id="BuscarCierreTotales" class="row"></div>
 
 <?php include('footer.php'); ?>
