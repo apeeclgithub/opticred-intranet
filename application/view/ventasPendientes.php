@@ -9,7 +9,7 @@
 	} );
 	</script>
 
-	<legend>Ventas Pendientes <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
+	<legend>Ventas Pendientes <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'GORBEA':'CONCEPCION'; ?></span></legend>
 	<div class="well">
 	<?php
 		require '../model/classSale.php';

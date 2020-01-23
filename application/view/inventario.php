@@ -26,8 +26,8 @@
 					<div class="col-md-4">
 						<select id="addStoreProduct" name="addStoreProduct" class="form-control">
 							<option value="" disabled selected>Seleccione una tienda</option>
-							<option value="1">Tercero</option>
-							<option value="2">Quinto</option>
+							<option value="1">GORBEA</option>
+							<option value="2">CONCEPCION</option>
 						</select>
 					</div>
 				</div>
@@ -103,8 +103,8 @@
 								<div class="col-md-6">
 									<select id="editStoreProduct" name="editStoreProduct" class="form-control">
 										<option value="" disabled selected>Seleccione una tienda</option>
-										<option value="1">Tercero</option>
-										<option value="2">Quinto</option>
+										<option value="1">GORBEA</option>
+										<option value="2">CONCEPCION</option>
 									</select>
 								</div>
 							</div>

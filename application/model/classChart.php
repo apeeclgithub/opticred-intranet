@@ -71,13 +71,13 @@
 			$objConn = new Database();
 			$sql = $objConn->prepare('  SELECT MONTH(a.ABO_DATE) AS MES,
 										       SUM(CASE
-										               WHEN b.TIE_NAME=\'Tercero\' THEN a.ABO_TOTAL
+										               WHEN b.TIE_NAME=\'GORBEA\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS TERCERO,
+										           END) AS GORBEA,
 										       SUM(CASE
-										               WHEN b.TIE_NAME=\'Quinto\' THEN a.ABO_TOTAL
+										               WHEN b.TIE_NAME=\'CONCEPCION\' THEN a.ABO_TOTAL
 										               ELSE 0
-										           END) AS QUINTO
+										           END) AS CONCEPCION
 										FROM ABONO a
 										INNER JOIN TIENDA b 
                                         INNER JOIN VENTA c
@@ -95,8 +95,8 @@
 
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT MONTH(a.ABO_DATE) AS MES,
-									       SUM(if(b.TIE_NAME = \'Tercero\', 1, 0)) AS TERCERO,
-									       SUM(if(b.TIE_NAME = \'Quinto\', 1, 0)) AS QUINTO
+									       SUM(if(b.TIE_NAME = \'GORBEA\', 1, 0)) AS GORBEA,
+									       SUM(if(b.TIE_NAME = \'CONCEPCION\', 1, 0)) AS CONCEPCION
 										FROM ABONO a
 										INNER JOIN TIENDA b 
                                         INNER JOIN VENTA c

@@ -1,7 +1,7 @@
 <?php
 
 	require_once 'classDatabase.php';
-
+	date_default_timezone_set("Chile/Continental");
 	class ClosingCash{
 
 		private $closingCash;
@@ -61,12 +61,7 @@
 
 			$year = date("Y");
 			$month = date("m");
-
-			if(date("H")>5){
-				$day = date("d");
-			}else{
-				$day = date("d")-1;
-			}
+			$day = date("d");
 
 			return $year."-".$month."-".$day;
 

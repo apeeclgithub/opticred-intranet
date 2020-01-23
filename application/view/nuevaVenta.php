@@ -37,7 +37,7 @@ $( function() {
 </script>
 
 <div class="contentMain">
-  <legend>Nueva Venta <span style="margin: 0 600px;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
+  <legend>Nueva Venta <span style="margin: 0 600px;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'GORBEA':'CONCEPCION'; ?></span></legend>
   <input type="hidden" name="addSaleStore" id="addSaleStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
   <input type="hidden" name="addSaleId" id="addSaleId" <?php echo 'value="'.$_SESSION["user"]["id"].'"'; ?> />
   <div class="row">

@@ -8,7 +8,7 @@
 	} );
 	</script>
 
-	<legend>Ventas Finalizadas <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'Tercero':'Quinto'; ?></span></legend>
+	<legend>Ventas Finalizadas <span style="float:right;">Tienda: <?php echo ($_SESSION['user']['store']==1)?'GORBEA':'CONCEPCION'; ?></span></legend>
 	<div>
 		<table id="ventasFinalizadas" class="table table-striped table-bordered tableWidth" cellspacing="0" width="100%">
 			<thead>

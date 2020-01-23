@@ -4,7 +4,7 @@
 		$objSailsCountByMonth = new Chart();
 		$objSailsCountByMonth->sailsCountByMonth();
 
-		$json[0] = array('MES','TERCERO', 'QUINTO');
+		$json[0] = array('MES','GORBEA', 'CONCEPCION');
 		$i = 1;
 
 		foreach ( (array) $objSailsCountByMonth as $key ) {
@@ -49,7 +49,7 @@
   					$value['MES'] = 'DICIEMBRE';
    				 }
 
-				$json[$i] = array($value['MES'], (int)$value['TERCERO'], (int)$value['QUINTO']);
+				$json[$i] = array($value['MES'], (int)$value['GORBEA'], (int)$value['CONCEPCION']);
 				$i++;
 			}
 		}

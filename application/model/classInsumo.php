@@ -1,7 +1,7 @@
 <?php
 
 	require_once 'classDatabase.php';
-
+	date_default_timezone_set("Chile/Continental");
 	class Insumo{
 
 		private $insumo;
@@ -33,12 +33,7 @@
 
 			$year = date("Y-");
 			$month = date("m-");
-
-			if(date("H")>5){
-				$day = date("d");
-			}else{
-				$day = date("d")-1;
-			}
+			$day = date("d");
 
 			return $year.$month.$day;
 
@@ -98,7 +93,6 @@
 		}
 
 		public function listInsumosClosingCash(){
-
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  INS_ID,
@@ -120,7 +114,6 @@
 		}
 
 		public function totalInsumoClosingCash($insStore){
-
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL
@@ -133,13 +126,10 @@
 			$this->insumo = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $this->insumo;
-
-
-			
+	
 		}
 
 		public function buscarCierrelistInsumosClosingCash($searchDate, $searchStore){
-
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT  INS_ID,
@@ -162,7 +152,6 @@
 		}
 
 		public function buscarCierreTotalInsumosClosingCash($searchDate, $searchStore){
-
 			
 			$objConn = new Database();
 			$sql = $objConn->prepare('	SELECT 	SUM(INS_TOTAL) AS TOTAL

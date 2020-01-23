@@ -1,0 +1,9 @@
+<?php 
+
+	require_once 'classDatabase.php';
+
+	class Captador{
+
+	}
+
+?>

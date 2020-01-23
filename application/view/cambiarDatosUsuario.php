@@ -21,7 +21,7 @@
         <!-- Text input-->
         <div class="form-group">
           <input type="hidden" name="editIdUserSession" id="editIdUserSession" value="<?php echo $_SESSION['user']['id']; ?>" />
-          <input type="hidden" name="editStoreUserSession" id="editStoreUserSession" value="<?php echo($_SESSION['user']['store']=='Tercero')?1:2; ?>" />
+          <input type="hidden" name="editStoreUserSession" id="editStoreUserSession" value="<?php echo($_SESSION['user']['store']=='GORBEA')?1:2; ?>" />
           <label class="col-md-4 control-label" for="editNameUserSession">Modificar Nombre</label>  
           <div class="col-md-4">
             <input name="editNameUserSession" id="editNameUserSession" type="text" placeholder="Nombre del vendedor" class="form-control input-md" value="<?php echo $_SESSION['user']['name']; ?>" />

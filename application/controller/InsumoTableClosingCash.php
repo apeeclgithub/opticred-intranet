@@ -18,11 +18,11 @@
 			foreach ($key as $key2 => $value) {
 				?>
 				<?php if ($_SESSION["user"]["store"] == 1){
-					$tienda = 'Tercero';
+					$tienda = 'GORBEA';
 				} 
 				?>
 				<?php if ($_SESSION["user"]["store"] == 2){
-					$tienda = 'Quinto';
+					$tienda = 'CONCEPCION';
 				}
 				?>
 

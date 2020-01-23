@@ -79,7 +79,7 @@
 
 			$objSailsQtyByMonth->sailsQtyByMonth();
 
-			$json[0] = array('Mes','Tercero', 'Quinto');
+			$json[0] = array('Mes','GORBEA', 'CONCEPCION');
 			$i = 1;
 
 			foreach ( (array) $objSailsQtyByMonth as $key ) {
@@ -124,7 +124,7 @@
 	  					$value['mes'] = 'DICIEMBRE';
 	   				 }
 
-					$json[$i] = array($value['mes'], (int)$value['tercero'], (int)$value['quinto']);
+					$json[$i] = array($value['mes'], (int)$value['GORBEA'], (int)$value['CONCEPCION']);
 					$i++;
 				}
 			}
@@ -135,7 +135,7 @@
 
 			$objSailsCountByMonth->sailsCountByMonth();
 
-			$json[0] = array('Mes','Tercero', 'Quinto');
+			$json[0] = array('Mes','GORBEA', 'CONCEPCION');
 			$i = 1;
 
 			foreach ( (array) $objSailsCountByMonth as $key ) {
@@ -180,7 +180,7 @@
 	  					$value['mes'] = 'DICIEMBRE';
 	   				 }
 
-					$json[$i] = array($value['mes'], (int)$value['tercero'], (int)$value['quinto']);
+					$json[$i] = array($value['mes'], (int)$value['GORBEA'], (int)$value['CONCEPCION']);
 					$i++;
 				}
 			}
