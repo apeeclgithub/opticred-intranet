@@ -20,15 +20,15 @@
 				foreach ($key as $key2 => $value) {
 					?>
 					<tr>
-						<?php $hoy = date('Y-m-d');?>
 						<td><?php echo $value['INS_NAME'];?></td>
 						<td><?php echo $value['INS_DESC'];?></td>
 						<td><?php echo $value['TIE_NAME'];?></td>
 						<td><?php echo $value['INS_TOTAL'];?></td>
-						<td><?php echo $value['INS_DATE'];?></td>
-
+						<?php $timestamp = strtotime($value['INS_DATE']); ?>
+						<?php $fechaInsumo=date("d/m/Y", $timestamp); ?>
+						<td><?php echo $fechaInsumo; ?></td>
 						<td class="text-center">
-							<?php if ($value['INS_DATE'] == $hoy): ?>
+							<?php if ($fechaInsumo): ?>
 							<button 
 						onclick="updateModalInsumo(
 							<?php  echo $value['INS_ID'];?>,
