@@ -125,9 +125,12 @@
 		$json['success'] = true;
 		foreach ( (array) $objSale->getSale($id) as $key ) {
 
+			$timestamp =  strtotime($key['VEN_DATE_CREATE']);
+			$fechaCreacion=date("d/m/Y", $timestamp);
+
 			$json['id'] 			= $key['VEN_ID'];
 			$json['correlative'] 	= $key['VEN_CORRELATIVE'];
-			$json['date'] 	= $key['VEN_DATE_CREATE'];
+			$json['date'] 	= $fechaCreacion;
 			$json['hour'] 	= $key['VEN_HOUR_CREATE'];
 			$json['name'] 	= $key['VEN_CLI_NAME'];
 			$json['phone'] 	= $key['VEN_CLI_PHONE'];

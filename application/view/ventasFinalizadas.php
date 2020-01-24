@@ -36,8 +36,12 @@
 						<td><?php echo $value['VEN_CORRELATIVE'];	?></td>
 						<td><?php echo $value['VEN_CLI_NAME'];	?></td>
 						<td><?php echo $value['VEN_COM_TOTAL'];	?></td>
-						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
-						<td><?php echo $value['DES_DATE'];	?></td>
+						<?php $timestamp = strtotime($value['VEN_DATE_CREATE']); ?>
+						<?php $fechaCreacion=date("d/m/Y", $timestamp); ?>
+						<td><?php echo $fechaCreacion;	?></td>
+						<?php $timestamp = strtotime($value['DES_DATE']); ?>
+						<?php $fechaCierre=date("d/m/Y", $timestamp); ?>
+						<td><?php echo $fechaCierre;	?></td>
 						<td><a href="verDetalleFinalizada.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
 						<td>
 						<?php 

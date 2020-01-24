@@ -48,7 +48,7 @@
 										VALUES (:payTotalCaptador, :payDate, :payIdCaptador)');
 		
 			$sql->bindParam(':payTotalCaptador', $payTotalCaptador);
-			$sql->bindParam(':payDate', $payDate);
+			$sql->bindParam(':payDate', $payDay);
 			$sql->bindParam(':payIdCaptador', $payIdCaptador);
 
 			$this->closingCash = $sql->execute();
@@ -63,7 +63,7 @@
 			$month = date("m");
 			$day = date("d");
 
-			return $year."-".$month."-".$day;
+			return $year."/".$month."/".$day;
 
 		}
 

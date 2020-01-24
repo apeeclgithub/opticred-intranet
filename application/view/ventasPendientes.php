@@ -50,7 +50,9 @@
 						<td><?php echo $value['VEN_CLI_NAME'];	?></td>
 						<td><?php echo $value['ABO_TOTAL'];	?></td>
 						<td><?php echo $value['PENDIENTE'];	?></td>
-						<td><?php echo $value['VEN_DATE_CREATE'];	?></td>
+						<?php $timestamp = strtotime($value['VEN_DATE_CREATE']); ?>
+						<?php $fechaCreacion=date("d/m/Y", $timestamp); ?>
+						<td><?php echo $fechaCreacion;	?></td>
 						<td><a href="verDetallePendiente.php?id=<?php echo $value['VEN_ID'];	?>" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;Ver Detalle</a></td>
 						<td>
 						<?php 

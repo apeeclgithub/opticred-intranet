@@ -31,11 +31,11 @@
 
 		public function getDate(){
 
-			$year = date("Y-");
-			$month = date("m-");
+			$year = date("Y");
+			$month = date("m");
 			$day = date("d");
 
-			return $year.$month.$day;
+			return $year."/".$month."/".$day;
 
 		}
 

@@ -16,7 +16,6 @@
 										ON a.TIE_ID=c.TIENDA_TIE_ID AND c.VEN_ID=b.VENTA_VEN_ID
 										WHERE ABO_DATE = CURDATE()
 										GROUP BY a.TIE_NAME');
-
 			$this->chart = $sql->execute();
 			$this->chart = $sql->fetchAll(PDO::FETCH_ASSOC);
 		}

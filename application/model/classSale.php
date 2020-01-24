@@ -323,7 +323,7 @@
 			$month = date("m");
 			$day = date("d");
 
-			return $year."-".$month."-".$day;
+			return $year."/".$month."/".$day;
 
 		}
 
@@ -344,7 +344,7 @@
 			$hour = date("H");
 			$min = date("i");
 
-			return $day."-".$month."-".$year." ".$hour.":".$min ;
+			return $day."/".$month."/".$year." ".$hour.":".$min ;
 
 		}
 		
