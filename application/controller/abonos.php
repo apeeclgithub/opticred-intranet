@@ -30,7 +30,9 @@
 								foreach ($key as $key2 => $value) {
 									?>
 									<tr>
-										<td><?php echo $value['ABO_DATE'];?></td>
+										<?php $timestamp = strtotime($value['ABO_DATE']); ?>
+										<?php $fechaAbono=date("d/m/Y", $timestamp); ?>
+										<td><?php echo $fechaAbono; ?></td>
 										<td><?php echo $value['ABO_TOTAL'];?></td>
 										<td><?php echo $value['MET_NAME'];?></td>
 									</tr>

@@ -93,14 +93,13 @@
 		public function sailsCountByMonth(){
 
 			$objConn = new Database();
-			$sql = $objConn->prepare('	SELECT MONTH(a.ABO_DATE) AS MES,
+			$sql = $objConn->prepare('	SELECT MONTH(a.VEN_DATE_CREATE) AS MES,
 									       SUM(if(b.TIE_NAME = \'GORBEA\', 1, 0)) AS GORBEA,
 									       SUM(if(b.TIE_NAME = \'CONCEPCION\', 1, 0)) AS CONCEPCION
-										FROM ABONO a
+										FROM VENTA a
 										INNER JOIN TIENDA b 
-                                        INNER JOIN VENTA c
-                                        ON b.TIE_ID=c.TIENDA_TIE_ID AND c.VEN_ID=a.VENTA_VEN_ID
-										WHERE YEAR(CURDATE())=YEAR(ABO_DATE)
+                                        ON b.TIE_ID=a.TIENDA_TIE_ID
+										WHERE YEAR(CURDATE())=YEAR(VEN_DATE_CREATE)
 										GROUP BY MES');
 
 			$this->chart = $sql->execute();

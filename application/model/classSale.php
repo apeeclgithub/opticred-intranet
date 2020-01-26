@@ -271,7 +271,8 @@
 			}
 
 			$valorComision = ($total-$valorMarcos)*$val;
-			$paid = ($valorComision<$abono)?'Si':'No';
+			//$paid = ($valorComision<$abono)?'Si':'No';
+			$paid = 'No';
 
 			$objConn = new Database();
 			$sql = $objConn->prepare('	INSERT INTO COMISION (COM_TOTAL, COM_PAID, VENTA_VEN_ID, CAPTADOR_CAP_ID) 
@@ -360,6 +361,45 @@
 				AND VEN_DATE_CREATE IS NOT NULL
 				AND TIENDA_TIE_ID = :tienda
 				GROUP BY VEN_CORRELATIVE');
+			
+			$sql->bindParam(':tienda', $tienda);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+
+		public function ventasPendientes($tienda){
+			$objConn = new Database();
+			$sql = $objConn->prepare('SELECT COUNT(VEN_ID) AS CANTIDAD, 
+				SUM(VEN_COM_TOTAL) AS TOTAL
+				FROM VENTA
+				RIGHT JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
+				WHERE DESPACHO.DES_DATE IS NULL
+				AND VEN_DATE_CREATE IS NOT NULL
+				AND TIENDA_TIE_ID = :tienda');
+			
+			$sql->bindParam(':tienda', $tienda);
+
+			$this->sale = $sql->execute();
+			$this->sale = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			return $this->sale;
+
+		}
+
+		public function abonosTotales($tienda){
+
+			$objConn = new Database();
+			$sql = $objConn->prepare('SELECT SUM(ABO_TOTAL) AS ABONOS
+				FROM VENTA
+				INNER JOIN ABONO ON VENTA.VEN_ID = ABONO.VENTA_VEN_ID
+				INNER JOIN DESPACHO ON VENTA.VEN_ID = DESPACHO.VENTA_VEN_ID
+				WHERE DESPACHO.DES_DATE IS NULL
+				AND VEN_DATE_CREATE IS NOT NULL
+				AND TIENDA_TIE_ID = :tienda');
 			
 			$sql->bindParam(':tienda', $tienda);
 

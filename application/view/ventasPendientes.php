@@ -14,11 +14,24 @@
 	<?php
 		require '../model/classSale.php';
 		$objSale = new Sale();
-		$objSale->totalesPendientes($_SESSION['user']['store']);
+		$objSale->ventasPendientes($_SESSION['user']['store']);
+		$totales = 0;
 		foreach ( (array) $objSale as $key ) {
 			foreach ($key as $key2 => $value) {
 				echo '<h3>Total de ventas pendientes: <span class="label label-info">'.$value['CANTIDAD'].'</span></h3>';
-				echo '<h3>Monto total adeudado: <span class="label label-info">$'.number_format($value['PENDIENTE'],0,'.','.').'</span></h3>';
+
+				 $totales = $value['TOTAL'];
+			}
+		}
+
+		$objSale = new Sale();
+		$objSale->abonosTotales($_SESSION['user']['store']);
+		foreach ( (array) $objSale as $key ) {
+			foreach ($key as $key2 => $value) {
+				$value['ABONOS'];
+				$total = $totales - $value['ABONOS'];
+
+				echo '<h3>Monto total adeudado: <span class="label label-info">$'.number_format($total,0,'.','.').'</span></h3>';
 			}
 		}
 	?></div>

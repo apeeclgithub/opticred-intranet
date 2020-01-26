@@ -203,7 +203,7 @@
 		}
 		
 		$objSale->primerAbono($abono, $id, $tipo);
-		
+		/*
 		if($objSale->pagarComision($id)>0 && $tipo!=2){
 			$objSale->pagarComision($id);
 		}else if($objSale->pagarComision($id)>0 && $tipo==2){
@@ -212,7 +212,7 @@
 			$objSale->modificarComision($id);
 		}else{
 			$objSale->pagarComision($id);
-		}
+		}*/
 		echo json_encode($json);
 		
 		break;

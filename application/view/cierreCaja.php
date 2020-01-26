@@ -26,6 +26,12 @@
       source: $obj
     });
   } );
+
+  window.onload = function() {
+    discountFromTotal();
+    cuadrarCaja();
+  };
+
   </script>
 
   <input type="hidden" name="insStore" id="insStore" <?php echo 'value="'.$_SESSION["user"]["store"].'"'; ?> />
@@ -85,7 +91,7 @@
           <div class="row">
             <div class="form-group col-xs-4">
               <label for="">Total</label>
-              <input type="number" onkeyup="discountFromTotal();cuadrarCaja();" class="form-control" id="cristalPay">
+              <input type="number" value="0" onkeyup="discountFromTotal();cuadrarCaja();" class="form-control" id="cristalPay">
             </div>
           </div>
         </div>

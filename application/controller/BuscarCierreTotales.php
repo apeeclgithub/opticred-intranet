@@ -26,7 +26,7 @@
 					<tr>
 						<td>EFECTIVO</td>
 						<input type="hidden" class="form-control" id="sysCashMinusdiscountBuscarCierre" value="<?php echo $value['EFECTIVO'];?>" >
-						<td><input type="text" class="form-control" id="sumatoriaBuscarCierre" value="" disabled="disabled"></td>
+						<td><input type="number" class="form-control" id="sumatoriaBuscarCierre" value="" disabled="disabled"></td>
 					</tr>
 					<tr>
 						<td>TARJETA DE CREDITO</td>		
